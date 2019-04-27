@@ -34,7 +34,6 @@ export default {
   }),
   methods: {
     onChange(value) {
-      console.log(value)
       let index = this.checked.indexOf(value);
       if (index === -1) {
         this.checked.push(value);
@@ -86,7 +85,7 @@ export default {
 
   .check-picker {
     position: absolute;
-    width: 200px;
+    width: 215px;
     padding: 10px;
     background: #fff;
     border-radius: 5px;
@@ -96,7 +95,7 @@ export default {
     label {
       display: block;
       position: relative;
-      > span {
+      > span.label {
         padding-left: 20px;
         &::before {
           content: "•";

@@ -1,64 +1,60 @@
 <template>
-    <label class="checkbox">
-        <span>{{label}}</span>
-        <input type="checkbox" @change="onCheck" :checked="$data._checked" :value="label" />    
-    </label>    
+  <label class="checkbox">
+    <span class="label">{{label}}</span>
+    <span :class="{'square': true, 'checked': active}"></span>
+    <input type="checkbox" @change="onCheck" :checked="$data._checked" :value="label">
+  </label>
 </template>
 
 <script>
 export default {
-    props: {
-        change: Function,
-        checked: Boolean,
-        label: String
-    },
-    data: () => ({
-        _checked: false
-    }),
-    methods: {
-        onCheck(e) {
-            this._checked = !this._checked;
-            this.$emit('change', e.target.value);
-        }
-    },
-    mounted() {
-        this._checked = this.checked;
+  props: {
+    change: Function,
+    checked: Boolean,
+    label: String
+  },
+  data: () => ({
+    active: false
+  }),
+  methods: {
+    onCheck(e) {
+      this.active = !this.active;
+      this.$emit("change", e.target.value);
     }
-}
+  },
+  mounted() {
+    this._checked = this.checked;
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-    input {
-        &::before,
-        &::after {
-            content: "";
-            position: absolute; 
-            display: block;
-        }
+.square {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #000;
+  padding-left: 0px !important;
+  float: right;
+  transform: translateY(40%);
 
-        &::before {
-            width: 12px;
-            height: 12px;
-            background: #fff;
-            border: 1px solid #000;
-        }
-
-        &::after {
-            background-image: url('/icons/check.svg');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            width: 11px;
-            height: 9px;
-            top: 1.5px;
-            left: 1px;
-            display: none;
-        }
-
-        &:checked {
-            &::after {
-                display: block;
-            }
-        }
+  cursor: pointer;
+  &.checked {
+    &::before {
+      content: "";
+      position: absolute;
+      background-image: url("/icons/check.svg");
+      width: 11px;
+      height: 11px;
+      background-position: center;
+      background-size: cover;
+      top: 1px;
+      left: 1px;
+      background-color: #fff;
     }
+  }
+}
+input {
+  display: none;
+}
 </style>

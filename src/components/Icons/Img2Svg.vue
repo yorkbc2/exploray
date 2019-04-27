@@ -28,19 +28,19 @@ export default {
         this.html = data;
         setTimeout(() => {
           const svg = this.$refs.container.querySelector('svg');
-          svg.style.width = this.width || 0;
-          svg.style.height = this.height || 0;
-          svg.style.fill = this.fill;
+          svg.setAttribute('width', this.width || 0);
+          svg.setAttribute('height', this.height || 0);
+          svg.setAttribute('fill', this.fill);
           if (this.styles) {
             for (const i in this.styles) {
               svg.style[i] = this.styles[i];
             }
           }
           svg.addEventListener('mouseover', () => {
-            svg.style.fill = this.hoverFill;
+            svg.setAttribute('fill', this.hoverFill);
           });
           svg.addEventListener('mouseout', () => {
-            svg.style.fill = this.fill;
+            svg.setAttribute('fill', this.fill);
           });
           
         }, 0)

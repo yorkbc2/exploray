@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <app-intro
-      :backgroundImages="['/images/slider.jpg']"
-      :headers="['Мир интереснее , чем кажется!']"
+      :backgroundImages="['/images/slider.jpg', 'https://cdn.wonderfulengineering.com/wp-content/uploads/2016/01/nature-wallpapers-38.jpg']"
+      :headers="['Мир интереснее , чем кажется!', 'Ещё один слайд для показа']"
     />
     <app-intro-inline-slider/>
     <section class="section tour-section">

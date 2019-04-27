@@ -49,5 +49,58 @@ export default {
                 color: #aeaeae;
             }
         }
+
+        .mx-datepicker-popup {
+            box-shadow: none;
+            border: 0;
+
+            .mx-calendar {
+                .mx-calendar-header {
+                    border-bottom: 1px solid #ebebeb;
+                    .mx-icon-last-year,
+                    .mx-icon-next-year {
+                        display: none;
+                    }
+                }
+                .mx-calendar-content {
+                    width: 160px;
+                    height: auto;
+                    table {
+                        thead,
+                        tbody {
+                            tr {
+                                th,
+                                td {
+                                    width: 15px;
+                                    color: #000;
+                                    font-weight: 600;
+
+                                    &.actived {
+                                        background-color: #ebebeb;
+                                    }
+                                    &:hover {
+                                        background-color: #ebebeb;
+                                    }
+
+                                    &.next-month {
+                                        display: none;
+                                    }
+
+                                    &.disabled,
+                                    &.last-month {
+                                        background-color: #fff;
+                                        color: #aeaeae;
+                                    }
+                                }
+
+                                th {
+                                    color: #da9603;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 </style>

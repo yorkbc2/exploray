@@ -41,18 +41,25 @@ export default {
                 color: #fff;
                 text-decoration: none;
 
-                &.active {
+                &:hover {
                     &::after {
-                        content: "";
-                        position: absolute;
-                        display: block;
-                        width: 100%;
-                        height: 2px;
-                        background: #fff;
-                        bottom: 0;
-                        left: 0;
+                        opacity: 1;
                     }
                 }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    width: 100%;
+                    height: 2px;
+                    background: #fff;
+                    bottom: 0;
+                    left: 0;
+                    opacity: 0;
+                    transition: opacity 0.2s ease-in-out;
+                }
+
             }
         }
     }

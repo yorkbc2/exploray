@@ -9,12 +9,8 @@
 </template>
 
 <script>
-import { Carousel } from "vue-carousel";
 export default {
   name: "app-inline-slider",
-  components: {
-    Carousel
-  }
 };
 </script>
 

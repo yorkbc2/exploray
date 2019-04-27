@@ -40,8 +40,6 @@
           </div>
         </form>
       </div>
-      <!-- <input-check-picker :items="['Item 1', 'Item 2']" /> -->
-      <!-- <input-date-picker @change="log" :not-before="new Date()" lang="ru" :placeholder="placeholder" /> -->
     </div>
     <ul class="intro-slider__dots">
       <li
@@ -68,6 +66,15 @@ export default {
     changeSlide(index) {
       this.currentIndex = index;
     }
+  },
+  mounted() {
+    setInterval(() => {
+      let ci = this.currentIndex + 1;
+      if (ci >= this.headers.length) {
+        ci = 0;
+      }
+      this.currentIndex = ci;
+    }, 5000);
   }
 };
 </script>
@@ -91,6 +98,7 @@ export default {
     top: 40%;
     transform: translateX(-50%) translateY(-50%);
     left: 50%;
+    z-index: 3;
 
     h1 {
       text-align: center;
@@ -166,6 +174,7 @@ export default {
     bottom: 0;
     left: 50%;
     bottom: 40px;
+    z-index: 0;
   }
   &__dot {
     list-style: none;

@@ -163,6 +163,7 @@ section {
 .VueCarousel {
   &-navigation-button {
     font-size: 0px;
+    outline: none!important;
     &::after {
       content: "";
       display: block;

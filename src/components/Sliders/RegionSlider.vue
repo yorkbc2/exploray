@@ -111,13 +111,8 @@
 </template>
 
 <script>
-import { Carousel, Slide } from "vue-carousel";
 export default {
   name: "app-region-slider",
-  components: {
-    Slide,
-    Carousel
-  }
 };
 </script>
 
@@ -133,6 +128,7 @@ export default {
   background-size: cover;
   background-position: left bottom;
   background-repeat: no-repeat;
+  cursor: pointer; 
 
   &::before {
     content: "";
@@ -142,6 +138,14 @@ export default {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 1;
+    }
   }
 
   &__mask {
@@ -166,15 +170,15 @@ export default {
       margin-top: 30px;
       
       &-button {
-        transform: none;
-        position: relative;
+        transform: none!important;
+        position: relative!important;
         display: inline-block;
         margin: 0 5px!important;
 
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        border: 1px solid #0a6aa8;
+        border: 1px solid #0a6aa8!important;
         &::after {
           transform: translateY(-50%) translateX(3px);
           width: 27px;
@@ -194,7 +198,7 @@ export default {
         }
       }
       &--disabled {
-        border-color: #b2b2b2;
+        border-color: #b2b2b2!important;
         &::after {
           filter: invert(89%) sepia(9%) saturate(7%) hue-rotate(338deg) brightness(82%) contrast(82%);
         }

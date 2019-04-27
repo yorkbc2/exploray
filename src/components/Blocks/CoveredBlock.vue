@@ -3,16 +3,10 @@
     class="covered-block"
     :style="{ height: `${fixedHeight}px`, backgroundImage: `url(${background})` }"
   >
-    <h3>
-        {{header}}
-    </h3>
-    <p>
-        {{content}}
-    </p>
+    <h3>{{header}}</h3>
+    <p>{{content}}</p>
 
-    <router-link :to="url" class="link" v-if="isButton">
-        Подробнее
-    </router-link>
+    <router-link :to="url" class="link" v-if="isButton">Подробнее</router-link>
     <!-- <img v-if="showCursor" src="/images/cursor.png" width="25px" height="auto" class="cursor" /> -->
   </div>
 </template>
@@ -45,6 +39,7 @@ export default {
   color: #fff;
   flex: 1;
   overflow: hidden;
+  cursor: pointer;
   h3 {
     position: relative;
     font-size: 24px;
@@ -63,21 +58,21 @@ export default {
   }
 
   p {
-      font-size: 18px;
+    font-size: 18px;
   }
 
   .link {
-      display: inline-block;
-      position: absolute;
-      bottom: 25px;
-      left: 15px;
-      padding: 6px 40px;
-      border: 1px solid #fff;
-      color: #fff;
-      font-size: 18px;
-      border-radius: 50px;
-      font-weight: bolder;
-      text-decoration: none;
+    display: inline-block;
+    position: absolute;
+    bottom: 25px;
+    left: 15px;
+    padding: 6px 40px;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 50px;
+    font-weight: bolder;
+    text-decoration: none;
   }
 
   &::before {
@@ -87,16 +82,12 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba( 0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.3);
     opacity: 0;
     transition: opacity 0.4s ease-in-out;
   }
 
   &:hover {
-    &,
-    .link {
-      cursor: url('/images/cursor.png'), auto;
-    }
     &::before {
       opacity: 1;
     }
