@@ -8,7 +8,14 @@
       <p>Form here...</p>
     </app-header>
     <div class="container">
-      <product-list :data="items" :strokeView="strokeView"/>
+      <div class="row">
+        <div class="col-md-3">
+          <product-filters />
+        </div>
+        <div class="col-md-9">
+          <product-list :data="items" :strokeView="strokeView"/>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -16,10 +23,12 @@
 <script>
 import Header from "@/components/Header/Header.vue";
 import ProductList from "@/components/Product/ProductList.vue";
+import ProductFilters from "@/components/Product/ProductFilters.vue";
 export default {
   components: {
     "app-header": Header,
-    "product-list": ProductList
+    "product-list": ProductList,
+    'product-filters': ProductFilters
   },
   data() {
     return {

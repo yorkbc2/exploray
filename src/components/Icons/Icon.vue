@@ -12,7 +12,8 @@ export default {
             'facebook': '/icons/facebook.svg',
             'instagram': '/icons/instagram.svg',
             'vk': '/icons/vk.svg',
-            'search': '/icons/search.svg'
+            'search': '/icons/search.svg',
+            'libra': '/icons/libra.svg'
         },
         src: '',
         styles: {},

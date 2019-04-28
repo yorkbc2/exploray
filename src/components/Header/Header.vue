@@ -32,6 +32,7 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  margin-bottom: 30px;
 
   &__container {
     position: relative;

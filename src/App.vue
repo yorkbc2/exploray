@@ -202,4 +202,17 @@ section {
   }
 }
 
+.button {
+  padding: 5px 30px;
+  font-size: 16px;
+  font-weight: bolder;
+  color: #fff; 
+  background-color: #0dba00;
+  border: 1px solid transparent;
+  border-radius: 50px;
+  &:hover {
+    background-color: lighten(#0dba00, 5%);
+  }
+}
+
 </style>
