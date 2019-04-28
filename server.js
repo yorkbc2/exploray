@@ -6,7 +6,7 @@ const express = require("express"),
 app.use(express.static(path.resolve(__dirname, "dist")));
 app.use(express.static(path.resolve(__dirname, "public")));
 
-app.get("/", (req, res) => {
+app.get("*", (req, res) => {
   const index = fs.readFileSync(
     path.resolve(__dirname, "dist", "index.html"),
     "utf-8"
