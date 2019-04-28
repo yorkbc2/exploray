@@ -6,6 +6,7 @@ import InputDatePicker from "@/components/Forms/InputDatePicker.vue";
 import { Carousel, Slide } from "vue-carousel";
 import Icon from "@/components/Icons/Icon.vue";
 import Img2Svg from "@/components/Icons/Img2Svg.vue";
+import CustomSelect from "@/components/Forms/CustomSelect.vue";
 import App from "./App.vue";
 
 Vue.config.productionTip = false;
@@ -16,6 +17,7 @@ Vue.component("icon", Icon);
 Vue.component("img-to-svg", Img2Svg);
 Vue.component("carousel", Carousel);
 Vue.component("slide", Slide);
+Vue.component("custom-select", CustomSelect);
 
 new Vue({
   router,

@@ -1,9 +1,9 @@
 <template>
     <ul>
         <li v-for="(item, index) in items" :key="index">
-            <a :href="index" :class="index === '/about' ? 'active' : ''">
+            <router-link :to="index" :class="index === '/about' ? 'active' : ''">
                 {{item}}
-            </a>    
+            </router-link>    
         </li>    
     </ul>    
 </template>

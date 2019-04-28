@@ -330,7 +330,7 @@ export default {
         @include flex(column, space-between);
 
         > button {
-          padding: 7px 30px;  
+          padding: 7px 30px;
           &:first-child {
             margin-bottom: 10px;
           }

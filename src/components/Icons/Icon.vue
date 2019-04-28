@@ -32,6 +32,16 @@ export default {
         width: "34px",
         height: "34px",
         transform: "translateY(5px)"
+      },
+      squares: {
+          fill: "#a6a6a6",
+          width: "18px",
+          height: "18px"
+      },
+      bars: {
+          fill: "#a6a6a6",
+          width: "22px",
+          height: "22px"
       }
     }
   }),

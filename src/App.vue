@@ -2,7 +2,7 @@
   <div id="app">
     <navbar/>
     <router-view/>
-    <scroll-to-top />
+    <scroll-to-top/>
     <app-footer/>
   </div>
 </template>
@@ -11,14 +11,14 @@
 import Navbar from "@/components/Navbar/Navbar.vue";
 import Footer from "@/components/Footer/Footer.vue";
 import ScrollToTop from "@/components/ActionButtons/ScrollToTop.vue";
-import store from './store/index.js';
+import store from "./store/index.js";
 export default {
   store,
   components: {
     Navbar,
     "app-footer": Footer,
     ScrollToTop
-  },
+  }
 };
 </script>
 
@@ -165,7 +165,7 @@ section {
 .VueCarousel {
   &-navigation-button {
     font-size: 0px;
-    outline: none!important;
+    outline: none !important;
     &::after {
       content: "";
       display: block;
@@ -177,19 +177,20 @@ section {
       background-repeat: no-repeat;
       width: 30px;
       height: 30px;
-      filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(306deg) brightness(103%) contrast(101%);
+      filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(306deg)
+        brightness(103%) contrast(101%);
       outline: none;
     }
   }
   &-navigation {
     &-prev {
       &::after {
-        background-image: url('/icons/left-outline-arrow.svg');
+        background-image: url("/icons/left-outline-arrow.svg");
       }
     }
     &-next {
       &::after {
-        background-image: url('/icons/right-outline-arrow.svg');
+        background-image: url("/icons/right-outline-arrow.svg");
       }
     }
   }
@@ -206,7 +207,7 @@ section {
   padding: 5px 30px;
   font-size: 16px;
   font-weight: bolder;
-  color: #fff; 
+  color: #fff;
   background-color: #0dba00;
   border: 1px solid transparent;
   border-radius: 50px;
@@ -229,4 +230,17 @@ section {
   }
 }
 
+svg {
+  display: block;
+  margin: 0 auto;
+}
+
+select.select {
+  padding: 10px 5px 10px 10px;
+  background-color: #f6f6f6;
+  border: 1px solid #d5d5d5;
+  color: #8e8e8e;
+  border-radius: 50px;
+  font-size: 14px;
+}
 </style>
