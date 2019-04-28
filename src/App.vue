@@ -210,8 +210,22 @@ section {
   background-color: #0dba00;
   border: 1px solid transparent;
   border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
   &:hover {
     background-color: lighten(#0dba00, 5%);
+  }
+
+  &--outlined {
+    border-color: #0dba00;
+    color: #0dba00;
+    background-color: transparent;
+    font-weight: lighter;
+    &:hover {
+      background-color: #0dba00;
+      color: #fff;
+      border-color: #fff;
+    }
   }
 }
 

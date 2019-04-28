@@ -4,23 +4,23 @@
     <tab header="Наличие мест">
       <input-date-picker/>
     </tab>
-    
+
     <tab header="Период проведения">
       <input-date-picker/>
     </tab>
-    
+
     <tab header="Цена, руб.">
       <input-date-picker/>
     </tab>
-    
+
     <tab header="Уровень комфорта">
       <input-date-picker/>
     </tab>
-    
+
     <tab header="Наличие визы">
       <input-date-picker/>
     </tab>
-    
+
     <tab header="Горящие туры">
       <input-date-picker/>
     </tab>
@@ -37,12 +37,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .product-filters {
-        h3 {
-            font-size: 18px;
-            padding-left: 5px;
-            font-weight: bolder;
-            margin-bottom: 15px;
-        }
-    }
+.product-filters {
+  h3 {
+    font-size: 18px;
+    padding-left: 5px;
+    font-weight: bolder;
+    margin-bottom: 15px;
+  }
+}
 </style>

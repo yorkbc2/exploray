@@ -6,7 +6,7 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    strokeView: false,
+    strokeView: true,
     data: initialData
   },
   getters: {
@@ -15,6 +15,14 @@ const store = new Vuex.Store({
     },
     data(state) {
       return state.data;
+    }
+  },
+  mutations: {
+    enableStrokeView(state) {
+      state.strokeView = true;
+    },
+    disableStrokeView(state) {
+      state.strokeView = false;
     }
   }
 });

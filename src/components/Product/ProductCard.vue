@@ -1,5 +1,5 @@
 <template>
-  <article class="card">
+  <article :class="{'card': true, 'card--stroke': strokeView}">
     <div class="card__head">
       <img class="card__image" :src="data.image" alt :title="data.title">
       <span class="card__rating">
@@ -112,19 +112,35 @@ export default {
 .card {
   max-width: 270px;
   margin: 0 auto;
-  border: 1px solid #e7e7e7;
+  border: 1px solid #ebebeb;
   border-radius: 10px;
   box-shadow: 2.5px 2.33px 10px 0px rgba(0, 0, 0, 0.3);
   margin-bottom: 20px;
   overflow: hidden;
+
   &__title {
     font-size: 18px;
     font-weight: bolder;
     margin-bottom: 15px;
   }
 
+  &__description {
+    color: #727272;
+    font-size: 14px;
+  }
+
   &__body {
     padding: 15px;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 15px;
+      width: 30px;
+      height: 2px;
+      background-color: #0dba00;
+    }
   }
 
   &__date {
@@ -132,6 +148,7 @@ export default {
     margin-bottom: 10px;
     &-days {
       position: relative;
+      padding-right: 0px;
       &::before {
         content: "";
         position: absolute;
@@ -159,7 +176,7 @@ export default {
       font-size: 16px;
       text-decoration: line-through;
       color: #999999;
-      vertical-align: bottom;
+      align-self: flex-end;
     }
   }
 
@@ -270,6 +287,63 @@ export default {
           left: 50%;
           transform: translateX(-50%) translateY(-50%);
         }
+      }
+    }
+  }
+
+  &--stroke {
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .card__body {
+      padding: 25px 15px 25px 25px;
+
+      &::before {
+        top: 0px;
+        left: 25px;
+      }
+    }
+
+    .card__info {
+      @include flex();
+
+      .card__date-wrapper {
+        flex: 1;
+        margin-right: 30px;
+        @include flex(column, space-between);
+
+        .card__price {
+          margin-bottom: 10px;
+
+          .card__price-sale {
+            padding-bottom: 3px;
+          }
+        }
+      }
+
+      .card__actions {
+        margin-top: 0px;
+        max-width: 185px;
+        width: 185px;
+        @include flex(column, space-between);
+
+        > button {
+          padding: 7px 30px;  
+          &:first-child {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+
+    .card__head {
+      max-width: 500px;
+      position: relative;
+      > img.card__image {
+        height: 100%;
+        border-radius: 10px 0 0 10px;
       }
     }
   }
