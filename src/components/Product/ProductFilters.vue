@@ -10,7 +10,7 @@
     </tab>
 
     <tab header="Цена, руб.">
-      <input-date-picker/>
+      <input-price-range :range="20000" />
     </tab>
 
     <tab header="Уровень комфорта">
