@@ -36,7 +36,7 @@ export default {
 
   &__container {
     position: relative;
-    padding: 80px 0;
+    padding: 100px 0;
   }
 
   &__title {

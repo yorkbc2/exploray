@@ -69,7 +69,7 @@ export default {
     button {
       cursor: pointer;
       &:first-child {
-        margin-right: 5px;
+        margin-right: 10px;
       }
       &:hover,
       &.active {
@@ -81,6 +81,7 @@ export default {
       border-radius: 2px;
       border: 1px solid #e1e1e1;
       background: transparent;
+      transform: scale(1.1);
     }
   }
 }

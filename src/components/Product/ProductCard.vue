@@ -37,8 +37,12 @@
           </div>
         </div>
         <div class="card__actions">
-          <button v-if="!strokeView" class="card__compare">
-            <icon name="libra"/>
+          <button v-if="!strokeView" :class="{'card__compare': true, 'added': data.added}">
+            <icon
+              name="libra"
+              :fill="data.added ? '#fff' : '#a5a5a5'"
+              :hoverFill="data.added ? '#fff' : '#a5a5a5'"
+            />
           </button>
           <button
             v-else
@@ -274,11 +278,16 @@ export default {
         padding: 0px;
         margin-right: 20px;
         border-radius: 10px;
-        background-color: #0dba00;
-        border: 1px solid transparent;
-        color: #fff;
+        background-color: #ffffff;
+        border: 1px solid #ebebeb;
 
         position: relative;
+        cursor: pointer;
+
+        &.added {
+          border-color: #0dba00;
+          background-color: #0dba00;
+        }
 
         > div {
           @include flex(column, center);
@@ -340,6 +349,7 @@ export default {
 
     .card__head {
       max-width: 500px;
+      width: 500px;
       position: relative;
       > img.card__image {
         height: 100%;

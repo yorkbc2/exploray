@@ -4,8 +4,8 @@
     :src="src"
     :width="24"
     :height="24"
-    fill="#fff"
-    hoverFill="#ececec"
+    :fill="fill || '#fff'"
+    :hoverFill="hoverFill || '#ececec'"
     :styles="styles"
   />
 </template>
@@ -13,7 +13,9 @@
 <script>
 export default {
   props: {
-    name: String
+    name: String,
+    fill: String,
+    hoverFill: String
   },
   data: () => ({
     icons: {

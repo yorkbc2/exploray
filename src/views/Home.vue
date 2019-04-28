@@ -106,16 +106,10 @@
       <div class="container">
         <h2 class="section__title">О проекте</h2>
 
-        <div class="block-with-image">
-          <div class="block-with-image__img">
-            <img src="/images/about.jpg" alt>
-          </div>
-          <div class="block-with-image__content">
-            <h3 class="section__title section__title--left section__title--uppercased">Exploray</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque sequi placeat numquam molestiae deserunt ducimus iste commodi nobis quaerat tenetur qui nesciunt doloribus sunt, ad ullam? Reiciendis sit repellat vero.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque sequi placeat numquam molestiae deserunt ducimus iste commodi nobis quaerat tenetur qui nesciunt doloribus sunt, ad ullam? Reiciendis sit repellat vero.</p>
-          </div>
-        </div>
+        <offset-block header="Exploray" image="/images/about.jpg">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque sequi placeat numquam molestiae deserunt ducimus iste commodi nobis quaerat tenetur qui nesciunt doloribus sunt, ad ullam? Reiciendis sit repellat vero.</p>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque sequi placeat numquam molestiae deserunt ducimus iste commodi nobis quaerat tenetur qui nesciunt doloribus sunt, ad ullam? Reiciendis sit repellat vero.</p>
+        </offset-block>
       </div>
     </section>
     <app-subscribe></app-subscribe>
@@ -140,40 +134,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.block-with-image {
-  margin-top: 40px;
-  display: flex;
-  position: relative;
-  &__img {
-    max-width: 800px;
-    img {
-      width: 100%;
-    }
-  }
-
-  &__content {
-    position: absolute;
-    width: 500px;
-    padding: 25px 100px 25px 25px;
-    box-shadow: 2.5px 4.33px 18px 0px rgba(0, 0, 0, 0.2);
-    background-color: #fff;
-    right: 0px;
-    max-width: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-
-    &::after {
-      content: "EXPLORAY";
-      display: block;
-      position: absolute;
-      top: -22px;
-      right: 1px;
-      font-weight: bolder;
-      font-size: 58px;
-      color: #efefef;
-    }
-  }
-}
 .tour-section {
   div[class*="col-md-"] {
     padding: 0 10px;

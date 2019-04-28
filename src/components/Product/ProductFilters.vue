@@ -14,7 +14,7 @@
     </tab>
 
     <tab header="Уровень комфорта">
-      <input-date-picker/>
+      <checkbox v-for="(level, index) in levels" :key="index" :label="level"/>
     </tab>
 
     <tab header="Наличие визы">
@@ -29,7 +29,21 @@
 
 <script>
 import Tab from "@/components/Blocks/Tab.vue";
+import Checkbox from "@/components/Forms/Checkbox.vue";
 export default {
+  components: {
+    checkbox: Checkbox
+  },
+  data() {
+    return {
+      levels: [
+        "Отдельное проживание",
+        "Проживание группой",
+        "Без гида, самостоятельно",
+        "С гидом"
+      ]
+    };
+  },
   components: {
     Tab
   }

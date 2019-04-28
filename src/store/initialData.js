@@ -12,7 +12,8 @@ export default [
     price: {
       regular: 30500,
       sale: 31000
-    }
+    },
+    added: true
   },
   {
     _id: "",

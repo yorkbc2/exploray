@@ -28,4 +28,22 @@ label {
 select {
   margin-left: 10px;
 }
+.select-wrapper {
+  position: relative;
+  &::after {
+    content: "\f078";
+    position: absolute;
+    font-family: "FontAwesome";
+    font-size: 14px;
+    color: #8e8e8e;
+    top: 50%;
+    right: 7px;
+    padding-top: 2px;
+    transform: translateY(-50%);
+    background-color: #f6f6f6;
+    width: 18px;
+    height: 24px;
+    text-align: left;
+  }
+}
 </style> 

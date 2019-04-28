@@ -91,6 +91,9 @@ export default {
     border-radius: 5px;
     top: 100%;
     right: 0px;
+    z-index: 1111;
+
+    box-shadow: 2.5px 10px 10px 0px rgba(0, 0, 0, 0.15);
 
     label {
       display: block;

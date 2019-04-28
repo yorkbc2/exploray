@@ -228,6 +228,11 @@ section {
       border-color: #fff;
     }
   }
+
+  &-block {
+    display: block;
+    width: 100%;
+  }
 }
 
 svg {
@@ -236,11 +241,17 @@ svg {
 }
 
 select.select {
-  padding: 10px 5px 10px 10px;
+  padding: 10px 25px 10px 10px;
   background-color: #f6f6f6;
   border: 1px solid #d5d5d5;
   color: #8e8e8e;
   border-radius: 50px;
   font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
 }
 </style>
