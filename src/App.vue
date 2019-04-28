@@ -11,12 +11,14 @@
 import Navbar from "@/components/Navbar/Navbar.vue";
 import Footer from "@/components/Footer/Footer.vue";
 import ScrollToTop from "@/components/ActionButtons/ScrollToTop.vue";
+import store from './store/index.js';
 export default {
+  store,
   components: {
     Navbar,
     "app-footer": Footer,
     ScrollToTop
-  }
+  },
 };
 </script>
 

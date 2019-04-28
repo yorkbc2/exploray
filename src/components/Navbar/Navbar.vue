@@ -10,7 +10,7 @@
         <div class="nav__menu">
           <navbar-menu
             :items="{
-                        '/adventures': 'Путешествия',
+                        '/tours': 'Путешествия',
                         '/about': 'О компании',
                         '/contact': 'Контакты',    
                     }"
