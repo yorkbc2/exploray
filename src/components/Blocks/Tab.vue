@@ -18,7 +18,11 @@ export default {
     name: 'tab',
     props: {
         header: String,
-        isOpened: false
+    },
+    data() {
+        return {
+            isOpened: false
+        }
     },
     methods: {
         open() {

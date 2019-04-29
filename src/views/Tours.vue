@@ -39,7 +39,7 @@
         </div>
         <div class="col-md-9">
           <product-controls/>
-          <product-list :data="items" :strokeView="$store.getters.strokeView"/>
+          <product-list :data="data" :strokeView="$store.getters.strokeView"/>
         </div>
       </div>
     </div>
@@ -69,11 +69,10 @@ export default {
     "product-controls": ProductControls,
     "input-group": InputGroup
   },
-  data() {
-    return {
-      items: this.$store.getters.data,
-      strokeView: this.$store.getters.strokeView
-    };
+  computed: {
+    data() {
+      return this.$store.state.data;
+    }
   }
 };
 </script>

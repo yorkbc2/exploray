@@ -10,19 +10,15 @@
       <i :class="{'fa': true, 'fa-chevron-down' : !isOpened, 'fa-chevron-up': isOpened}"/>
     </button>
     <div class="overlay" @click="toggle"></div>
-    <div class="check-picker" v-if="isOpened">
+    <div class="check-picker" :style="{ display: isOpened ? 'block' : 'none'}">
       <checkbox v-for="(item, index) in items" :key="index" :label="item" @change="onChange"/>
     </div>
   </div>
 </template>
 
 <script>
-import Checkbox from "./Checkbox.vue";
 export default {
   name: "input-check-picker",
-  components: {
-    Checkbox
-  },
   props: {
     items: Array,
     onCheck: Function,
@@ -68,7 +64,7 @@ export default {
     background: transparent;
     border: 0px;
     font-size: 14px;
-    color: #ccc;
+    color: #8e8e8e;
     top: 50%;
     transform: translateY(-50%);
     right: 15px;

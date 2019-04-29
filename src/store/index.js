@@ -7,7 +7,8 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     strokeView: true,
-    data: initialData
+    data: initialData,
+    cart: []
   },
   getters: {
     strokeView(state) {
@@ -15,16 +16,31 @@ const store = new Vuex.Store({
     },
     data(state) {
       return state.data;
+    },
+    cart(state) {
+      return state.cart;
     }
   },
   mutations: {
-    enableStrokeView(state) {
+    ENABLE_STROKE_VIEW(state) {
       state.strokeView = true;
     },
-    disableStrokeView(state) {
+    DISABLE_STROKE_VIEW(state) {
       state.strokeView = false;
+    },
+    ADD_TO_CART(state, id) {
+      let index,
+        currentItem = state.data.filter((i, j) => {
+          if (i._id === id) {
+            index = j;
+            return true;
+          }
+          return false;
+        })[0];
+      state.data[index].added = true;
+      state.cart.push(currentItem);
     }
-  }
+  } 
 });
 
 export default store;

@@ -7,18 +7,14 @@
           label="Цене"
           :values="[
             'По возрастанию',
-            'По возрастанию 2',
-            'По возрастанию 3',
-            'По возрастанию 4'
+            'По убыванию',
           ]"
         />
         <custom-select
           label="Рейтинг"
           :values="[
+            'По возрастанию',
             'По убыванию',
-            'По возрастанию 2',
-            'По возрастанию 3',
-            'По возрастанию 4'
           ]"
         />
       </div>
@@ -51,7 +47,7 @@
 export default {
   methods: {
     toggle(enable) {
-      this.$store.commit(enable ? "enableStrokeView" : "disableStrokeView");
+      this.$store.commit(enable ? "ENABLE_STROKE_VIEW" : "DISABLE_STROKE_VIEW");
     }
   }
 };
@@ -86,7 +82,7 @@ export default {
   }
 }
 .select-wrapper {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 .product-controls-active-filters {
   display: flex;

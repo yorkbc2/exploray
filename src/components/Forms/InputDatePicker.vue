@@ -37,6 +37,33 @@ export default {
         display: flex;
         flex-direction: row; 
 
+        .mx-datepicker {
+            &:first-child {
+                .mx-input {
+                    border-radius: 50px 0 0 50px;
+                    border-right: 0px;
+                }
+            }
+            &:last-child {
+                .mx-input {
+                    border-radius: 0 50px 50px 0;
+                    border-left: 0px;
+                }
+            }
+            .mx-input-wrapper {
+                &::after {
+                    content: "\f078";
+                    font-family: "FontAwesome";
+                    position: absolute;
+                    color: #8e8e8e;
+                    font-size: 12px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 7px;
+                }
+            }
+        }
+
         .mx-input-append {
             display: none;
         }
@@ -44,7 +71,11 @@ export default {
         .mx-input {
             height: auto;
             color: #aeaeae;
-            font-size: 14px;
+            font-size: 13px;
+            background-color: #f6f6f6;
+            border: 1px solid #ebebeb;
+            padding: 10px 15px;
+            cursor: pointer;
             &::placeholder {
                 color: #aeaeae;
             }

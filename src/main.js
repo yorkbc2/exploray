@@ -8,6 +8,7 @@ import { Carousel, Slide } from "vue-carousel";
 import Icon from "@/components/Icons/Icon.vue";
 import Img2Svg from "@/components/Icons/Img2Svg.vue";
 import CustomSelect from "@/components/Forms/CustomSelect.vue";
+import Checkbox from "@/components/Forms/Checkbox.vue";
 import OffsetBlock from "@/components/Blocks/OffsetBlock.vue";
 import App from "./App.vue";
 
@@ -21,6 +22,7 @@ Vue.component("img-to-svg", Img2Svg);
 Vue.component("carousel", Carousel);
 Vue.component("slide", Slide);
 Vue.component("custom-select", CustomSelect);
+Vue.component("checkbox", Checkbox);
 Vue.component("offset-block", OffsetBlock);
 
 new Vue({

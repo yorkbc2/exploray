@@ -37,7 +37,7 @@
           </div>
         </div>
         <div class="card__actions">
-          <button v-if="!strokeView" :class="{'card__compare': true, 'added': data.added}">
+          <button v-if="!strokeView" :class="{'card__compare': true, 'added': data.added}" @click="addToCart(data)">
             <icon
               name="libra"
               :fill="data.added ? '#fff' : '#a5a5a5'"
@@ -47,7 +47,8 @@
           <button
             v-else
             class="card__compare-stroke button button--green button--outlined"
-          >В сравнение</button>
+            @click="addToCart(data)"
+          ><i class="fa fa-check" v-if="data.added"></i> В сравнение</button>
           <button class="card__order button buton--green">Заказать</button>
         </div>
       </div>
@@ -101,9 +102,11 @@ export default {
     },
     formatMonth(month) {
       return month < 10 ? `0${month}` : month;
+    },
+    addToCart(item) {
+      this.$store.commit("ADD_TO_CART", item._id);
     }
-  },
-  mounted() {}
+  }
 };
 </script>
 
@@ -119,8 +122,12 @@ export default {
   border: 1px solid #ebebeb;
   border-radius: 10px;
   box-shadow: 2.5px 2.33px 10px 0px rgba(0, 0, 0, 0.3);
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   overflow: hidden;
+  transition: box-shadow 0.4s ease-in-out;
+  &:hover {
+    box-shadow: 2.5px 2.33px 17px 0px rgba(0, 0, 0, 0.35);  
+  }
 
   &__title {
     font-size: 18px;

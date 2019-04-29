@@ -1,14 +1,16 @@
 <template>
   <div class="price-range">
     <div class="d-flex justify-content-between">
-      <input type="tel" disabled :value="`от ${minValue} руб.`" class="input"> 
-      <input type="tel" disabled :value="`до ${maxValue} руб.`" class="input">
+      <input type="tel" disabled :value="minValue" class="input"> 
+      <input type="tel" disabled :value="maxValue" class="input">
     </div>
     <slider-component
       :enable-cross="false"
       v-model="value"
       :min-range="0"
       :max-range="100"
+      :min="getMin"
+      :max="getMax"
       :tooltip="'none'"
       @change="onChange"
     />
@@ -20,7 +22,12 @@ import VueSlider from "vue-slider-component";
 import "vue-slider-component/theme/default.css";
 export default {
   props: {
-    range: Number
+    range: Number,
+    min: Number,
+    max: Number,
+    prefix: Array,
+    postfix: Array,
+    interval: Number
   },
   data() {
     return {
@@ -33,18 +40,33 @@ export default {
   methods: {
       onChange(value) {
           this.value = value;
-          console.log(this.value)
       },
       getValue(percent) {
-          return parseInt(this.range / 100) * percent;
+        console.log(this.range, percent)
+          return parseInt((this.range / 100)  * percent);
       }
   },
   computed: {
       minValue() {
-          return this.getValue(this.value[0]);
+          return `${this.getPrefix[0]} ${this.getValue(this.value[0])} ${this.getPostfix[0]}`;
       },
       maxValue() {
-          return this.getValue(this.value[1]);
+          return `${this.getPrefix[1]} ${this.getValue(this.value[1])} ${this.getPostfix[1]}`;
+      },
+      getMin() {
+        return this.min || 0;
+      },
+      getMax() {
+        return this.max || 100;
+      },
+      getPrefix() {
+        return this.prefix || ["от", "до"];
+      },
+      getPostfix() {
+        return this.postfix || ["", ""]
+      },
+      getInterval() {
+        return this.interval || 10;
       }
   }
 };

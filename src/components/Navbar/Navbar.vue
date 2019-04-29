@@ -44,7 +44,9 @@
           <div class="nav__buttons-wrapper">
             <div class="nav__buttons">
               <a href="/cart" class="nav__cart">
-                <span v-if="false" class="notifications">2</span>
+                <span v-if="!!$store.getters.cart.length" class="notifications">
+                  {{$store.getters.cart.length}}
+                </span>
                 <img src="/images/cart.png" height="24px" width="auto" />
               </a>
               <a href="/cart" class="nav__user">

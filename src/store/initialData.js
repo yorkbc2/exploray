@@ -1,22 +1,6 @@
 export default [
   {
-    _id: "",
-    title: "Прогулки по старой венеции",
-    image: "/images/product.jpg",
-    description:
-      "Ночные прогулки по старой Венеции, месту, где великие художники и поэты черпали вдохновение.",
-    duration: {
-      from: new Date(2019, 3, 20),
-      to: new Date(2019, 3, 27)
-    },
-    price: {
-      regular: 30500,
-      sale: 31000
-    },
-    added: true
-  },
-  {
-    _id: "",
+    _id: 0,
     title: "Прогулки по старой венеции",
     image: "/images/product.jpg",
     description:
@@ -31,7 +15,7 @@ export default [
     }
   },
   {
-    _id: "",
+    _id: 1,
     title: "Прогулки по старой венеции",
     image: "/images/product.jpg",
     description:
@@ -46,7 +30,7 @@ export default [
     }
   },
   {
-    _id: "",
+    _id: 2,
     title: "Прогулки по старой венеции",
     image: "/images/product.jpg",
     description:
@@ -61,7 +45,7 @@ export default [
     }
   },
   {
-    _id: "",
+    _id: 3,
     title: "Прогулки по старой венеции",
     image: "/images/product.jpg",
     description:
@@ -76,7 +60,7 @@ export default [
     }
   },
   {
-    _id: "",
+    _id: 4,
     title: "Прогулки по старой венеции",
     image: "/images/product.jpg",
     description:
@@ -91,7 +75,7 @@ export default [
     }
   },
   {
-    _id: "",
+    _id: 5,
     title: "Прогулки по старой венеции",
     image: "/images/product.jpg",
     description:
@@ -106,7 +90,7 @@ export default [
     }
   },
   {
-    _id: "",
+    _id: 6,
     title: "Прогулки по старой венеции",
     image: "/images/product.jpg",
     description:
@@ -121,7 +105,7 @@ export default [
     }
   },
   {
-    _id: "",
+    _id: 7,
     title: "Прогулки по старой венеции",
     image: "/images/product.jpg",
     description:
@@ -136,7 +120,22 @@ export default [
     }
   },
   {
-    _id: "",
+    _id: 8,
+    title: "Прогулки по старой венеции",
+    image: "/images/product.jpg",
+    description:
+      "Ночные прогулки по старой Венеции, месту, где великие художники и поэты черпали вдохновение.",
+    duration: {
+      from: new Date(2019, 3, 20),
+      to: new Date(2019, 3, 27)
+    },
+    price: {
+      regular: 30500,
+      sale: 31000
+    }
+  },
+  {
+    _id: 9,
     title: "Прогулки по старой венеции",
     image: "/images/product.jpg",
     description:

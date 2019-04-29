@@ -1,5 +1,5 @@
 <template>
-  <label class="checkbox">
+  <label :class="{checkbox: true, reversed: reversed}">
     <span class="label">{{label}}</span>
     <span :class="{'square': true, 'checked': active}"></span>
     <input type="checkbox" @change="onCheck" :checked="$data._checked" :value="label">
@@ -8,10 +8,12 @@
 
 <script>
 export default {
+  name: "checkbox",
   props: {
     change: Function,
     checked: Boolean,
-    label: String
+    label: String,
+    reversed: Boolean
   },
   data: () => ({
     active: false
@@ -56,5 +58,30 @@ export default {
 }
 input {
   display: none;
+}
+.checkbox {
+  &.reversed {
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: left;
+    justify-content: flex-end;
+    padding-left: 20px;
+
+    .square {
+      float: left;
+      margin-right: 10px;
+      border-color: #b7b7b7;
+      background-color: #ebebeb;
+      &.checked {
+        background-color: #0dba00;
+        border-color: #0dba00;
+        &::before {
+          background-color: transparent;
+          filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(342deg)
+            brightness(102%) contrast(102%);
+        }
+      }
+    }
+  }
 }
 </style>

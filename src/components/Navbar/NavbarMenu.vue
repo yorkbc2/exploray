@@ -1,7 +1,7 @@
 <template>
     <ul>
         <li v-for="(item, index) in items" :key="index">
-            <router-link :to="index" :class="index === '/about' ? 'active' : ''">
+            <router-link :to="index">
                 {{item}}
             </router-link>    
         </li>    
@@ -41,6 +41,7 @@ export default {
                 color: #fff;
                 text-decoration: none;
 
+                &.router-link-active,
                 &:hover {
                     &::after {
                         opacity: 1;

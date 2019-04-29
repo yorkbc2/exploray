@@ -117,6 +117,19 @@ export default {
         background-color: #fff;
         border-radius: 50px;
         padding-right: 170px;
+        .date-picker-wrapper {
+          .mx-datepicker {
+            .mx-input-wrapper {
+              .mx-input {
+                font-size: 14px;
+              }
+              &::after {
+                font-size: 14px;
+                color: #8e8e8e;
+              }
+            }
+          }
+        }
         > div {
           &:first-child {
             input {
