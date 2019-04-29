@@ -20,11 +20,11 @@
     </tab>
 
     <tab header="Сложность">
-      <checkbox v-for="(level, index) in levels" :key="index" :label="level" :reversed="true" />
+      <checkbox v-for="(item, index) in difficulty" :key="index" :label="item" :reversed="true" />
     </tab>
 
     <tab header="Рейтинг">
-      <checkbox v-for="(level, index) in levels" :key="index" :label="level" :reversed="true" />
+      <checkbox v-for="(item, index) in rating" :key="index" :label="item" :reversed="true" />
     </tab>
 
     <tab header="Размер группы">
@@ -32,7 +32,7 @@
     </tab>
 
     <tab header="Дополнительные параметры">
-      <checkbox v-for="(level, index) in levels" :key="index" :label="level" :reversed="true" />
+      <checkbox v-for="(item, index) in additional" :key="index" :label="item" :reversed="true" />
     </tab>
   </div>
 </template>
@@ -46,11 +46,24 @@ export default {
   },
   data() {
     return {
-      levels: [
-        "Отдельное проживание",
-        "Проживание группой",
-        "Без гида, самостоятельно",
-        "С гидом"
+      rating: [
+        "1 звезда",
+        "2 звезды",
+        "3 звезды",
+        "4 звезды",
+        "5 звезд"
+      ],
+      difficulty: [
+        "для новичков",
+        "средне",
+        "сложно",
+        "экстрим"
+      ],
+      additional: [
+        "необходима виза",
+        "проезд/перелет включен",
+        "питание включено",
+        "проживание в одном месте"
       ]
     };
   },
