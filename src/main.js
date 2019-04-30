@@ -10,6 +10,7 @@ import Img2Svg from "@/components/Icons/Img2Svg.vue";
 import CustomSelect from "@/components/Forms/CustomSelect.vue";
 import Checkbox from "@/components/Forms/Checkbox.vue";
 import OffsetBlock from "@/components/Blocks/OffsetBlock.vue";
+import cutFilter from "@/filters/cut.js";
 import App from "./App.vue";
 
 Vue.config.productionTip = false;
@@ -24,6 +25,7 @@ Vue.component("slide", Slide);
 Vue.component("custom-select", CustomSelect);
 Vue.component("checkbox", Checkbox);
 Vue.component("offset-block", OffsetBlock);
+Vue.filter("cut", cutFilter);
 
 new Vue({
   router,

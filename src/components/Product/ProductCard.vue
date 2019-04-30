@@ -6,17 +6,17 @@
         <i class="fa fa-star"></i>
         <strong>4/5</strong>
       </span>
-      <a href="#" class="card__place">
+      <a :href="data.place.url" target="_blank" class="card__place">
         <i class="fa fa-map-marker"></i>
-        <span>Национальный парк, США</span>
+        <span>{{ data.place.label }}</span>
       </a>
       <div class="card__head-overlay">
         <a href="#" class="card__head-link">Смотреть больше</a>
       </div>
     </div>
     <div class="card__body">
-      <h2 class="card__title">{{ data.title }}</h2>
-      <p class="card__description" v-if="strokeView">{{ data.description }}</p>
+      <h2 class="card__title">{{ data.title | cut(36) }}</h2>
+      <p class="card__description" v-if="strokeView">{{ data.description | cut(124) }}</p>
       <div class="card__info">
         <div class="card__date-wrapper">
           <div class="card__date">
@@ -146,10 +146,10 @@ export default {
     &::before {
       content: "";
       position: absolute;
-      top: 3px;
+      top: 0px;
       left: 15px;
       width: 30px;
-      height: 2px;
+      height: 3px;
       background-color: #0dba00;
     }
   }
@@ -187,7 +187,8 @@ export default {
       font-size: 16px;
       text-decoration: line-through;
       color: #999999;
-      align-self: flex-end;
+      align-self: center;
+      padding-top: 6px;
     }
   }
 
@@ -204,7 +205,8 @@ export default {
       top: 0px;
       left: 0px;
       opacity: 0;
-      transition: all 0.3s ease-in-out;
+      transition: opacity 0.3s ease-in-out;
+      border-radius: 10px 10px 0 0;
 
       > a {
         color: #fff;
@@ -257,7 +259,7 @@ export default {
 
   &__place {
     position: absolute;
-    bottom: 3px;
+    bottom: 7px;
     left: 15px;
     text-decoration: none;
     color: #fff;
@@ -328,10 +330,11 @@ export default {
       .card__date-wrapper {
         flex: 1;
         margin-right: 30px;
+        padding: 7px 0;
         @include flex(column, space-between);
 
         .card__price {
-          margin-bottom: 10px;
+          margin-top: 10px;
 
           .card__price-sale {
             padding-bottom: 3px;
@@ -355,12 +358,19 @@ export default {
     }
 
     .card__head {
-      max-width: 500px;
-      width: 500px;
+      max-width: 310px;
+      width: 310px;
+      flex: none;
       position: relative;
       > img.card__image {
         height: 100%;
         border-radius: 10px 0 0 10px;
+      }
+      .card__head-overlay {
+        border-radius: 10px 0 0 10px;
+      }
+      .card__place {
+        bottom: 10px;
       }
     }
   }

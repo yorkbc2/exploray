@@ -6,15 +6,15 @@
         <custom-select
           label="Цене"
           :values="[
-            'По возрастанию',
-            'По убыванию',
+            'по возрастанию',
+            'по убыванию',
           ]"
         />
         <custom-select
           label="Рейтинг"
           :values="[
-            'По возрастанию',
-            'По убыванию',
+            'по возрастанию',
+            'по убыванию',
           ]"
         />
       </div>
@@ -36,7 +36,7 @@
       </span>
 
       <span class="product-controls-active-filters__item">
-        От 5000 - 18 000 руб.
+        5000 - 18 000 руб.
         <i>&times;</i>
       </span>
     </div>
@@ -62,6 +62,9 @@ export default {
 
 .product-controls {
   &__actions {
+    > div {
+      display: flex;
+    }
     button {
       cursor: pointer;
       &:first-child {
@@ -72,7 +75,7 @@ export default {
         background-color: #e1e1e1;
       }
       width: 30px;
-      height: 30px;
+      height: 31px;
       padding: 0px;
       border-radius: 2px;
       border: 1px solid #e1e1e1;

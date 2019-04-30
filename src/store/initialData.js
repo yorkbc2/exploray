@@ -1,13 +1,17 @@
 export default [
   {
     _id: 0,
-    title: "Прогулки по старой венеции",
+    title: "Прогулки по старой венеции и вообще это ооочень большой текст",
     image: "/images/product.jpg",
     description:
-      "Ночные прогулки по старой Венеции, месту, где великие художники и поэты черпали вдохновение.",
+      "Ночные прогулки по старой Венеции, месту, где великие художники и поэты черпали вдохновение и вообще это очень большое описание для этого товара.",
     duration: {
       from: new Date(2019, 3, 20),
       to: new Date(2019, 3, 27)
+    },
+    place: {
+      label: "Национальный парк, США",
+      url: "#"
     },
     price: {
       regular: 30500,
@@ -24,6 +28,10 @@ export default [
       from: new Date(2019, 3, 20),
       to: new Date(2019, 3, 27)
     },
+    place: {
+      label: "Национальный парк, США",
+      url: "#"
+    },
     price: {
       regular: 30500,
       sale: 31000
@@ -38,6 +46,10 @@ export default [
     duration: {
       from: new Date(2019, 3, 20),
       to: new Date(2019, 3, 27)
+    },
+    place: {
+      label: "Национальный парк, США",
+      url: "#"
     },
     price: {
       regular: 30500,
@@ -54,6 +66,10 @@ export default [
       from: new Date(2019, 3, 20),
       to: new Date(2019, 3, 27)
     },
+    place: {
+      label: "Национальный парк, США",
+      url: "#"
+    },
     price: {
       regular: 30500,
       sale: 31000
@@ -68,6 +84,10 @@ export default [
     duration: {
       from: new Date(2019, 3, 20),
       to: new Date(2019, 3, 27)
+    },
+    place: {
+      label: "Национальный парк, США",
+      url: "#"
     },
     price: {
       regular: 30500,
@@ -84,6 +104,10 @@ export default [
       from: new Date(2019, 3, 20),
       to: new Date(2019, 3, 27)
     },
+    place: {
+      label: "Национальный парк, США",
+      url: "#"
+    },
     price: {
       regular: 30500,
       sale: 31000
@@ -98,6 +122,10 @@ export default [
     duration: {
       from: new Date(2019, 3, 20),
       to: new Date(2019, 3, 27)
+    },
+    place: {
+      label: "Национальный парк, США",
+      url: "#"
     },
     price: {
       regular: 30500,
@@ -114,6 +142,10 @@ export default [
       from: new Date(2019, 3, 20),
       to: new Date(2019, 3, 27)
     },
+    place: {
+      label: "Национальный парк, США",
+      url: "#"
+    },
     price: {
       regular: 30500,
       sale: 31000
@@ -129,6 +161,10 @@ export default [
       from: new Date(2019, 3, 20),
       to: new Date(2019, 3, 27)
     },
+    place: {
+      label: "Национальный парк, США",
+      url: "#"
+    },
     price: {
       regular: 30500,
       sale: 31000
@@ -143,6 +179,10 @@ export default [
     duration: {
       from: new Date(2019, 3, 20),
       to: new Date(2019, 3, 27)
+    },
+    place: {
+      label: "Национальный парк, США",
+      url: "#"
     },
     price: {
       regular: 30500,

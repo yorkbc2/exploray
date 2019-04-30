@@ -75,6 +75,7 @@ export default {
             background-color: #f6f6f6;
             border: 1px solid #ebebeb;
             padding: 10px 15px;
+            box-shadow: none;
             cursor: pointer;
             &::placeholder {
                 color: #aeaeae;

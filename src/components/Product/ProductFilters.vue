@@ -11,7 +11,7 @@
       </div>
     </tab>
 
-    <tab header="Длительность">
+    <tab header="Длительность, дней">
       <input-price-range :range="10"/>
     </tab>
 
@@ -31,7 +31,7 @@
       <input-price-range :range="10"/>
     </tab>
 
-    <tab header="Дополнительные параметры">
+    <tab header="Дополнительно">
       <checkbox v-for="(item, index) in additional" :key="index" :label="item" :reversed="true" />
     </tab>
   </div>
