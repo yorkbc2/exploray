@@ -93,10 +93,28 @@ export default {
     }
   }
 
-  // .cursor {
-  //   position: absolute;
-  //   right: 15px;
-  //   bottom: 25px;
-  // }
+  @media screen and (max-width: 768px) {
+    margin: 0 10px;
+    width: auto;
+    margin-bottom: 5px;
+    min-height: 300px;
+    max-height: 300px;
+
+    .link {
+      display: none;
+    }
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h3 {
+      &::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
 }
 </style>

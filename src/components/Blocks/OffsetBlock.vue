@@ -48,11 +48,11 @@ export default {
     transform: translateY(-50%);
 
     h3 {
-        padding-bottom: 20px;
-        margin-bottom: 20px;
-        &::after {
-            width: 36px;
-        }
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      &::after {
+        width: 36px;
+      }
     }
 
     &::after {
@@ -64,6 +64,36 @@ export default {
       font-weight: bolder;
       font-size: 58px;
       color: #efefef;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    &__img {
+      display: none;
+    }
+    &__content {
+      position: relative;
+      top: 0px;
+      transform: none;
+      box-shadow: none;
+      width: 100%;
+      padding: 0px;
+
+      &::after {
+        position: static;
+        display: block;
+        top: 0px;
+        right: auto;
+      }
+
+      h3 {
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        padding-bottom: 0px;
+        &::after {
+          display: none;
+        }
+      }
     }
   }
 }

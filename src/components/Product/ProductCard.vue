@@ -289,6 +289,7 @@ export default {
         border-radius: 10px;
         background-color: #ffffff;
         border: 1px solid #ebebeb;
+        outline: none;
 
         position: relative;
         cursor: pointer;

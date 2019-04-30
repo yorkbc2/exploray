@@ -81,12 +81,12 @@ export default {
 
   .check-picker {
     position: absolute;
-    width: 215px;
+    width: 210px;
     padding: 10px;
     background: #fff;
     border-radius: 5px;
     top: 100%;
-    right: 0px;
+    right: 10px;
     z-index: 1111;
 
     box-shadow: 2.5px 10px 10px 0px rgba(0, 0, 0, 0.15);
@@ -94,8 +94,9 @@ export default {
     label {
       display: block;
       position: relative;
+      text-align: left;
       > span.label {
-        padding-left: 20px;
+        padding-left: 25px;
         &::before {
           content: "•";
           position: absolute;

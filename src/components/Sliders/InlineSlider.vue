@@ -1,7 +1,7 @@
 <template>
   <div class="inline-slider-wrapper">
     <div class="container">
-      <carousel :navigationEnabled="true" :perPage="5" :paginationEnabled="false">
+      <carousel :navigationEnabled="true" :perPage="5" :perPageCustom="[[480, 2], [1024, 5]]">
         <slot></slot>
       </carousel>
     </div>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "app-inline-slider",
+  name: "app-inline-slider"
 };
 </script>
 
@@ -19,6 +19,18 @@ export default {
   background: #0a6aa8;
   padding: 20px 0;
   position: relative;
+  .VueCarousel {
+    &-pagination {
+      @media screen and (min-width: 769px) {
+        display: none;
+      }
+    }
+    &-dot {
+      &--active {
+        background-color: #fff!important;
+      }
+    }
+  }
 }
 
 .inline-slide {

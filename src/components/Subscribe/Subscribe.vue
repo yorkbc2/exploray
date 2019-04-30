@@ -20,7 +20,7 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  padding: 40px 0 60px 0;
+  padding: 30px 25px;
   text-align: center;
   background-size: cover;
   background-position: center -200px;
@@ -29,6 +29,10 @@ section {
   p {
     margin: 0 0 50px 0;
     padding: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    background-position: center;
   }
 }
 </style>

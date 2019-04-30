@@ -30,6 +30,7 @@ body {
 section {
   padding: 50px 0;
 
+
   .section__title {
     font-size: 28px;
     font-weight: bolder;
@@ -72,6 +73,13 @@ section {
   &.section {
     &--colored {
       background: #f6f6f6;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 20px 0;
+    .section__title {
+      font-size: 24px;    
     }
   }
 }
@@ -117,6 +125,19 @@ section {
     position: absolute;
     top: 0;
     right: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+
+    input {
+      padding-right: 30px;
+    }
+
+    button {
+      position: static;
+      margin-top: 10px;
+    }
   }
 }
 
@@ -213,8 +234,13 @@ section {
   border-radius: 50px;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
+  outline: none;
   &:hover {
     background-color: lighten(#0dba00, 5%);
+  }
+
+  &:focus {
+    outline: none;
   }
 
   &--outlined {

@@ -99,7 +99,46 @@
     <section class="section section--colored">
       <div class="container">
         <h2 class="section__title">Регионы</h2>
-        <app-region-slider/>
+        <app-default-slider
+          :slides="[
+          {
+            title: 'Крым',
+            caption: '10 туров',
+            url: '#',
+            image: '/images/region_1.jpg'
+          },
+          {
+            title: 'Крым',
+            caption: '10 туров',
+            url: '#',
+            image: '/images/region_2.jpg'
+          },
+          {
+            title: 'Крым',
+            caption: '10 туров',
+            url: '#',
+            image: '/images/region_3.jpg'
+          },
+          {
+            title: 'Крым',
+            caption: '10 туров',
+            url: '#',
+            image: '/images/region_4.jpg'
+          },
+          {
+            title: 'Крым',
+            caption: '10 туров',
+            url: '#',
+            image: '/images/region_5.jpg'
+          },
+          {
+            title: 'Крым',
+            caption: '10 туров',
+            url: '#',
+            image: '/images/region_1.jpg'
+          }
+        ]"
+        />
       </div>
     </section>
     <section class="section">
@@ -119,13 +158,13 @@
 <script>
 import Subscribe from "@/components/Subscribe/Subscribe.vue";
 import CoveredBlock from "@/components/Blocks/CoveredBlock.vue";
-import RegionSlider from "@/components/Sliders/RegionSlider.vue";
+import DefaultSlider from "@/components/Sliders/DefaultSlider.vue";
 import IntroInlineSlider from "@/components/Sliders/IntroInlineSlider.vue";
 import IntroSlider from "@/components/Sliders/IntroSlider.vue";
 export default {
   components: {
     "app-subscribe": Subscribe,
-    "app-region-slider": RegionSlider,
+    "app-default-slider": DefaultSlider,
     "app-intro-inline-slider": IntroInlineSlider,
     "covered-block": CoveredBlock,
     "app-intro": IntroSlider
@@ -137,6 +176,14 @@ export default {
 .tour-section {
   div[class*="col-md-"] {
     padding: 0 10px;
+  }
+  @media screen and (max-width: 768px) {
+    div[class*="col-md-"] {
+      padding: 0;
+    }
+    .row {
+      margin: 0px;
+    }
   }
 }
 </style>
