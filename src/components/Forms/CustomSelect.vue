@@ -1,12 +1,12 @@
 <template>
   <label class="d-flex select-wrapper">
     <span class="d-flex flex-column justify-content-center">{{label}}</span>
-    <select class="select">
+    <select class="select" :placeholder="placeholder">
       <option
         v-for="(value, index) in values"
         :key="index"
         :value="value"
-        :selected="index === 0"
+        :selected="!placeholder && index === 0"
       >{{value}}</option>
     </select>
   </label>
@@ -16,7 +16,8 @@
 export default {
   props: {
     label: String,
-    values: Array
+    values: Array,
+    placeholder: String
   }
 };
 </script>

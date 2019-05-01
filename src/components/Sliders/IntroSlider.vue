@@ -17,7 +17,7 @@
                 placeholder="Ваш регион, страна"
               />
             </div>
-            <div class="input-with-icon">
+            <div class="input-with-icon input-date-picker">
               <img src="/images/calendar.png" alt class="icon">
               <input-date-picker/>
             </div>
@@ -90,6 +90,9 @@ export default {
   &-wrapper {
     position: relative;
   }
+  @media screen and (max-width: 768px) {
+    min-height: auto;
+  }
 }
 
 .intro-slider {
@@ -99,6 +102,8 @@ export default {
     transform: translateX(-50%) translateY(-50%);
     left: 50%;
     z-index: 3;
+
+    max-width: 100%;
 
     h1 {
       text-align: center;
@@ -179,6 +184,87 @@ export default {
         }
       }
     }
+
+    @media screen and (max-width: 768px) {
+      top: auto;
+      transform: none;
+      left: auto;
+      position: static;
+      padding: 100px 20px 50px 20px;
+      min-height: auto;
+      h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+
+      form {
+        .input-group {
+          flex-direction: column;
+          padding: 0px;
+          background-color: transparent;
+
+          > div {
+            padding-left: 0px;
+            background-color: #fff;
+            border-radius: 50px;
+
+            .icon {
+              height: 20px;
+              left: 20px;
+            }
+
+            input {
+              width: 100%;
+              padding-left: 50px;
+              padding-top: 14px;
+              padding-bottom: 14px;
+              &,
+              &:first-child,
+              &:last-child {
+                border-radius: 50px;
+              }
+            }
+
+            .toggler {
+              font-size: 10px;
+            }
+
+            &.input-date-picker {
+              background-color: transparent;
+              img {
+                display: none;
+              }
+              .date-picker-wrapper {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .mx-datepicker {
+                  width: 45% !important;
+                  .mx-input-wrapper {
+                    &::after {
+                      font-size: 10px;
+                      right: 8px;
+                    }
+                  }
+                }
+                .mx-input {
+                  padding: 14px 12px;
+                  border-radius: 50px;
+                }
+              }
+            }
+          }
+
+          > button {
+            position: static;
+            width: 100%;
+            padding: 9px 10px;
+            margin-top: 5px;
+            max-height: 50px;
+          }
+        }
+      }
+    }
   }
   &__dots {
     margin: 0;
@@ -188,6 +274,10 @@ export default {
     left: 50%;
     bottom: 40px;
     z-index: 0;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
   }
   &__dot {
     list-style: none;

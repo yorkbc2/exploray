@@ -8,7 +8,8 @@ const store = new Vuex.Store({
   state: {
     strokeView: true,
     data: initialData,
-    cart: []
+    cart: [],
+    showFilters: false
   },
   getters: {
     strokeView(state) {
@@ -19,6 +20,9 @@ const store = new Vuex.Store({
     },
     cart(state) {
       return state.cart;
+    },
+    showFilters(state) {
+      return state.showFilters;
     }
   },
   mutations: {
@@ -39,8 +43,11 @@ const store = new Vuex.Store({
         })[0];
       state.data[index].added = true;
       state.cart.push(currentItem);
+    },
+    TOGGLE_FILTERS(state) {
+      state.showFilters = !state.showFilters;
     }
-  } 
+  }
 });
 
 export default store;

@@ -34,18 +34,18 @@
     </app-header>
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 product-filters-wrapper">
           <product-filters/>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 col-sm-12 col-xs-12 product-list-wrapper">
           <product-controls/>
           <product-list :data="data" :strokeView="$store.getters.strokeView"/>
         </div>
       </div>
     </div>
-    <section class="section">
+    <section class="section offset-section">
       <div class="container">
-        <h2 class="section__title">Что мы предлагаем?</h2>
+        <h2 class="section__title">Что мы предлагаем?</h2> 
         <offset-block header="Новинки" image="/images/tours_about.jpg" :uppercased="false">
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque sequi placeat numquam molestiae deserunt ducimus iste commodi nobis quaerat tenetur qui nesciunt doloribus sunt, ad ullam? Reiciendis sit repellat vero.</p>
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque sequi placeat numquam molestiae deserunt ducimus iste commodi nobis quaerat tenetur qui nesciunt doloribus sunt, ad ullam? Reiciendis sit repellat vero.</p>
@@ -76,3 +76,30 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.product-list-wrapper {
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    flex: 1;
+    max-width: 100%;
+    float: none;
+    padding: 0px;
+  }
+  @media screen and (max-width: 480px) {
+    padding: 0 15px;
+  }
+}
+.product-filters-wrapper {
+  @media screen and (max-width: 768px) {
+    width: 0px;
+    padding: 0px;
+  }
+}
+.offset-section { 
+  @media screen and (max-width: 768px) {
+    margin-top: 25px;
+    margin-bottom: 15px;
+  }
+}
+</style>

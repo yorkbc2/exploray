@@ -67,6 +67,12 @@ export default {
     }
   }
   @media screen and (max-width: 768px) {
+    &__content {
+      width: 450px;
+      padding: 25px;
+    }
+  }
+  @media screen and (max-width: 560px) {
     flex-direction: column;
     &__img {
       display: none;

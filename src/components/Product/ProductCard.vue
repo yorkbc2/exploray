@@ -21,11 +21,11 @@
         <div class="card__date-wrapper">
           <div class="card__date">
             <div class="row">
-              <div class="col-md-5 card__date-days">
+              <div class="col-md-5 col-sm-5 col-xs-5 card__date-days">
                 <i class="fa fa-calendar"></i>
                 &nbsp; {{getDays}} {{getDaysLable}}
               </div>
-              <div class="col-md-7 text-right">{{dateRange}}</div>
+              <div class="col-md-7 col-sm-7 col-xs-7 text-right">{{dateRange}}</div>
             </div>
           </div>
           <div class="card__price">
@@ -37,18 +37,23 @@
           </div>
         </div>
         <div class="card__actions">
-          <button v-if="!strokeView" :class="{'card__compare': true, 'added': data.added}" @click="addToCart(data)">
+          <button
+            v-if="!strokeView || isMobile"
+            :class="{'card__compare': true, 'added': added}"
+            @click="addToCart(data)"
+          >
             <icon
               name="libra"
-              :fill="data.added ? '#fff' : '#a5a5a5'"
-              :hoverFill="data.added ? '#fff' : '#a5a5a5'"
-            />
+              :fill="added ? '#fff' : '#a5a5a5'"
+            /> 
           </button>
           <button
             v-else
             class="card__compare-stroke button button--green button--outlined"
             @click="addToCart(data)"
-          ><i class="fa fa-check" v-if="data.added"></i> В сравнение</button>
+          >
+            <i class="fa fa-check" v-if="added"></i> В сравнение
+          </button>
           <button class="card__order button buton--green">Заказать</button>
         </div>
       </div>
@@ -61,6 +66,12 @@ export default {
   props: {
     data: Object,
     strokeView: Boolean
+  },
+  data() {
+    return {
+      isMobile: window.innerWidth <= 768,
+      added: this.data.added
+    };
   },
   computed: {
     getDays() {
@@ -105,6 +116,7 @@ export default {
     },
     addToCart(item) {
       this.$store.commit("ADD_TO_CART", item._id);
+      this.added = !this.added;
     }
   }
 };
@@ -125,8 +137,13 @@ export default {
   margin-bottom: 25px;
   overflow: hidden;
   transition: box-shadow 0.4s ease-in-out;
+
+  @media screen and (max-width: 480px) {
+    max-width: 100%;
+  }
+
   &:hover {
-    box-shadow: 2.5px 2.33px 17px 0px rgba(0, 0, 0, 0.35);  
+    box-shadow: 2.5px 2.33px 17px 0px rgba(0, 0, 0, 0.35);
   }
 
   &__title {
@@ -171,6 +188,19 @@ export default {
         height: 8px;
         background-color: #0dba00;
         border-radius: 50px;
+      }
+    }
+    @media screen and (max-width: 480px) {
+      > .row {
+        display: flex;
+        flex-direction: row;
+
+        > div {
+          flex: 1;
+          &:first-child {
+            max-width: 40%;
+          }
+        }
       }
     }
   }
@@ -297,6 +327,10 @@ export default {
         &.added {
           border-color: #0dba00;
           background-color: #0dba00;
+
+          svg {
+            fill: #fff!important;
+          }
         }
 
         > div {
@@ -311,67 +345,78 @@ export default {
   }
 
   &--stroke {
-    max-width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    @media screen and (min-width: 480px) {
+      max-width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
 
-    .card__body {
-      padding: 25px 15px 25px 25px;
+      .card__body {
+        padding: 25px 15px 25px 25px;
 
-      &::before {
-        top: 0px;
-        left: 25px;
+        &::before {
+          top: 0px;
+          left: 25px;
+        }
       }
-    }
 
-    .card__info {
-      @include flex();
+      .card__info {
+        @include flex();
 
-      .card__date-wrapper {
-        flex: 1;
-        margin-right: 30px;
-        padding: 7px 0;
-        @include flex(column, space-between);
+        .card__date-wrapper {
+          flex: 1;
+          margin-right: 30px;
+          padding: 7px 0;
+          @include flex(column, space-between);
 
-        .card__price {
-          margin-top: 10px;
+          .card__price {
+            margin-top: 10px;
 
-          .card__price-sale {
-            padding-bottom: 3px;
+            .card__price-sale {
+              padding-bottom: 3px;
+            }
+          }
+        }
+
+        .card__actions {
+          margin-top: 0px;
+          max-width: 185px;
+          width: 185px;
+          @include flex(column, space-between);
+
+          > button {
+            padding: 7px 30px;
+            &:first-child {
+              margin-bottom: 10px;
+            }
           }
         }
       }
 
-      .card__actions {
-        margin-top: 0px;
-        max-width: 185px;
-        width: 185px;
-        @include flex(column, space-between);
-
-        > button {
-          padding: 7px 30px;
-          &:first-child {
-            margin-bottom: 10px;
-          }
+      .card__head {
+        max-width: 310px;
+        width: 310px;
+        flex: none;
+        position: relative;
+        > img.card__image {
+          height: 100%;
+          border-radius: 10px 0 0 10px;
+        }
+        .card__head-overlay {
+          border-radius: 10px 0 0 10px;
+        }
+        .card__place {
+          bottom: 10px;
         }
       }
     }
+  }
 
-    .card__head {
-      max-width: 310px;
-      width: 310px;
-      flex: none;
-      position: relative;
-      > img.card__image {
-        height: 100%;
-        border-radius: 10px 0 0 10px;
-      }
-      .card__head-overlay {
-        border-radius: 10px 0 0 10px;
-      }
-      .card__place {
-        bottom: 10px;
+  @media screen and (min-width: 480px) and (max-width: 768px) {
+    &--stroke {
+      .card__head {
+        max-width: 220px;
+        width: 220px;
       }
     }
   }

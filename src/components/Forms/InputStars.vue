@@ -1,0 +1,40 @@
+<template>
+  <ul class="stars">
+    <li v-for="index in 5" :key="index">
+      <i :class="{'fa fa-star': true, 'active': index <= stars}"></i>
+    </li>
+  </ul>
+</template>
+
+<script>
+export default {
+  name: "app-stars",
+  props: {
+    stars: Number
+  }
+};
+</script>
+
+<style lang="scss" scoped>
+    .stars {
+        margin: 2px 0 0 10px;
+        padding: 0;
+        display: flex;
+        justify-content: flex-start;
+
+        li {
+            list-style: none;
+
+            display: inline-block;
+            margin-right: 7px;
+
+            i {
+                font-size: 18px;
+                color: #b7b7b7;
+                &.active {
+                    color: #e7da0f;
+                }
+            }
+        }
+    }
+</style>

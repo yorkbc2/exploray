@@ -7,8 +7,10 @@ import InputPriceRange from "@/components/Forms/InputPriceRange.vue";
 import { Carousel, Slide } from "vue-carousel";
 import Icon from "@/components/Icons/Icon.vue";
 import Img2Svg from "@/components/Icons/Img2Svg.vue";
+import SocialList from "@/components/Lists/SocialList.vue";
 import CustomSelect from "@/components/Forms/CustomSelect.vue";
 import Checkbox from "@/components/Forms/Checkbox.vue";
+import InputStars from "@/components/Forms/InputStars.vue";
 import OffsetBlock from "@/components/Blocks/OffsetBlock.vue";
 import cutFilter from "@/filters/cut.js";
 import App from "./App.vue";
@@ -18,6 +20,7 @@ Vue.config.productionTip = false;
 Vue.component("input-check-picker", InputCheckPicker);
 Vue.component("input-date-picker", InputDatePicker);
 Vue.component("input-price-range", InputPriceRange);
+Vue.component("social-list", SocialList);
 Vue.component("icon", Icon);
 Vue.component("img-to-svg", Img2Svg);
 Vue.component("carousel", Carousel);
@@ -26,6 +29,7 @@ Vue.component("custom-select", CustomSelect);
 Vue.component("checkbox", Checkbox);
 Vue.component("offset-block", OffsetBlock);
 Vue.filter("cut", cutFilter);
+Vue.component("app-stars", InputStars);
 
 new Vue({
   router,

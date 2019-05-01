@@ -1,19 +1,23 @@
 <template>
   <label :class="{checkbox: true, reversed: reversed}">
+    <slot/>
     <span class="label">{{label}}</span>
     <span :class="{'square': true, 'checked': active}"></span>
-    <input type="checkbox" @change="onCheck" :checked="$data._checked" :value="label">
+    <input type="checkbox" @change="onCheck" :checked="$data._checked" :value="value||label">
   </label>
 </template>
 
 <script>
+import Stars from "./InputStars.vue";
 export default {
   name: "checkbox",
+  components: { 'app-stars': Stars },
   props: {
     change: Function,
     checked: Boolean,
     label: String,
-    reversed: Boolean
+    reversed: Boolean,
+    value: String
   },
   data: () => ({
     active: false
@@ -34,6 +38,7 @@ export default {
 .square {
   display: inline-block;
   width: 15px;
+  min-width: 15px;
   height: 15px;
   border: 1px solid #000;
   padding-left: 0px !important;

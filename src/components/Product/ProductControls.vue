@@ -4,18 +4,20 @@
       <div class="product-controls__sort d-flex">
         <strong class="d-flex flex-column justify-content-center">Сортировать по:</strong>
         <custom-select
-          label="Цене"
+          label="цене"
           :values="[
             'по возрастанию',
             'по убыванию',
           ]"
+          placeholder="выбрать"
         />
         <custom-select
-          label="Рейтинг"
+          label="рейтинг"
           :values="[
             'по возрастанию',
             'по убыванию',
           ]"
+          placeholder="выбрать"
         />
       </div>
       <div class="product-controls__actions d-flex flex-column justify-content-center">
@@ -58,10 +60,33 @@ export default {
   > strong {
     margin-right: 15px;
   }
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 0 15px;
+
+    strong {
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    label.select-wrapper {
+      justify-content: space-between;
+      margin-bottom: 10px;
+      margin-right: 0px;
+      select {
+        min-width: 180px;
+      }
+    }
+  }
 }
 
 .product-controls {
   &__actions {
+    @media screen and (max-width: 480px) {
+      display: none!important;
+    }
     > div {
       display: flex;
     }
@@ -69,6 +94,9 @@ export default {
       cursor: pointer;
       &:first-child {
         margin-right: 10px;
+      }
+      &:last-child {
+        margin-right: 2px;
       }
       &:hover,
       &.active {
@@ -97,6 +125,9 @@ export default {
   box-shadow: 2.5px 1.33px 5px 0px rgba(0, 0, 0, 0.2);
   margin-top: 20px;
   margin-bottom: 30px;
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
   &__item {
     position: relative;
     margin-right: 10px;

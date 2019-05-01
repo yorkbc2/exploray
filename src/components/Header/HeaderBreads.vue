@@ -33,12 +33,18 @@ export default {
         text-decoration: none;
 
         &:not(:last-child)::after {
-            content: "\f178";
-            font-family: "FontAwesome";
+            content: "";
             position: relative;
-            font-size: 16px;
+            display: inline-block;
+            width: 21px;
+            height: 21px;
             margin-left: 5px;
             margin-right: 5px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform: translateY(25%);
+            background-image: url("/images/arrow-right.png")
         }
     }
 }

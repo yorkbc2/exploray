@@ -59,5 +59,10 @@ export default {
   img {
     display: block;
   }
+
+  @media screen and (max-width: 768px) {
+    bottom: 30px;
+    right: 30px;
+  }
 }
 </style>

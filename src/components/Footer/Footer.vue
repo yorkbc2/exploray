@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <div class="container">
-      <div class="row justify-content-between">
+      <div class="row justify-content-between footer__row">
         <div class="col-md-7">
           <div class="d-flex flex-row justify-content-between">
             <div class="logo-container">
@@ -19,6 +19,7 @@
               />
             </div>
           </div>
+
           <social-list
             :items="[
               {
@@ -35,8 +36,12 @@
               }
           ]"
           />
+          <select name="language" class="footer__language language-select mobile-select">
+            <option value="Русский" selected>Русский</option>
+            <option value="English">English</option>
+          </select>
           <div class="footer__links">
-            <ul class="d-flex">
+            <ul>
               <li>
                 <a href="#">Правила пользования</a>
               </li>
@@ -49,23 +54,23 @@
             </ul>
           </div>
         </div>
-        <div class="col-md-5 d-flex justify-content-between flex-column footer__contact">
-          <div class="d-flex flex-row justify-content-between">
-            <a href="#" class="link-with-icon">
+        <div class="col-md-5 col-xs-12 footer__contact">
+          <div class="footer__contact-list">
+            <a href="#" class="link-with-icon footer__contact-list-phone">
               <i class="fa fa-phone"></i>
               +7 (906) 123-45-67
             </a>
             <a href="#" class="link-with-icon">
               <i class="fa fa-envelope"></i>
-              office@@meridians.de
+              office@meridians.de
             </a>
           </div>
-          <div class="d-flex flex-row justify-content-between">
+          <div class="footer__contact-address">
             <p>
               БЦ "Аврора" 004109,
               <br>Санкт-Петербург, Россия
             </p>
-            <select name="language" id="language" class="footer__language language-select">
+            <select name="language" class="footer__language language-select">
               <option value="Русский" selected>Русский</option>
               <option value="English">English</option>
             </select>
@@ -78,12 +83,10 @@
 </template>
 
 <script>
-import SocialList from "./../Lists/SocialList.vue";
 import NavbarMenu from "./../Navbar/NavbarMenu.vue";
 export default {
-  name: "footer",
+  name: "app-footer",
   components: {
-    SocialList,
     NavbarMenu
   }
 };
@@ -93,7 +96,7 @@ export default {
 .footer {
   position: relative;
   background-color: #0a6aa8;
-  padding-bottom: 45px;
+  padding-bottom: 55px;
   padding-top: 25px;
 
   .logo-container {
@@ -133,10 +136,11 @@ export default {
 
   &__links {
     margin-top: 15px;
-    margin-bottom: 25px;
     ul {
       margin: 0;
       padding: 0;
+
+      display: flex;
       justify-content: space-between;
       li {
         list-style: none;
@@ -150,8 +154,17 @@ export default {
     }
   }
   &__contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 20px 20px 0px;
     max-width: 450px;
+    &-list,
+    &-address {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+    }
     a {
       color: #fff;
       font-size: 16px;
@@ -169,11 +182,68 @@ export default {
   }
   &__copyright {
     position: absolute;
-    bottom: 10px;
+    bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 14px;
     color: #6eabd7;
+  }
+  .mobile-select {
+    display: none;
+    width: 170px;
+    height: 40px;
+  }
+  @media screen and (max-width: 768px) {
+    text-align: center;
+    padding-top: 0px;
+    .footer__copyright {
+      font-size: 12px;
+      width: 100%;
+    }
+    .mobile-select {
+      display: inline-block;
+    }
+    .footer__language:not(.mobile-select) {
+      display: none;
+    }
+    .footer__row {
+      flex-direction: column-reverse;
+    }
+    .logo-container,
+    .footer__menu {
+      display: none;
+    }
+
+    .footer__contact {
+      flex-direction: column;
+      &-list,
+      &-address {
+        flex-direction: column;
+      }
+      &-list {
+        a {
+          margin-bottom: 5px;
+        }
+        margin-bottom: 5px;
+      }
+      &-list-phone {
+        font-size: 18px;
+      }
+      p {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+    }
+
+    .social-list {
+      margin-bottom: 10px;
+    }
+
+    .footer__links {
+      ul {
+        flex-direction: column;
+      }
+    }
   }
 }
 </style>

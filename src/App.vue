@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <navbar/>
+    <navbar v-if="!isMobile"/>
+    <mobile-navbar v-else :isHomePage="isHomePage"/>
     <router-view/>
     <scroll-to-top/>
     <app-footer/>
@@ -12,12 +13,48 @@ import Navbar from "@/components/Navbar/Navbar.vue";
 import Footer from "@/components/Footer/Footer.vue";
 import ScrollToTop from "@/components/ActionButtons/ScrollToTop.vue";
 import store from "./store/index.js";
+import MobileNavbarVue from "./components/Navbar/MobileNavbar.vue";
+import { watch } from "fs";
 export default {
   store,
   components: {
     Navbar,
+    "mobile-navbar": MobileNavbarVue,
     "app-footer": Footer,
     ScrollToTop
+  },
+  data() {
+    return {
+      isMobile: false,
+      isHomePage: false
+    };
+  },
+  methods: {
+    changeDevice(width) {
+      if (width <= 960) {
+        this.isMobile = true;
+      } else {
+        this.isMobile = false;
+      }
+    }
+  },
+  mounted() {
+    window.onresize = () => {
+      this.changeDevice(window.innerWidth);
+    };
+    window.onload = () => {
+      this.changeDevice(window.innerWidth);
+      this.isHomePage = this.$route.name === "home";
+    };
+  },
+  watch: {
+    $route(to) {
+      if (to.name !== "home") {
+        this.isHomePage = false;
+      } else {
+        this.isHomePage = true;
+      }
+    }
   }
 };
 </script>
@@ -29,7 +66,6 @@ body {
 }
 section {
   padding: 50px 0;
-
 
   .section__title {
     font-size: 28px;
@@ -79,7 +115,7 @@ section {
   @media screen and (max-width: 768px) {
     padding: 20px 0;
     .section__title {
-      font-size: 24px;    
+      font-size: 24px;
     }
   }
 }
@@ -235,6 +271,11 @@ section {
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   outline: none;
+  &-block {
+    padding: 15px 10px;
+    border-radius: 10px;
+    font-size: 18px;
+  }
   &:hover {
     background-color: lighten(#0dba00, 5%);
   }

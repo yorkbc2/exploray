@@ -51,6 +51,28 @@ export default {
     bottom: 15px;
     left: 0px;
   }
+
+  @media screen and (max-width: 768px) {
+    &__container {
+      padding: 180px 0;
+    }
+
+    &__title {
+      font-size: 36px;
+      margin: 0px auto 30px;
+      max-width: 400px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    &__container {
+      padding: 120px 0;
+    }
+
+    &__title {
+      margin-bottom: 40px;
+    }
+  }
 }
 </style>
 

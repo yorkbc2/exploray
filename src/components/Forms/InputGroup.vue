@@ -61,5 +61,28 @@ export default {
         }
     }
   }
+
+  @media screen and (max-width: 768px) {
+    justify-content: space-between;
+
+    &__element {
+      &:first-child {
+        &::after {
+          display: none;
+        }
+      }
+      border-radius: 50px;
+      width: 48%;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+
+    &__element {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  }
 }
 </style>

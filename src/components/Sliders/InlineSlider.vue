@@ -1,7 +1,7 @@
 <template>
   <div class="inline-slider-wrapper">
     <div class="container">
-      <carousel :navigationEnabled="true" :perPage="5" :perPageCustom="[[480, 2], [1024, 5]]">
+      <carousel :navigationEnabled="true" :perPage="5" :perPageCustom="[[300, 2], [768, 5]]">
         <slot></slot>
       </carousel>
     </div>
@@ -21,13 +21,32 @@ export default {
   position: relative;
   .VueCarousel {
     &-pagination {
+      > div {
+        margin-top: 0px !important;
+      }
       @media screen and (min-width: 769px) {
         display: none;
       }
     }
     &-dot {
       &--active {
-        background-color: #fff!important;
+        background-color: #fff !important;
+      }
+    }
+    &-navigation {
+      &-button {
+        @media screen and (max-width: 768px) {
+          &::after {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+      &-next {
+        right: 35px !important;
+      }
+      &-prev {
+        left: 5px !important;
       }
     }
   }
@@ -40,6 +59,10 @@ export default {
   max-width: 200px;
   color: #fff;
   align-items: center;
+  @media screen and (max-width: 768px) {
+    max-width: 110px;
+    margin: 0 auto;
+  }
   img {
     display: block;
     height: 30px;
@@ -54,6 +77,12 @@ export default {
   &:hover {
     color: rgba(#fff, 0.7);
     text-decoration: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    span {
+      text-transform: none;
+    }
   }
 }
 </style>
