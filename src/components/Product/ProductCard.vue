@@ -16,7 +16,7 @@
     </div>
     <div class="card__body">
       <h2 class="card__title">{{ data.title | cut(36) }}</h2>
-      <p class="card__description" v-if="strokeView">{{ data.description | cut(124) }}</p>
+      <p class="card__description" v-if="strokeView && !isMobile">{{ data.description | cut(124) }}</p>
       <div class="card__info">
         <div class="card__date-wrapper">
           <div class="card__date">

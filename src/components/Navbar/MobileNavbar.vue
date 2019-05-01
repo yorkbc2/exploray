@@ -33,7 +33,7 @@
       </button>
     </div>
     <div :class="{'mobile-navbar-menu':true, active: isOpened}">
-        <navbar-search />
+      <navbar-search/>
       <ul class="mobile-navbar-menu-inner">
         <li>
           <router-link to="/tours">Путешествия</router-link>
@@ -198,7 +198,7 @@ export default {
     text-align: center;
 
     .nav__search {
-        margin: 0 auto 15px; 
+      margin: 0 auto 15px;
     }
 
     &.active {

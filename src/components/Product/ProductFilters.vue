@@ -131,6 +131,10 @@ export default {
         &:nth-child(2) {
           border-top: 1px solid #e7e7e7;
         }
+
+        .date-picker-wrapper {
+          justify-content: center;
+        }
       }
     }
   }
@@ -138,6 +142,7 @@ export default {
   @media screen and (max-width: 480px) {
     
     padding: 40px 25px;
+    height: calc(100% - 62px);
 
     .tabs {
       flex-direction: column;
@@ -147,6 +152,7 @@ export default {
         > h3 {
           text-align: left;
         }
+        
       }
     }
 

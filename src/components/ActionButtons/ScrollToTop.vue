@@ -49,7 +49,7 @@ export default {
   background-color: #84b4d3;
   bottom: 50px;
   right: 50px;
-  z-index: 1111;
+  z-index: 97;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
   cursor: pointer;
