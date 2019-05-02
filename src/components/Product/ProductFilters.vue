@@ -94,7 +94,7 @@ export default {
     display: none;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 960px) {
     position: fixed;
     opacity: 0;
     top: -100%;

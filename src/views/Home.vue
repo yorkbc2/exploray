@@ -7,7 +7,7 @@
     <app-intro-inline-slider/>
     <section class="section tour-section">
       <div class="container">
-        <h2 class="section__title">Ближайшие туры</h2>
+        <h2 class="section__title">Актуальные предложения</h2>
         <div class="row">
           <div class="col-md-6 col-sm-12 col-xs-12">
             <covered-block
@@ -98,7 +98,7 @@
     </section>
     <section class="section section--colored">
       <div class="container">
-        <h2 class="section__title">Регионы</h2>
+        <h2 class="section__title">Направления</h2>
         <app-default-slider
           :slides="[
           {

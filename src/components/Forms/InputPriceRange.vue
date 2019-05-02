@@ -1,6 +1,6 @@
 <template>
   <div class="price-range">
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between flex-wrap text-center">
       <input type="tel" disabled :value="minValue" class="input">
       <input type="tel" disabled :value="maxValue" class="input">
     </div>
@@ -96,6 +96,7 @@ export default {
     text-align: center;
     background-color: #f6f6f6;
     max-width: 120px;
+    margin-bottom: 10px;
   }
 }
 </style>

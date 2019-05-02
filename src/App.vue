@@ -185,10 +185,14 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 150px;
+  max-width: 200px;
+  margin-right: 15px;
+
+  @media screen and (max-width: 1080px) {
+    max-width: 125px;
+  }
 
   img {
-    width: 150px;
     max-width: 100%;
     height: auto;
   }
@@ -202,6 +206,9 @@ section {
   border-radius: 10px;
   height: 35px;
   width: 140px;
+  option {
+    color: #000;  
+  }
 }
 .notifications {
   position: absolute;
@@ -320,5 +327,15 @@ select.select {
   -moz-appearance: none;
   text-indent: 1px;
   text-overflow: "";
+}
+
+.container {
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    max-width: 95%;
+  }
+}
+
+.big-text {
+  font-size: 32px
 }
 </style>

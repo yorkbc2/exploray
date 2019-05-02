@@ -308,6 +308,7 @@ export default {
 
     > button {
       flex: 1;
+      max-height: 50px;
 
       &.card__compare {
         flex: none;

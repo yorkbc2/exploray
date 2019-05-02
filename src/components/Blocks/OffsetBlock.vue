@@ -1,5 +1,5 @@
 <template>
-  <div class="block-with-image">
+  <div :class="{'block-with-image': true, 'reversed': reversed}">
     <div class="block-with-image__img">
       <img :src="image" alt>
     </div>
@@ -18,7 +18,8 @@ export default {
   props: {
     header: String,
     image: String,
-    uppercased: Boolean
+    uppercased: Boolean,
+    reversed: Boolean
   }
 };
 </script>
@@ -39,7 +40,7 @@ export default {
   &__content {
     position: absolute;
     width: 500px;
-    padding: 25px 100px 25px 25px;
+    padding: 30px 100px 25px 25px;
     box-shadow: 2.5px 4.33px 18px 0px rgba(0, 0, 0, 0.2);
     background-color: #fff;
     right: 0px;
@@ -55,14 +56,41 @@ export default {
       }
     }
 
+    
+    .stars {
+      margin: 0;
+    }
+
+    h4 {
+      font-size: 16px;
+      font-weight: bolder;
+      margin-bottom: 10px;
+    }
+
+    a:not(.button) {
+      color: #0dba00;
+      text-decoration: underline;
+      font-weight: lighter;
+    }
+
+    a.button {
+      font-weight: lighter;
+      display: inline-block;
+      padding: 10px 30px;
+      &:hover {
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+
     &::after {
       content: "EXPLORAY";
       display: block;
       position: absolute;
-      top: -22px;
+      top: -21px;
       right: 1px;
       font-weight: bolder;
-      font-size: 58px;
+      font-size: 52px;
       color: #efefef;
     }
   }
@@ -100,6 +128,18 @@ export default {
           display: none;
         }
       }
+    }
+  }
+
+  &.reversed {
+    .block-with-image__img {
+      margin-left: auto;
+    }
+    .block-with-image__content {
+      right: auto;
+      left: 0px;
+      padding: 30px;
+
     }
   }
 }

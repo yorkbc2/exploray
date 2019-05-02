@@ -185,6 +185,24 @@ export default {
       }
     }
 
+    @media screen and (max-width: 1072px) and (min-width: 768px) {
+      form {
+        .input-group {
+
+          >div {
+            padding-left: 20px;
+            .icon {
+              height: 20px;
+              left: 5px;
+            }
+          }
+          input {
+            padding: 5px 10px 5px;
+          }
+        }
+      }
+    }
+
     @media screen and (max-width: 768px) {
       top: auto;
       transform: none;

@@ -1,7 +1,8 @@
 <template>
   <div class="default-slider">
-    <carousel :navigationEnabled="true" :perPageCustom="[[300, 1], [768, 5]]">
-      <slide v-for="(slide, index) in slides" :key="index">
+    <carousel :navigationEnabled="true" :perPageCustom="perPage || defaultPerPage">
+      <slot v-if="!slides" />
+      <slide v-else v-for="(slide, index) in slides" :key="index">
         <router-link
           :to="slide.url"
           class="default-slider-block"
@@ -24,7 +25,16 @@
 export default {
   name: "app-default-slider",
   props: {
-    slides: Array
+    slides: Array,
+    perPage: Array
+  },
+  data() {
+    return {
+      defaultPerPage: [[300, 1], [768, 5]]
+    }
+  },
+  mounted() {
+    console.log(this.perPage, this.perPage || this.defaultPerPage)
   }
 };
 </script>

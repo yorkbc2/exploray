@@ -1,9 +1,9 @@
 <template>
   <section>
-    <h2 class="section__title">Подпишитесь на новости</h2>
-    <p>Будь в курсе последних новинок, получай выгодные предложения</p>
+    <h2 class="section__title">Подпишись на новости</h2>
+    <p>Будь в курсе последних новинок и получай выгодные предложения</p>
     <form action class="input-button-group">
-      <input type="email" name="email" class="input" placeholder="Введите e-mail адрес">
+      <input type="email" name="email" class="input" placeholder="Введите Ваш e-mail адрес">
       <button class="form-button" type="submit">Подписаться</button>
     </form>
   </section>
