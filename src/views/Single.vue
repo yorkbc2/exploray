@@ -1,5 +1,131 @@
 <template>
   <div class="single">
+    <full-window-slider></full-window-slider>
+    <div class="block-line intro-slider-line">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5"></div>
+          <div class="col-md-7 block-line__row">
+            <div class="intro-slider-line__links">
+              <div>
+                <img src="/images/video.png" height="18px">&nbsp;&nbsp;
+                <a href="#">Посмотреть видео</a>
+              </div>
+              <div>
+                <img src="/images/pictures.png" height="18px">&nbsp;&nbsp;
+                <a href="#">Посмотреть фото</a>
+              </div>
+            </div>
+            <div>
+              <custom-select :values="[
+                'foobar'
+              ]"/>
+            </div>
+            <div>
+              <a href="#" class="button button--outlined button-white button--wide">Вопросы</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title section__title--left section__title--lighter">Описание тура</h2>
+        <div class="row">
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <ul class="check-list">
+              <li>
+                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                которые отвлекают.
+              </li>
+              <li>
+                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                которые отвлекают.
+              </li>
+              <li>
+                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                которые отвлекают.
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <ul class="check-list">
+              <li>
+                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                которые отвлекают.
+              </li>
+              <li>
+                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                которые отвлекают.
+              </li>
+              <li>
+                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                которые отвлекают.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <h2
+              class="section__title section__title--left section__title--lighter"
+            >Что включает тур?</h2>
+            <ul class="check-list">
+              <li>
+                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                которые отвлекают.
+              </li>
+              <li>
+                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                которые отвлекают.
+              </li>
+              <li>
+                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                которые отвлекают.
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <h2 class="section__title section__title--left section__title--lighter">
+              Что
+              <span>НЕ</span> включает тур?
+            </h2>
+            <ul class="check-list check-list--red">
+              <li>
+                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                которые отвлекают.
+              </li>
+              <li>
+                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                которые отвлекают.
+              </li>
+              <li>
+                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                которые отвлекают.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="section section--colored">
       <div class="container">
         <h2 class="section__title">Организаторы</h2>
@@ -29,24 +155,6 @@
         <toggler :items="['Фото', 'Видео']">
           <div class="toggler-item">
             <app-default-slider>
-              <slide>
-                <h2>foobar</h2>
-              </slide>
-              <slide>
-                <h2>foobar</h2>
-              </slide>
-              <slide>
-                <h2>foobar</h2>
-              </slide>
-              <slide>
-                <h2>foobar</h2>
-              </slide>
-              <slide>
-                <h2>foobar</h2>
-              </slide>
-              <slide>
-                <h2>foobar</h2>
-              </slide>
             </app-default-slider>
           </div>
           <div class="toggler-item">VIdeo</div>
@@ -68,13 +176,9 @@
         <offset-block header="Туда - обратно" image="/images/tour_way.jpg" :reversed="true">
           <p>Разнообразный и богатый опыт укрепление и развитие структуры влечет за собой процесс внедрения и модернизации существенных финансовых Разнообразный и богатый опыт укрепление и развитие структуры влечет за собой процесс внедрения и модернизации существенных финансовых.</p>
           <div class="d-flex">
-            <strong class="flex justify-content-center d-flex flex-column">
-              Что взять с собой:
-            </strong>
+            <strong class="flex justify-content-center d-flex flex-column">Что взять с собой:</strong>
             <div>
-              <a href="#" class="button button-green">
-                Личное снаряжение
-              </a>
+              <a href="#" class="button button-green">Личное снаряжение</a>
             </div>
           </div>
         </offset-block>
@@ -153,12 +257,14 @@
 
 <script>
 import ProductCard from "@/components/Product/ProductCard.vue";
-import TogglerVue from '../components/Blocks/Toggler.vue';
+import TogglerVue from "../components/Blocks/Toggler.vue";
+import FullWindowSliderVue from "../components/Sliders/FullWindowSlider.vue";
 export default {
   name: "single-page",
   components: {
     "product-card": ProductCard,
-    "toggler": TogglerVue
+    toggler: TogglerVue,
+    "full-window-slider": FullWindowSliderVue
   },
   data() {
     return {
@@ -176,3 +282,18 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.intro-slider-line {
+  &__links {
+    a {
+      display: inline-block;
+    }
+    > div {
+      &:first-child {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+</style>

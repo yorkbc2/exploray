@@ -1,6 +1,6 @@
 <template>
   <label class="d-flex select-wrapper">
-    <span class="d-flex flex-column justify-content-center">{{label}}</span>
+    <span class="d-flex flex-column justify-content-center" v-if="label">{{label}}</span>
     <select class="select" :placeholder="placeholder">
       <option
         v-for="(value, index) in values"

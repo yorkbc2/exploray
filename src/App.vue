@@ -63,7 +63,42 @@ export default {
 <style lang="scss">
 body {
   font-family: "Open Sans", sans-serif;
+
+  a {
+    color: #0dba00;
+    text-decoration: underline;
+    &:hover {
+      color: lighten(#0dba0d, 5%);
+    }
+  }
 }
+
+.block-line {
+  background-color: #0a6aa8;
+  padding: 25px 0;
+
+  &__row {  
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  a {
+    color: #fff;
+    font-weight: lighter;
+    font-size: 14px;
+    &:hover {
+      color: darken(#fff, 5%);
+    }
+  }
+}
+
 section {
   padding: 50px 0;
 
@@ -102,6 +137,15 @@ section {
       &::after {
         height: 1px;
         width: 36px;
+      }
+    }
+
+    &--lighter {
+      font-weight: 500;
+      padding-bottom: 25px;
+      margin-bottom: 25px;
+      &::after {
+        width: 32px;
       }
     }
   }
@@ -267,7 +311,9 @@ section {
   }
 }
 
-.button {
+.button,
+a.button {
+  display: inline-block;
   padding: 5px 30px;
   font-size: 16px;
   font-weight: bolder;
@@ -276,15 +322,13 @@ section {
   border: 1px solid transparent;
   border-radius: 50px;
   transition: all 0.3s ease-in-out;
+  text-decoration: none;
   cursor: pointer;
   outline: none;
-  &-block {
-    padding: 15px 10px;
-    border-radius: 10px;
-    font-size: 18px;
-  }
   &:hover {
     background-color: lighten(#0dba00, 5%);
+    color: #fff;
+    text-decoration: none;
   }
 
   &:focus {
@@ -303,9 +347,31 @@ section {
     }
   }
 
+  &--large {
+    padding: 12px 70px;
+    font-size: 18px;
+  }
+  
+  &--wide {
+    padding: 8px 60px;
+  }
+
+  &-white {
+    border-color: #fff;
+    color: #fff;
+    &:hover {
+      color: #000;
+      background-color: #fff;
+      border-color: #fff;
+    }
+  }
+
   &-block {
     display: block;
     width: 100%;
+    padding: 15px 10px;
+    border-radius: 10px;
+    font-size: 18px;
   }
 }
 
@@ -337,5 +403,46 @@ select.select {
 
 .big-text {
   font-size: 32px
+}
+
+.default-badge {
+  font-weight: lighter;
+  background-color: #0a6aa8;
+  color: #fff;
+  padding: 3px 13px;
+}
+
+ul.check-list {
+  margin: 0;
+  padding: 0;
+
+  li {
+    position: relative;
+    list-style: none;
+    padding-left: 35px;
+    margin-bottom: 25px;
+    font-weight: 300;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 20px;
+      height: 20px;
+      background-image: url('/images/check-blue.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &--red {
+    li {
+      &::before {
+        background-image: url('/images/check-red.png');
+      }
+    }
+  }
 }
 </style>
