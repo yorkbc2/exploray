@@ -30,12 +30,9 @@ export default {
   },
   data() {
     return {
-      defaultPerPage: [[768, 1], [1960, 5]]
+      defaultPerPage: [[320, 1], [769, 5]]
     }
   },
-  mounted() {
-    console.log(this.perPage, this.perPage || this.defaultPerPage)
-  }
 };
 </script>
 

@@ -25,6 +25,36 @@
     </section>
     <section class="section">
       <div class="container">
+        <h2 class="section__title">Фото и видео с места тура</h2>
+        <toggler :items="['Фото', 'Видео']">
+          <div class="toggler-item">
+            <app-default-slider>
+              <slide>
+                <h2>foobar</h2>
+              </slide>
+              <slide>
+                <h2>foobar</h2>
+              </slide>
+              <slide>
+                <h2>foobar</h2>
+              </slide>
+              <slide>
+                <h2>foobar</h2>
+              </slide>
+              <slide>
+                <h2>foobar</h2>
+              </slide>
+              <slide>
+                <h2>foobar</h2>
+              </slide>
+            </app-default-slider>
+          </div>
+          <div class="toggler-item">VIdeo</div>
+        </toggler>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
         <h2 class="section__title">Как добраться</h2>
         <offset-block header="Туда - обратно" image="/images/tour_way.jpg">
           <p>Разнообразный и богатый опыт укрепление и развитие структуры влечет за собой процесс внедрения и модернизации существенных финансовых.</p>
@@ -123,10 +153,12 @@
 
 <script>
 import ProductCard from "@/components/Product/ProductCard.vue";
+import TogglerVue from '../components/Blocks/Toggler.vue';
 export default {
   name: "single-page",
   components: {
-    "product-card": ProductCard
+    "product-card": ProductCard,
+    "toggler": TogglerVue
   },
   data() {
     return {
