@@ -69,7 +69,7 @@ export default {
   },
   data() {
     return {
-      isMobile: window.innerWidth <= 768,
+      isMobile: window.innerWidth < 768,
       added: this.data.added
     };
   },

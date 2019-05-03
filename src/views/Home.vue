@@ -184,6 +184,12 @@ export default {
     .row {
       margin: 0px;
     }
+
+    .row >  .col-md-6 {
+      width: 100%;
+      flex: none;
+      max-width: 100%;
+    }
   }
 }
 </style>

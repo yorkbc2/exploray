@@ -208,6 +208,11 @@ export default {
     }
     .footer__row {
       flex-direction: column-reverse;
+
+      > div {
+        width: 100%;
+        max-width: 100%;
+      }
     }
     .logo-container,
     .footer__menu {

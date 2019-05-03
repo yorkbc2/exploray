@@ -30,7 +30,7 @@ export default {
   },
   data() {
     return {
-      defaultPerPage: [[300, 1], [768, 5]]
+      defaultPerPage: [[768, 1], [1960, 5]]
     }
   },
   mounted() {
