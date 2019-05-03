@@ -28,12 +28,17 @@
         </div>
       </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-7">
+          <div class="single-subtitle">
+            <h3>Exploray</h3>
+            <p>Узнайте больше подробнoстей о туре на Камчатку без рюкзаков</p>
+          </div>
+        </div>
+      </div>
+    </div>
     <section class="section">
       <div class="container">
         <h2 class="section__title section__title--left section__title--lighter">Описание тура</h2>
@@ -154,8 +159,7 @@
         <h2 class="section__title">Фото и видео с места тура</h2>
         <toggler :items="['Фото', 'Видео']">
           <div class="toggler-item">
-            <app-default-slider>
-            </app-default-slider>
+            <app-default-slider></app-default-slider>
           </div>
           <div class="toggler-item">VIdeo</div>
         </toggler>
@@ -294,6 +298,37 @@ export default {
         margin-bottom: 10px;
       }
     }
+  }
+}
+
+.single-subtitle {
+  position: relative;
+  padding: 37px 0 20px;
+
+  h3 {
+    font-weight: 800;
+    color: #cacaca;
+    font-size: 36px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  p {
+    padding: 0;
+    margin: 15px 0;
+
+    color: #646464;
+    font-weight: 600;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 48px;
+    height: 1px;
+    background-color: #000;
+    left: 0;
+    bottom: 0;
   }
 }
 </style>

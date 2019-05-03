@@ -144,6 +144,9 @@ section {
       font-weight: 500;
       padding-bottom: 25px;
       margin-bottom: 25px;
+      span {
+        color: #af2727;
+      }
       &::after {
         width: 32px;
       }
