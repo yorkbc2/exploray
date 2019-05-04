@@ -328,7 +328,7 @@ export default {
       z-index: 113;
       bottom: 30px;
       right: 13%;
-      width: auto;
+      width: auto; 
     }
   }
 }
