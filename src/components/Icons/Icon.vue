@@ -2,8 +2,8 @@
   <img-to-svg
     v-if="src"
     :src="src"
-    :width="24"
-    :height="24"
+    :width="width || 24"
+    :height="height || 24"
     :fill="fill || '#fff'"
     :hoverFill="hoverFill || '#ececec'"
     :styles="styles"
@@ -15,7 +15,9 @@ export default {
   props: {
     name: String,
     fill: String,
-    hoverFill: String
+    hoverFill: String,
+    width: Number,
+    height: Number
   },
   data: () => ({
     icons: {
@@ -25,25 +27,31 @@ export default {
       search: "/icons/search.svg",
       libra: "/icons/libra.svg",
       squares: "/icons/squares.svg",
-      bars: "/icons/bars.svg"
+      bars: "/icons/bars.svg",
+      "zoom-out": "/icons/zoom-out.svg",
+      "arrow-down": "/icons/arrow-down.svg"
     },
     src: "",
     styles: {},
-    additionalStyles: { 
+    additionalStyles: {
       vk: {
         width: "34px",
         height: "34px",
         transform: "translateY(5px)"
       },
       squares: {
-          fill: "#a6a6a6",
-          width: "18px",
-          height: "18px"
+        fill: "#a6a6a6",
+        width: "18px",
+        height: "18px"
       },
       bars: {
-          fill: "#a6a6a6",
-          width: "22px",
-          height: "22px"
+        fill: "#a6a6a6",
+        width: "22px",
+        height: "22px"
+      },
+      "zoom-out": {
+        width: "15px",
+        height: "15px"
       }
     }
   }),

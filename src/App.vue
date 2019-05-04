@@ -448,4 +448,39 @@ ul.check-list {
     }
   }
 }
+
+.splitted-bottom {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+img {
+  max-width: 100%;
+}
+
+.inline-list {
+  display: flex;
+  margin: 0 0 15px;
+  padding: 0;
+
+  li {
+    position: relative;
+    list-style: none;
+    display: inline-block;
+    padding-left: 15px;
+    margin-right: 15px;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      left: 0px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #0a6aa8;
+      border-radius: 50%;
+    }
+  }
+}
 </style>

@@ -1,5 +1,8 @@
 <template>
   <div class="single">
+    <div class="single__place">
+      <i class="fa fa-map-marker"/> Камчатская долина, Россия
+    </div>
     <full-window-slider></full-window-slider>
     <div class="block-line intro-slider-line">
       <div class="container">
@@ -17,9 +20,23 @@
               </div>
             </div>
             <div>
-              <custom-select :values="[
-                'foobar'
-              ]"/>
+              <advanced-select
+                :options="[
+                {
+                  value: '23.04.19 - 30.04.19',
+                  description: '(Осталось 5 мест)'
+                },
+                {
+                  value: '23.04.19 - 30.04.19',
+                  description: '(Осталось 5 мест)'
+                },
+                {
+                  value: '23.04.19 - 30.04.19',
+                  description: '(Осталось 5 мест)'
+                }
+              ]"
+                placeholder="Даты и цены"
+              />
             </div>
             <div>
               <a href="#" class="button button--outlined button-white button--wide">Вопросы</a>
@@ -42,7 +59,7 @@
     <section class="section">
       <div class="container">
         <h2 class="section__title section__title--left section__title--lighter">Описание тура</h2>
-        <div class="row">
+        <div class="row splitted-bottom">
           <div class="col-md-6 col-sm-12 col-xs-12">
             <ul class="check-list">
               <li>
@@ -82,7 +99,7 @@
             </ul>
           </div>
         </div>
-        <div class="row">
+        <div class="row splitted-bottom">
           <div class="col-md-6 col-sm-12 col-xs-12">
             <h2
               class="section__title section__title--left section__title--lighter"
@@ -131,6 +148,26 @@
         </div>
       </div>
     </section>
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">Программа тура по дням</h2>
+        <div class="row">
+          <div class="col-md-5 col-sm-12 col-xs-12">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d90362.91521378355!2d34.03917345542132!3d44.94689809437293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40eadddedf991cc5%3A0x9c29422fbc780b40!2sSimferopol!5e0!3m2!1sen!2sua!4v1556966565652!5m2!1sen!2sua"
+              width="100%"
+              height="100%"
+              frameborder="0"
+              style="border:0"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="col-md-7 col-sm-12 col-xs-12">
+            <advanced-tabs />
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="section section--colored">
       <div class="container">
         <h2 class="section__title">Организаторы</h2>
@@ -159,9 +196,33 @@
         <h2 class="section__title">Фото и видео с места тура</h2>
         <toggler :items="['Фото', 'Видео']">
           <div class="toggler-item">
-            <app-default-slider></app-default-slider>
+            <app-default-slider class="photo-slider" :perPage="[[320, 1], [769, 4]]">
+              <slide v-for="(item, index) in photos" :key="index">
+                <div class="photo-slider__card">
+                  <img :src="item.image" alt>
+                  <div class="photo-slider__card-mask">
+                    <a :href="item.url" class="button button-white button--outlined">
+                      <icon name="zoom-out" hoverFill="#000"/>Просмотреть фото
+                    </a>
+                  </div>
+                </div>
+              </slide>
+            </app-default-slider>
           </div>
-          <div class="toggler-item">VIdeo</div>
+          <div class="toggler-item">
+            <app-default-slider class="photo-slider" :perPage="[[320, 1], [769, 4]]">
+              <slide v-for="(item, index) in videos" :key="index">
+                <div class="photo-slider__card">
+                  <img :src="item.image" alt>
+                  <div class="photo-slider__card-mask">
+                    <a :href="item.url" class="button button-white button--outlined">
+                      <icon name="zoom-out" hoverFill="#000"/>Просмотреть видео
+                    </a>
+                  </div>
+                </div>
+              </slide>
+            </app-default-slider>
+          </div>
         </toggler>
       </div>
     </section>
@@ -199,7 +260,6 @@
         </offset-block>
       </div>
     </section>
-
     <section class="section section--colored">
       <div class="container">
         <h2 class="section__title">Вопросы и ответы</h2>
@@ -233,16 +293,32 @@
         </div>
       </div>
     </section>
-
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">Отзывы наших клиентов</h2>
+        <app-default-slider :perPage="[[320, 1], [769, 3]]">
+          <slide v-for="(item, index) in reviews" :key="index">
+            <review-card
+              :image="item.image"
+              :name="item.name"
+              :content="item.content"
+              :tourName="item.tourName"
+            />
+          </slide>
+        </app-default-slider>
+      </div>
+    </section>
     <section class="section">
       <div class="container">
         <h2 class="section__title">Условия оплаты</h2>
         <offset-block
-          header="Следим за безопасностью"
+          header="Условия оплаты тура"
           image="/images/tour_payment.jpg"
           :reversed="true"
         >
           <p>Разнообразный и богатый опыт укрепление и развитие структуры влечет за собой процесс внедрения и модернизации существенных финансовых. Разнообразный и богатый опыт укрепление и развитие структуры влечет за собой процесс внедрения и модернизации существенных финансовых.</p>
+          <p>
+Мы предлагаем выгодные условия оплаты услуг.</p>
         </offset-block>
       </div>
     </section>
@@ -263,16 +339,94 @@
 import ProductCard from "@/components/Product/ProductCard.vue";
 import TogglerVue from "../components/Blocks/Toggler.vue";
 import FullWindowSliderVue from "../components/Sliders/FullWindowSlider.vue";
+import ReviewCardVue from "../components/Blocks/ReviewCard.vue";
+import AdvancedTabsVue from '../components/Blocks/AdvancedTabs.vue';
 export default {
   name: "single-page",
   components: {
     "product-card": ProductCard,
     toggler: TogglerVue,
-    "full-window-slider": FullWindowSliderVue
+    "full-window-slider": FullWindowSliderVue,
+    "review-card": ReviewCardVue,
+    "advanced-tabs": AdvancedTabsVue
   },
   data() {
     return {
-      data: null
+      data: null,
+      photos: [
+        {
+          image: "/images/tour_photo.jpg",
+          url: "#"
+        },
+        {
+          image: "/images/tour_photo.jpg",
+          url: "#"
+        },
+        {
+          image: "/images/tour_photo.jpg",
+          url: "#"
+        },
+        {
+          image: "/images/tour_photo.jpg",
+          url: "#"
+        },
+        {
+          image: "/images/tour_photo.jpg",
+          url: "#"
+        }
+      ],
+      videos: [
+        {
+          image: "/images/tour_video.jpg",
+          url: "#"
+        },
+        {
+          image: "/images/tour_video.jpg",
+          url: "#"
+        },
+        {
+          image: "/images/tour_video.jpg",
+          url: "#"
+        },
+        {
+          image: "/images/tour_video.jpg",
+          url: "#"
+        },
+        {
+          image: "/images/tour_video.jpg",
+          url: "#"
+        }
+      ],
+      reviews: [
+        {
+          image: "/images/review.png",
+          name: "Андрей Савицкий",
+          content:
+            "Провел отличный отпуск на Камчатке. Гид оказался квалифицированным специалистом. Всё очень достойно и интересно. Рекомендую!",
+          tourName: "Тур по Камчатке"
+        },
+        {
+          image: "/images/review.png",
+          name: "Андрей Савицкий",
+          content:
+            "Провел отличный отпуск на Камчатке. Гид оказался квалифицированным специалистом. Всё очень достойно и интересно. Рекомендую!",
+          tourName: "Тур по Камчатке"
+        },
+        {
+          image: "/images/review.png",
+          name: "Андрей Савицкий",
+          content:
+            "Провел отличный отпуск на Камчатке. Гид оказался квалифицированным специалистом. Всё очень достойно и интересно. Рекомендую!",
+          tourName: "Тур по Камчатке"
+        },
+        {
+          image: "/images/review.png",
+          name: "Андрей Савицкий",
+          content:
+            "Провел отличный отпуск на Камчатке. Гид оказался квалифицированным специалистом. Всё очень достойно и интересно. Рекомендую!",
+          tourName: "Тур по Камчатке"
+        }
+      ]
     };
   },
   methods: {
@@ -288,6 +442,28 @@ export default {
 </script>
 
 <style lang="scss">
+.single {
+  position: relative;
+
+  &__place {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    padding: 8px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: lighter;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 200;
+    i {
+      display: inline-block;
+      font-size: 20px;
+      margin-right: 10px;
+    }
+  }
+}
+
 .intro-slider-line {
   &__links {
     a {
@@ -329,6 +505,66 @@ export default {
     background-color: #000;
     left: 0;
     bottom: 0;
+  }
+}
+
+.photo-slider {
+  margin-top: 50px;
+
+  &__card {
+    width: 100%;
+    position: relative;
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    &-mask {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+
+      padding: 0 25px;
+
+      position: absolute;
+      top: 0px;
+      left: 0px;
+
+      background-color: rgba(0, 0, 0, 0.7);
+
+      text-align: center;
+
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+
+      a.button {
+        display: inline-flex;
+        justify-content: center;
+        padding: 12px 15px;
+
+        .svg-inserted {
+          display: inline-flex;
+          justify-content: center;
+          flex-direction: column;
+          margin-right: 10px;
+        }
+
+        &:hover {
+          .svg-inserted {
+            svg {
+              fill: #000 !important;
+            }
+          }
+        }
+      }
+    }
+    &:hover {
+      .photo-slider__card-mask {
+        opacity: 1;
+      }
+    }
   }
 }
 </style>
