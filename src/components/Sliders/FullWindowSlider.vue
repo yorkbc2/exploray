@@ -301,7 +301,7 @@ export default {
 
   .VueCarousel {
     &-dot {
-      transform: scale(1.1);
+      transform: scale(1.1)!important;
       outline: none;
       &--active {
         background-color: #0dba00 !important;
@@ -309,26 +309,26 @@ export default {
     }
     &-navigation {
       &-prev {
-        left: 12%;
+        left: 12%!important;
       }
       &-next {
-        right: 16%;
+        right: 16%!important;
       }
       @media screen and (max-width: 768px) {
         &-prev {
-          left: 5%;
+          left: 5%!important;
         }
         &-next {
-          right: 9%
+          right: 9%!important;
         }
-    }
+      }
     }
     &-pagination {
-      position: absolute;
-      z-index: 113;
-      bottom: 30px;
-      right: 13%;
-      width: auto; 
+      position: absolute!important;
+      z-index: 113!important;
+      bottom: 30px!important;
+      right: 13%!important;
+      width: auto!important;
     }
   }
 }
