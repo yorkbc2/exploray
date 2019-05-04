@@ -59,6 +59,7 @@ export default {
   max-width: 200px;
   color: #fff;
   align-items: center;
+  text-decoration: none;
   @media screen and (max-width: 768px) {
     max-width: 110px;
     margin: 0 auto;

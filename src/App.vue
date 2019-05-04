@@ -44,7 +44,8 @@ export default {
     };
     window.onload = () => {
       this.changeDevice(window.innerWidth);
-      this.isHomePage = this.$route.name === "home";
+      this.isHomePage =
+        this.$route.name === "home" || this.$route.name === "single-tour";
     };
   },
   watch: {
@@ -77,15 +78,28 @@ body {
   background-color: #0a6aa8;
   padding: 25px 0;
 
-  &__row {  
+  &__row {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     justify-content: space-between;
 
     > div {
       display: flex;
       flex-direction: column;
       justify-content: center;
+    }
+
+    @media screen and (max-width: 1024px) {
+      max-width: 40%;
+      flex: 1;
+      text-align: center;
+      flex-direction: column;
+      margin-left: auto;
+
+      .advanced-select,
+      .intro-slider-line__links {
+        margin: 0 auto 15px;
+      }
     }
   }
 
@@ -254,7 +268,7 @@ section {
   height: 35px;
   width: 140px;
   option {
-    color: #000;  
+    color: #000;
   }
 }
 .notifications {
@@ -354,9 +368,13 @@ a.button {
     padding: 12px 70px;
     font-size: 18px;
   }
-  
+
   &--wide {
     padding: 8px 60px;
+    @media screen and (max-width: 768px) {
+      padding: 8px 35px;
+      max-width: 200px;
+    }
   }
 
   &-white {
@@ -405,7 +423,7 @@ select.select {
 }
 
 .big-text {
-  font-size: 32px
+  font-size: 32px;
 }
 
 .default-badge {
@@ -433,7 +451,7 @@ ul.check-list {
       top: 0px;
       width: 20px;
       height: 20px;
-      background-image: url('/images/check-blue.png');
+      background-image: url("/images/check-blue.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -443,7 +461,7 @@ ul.check-list {
   &--red {
     li {
       &::before {
-        background-image: url('/images/check-red.png');
+        background-image: url("/images/check-red.png");
       }
     }
   }

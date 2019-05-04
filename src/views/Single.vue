@@ -6,7 +6,7 @@
     <full-window-slider></full-window-slider>
     <div class="block-line intro-slider-line">
       <div class="container">
-        <div class="row">
+        <div class="row intro-slider-line__row">
           <div class="col-md-5"></div>
           <div class="col-md-7 block-line__row">
             <div class="intro-slider-line__links">
@@ -21,6 +21,7 @@
             </div>
             <div>
               <advanced-select
+                :mobileReversed="true"
                 :options="[
                 {
                   value: '23.04.19 - 30.04.19',
@@ -46,7 +47,7 @@
       </div>
     </div>
     <div class="container">
-      <div class="row">
+      <div class="row intro-subtext__row">
         <div class="col-md-5"></div>
         <div class="col-md-7">
           <div class="single-subtitle">
@@ -59,7 +60,7 @@
     <section class="section">
       <div class="container">
         <h2 class="section__title section__title--left section__title--lighter">Описание тура</h2>
-        <div class="row splitted-bottom">
+        <div class="row about-row splitted-bottom">
           <div class="col-md-6 col-sm-12 col-xs-12">
             <ul class="check-list">
               <li>
@@ -99,7 +100,7 @@
             </ul>
           </div>
         </div>
-        <div class="row splitted-bottom">
+        <div class="row about-row splitted-bottom">
           <div class="col-md-6 col-sm-12 col-xs-12">
             <h2
               class="section__title section__title--left section__title--lighter"
@@ -151,7 +152,7 @@
     <section class="section">
       <div class="container">
         <h2 class="section__title">Программа тура по дням</h2>
-        <div class="row">
+        <div class="row program-row">
           <div class="col-md-5 col-sm-12 col-xs-12">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d90362.91521378355!2d34.03917345542132!3d44.94689809437293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40eadddedf991cc5%3A0x9c29422fbc780b40!2sSimferopol!5e0!3m2!1sen!2sua!4v1556966565652!5m2!1sen!2sua"
@@ -163,7 +164,7 @@
             ></iframe>
           </div>
           <div class="col-md-7 col-sm-12 col-xs-12">
-            <advanced-tabs />
+            <advanced-tabs/>
           </div>
         </div>
       </div>
@@ -174,10 +175,10 @@
         <offset-block :reversed="true" header="Организатор тура" image="/images/tour_org.jpg">
           <p>Официальный туроператор, работает с 2006 года. За это время мы провели тысячи сделок и подписали сотни контрактов на постоянное сотрудничество.</p>
           <div>
-            <h4>Рейтинг организатора</h4>
+            <h4 class="mobile-hide">Рейтинг организатора</h4>
             <div class="row">
               <div class="col-md-8">
-                <p>Рейтинг организатора расчитан на основании отзывов.</p>
+                <p class="mobile-hide">Рейтинг организатора расчитан на основании отзывов.</p>
                 <p>
                   <a href="#">Читать отзывы</a>
                 </p>
@@ -196,7 +197,7 @@
         <h2 class="section__title">Фото и видео с места тура</h2>
         <toggler :items="['Фото', 'Видео']">
           <div class="toggler-item">
-            <app-default-slider class="photo-slider" :perPage="[[320, 1], [769, 4]]">
+            <app-default-slider class="photo-slider" :perPage="[[320, 2], [1024, 4]]">
               <slide v-for="(item, index) in photos" :key="index">
                 <div class="photo-slider__card">
                   <img :src="item.image" alt>
@@ -210,7 +211,7 @@
             </app-default-slider>
           </div>
           <div class="toggler-item">
-            <app-default-slider class="photo-slider" :perPage="[[320, 1], [769, 4]]">
+            <app-default-slider class="photo-slider" :perPage="[[320, 2], [1024, 4]]">
               <slide v-for="(item, index) in videos" :key="index">
                 <div class="photo-slider__card">
                   <img :src="item.image" alt>
@@ -238,7 +239,11 @@
     <section class="section">
       <div class="container">
         <h2 class="section__title">Снаряжение</h2>
-        <offset-block header="Туда - обратно" image="/images/tour_way.jpg" :reversed="true">
+        <offset-block
+          header="Предоставляется снаряжение"
+          image="/images/tour_payment.jpg"
+          :reversed="true"
+        >
           <p>Разнообразный и богатый опыт укрепление и развитие структуры влечет за собой процесс внедрения и модернизации существенных финансовых Разнообразный и богатый опыт укрепление и развитие структуры влечет за собой процесс внедрения и модернизации существенных финансовых.</p>
           <div class="d-flex">
             <strong class="flex justify-content-center d-flex flex-column">Что взять с собой:</strong>
@@ -263,7 +268,7 @@
     <section class="section section--colored">
       <div class="container">
         <h2 class="section__title">Вопросы и ответы</h2>
-        <div class="row">
+        <div class="row qa-row">
           <div class="col-md-6 col-sm-12 col-xs-12">
             <card
               :title="'Есть ли у гида ружье или как решается вопрос с безопасностью, касаемо медведей?'"
@@ -277,7 +282,7 @@
             >Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание позиций, занимаемых участниками в отношении поставленных задач. Не следует, однако забывать, что постоянный количественный рост и сфера нашей.</card>
           </div>
         </div>
-        <div class="row">
+        <div class="row qa-row">
           <div class="col-md-6 col-sm-12 col-xs-12">
             <card
               :title="'Есть ли у гида ружье или как решается вопрос с безопасностью, касаемо медведей?'"
@@ -296,7 +301,7 @@
     <section class="section">
       <div class="container">
         <h2 class="section__title">Отзывы наших клиентов</h2>
-        <app-default-slider :perPage="[[320, 1], [769, 3]]">
+        <app-default-slider :perPage="[[320, 1], [1024, 3]]">
           <slide v-for="(item, index) in reviews" :key="index">
             <review-card
               :image="item.image"
@@ -317,15 +322,14 @@
           :reversed="true"
         >
           <p>Разнообразный и богатый опыт укрепление и развитие структуры влечет за собой процесс внедрения и модернизации существенных финансовых. Разнообразный и богатый опыт укрепление и развитие структуры влечет за собой процесс внедрения и модернизации существенных финансовых.</p>
-          <p>
-Мы предлагаем выгодные условия оплаты услуг.</p>
+          <p>Мы предлагаем выгодные условия оплаты услуг.</p>
         </offset-block>
       </div>
     </section>
     <section class="section section--colored">
       <div class="container">
         <h2 class="section__title">Интересные предложения</h2>
-        <app-default-slider :perPage="[[480, 1],[1024, 4]]">
+        <app-default-slider :perPage="[[320, 1], [480, 2], [1024, 4]]">
           <slide v-for="item in $store.getters.data" :key="item._id">
             <product-card :data="item"/>
           </slide>
@@ -340,7 +344,7 @@ import ProductCard from "@/components/Product/ProductCard.vue";
 import TogglerVue from "../components/Blocks/Toggler.vue";
 import FullWindowSliderVue from "../components/Sliders/FullWindowSlider.vue";
 import ReviewCardVue from "../components/Blocks/ReviewCard.vue";
-import AdvancedTabsVue from '../components/Blocks/AdvancedTabs.vue';
+import AdvancedTabsVue from "../components/Blocks/AdvancedTabs.vue";
 export default {
   name: "single-page",
   components: {
@@ -444,6 +448,9 @@ export default {
 <style lang="scss">
 .single {
   position: relative;
+  @media screen and (max-width: 768px) {
+    margin-top: 66px;
+  }
 
   &__place {
     position: absolute;
@@ -475,11 +482,23 @@ export default {
       }
     }
   }
+
+  .button,
+  .advanced-select {
+    @media screen and (max-width: 768px) {
+      align-self: center;
+      min-width: 200px;
+    }
+  }
 }
 
 .single-subtitle {
   position: relative;
   padding: 37px 0 20px;
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 30px;
+  }
 
   h3 {
     font-weight: 800;
@@ -505,6 +524,26 @@ export default {
     background-color: #000;
     left: 0;
     bottom: 0;
+  }
+}
+
+.row.intro-subtext__row {
+  .col-md-7 {
+    margin-left: auto;
+    max-width: 50%;
+
+    .single-subtitle {
+      h3 {
+        font-size: 24px;
+      }
+      p {
+        font-weight: lighter;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
   }
 }
 
@@ -565,6 +604,34 @@ export default {
         opacity: 1;
       }
     }
+  }
+}
+
+.qa-row,
+.program-row,
+.about-row {
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+
+    &.program-row {
+      flex-direction: column-reverse;
+
+      iframe {
+        height: 400px;
+        margin-top: 50px;
+      }
+    }
+
+    > div {
+      width: 100%;
+      max-width: 100%;
+      flex: none;
+    }
+  }
+}
+.mobile-hide {
+  @media screen and (max-width: 768px) {
+    display: none;
   }
 }
 </style>

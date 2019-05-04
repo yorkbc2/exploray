@@ -110,6 +110,8 @@ export default {
 
 <style lang="scss" scoped>
 .mobile-navbar {
+
+  z-index: 1000;
   &__search,
   &__social-list {
     @media screen and (max-width: 767px) {
@@ -132,6 +134,8 @@ export default {
     min-height: 62px;
 
     background-color: #0a6aa8;
+
+    z-index: 1001;
 
     .hamburger {
       border: 0px;
@@ -193,7 +197,7 @@ export default {
     width: 100%;
     padding: 15px 15px 30px;
     background-color: #0a6aa8;
-    z-index: 99;
+    z-index: 1002;
     transition: top 0.3s ease-in-out;
     text-align: center;
 

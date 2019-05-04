@@ -1,7 +1,38 @@
 <template>
   <div class="full-window-slider">
-    <carousel :perPage="1">
+    <carousel :perPage="1" :navigationEnabled="true">
       <slot name="content"/>
+      <slide
+        class="full-window-slider__slide"
+        style="background-image: url('/images/tour_bg.jpg');"
+      >
+        <div class="full-window-slider__slide-content">
+          <div class="container">
+            <h2 class="slide__title">Камчатский хит: тур без рюкзаков</h2>
+            <div class="row">
+              <div class="col-md-4 col-sm-12 col-xs-12">
+                <span class="slide__iconed-text">
+                  <img src="/images/vulcano.png"> 5 вулканов
+                </span>
+              </div>
+              <div class="col-md-4 col-sm-12 col-xs-12">
+                <span class="slide__iconed-text">
+                  <img src="/images/springs.png"> 3 гейзера
+                </span>
+              </div>
+              <div class="col-md-4 col-sm-12 col-xs-12">
+                <span class="slide__iconed-text">
+                  <img src="/images/bear.png"> Медведи
+                </span>
+              </div>
+            </div>
+            <p
+              class="slide__description"
+            >Живописная природа, горные хребты и море незабываемых впечатлений.</p>
+            <a href="#" class="button button-green button--large">Заказать</a>
+          </div>
+        </div>
+      </slide>
       <slide
         class="full-window-slider__slide"
         style="background-image: url('/images/tour_bg.jpg');"
@@ -143,6 +174,7 @@ export default {
   min-height: 640px;
 
   &__slide {
+    position: relative;
     min-height: 680px;
     background-size: cover;
     background-position: center;
@@ -157,6 +189,10 @@ export default {
       z-index: 15;
 
       color: #fff;
+
+      @media screen and (max-width: 768px) {
+        width: 600px;
+      }
 
       .slide__iconed-text {
         font-size: 20px;
@@ -196,7 +232,11 @@ export default {
     max-width: 450px;
     transform: translateY(50%);
     z-index: 113;
-    
+
+    @media screen and (max-width: 768px) {
+      max-width: 50%;
+      transform: translateY(80%);
+    }
 
     &-breads {
       padding: 4px 0;
@@ -232,7 +272,6 @@ export default {
         font-weight: 300;
         small {
           font-size: 12px;
-
         }
       }
     }
@@ -242,13 +281,12 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 15px;
- 
+
     h5 {
       font-weight: bold;
       font-size: 27px;
       margin-bottom: 0px;
     }
-
 
     .left {
       font-size: 16px;
@@ -258,6 +296,39 @@ export default {
       strong {
         font-size: 18px;
       }
+    }
+  }
+
+  .VueCarousel {
+    &-dot {
+      transform: scale(1.1);
+      outline: none;
+      &--active {
+        background-color: #0dba00 !important;
+      }
+    }
+    &-navigation {
+      &-prev {
+        left: 12%;
+      }
+      &-next {
+        right: 16%;
+      }
+      @media screen and (max-width: 768px) {
+        &-prev {
+          left: 5%;
+        }
+        &-next {
+          right: 9%
+        }
+    }
+    }
+    &-pagination {
+      position: absolute;
+      z-index: 113;
+      bottom: 30px;
+      right: 13%;
+      width: auto;
     }
   }
 }

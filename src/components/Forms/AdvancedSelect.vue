@@ -1,13 +1,15 @@
 <template>
-  <div :class="{'advanced-select': true, 'toggled': toggled}">
-    <span
-      class="advanced-select__current"
-      @click="toggle()"
-    >{{ placeholder | activeOptionLabel(activeOption) }} <icon name="arrow-down" fill="#000" hoverFill="#000" :width="13" :height="13" /></span>
+  <div
+    :class="{'advanced-select': true, 'toggled': toggled, 'advanced-select--reversed': reversed, 'advanced-select--mobile-reversed': mobileReversed}"
+  >
+    <span class="advanced-select__current" @click="toggle()">
+      {{ placeholder | activeOptionLabel(activeOption) }}
+      <icon name="arrow-down" fill="#000" hoverFill="#000" :width="13" :height="13"/>
+    </span>
     <ul class="advanced-select__dropdown" ref="dropdown" :style="{ display: 'none' }">
       <li v-for="(option, index) in options" :key="index" @click="onChange(option)">
         <span>{{ '' | activeOptionLabel(option) }}</span>
-        <small v-if="option.description">{{option.description}}</small> 
+        <small v-if="option.description">{{option.description}}</small>
       </li>
     </ul>
   </div>
@@ -17,6 +19,8 @@
 export default {
   props: {
     placeholder: String,
+    reversed: Boolean,
+    mobileReversed: Boolean,
     /**
      * Array of objects
      * {
@@ -38,7 +42,7 @@ export default {
       this.activeOption = option;
       this.toggle();
 
-      this.$emit('change', this.activeOption);
+      this.$emit("change", this.activeOption);
     },
     toggle() {
       if (this.toggled) {
@@ -59,6 +63,25 @@ export default {
 </script>
 
 <style lang="scss">
+@mixin advanced-select-reversed() {
+  color: #fff;
+  background-color: #0a6aa8;
+  border-radius: 50px;
+  border: 1px solid #fff;
+
+  .advanced-select__current {
+    font-weight: lighter;
+
+    svg {
+      fill: #fff !important;
+    }
+  }
+
+  .advanced-select__dropdown {
+    background-color: #0a6aa8;
+  }
+}
+
 .advanced-select {
   position: relative;
   width: 200px;
@@ -68,13 +91,23 @@ export default {
   transition: border-radius 0.2s ease-in-out;
   cursor: pointer;
 
+  &--reversed {
+    @include advanced-select-reversed();
+  }
+
+  @media screen and (max-width: 768px) {
+    &--mobile-reversed {
+      @include advanced-select-reversed();
+    }
+  }
+
   &.toggled {
     border-radius: 15px 15px 0 0;
 
     .advanced-select__current {
-        svg {
-            transform: scale(-1) translateY(50%);
-        }
+      svg {
+        transform: scale(-1) translateY(50%);
+      }
     }
   }
 
@@ -83,10 +116,10 @@ export default {
     padding: 9px 25px 9px;
 
     svg {
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
 

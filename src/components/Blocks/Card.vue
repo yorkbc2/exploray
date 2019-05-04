@@ -55,5 +55,9 @@ export default {
         right: 20px;
         color: #cfcfcf;
     }
+
+    @media screen and (max-width: 769px) {
+      padding-right: 60px;
+    }
 }
 </style>

@@ -215,6 +215,7 @@ export default {
       border-radius: 50px;
       height: 60px;
       transition: background-color 0.3s ease-in-out;
+      margin-bottom: 20px;
       cursor: pointer;
       &:hover {
         background-color: #f4f4f4;
