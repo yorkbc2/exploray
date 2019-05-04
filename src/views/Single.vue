@@ -528,7 +528,8 @@ export default {
 }
 
 .row.intro-subtext__row {
-  .col-md-7 {
+  @media screen and (max-width: 768px) {
+    .col-md-7 {
     margin-left: auto;
     max-width: 50%;
 
@@ -544,6 +545,7 @@ export default {
         display: none;
       }
     }
+  }
   }
 }
 
