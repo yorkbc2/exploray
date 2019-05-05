@@ -195,6 +195,12 @@ export default {
         margin-top: 5px;
         color: #838383;
       }
+
+      
+      @media screen and (max-width: 560px) {
+        font-size: 20px;
+        font-weight: 400;
+      }
     }
     .tab__content {
       padding-left: 80px;
@@ -213,7 +219,7 @@ export default {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      padding: 12px 20px 12px 80px;
+      padding: 12px 60px 12px 80px;
       background-color: #fff;
       border: 1px solid #e7e7e7;
       box-shadow: 2.5px 5.23px 7px 0px rgba(0, 0, 0, 0.2);
@@ -223,22 +229,38 @@ export default {
       transition: background-color 0.3s ease-in-out;
       margin-bottom: 20px;
       cursor: pointer;
+
+      @media screen and (max-width: 560px) {
+        justify-content: center;
+      }
+
       &:hover {
         background-color: #f4f4f4;
       }
 
+      &::after,
       &::before {
         content: "";
-        left: 20px;
-        top: 50%;
         position: absolute;
         display: block;
-        background-image: url("/images/hide.png");
-        width: 30px;
-        height: 25px;
         background-size: cover;
         background-position: center;
         transform: translateY(-50%);
+        top: 50%;
+      }
+
+      &::after {
+        background-image: url("/icons/arrow-down.svg");
+        width: 15px;
+        height: 15px;
+        right: 20px;
+      }
+
+      &::before {
+        left: 20px;
+        background-image: url("/images/hide.png");
+        width: 30px;
+        height: 25px;
       }
 
       > div {
@@ -271,6 +293,9 @@ export default {
         background-color: #f4f4f4;
         &::before {
           background-image: url("/images/show.png");
+        }
+        &::after {
+          transform: translateY(-50%) scale(-1);
         }
       }
     }

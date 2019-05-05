@@ -1,73 +1,84 @@
 <template>
   <div class="full-window-slider">
-    <carousel :perPage="1" :navigationEnabled="true">
-      <slot name="content"/>
-      <slide
-        class="full-window-slider__slide"
-        style="background-image: url('/images/tour_bg.jpg');"
-      >
-        <div class="full-window-slider__slide-content">
-          <div class="container">
-            <h2 class="slide__title">Камчатский хит: тур без рюкзаков</h2>
-            <div class="row">
-              <div class="col-md-4 col-sm-12 col-xs-12">
-                <span class="slide__iconed-text">
-                  <img src="/images/vulcano.png"> 5 вулканов
-                </span>
+    <div class="full-window-slider-wrapper">
+      <carousel :perPage="1" :navigationEnabled="true">
+        <slot name="content"/>
+        <slide
+          class="full-window-slider__slide"
+          style="background-image: url('/images/tour_bg.jpg');"
+        >
+          <div class="full-window-slider__slide-content">
+            <div class="container">
+              <h2 class="slide__title">Камчатский хит: тур без рюкзаков</h2>
+              <div class="row">
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                  <span class="slide__iconed-text">
+                    <img src="/images/vulcano.png"> 5 вулканов
+                  </span>
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                  <span class="slide__iconed-text">
+                    <img src="/images/springs.png"> 3 гейзера
+                  </span>
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                  <span class="slide__iconed-text">
+                    <img src="/images/bear.png"> Медведи
+                  </span>
+                </div>
               </div>
-              <div class="col-md-4 col-sm-12 col-xs-12">
-                <span class="slide__iconed-text">
-                  <img src="/images/springs.png"> 3 гейзера
-                </span>
-              </div>
-              <div class="col-md-4 col-sm-12 col-xs-12">
-                <span class="slide__iconed-text">
-                  <img src="/images/bear.png"> Медведи
-                </span>
-              </div>
+              <p
+                class="slide__description"
+              >Живописная природа, горные хребты и море незабываемых впечатлений.</p>
+              <a href="#" class="button button-green button--large">Заказать</a>
             </div>
-            <p
-              class="slide__description"
-            >Живописная природа, горные хребты и море незабываемых впечатлений.</p>
-            <a href="#" class="button button-green button--large">Заказать</a>
           </div>
-        </div>
-      </slide>
-      <slide
-        class="full-window-slider__slide"
-        style="background-image: url('/images/tour_bg.jpg');"
-      >
-        <div class="full-window-slider__slide-content">
-          <div class="container">
-            <h2 class="slide__title">Камчатский хит: тур без рюкзаков</h2>
-            <div class="row">
-              <div class="col-md-4 col-sm-12 col-xs-12">
-                <span class="slide__iconed-text">
-                  <img src="/images/vulcano.png"> 5 вулканов
-                </span>
+        </slide>
+        <slide
+          class="full-window-slider__slide"
+          style="background-image: url('/images/tour_bg.jpg');"
+        >
+          <div class="full-window-slider__slide-content">
+            <div class="container">
+              <h2 class="slide__title">Камчатский хит: тур без рюкзаков</h2>
+              <div class="row">
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                  <span class="slide__iconed-text">
+                    <img src="/images/vulcano.png"> 5 вулканов
+                  </span>
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                  <span class="slide__iconed-text">
+                    <img src="/images/springs.png"> 3 гейзера
+                  </span>
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                  <span class="slide__iconed-text">
+                    <img src="/images/bear.png"> Медведи
+                  </span>
+                </div>
               </div>
-              <div class="col-md-4 col-sm-12 col-xs-12">
-                <span class="slide__iconed-text">
-                  <img src="/images/springs.png"> 3 гейзера
-                </span>
-              </div>
-              <div class="col-md-4 col-sm-12 col-xs-12">
-                <span class="slide__iconed-text">
-                  <img src="/images/bear.png"> Медведи
-                </span>
-              </div>
+              <p
+                class="slide__description"
+              >Живописная природа, горные хребты и море незабываемых впечатлений.</p>
+              <a href="#" class="button button-green button--large">Заказать</a>
             </div>
-            <p
-              class="slide__description"
-            >Живописная природа, горные хребты и море незабываемых впечатлений.</p>
-            <a href="#" class="button button-green button--large">Заказать</a>
           </div>
-        </div>
-      </slide>
-    </carousel>
+        </slide>
+      </carousel>
+      <div class="full-window-slider__mobile-breads">
+        <breadcrumbs
+          :path="{
+                '/': 'Главная',
+                '/tours': 'Путешествия',
+                '/tour/1': 'Камчатка'
+            }"
+        />
+      </div>
+    </div>
     <div class="container full-window-slider__card-wrapper">
       <div class="full-window-slider__card">
-        <div class="full-window-slider__card-breads">
+        <div class="full-window-slider__card-breads mobile-hide">
           <breadcrumbs
             :path="{
                 '/': 'Главная',
@@ -183,6 +194,21 @@ export default {
     }
   }
 
+  &-wrapper {
+    position: relative; 
+  }
+
+  &__mobile-breads {
+    display: none;
+    @media screen and (max-width: 560px) {
+      bottom: 90px;
+      left: 45px;
+      right: 45px;
+      position: absolute;
+      display: block;
+    }
+  }
+
   &__slide {
     position: relative;
     min-height: 680px;
@@ -203,8 +229,17 @@ export default {
       @media screen and (max-width: 768px) {
         width: 600px;
       }
+      @media screen and (max-width: 600px) {
+        width: 100%;
+        padding: 0 25px;
+
+        .button {
+          width: 100%;
+        }
+      }
 
       .slide__iconed-text {
+        display: inline-block;
         font-size: 20px;
         vertical-align: middle;
         img {
@@ -214,18 +249,31 @@ export default {
           vertical-align: middle;
           margin-right: 10px;
         }
+
+        @media screen and (max-width: 560px) {
+          margin-bottom: 10px;
+        }
       }
 
       .slide__title {
         font-size: 36px;
         font-weight: bolder;
         margin-bottom: 40px;
+
+        @media screen and (max-width: 560px) {
+          font-size: 32px;
+        }
       }
 
       .slide__description {
         font-size: 16px;
         max-width: 400px;
         margin: 20px auto 50px;
+
+        @media screen and (max-width: 560px) {
+          font-size: 20px;
+          font-weight: lighter;
+        }
       }
     }
   }
@@ -250,7 +298,7 @@ export default {
 
     @media screen and (max-width: 560px) {
       max-width: 100%;
-      position: relative;
+      position: static;
       transform: none;
       &-body {
         box-shadow: none;

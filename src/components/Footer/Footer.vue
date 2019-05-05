@@ -44,8 +44,12 @@
                   },
                   {
                     value: 'English'
+                  },
+                  {
+                    value: 'Украинский'
                   }
                 ]"
+              :top="true"
             />
           </div>
           <div class="footer__links">
@@ -86,8 +90,12 @@
                   },
                   {
                     value: 'English'
+                  },
+                  {
+                    value: 'Украинский'
                   }
                 ]"
+                :top="true"
               />
             </div>
           </div>

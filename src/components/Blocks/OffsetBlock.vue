@@ -104,6 +104,15 @@ export default {
   }
   @media screen and (max-width: 560px) {
     flex-direction: column;
+    .d-flex {
+      flex-direction: column;
+      a.button {
+        width: 100%;
+        margin-top: 15px;
+        font-weight: 500;
+        text-align: center;
+      }
+    }
     &__img {
       display: none;
     }
@@ -113,7 +122,7 @@ export default {
       transform: none;
       box-shadow: none;
       width: 100%;
-      padding: 0px;
+      padding: 10px;
       background-color: transparent;
 
       &::after {
@@ -124,8 +133,7 @@ export default {
       }
 
       h3 {
-        text-transform: uppercase;
-        margin-bottom: 10px;
+        margin-bottom: 25px;
         padding-bottom: 0px;
         &::after {
           display: none;
@@ -143,6 +151,9 @@ export default {
       left: 0px;
       padding: 30px;
 
+      @media screen and (max-width: 560px) {
+        padding: 10px;
+      }
     }
   }
 }

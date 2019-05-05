@@ -470,6 +470,9 @@ export default {
   @media screen and (max-width: 768px) {
     margin-top: 66px;
   }
+  @media screen and (max-width: 560px) {
+    margin-top: 62px;
+  }
 
   &__place {
     position: absolute;

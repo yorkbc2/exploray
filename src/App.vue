@@ -137,15 +137,6 @@ section {
       transform: translateX(-50%);
     }
 
-    &--left {
-      text-align: left;
-
-      &::after {
-        left: 0px;
-        transform: none;
-      }
-    }
-
     &--uppercased {
       padding-bottom: 25px;
       margin-bottom: 25px;
@@ -167,6 +158,15 @@ section {
         width: 32px;
       }
     }
+
+    &--left {
+      text-align: left;
+
+      &::after {
+        left: 0px;
+        transform: none;
+      }
+    }
   }
 
   &.section {
@@ -179,6 +179,14 @@ section {
     padding: 20px 0;
     .section__title {
       font-size: 24px;
+    }
+  }
+
+  @media screen and (max-width: 560px) {
+    .section__title {
+      &--left {
+        font-size: 20px;
+      }
     }
   }
 }
@@ -518,7 +526,7 @@ img {
 
 .mobile-hide {
   @media screen and (max-width: 560px) {
-    display: none!important;
+    display: none !important;
   }
 }
 </style>

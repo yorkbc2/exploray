@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="{'advanced-select': true, 'toggled': toggled, 'advanced-select--reversed': reversed, 'advanced-select--mobile-reversed': mobileReversed}"
+    :class="{'advanced-select': true, 'toggled': toggled, 'advanced-select--reversed': reversed, 'advanced-select--mobile-reversed': mobileReversed, 'advanced-select--to-top': top}"
   >
     <span class="advanced-select__current" @click="toggle()">
       {{ placeholder | activeOptionLabel(activeOption) }}
@@ -21,6 +21,7 @@ export default {
     placeholder: String,
     reversed: Boolean,
     mobileReversed: Boolean,
+    top: Boolean,
     /**
      * Array of objects
      * {
@@ -147,8 +148,27 @@ export default {
       border-top: 1px solid #e7e7e7;
       list-style: none;
       padding: 8px 3px 8px 3px;
+      text-align: center;
       span {
         display: block;
+      }
+    }
+  }
+
+  &--to-top {
+    &.toggled {
+      border-radius: 0 0 15px 15px;
+    }
+    .advanced-select__dropdown {
+      top: auto;
+      bottom: 100%;
+
+      border-radius: 15px 15px 0 0;
+      box-shadow: 2.5px -6.23px 7px 0px rgba(0, 0, 0, 0.2);
+
+      li {
+        border-top: 0px;
+        border-bottom: 1px solid #e7e7e7;
       }
     }
   }
