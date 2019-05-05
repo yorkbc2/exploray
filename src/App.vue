@@ -77,7 +77,6 @@ body {
 .block-line {
   background-color: #0a6aa8;
   padding: 25px 0;
-
   &__row {
     display: flex;
     flex-direction: row;
@@ -100,6 +99,9 @@ body {
       .intro-slider-line__links {
         margin: 0 auto 15px;
       }
+    }
+    @media screen and (max-width: 560px) {
+      max-width: 100%;
     }
   }
 
@@ -364,6 +366,10 @@ a.button {
     }
   }
 
+  &--rect {
+    border-radius: 15px;
+  }
+
   &--large {
     padding: 12px 70px;
     font-size: 18px;
@@ -499,6 +505,20 @@ img {
       background-color: #0a6aa8;
       border-radius: 50%;
     }
+  }
+
+  @media screen and (max-width: 560px) {
+    flex-direction: column;
+    li {
+      margin-bottom: 10px;
+      color: #000;
+    }
+  }
+}
+
+.mobile-hide {
+  @media screen and (max-width: 560px) {
+    display: none!important;
   }
 }
 </style>

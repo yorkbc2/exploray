@@ -7,16 +7,58 @@
       </h3>
       <div class="tab__panel">
         <div>1 день</div>
-        <div>
+        <div class="mobile-hide">
           <img src="/images/map.png" alt class="tab__panel-icon">
           <span>10 часов,</span>
           <span>24 км пути</span>
         </div>
-        <div>
+        <div class="mobile-hide">
           <img src="/images/bed.png" alt class="tab__panel-icon">
           Гостиница
         </div>
-        <div>
+        <div class="mobile-hide">
+          <img src="/images/eating.png" alt class="tab__panel-icon">
+          Не включено
+        </div>
+      </div>
+      <div class="tab__content">
+        <p>Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание позиций, занимаемых участниками в отношении поставленных задач. Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание систем массового участия.</p>
+        <ul class="inline-list">
+          <li>2 человека в палатке</li>
+          <li>Туалет отсутствует</li>
+          <li>Дикая природа</li>
+        </ul>
+        <div class="row">
+          <div class="col-md-4 col-sm-12 col-xs-12">
+            <img src="/images/tour_video.jpg">
+          </div>
+          <div class="col-md-4 col-sm-12 col-xs-12">
+            <img src="/images/tour_video.jpg">
+          </div>
+          <div class="col-md-4 col-sm-12 col-xs-12">
+            <img src="/images/tour_video.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="advanced-tabs__tab">
+      <h3 class="tab__subtitle">
+        Свободное время, Трансфер
+        <small>Первая прогулка по городу</small>
+      </h3>
+      <div class="tab__panel">
+        <div>1 день</div>
+        <div class="mobile-hide">
+          <img src="/images/map.png" alt class="tab__panel-icon">
+          <span>10 часов,</span>
+          <span>24 км пути</span>
+        </div>
+        <div class="mobile-hide">
+          <img src="/images/bed.png" alt class="tab__panel-icon">
+          Гостиница
+        </div>
+        <div class="mobile-hide">
           <img src="/images/eating.png" alt class="tab__panel-icon">
           Не включено
         </div>
@@ -48,57 +90,16 @@
       </h3>
       <div class="tab__panel">
         <div>1 день</div>
-        <div>
+        <div class="mobile-hide">
           <img src="/images/map.png" alt class="tab__panel-icon">
-          10 часов,
-          24 км пути
+          <span>10 часов,</span>
+          <span>24 км пути</span>
         </div>
-        <div>
+        <div class="mobile-hide">
           <img src="/images/bed.png" alt class="tab__panel-icon">
           Гостиница
         </div>
-        <div>
-          <img src="/images/eating.png" alt class="tab__panel-icon">
-          Не включено
-        </div>
-      </div>
-      <div class="tab__content">
-        <p>Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание позиций, занимаемых участниками в отношении поставленных задач. Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание систем массового участия.</p>
-        <ul class="inline-list">
-          <li>2 человека в палатке</li>
-          <li>Туалет отсутствует</li>
-          <li>Дикая природа</li>
-        </ul>
-        <div class="row">
-          <div class="col-md-4 col-sm-12 col-xs-12">
-            <img src="/images/tour_video.jpg">
-          </div>
-          <div class="col-md-4 col-sm-12 col-xs-12">
-            <img src="/images/tour_video.jpg">
-          </div>
-          <div class="col-md-4 col-sm-12 col-xs-12">
-            <img src="/images/tour_video.jpg">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="advanced-tabs__tab">
-      <h3 class="tab__subtitle">
-        Свободное время, Трансфер
-        <small>Первая прогулка по городу</small>
-      </h3>
-      <div class="tab__panel">
-        <div>1 день</div>
-        <div>
-          <img src="/images/map.png" alt class="tab__panel-icon">
-          10 часов,
-          24 км пути
-        </div>
-        <div>
-          <img src="/images/bed.png" alt class="tab__panel-icon">
-          Гостиница
-        </div>
-        <div>
+        <div class="mobile-hide">
           <img src="/images/eating.png" alt class="tab__panel-icon">
           Не включено
         </div>
@@ -147,6 +148,7 @@ export default {
           parent = el.parents(".advanced-tabs__tab"),
           content = parent.find(".tab__content");
         if (this.activeTab !== null && this.activeTab === i) {
+          this.activeTab = null;
           content.slideUp(300);
           parent.removeClass("toggled");
           return;
@@ -200,6 +202,10 @@ export default {
 
       p {
         font-size: 14px;
+      }
+
+      img {
+        margin-bottom: 15px;
       }
     }
     .tab__panel {

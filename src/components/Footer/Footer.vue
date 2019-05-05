@@ -36,10 +36,18 @@
               }
           ]"
           />
-          <select name="language" class="footer__language language-select mobile-select">
-            <option value="Русский" selected>Русский</option>
-            <option value="English">English</option>
-          </select>
+          <div class="footer__language mobile-select">
+            <advanced-select
+              :options="[
+                  {
+                    value: 'Русский'
+                  },
+                  {
+                    value: 'English'
+                  }
+                ]"
+            />
+          </div>
           <div class="footer__links">
             <ul>
               <li>
@@ -70,10 +78,18 @@
               БЦ "Аврора" 004109,
               <br>Санкт-Петербург, Россия
             </p>
-            <select name="language" class="footer__language language-select">
-              <option value="Русский" selected>Русский</option>
-              <option value="English">English</option>
-            </select>
+            <div class="footer__language">
+              <advanced-select
+                :options="[
+                  {
+                    value: 'Русский'
+                  },
+                  {
+                    value: 'English'
+                  }
+                ]"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -190,8 +206,6 @@ export default {
   }
   .mobile-select {
     display: none;
-    width: 170px;
-    height: 40px;
   }
   @media screen and (max-width: 768px) {
     text-align: center;

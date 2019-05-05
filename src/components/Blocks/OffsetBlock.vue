@@ -48,6 +48,8 @@ export default {
     top: 50%;
     transform: translateY(-50%);
 
+    
+
     h3 {
       padding-bottom: 20px;
       margin-bottom: 20px;
@@ -112,6 +114,7 @@ export default {
       box-shadow: none;
       width: 100%;
       padding: 0px;
+      background-color: transparent;
 
       &::after {
         position: static;

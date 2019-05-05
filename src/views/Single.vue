@@ -12,11 +12,11 @@
             <div class="intro-slider-line__links">
               <div>
                 <img src="/images/video.png" height="18px">&nbsp;&nbsp;
-                <a href="#">Посмотреть видео</a>
+                <a href="#" @click="slideToToggler($event, 1)">Посмотреть видео</a>
               </div>
               <div>
                 <img src="/images/pictures.png" height="18px">&nbsp;&nbsp;
-                <a href="#">Посмотреть фото</a>
+                <a href="#" @click="slideToToggler($event, 0)">Посмотреть фото</a>
               </div>
             </div>
             <div>
@@ -40,7 +40,7 @@
               />
             </div>
             <div>
-              <a href="#" class="button button--outlined button-white button--wide">Вопросы</a>
+              <a href="#" class="button button--outlined button-white button--wide button--rect">Вопросы</a>
             </div>
           </div>
         </div>
@@ -151,7 +151,7 @@
     </section>
     <section class="section">
       <div class="container">
-        <h2 class="section__title">Программа тура по дням</h2>
+        <h2 class="section__title">Программа</h2>
         <div class="row program-row">
           <div class="col-md-5 col-sm-12 col-xs-12">
             <iframe
@@ -171,14 +171,12 @@
     </section>
     <section class="section section--colored">
       <div class="container">
-        <h2 class="section__title">Организаторы</h2>
+        <h2 class="section__title">Автор</h2>
         <offset-block :reversed="true" header="Организатор тура" image="/images/tour_org.jpg">
           <p>Официальный туроператор, работает с 2006 года. За это время мы провели тысячи сделок и подписали сотни контрактов на постоянное сотрудничество.</p>
           <div>
-            <h4 class="mobile-hide">Рейтинг организатора</h4>
             <div class="row">
               <div class="col-md-8">
-                <p class="mobile-hide">Рейтинг организатора расчитан на основании отзывов.</p>
                 <p>
                   <a href="#">Читать отзывы</a>
                 </p>
@@ -192,12 +190,12 @@
         </offset-block>
       </div>
     </section>
-    <section class="section">
+    <section class="section" id="photo-video-slider">
       <div class="container">
-        <h2 class="section__title">Фото и видео с места тура</h2>
-        <toggler :items="['Фото', 'Видео']">
+        <h2 class="section__title">Фото и видео</h2>
+        <toggler ref="toggler" :items="['Фото', 'Видео']">
           <div class="toggler-item">
-            <app-default-slider class="photo-slider" :perPage="[[320, 2], [1024, 4]]">
+            <app-default-slider class="photo-slider" :perPage="[[320, 1], [570, 2], [1024, 4]]">
               <slide v-for="(item, index) in photos" :key="index">
                 <div class="photo-slider__card">
                   <img :src="item.image" alt>
@@ -300,7 +298,7 @@
     </section>
     <section class="section">
       <div class="container">
-        <h2 class="section__title">Отзывы наших клиентов</h2>
+        <h2 class="section__title">Отзывы</h2>
         <app-default-slider :perPage="[[320, 1], [1024, 3]]">
           <slide v-for="(item, index) in reviews" :key="index">
             <review-card
@@ -331,7 +329,7 @@
         <h2 class="section__title">Интересные предложения</h2>
         <app-default-slider :perPage="[[320, 1], [480, 2], [1024, 4]]">
           <slide v-for="item in $store.getters.data" :key="item._id">
-            <product-card :data="item"/>
+            <product-card :data="item" :fixedWidth="true"/>
           </slide>
         </app-default-slider>
       </div>
@@ -436,6 +434,27 @@ export default {
   methods: {
     getData(_id) {
       this.data = this.$store.getters.data.filter(i => i._id === _id)[0];
+    },
+    slideTo(selector) {
+      if (jQuery) {
+        const target = jQuery(selector);
+        return new Promise(resolve => {
+          jQuery("html, body").animate(
+            {
+              scrollTop: target.offset().top
+            },
+            300,
+            () => resolve()
+          );
+        });
+      }
+    },
+    slideToToggler(e, index = 0) {
+      e.preventDefault();
+      this.slideTo('#photo-video-slider')
+        .then(() => {
+          this.$refs.toggler.toggle(index);
+        });
     }
   },
   mounted() {
@@ -483,11 +502,20 @@ export default {
     }
   }
 
+  &__row {
+    @media screen and (max-width: 560px) {
+      padding: 0 10px;
+    }
+  }
+
   .button,
   .advanced-select {
     @media screen and (max-width: 768px) {
       align-self: center;
       min-width: 200px;
+    }
+    @media screen and (max-width: 560px) {
+      min-width: 100%;
     }
   }
 }
@@ -497,6 +525,10 @@ export default {
   padding: 37px 0 20px;
 
   @media screen and (max-width: 768px) {
+    margin-bottom: 30px;
+  }
+
+  @media screen and (max-width: 560px) {
     margin-bottom: 30px;
   }
 
@@ -530,31 +562,63 @@ export default {
 .row.intro-subtext__row {
   @media screen and (max-width: 768px) {
     .col-md-7 {
-    margin-left: auto;
-    max-width: 50%;
+      margin-left: auto;
+      max-width: 50%;
 
-    .single-subtitle {
-      h3 {
-        font-size: 24px;
-      }
-      p {
-        font-weight: lighter;
-      }
+      .single-subtitle {
+        h3 {
+          font-size: 24px;
+        }
+        p {
+          font-weight: lighter;
+        }
 
-      &::after {
-        display: none;
+        &::after {
+          display: none;
+        }
       }
     }
   }
+  @media screen and (max-width: 560px) {
+    .col-md-7 {
+      max-width: 100%;
+      padding: 0 25px;
+
+      .single-subtitle {
+        h3 {
+          font-size: 48px;
+        }
+        p {
+          font-size: 18px;
+          font-weight: lighter;
+        }
+
+        &::after {
+          display: none;
+        }
+      }
+    }
   }
 }
 
 .photo-slider {
   margin-top: 50px;
 
+  .VueCarousel {
+    &-navigation {
+      &-button {
+        top: 30% !important;
+      }
+    }
+  }
+
   &__card {
     width: 100%;
     position: relative;
+    @media screen and (max-width: 560px) {
+      max-width: 250px;
+      margin: 0 auto;
+    }
     img {
       width: 100%;
       height: auto;

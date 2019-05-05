@@ -65,7 +65,7 @@
         </div>
       </slide>
     </carousel>
-    <div class="container">
+    <div class="container full-window-slider__card-wrapper">
       <div class="full-window-slider__card">
         <div class="full-window-slider__card-breads">
           <breadcrumbs
@@ -81,7 +81,6 @@
           <div class="full-window-slider-card__row">
             <div class="left">
               Размер группы
-              <br>
               <small>Осталось 12 мест из 15</small>
             </div>
             <div class="right">
@@ -106,32 +105,37 @@
           <div class="full-window-slider-card__row">
             <div class="left">
               Сложность
-              <br>
               <small>Новичкам, тур без рюкзаков</small>
             </div>
             <div class="right">
-              <app-stars :stars="3"/>
+              <app-stars :stars="3" :big="true"/>
             </div>
           </div>
 
           <div class="full-window-slider-card__row">
             <div class="left">Проживание</div>
             <div class="right">
-              <strong>4 - 20 человек</strong>
+              <div class="image-list">
+                <span>
+                  <img src="/images/bed.png" height="24px">
+                </span>
+                <span>
+                  <img src="/images/tent.png" height="28px">
+                </span>
+              </div>
             </div>
           </div>
 
           <div class="full-window-slider-card__row">
             <div class="left">
               Рейтинг
-              <br>
               <small>
                 На основании
                 <a href="#">отзывов</a>
               </small>
             </div>
             <div class="right">
-              <app-stars :stars="3"/>
+              <app-stars :stars="3" :big="true"/>
               <div class="text-center">
                 <strong>3/5</strong>
               </div>
@@ -173,6 +177,12 @@ export default {
 .full-window-slider {
   min-height: 640px;
 
+  .full-window-slider__card-wrapper {
+    @media screen and (max-width: 560px) {
+      padding: 0px;
+    }
+  }
+
   &__slide {
     position: relative;
     min-height: 680px;
@@ -182,7 +192,7 @@ export default {
 
     &-content {
       position: absolute;
-      top: 50%;
+      top: 45%;
       left: 50%;
       transform: translateY(-50%) translateX(-50%);
       text-align: center;
@@ -230,12 +240,25 @@ export default {
     bottom: 0px;
     width: 100%;
     max-width: 450px;
-    transform: translateY(50%);
+    transform: translateY(55%);
     z-index: 113;
 
     @media screen and (max-width: 768px) {
       max-width: 50%;
       transform: translateY(80%);
+    }
+
+    @media screen and (max-width: 560px) {
+      max-width: 100%;
+      position: relative;
+      transform: none;
+      &-body {
+        box-shadow: none;
+      }
+
+      &-footer {
+        box-shadow: none;
+      }
     }
 
     &-breads {
@@ -255,6 +278,18 @@ export default {
       background: #fff;
       padding: 20px 25px 15px;
       box-shadow: 2.5px -10px 7px 0px rgba(0, 0, 0, 0.2);
+
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 25px;
+        width: 43px;
+        height: 4px;
+        background-color: #0dba00;
+      }
+
       > ul {
       }
     }
@@ -271,21 +306,62 @@ export default {
         line-height: 100%;
         font-weight: 300;
         small {
-          font-size: 12px;
+          font-size: 13px;
         }
       }
     }
+  }
+  small {
+    display: block;
+    color: #8c8c8c;
+    font-weight: lighter;
+    font-size: 14px;
   }
   &-card__row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 
     h5 {
-      font-weight: bold;
+      font-weight: 600;
       font-size: 27px;
       margin-bottom: 0px;
+    }
+
+    .left,
+    .right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .image-list {
+        display: flex;
+        justify-content: space-between;
+        span {
+          position: relative;
+          img {
+            width: auto;
+          }
+
+          &:not(:last-child) {
+            padding-right: 14px;
+            margin-right: 14px;
+
+            &::after {
+              content: "";
+              position: absolute;
+              width: 8px;
+              height: 8px;
+              right: -4px;
+              top: 50%;
+              transform: translateY(-50%);
+              background-color: #0dba00;
+              border-radius: 50%;
+            }
+          }
+        }
+      }
     }
 
     .left {
@@ -301,34 +377,47 @@ export default {
 
   .VueCarousel {
     &-dot {
-      transform: scale(1.1)!important;
+      transform: scale(1.1) !important;
       outline: none;
       &--active {
         background-color: #0dba00 !important;
       }
+
+      @media screen and (max-width: 560px) {
+        margin-right: 3px;
+        transform: scale(1.2) !important;
+        &:not(.VueCarousel-dot--active) {
+          background-color: #fff !important;
+        }
+      }
     }
     &-navigation {
       &-prev {
-        left: 12%!important;
+        left: 12% !important;
       }
       &-next {
-        right: 16%!important;
+        right: 16% !important;
       }
       @media screen and (max-width: 768px) {
         &-prev {
-          left: 5%!important;
+          left: 5% !important;
         }
         &-next {
-          right: 9%!important;
+          right: 9% !important;
         }
       }
     }
     &-pagination {
-      position: absolute!important;
-      z-index: 113!important;
-      bottom: 30px!important;
-      right: 13%!important;
-      width: auto!important;
+      position: absolute !important;
+      z-index: 113 !important;
+      bottom: 30px !important;
+      right: 13% !important;
+      width: auto !important;
+
+      @media screen and (max-width: 560px) {
+        right: 50% !important;
+        transform: translateX(50%);
+      }
     }
   }
 }

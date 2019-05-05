@@ -225,6 +225,7 @@ export default {
           position: relative;
           color: #fff;
           display: inline-block;
+          text-decoration: none;
 
           .cart-length {
             position: absolute;

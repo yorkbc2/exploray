@@ -58,6 +58,11 @@ export default {
   filters: {
     activeOptionLabel: (placeholder, option) =>
       (option ? option.label || option.value : undefined) || placeholder
+  },
+  mounted() {
+    if (!this.placeholder) {
+      this.activeOption = this.options[0];
+    }
   }
 };
 </script>
@@ -114,7 +119,7 @@ export default {
   &__current {
     display: block;
     padding: 9px 25px 9px;
-
+    text-align: center;
     svg {
       position: absolute;
       right: 10px;
@@ -141,7 +146,7 @@ export default {
     li {
       border-top: 1px solid #e7e7e7;
       list-style: none;
-      padding: 8px 3px 8px 25px;
+      padding: 8px 3px 8px 3px;
       span {
         display: block;
       }

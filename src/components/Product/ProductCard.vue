@@ -1,5 +1,5 @@
 <template>
-  <article :class="{'card': true, 'card--stroke': strokeView}">
+  <article :class="{'card': true, 'card--stroke': strokeView, 'card--fixed-width': fixedWidth}">
     <div class="card__head">
       <img class="card__image" :src="data.image" alt :title="data.title">
       <span class="card__rating">
@@ -65,6 +65,7 @@
 export default {
   props: {
     data: Object,
+    fixedWidth: Boolean,
     strokeView: Boolean
   },
   data() {
@@ -139,7 +140,9 @@ export default {
   transition: box-shadow 0.4s ease-in-out;
 
   @media screen and (max-width: 480px) {
-    max-width: 100%;
+    &:not(.card--fixed-width) {
+      max-width: 100%;
+    }
   }
 
   &:hover {
