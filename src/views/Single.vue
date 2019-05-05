@@ -40,7 +40,7 @@
               />
             </div>
             <div>
-              <a href="#" class="button button--outlined button-white button--wide button--rect">Вопросы</a>
+              <a href="#" class="button button--outlined button-white button--wide button--rect" @click="slideTo('#about-section')">Вопросы</a>
             </div>
           </div>
         </div>
@@ -263,7 +263,7 @@
         </offset-block>
       </div>
     </section>
-    <section class="section section--colored">
+    <section class="section section--colored" id="about-section">
       <div class="container">
         <h2 class="section__title">Вопросы и ответы</h2>
         <div class="row qa-row">

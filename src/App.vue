@@ -376,6 +376,10 @@ a.button {
 
   &--rect {
     border-radius: 15px;
+
+    @media screen and (max-width: 768px) {
+      border-radius: 50px;
+    }
   }
 
   &--large {

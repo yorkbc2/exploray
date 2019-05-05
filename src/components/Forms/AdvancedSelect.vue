@@ -97,30 +97,11 @@ export default {
   transition: border-radius 0.2s ease-in-out;
   cursor: pointer;
 
-  &--reversed {
-    @include advanced-select-reversed();
-  }
-
-  @media screen and (max-width: 768px) {
-    &--mobile-reversed {
-      @include advanced-select-reversed();
-    }
-  }
-
-  &.toggled {
-    border-radius: 15px 15px 0 0;
-
-    .advanced-select__current {
-      svg {
-        transform: scale(-1) translateY(50%);
-      }
-    }
-  }
-
   &__current {
     display: block;
     padding: 9px 25px 9px;
     text-align: center;
+    transition: all 0.4s ease-in-out;
     svg {
       position: absolute;
       right: 10px;
@@ -149,15 +130,54 @@ export default {
       list-style: none;
       padding: 8px 3px 8px 3px;
       text-align: center;
+      transition: all 0.4s ease-in-out;
+
+      &:last-child {
+        border-radius: 0 0 15px 15px;
+      }
+      &:hover {
+        background-color: #0dba00;
+        color: #fff;
+      }
       span {
         display: block;
       }
     }
   }
 
+  &:hover {
+    .advanced-select__current {
+      background-color: #0dba00;
+      color: #fff;
+      border-radius: 15px;
+
+      .svg-inserted {
+        svg {
+          fill: #fff !important;
+        }
+      }
+    }
+  }
+
+  &.toggled {
+    &,
+    .advanced-select__current {
+      border-radius: 15px 15px 0 0;
+    }
+
+    .advanced-select__current {
+      svg {
+        transform: scale(-1) translateY(50%);
+      }
+    }
+  }
+
   &--to-top {
     &.toggled {
-      border-radius: 0 0 15px 15px;
+      &,
+      .advanced-select__current {
+        border-radius: 0 0 15px 15px;
+      }
     }
     .advanced-select__dropdown {
       top: auto;
@@ -169,7 +189,24 @@ export default {
       li {
         border-top: 0px;
         border-bottom: 1px solid #e7e7e7;
+
+        &:last-child {
+          border-radius: 0px;
+        }
+        &:first-child {
+          border-radius: 15px 15px 0 0 ;
+        }
       }
+    }
+  }
+
+  &--reversed {
+    @include advanced-select-reversed();
+  }
+
+  @media screen and (max-width: 768px) {
+    &--mobile-reversed {
+      @include advanced-select-reversed();
     }
   }
 }

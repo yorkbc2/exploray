@@ -128,10 +128,10 @@
             <div class="right">
               <div class="image-list">
                 <span>
-                  <img src="/images/bed.png" height="24px">
+                  <img src="/images/bed.png" height="20px">
                 </span>
                 <span>
-                  <img src="/images/tent.png" height="28px">
+                  <img src="/images/tent.png" height="21px">
                 </span>
               </div>
             </div>
@@ -393,8 +393,8 @@ export default {
           }
 
           &:not(:last-child) {
-            padding-right: 14px;
-            margin-right: 14px;
+            padding-right: 16px;
+            margin-right: 16px;
 
             &::after {
               content: "";

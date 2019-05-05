@@ -269,7 +269,7 @@ export default {
         justify-content: center;
         padding-left: 35px;
         position: relative;
-        line-height: 110%;
+        line-height: 140%;
 
         font-size: 14px;
 
