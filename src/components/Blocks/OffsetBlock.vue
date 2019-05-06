@@ -123,6 +123,7 @@ export default {
       box-shadow: none;
       width: 100%;
       padding: 10px;
+      min-width: 0px;
       background-color: transparent;
 
       &::after {

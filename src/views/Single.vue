@@ -1,8 +1,6 @@
 <template>
   <div class="single">
-    <div class="single__place">
-      <i class="fa fa-map-marker"/> Камчатская долина, Россия
-    </div>
+    
     <full-window-slider></full-window-slider>
     <div class="block-line intro-slider-line">
       <div class="container">
@@ -209,7 +207,7 @@
             </app-default-slider>
           </div>
           <div class="toggler-item">
-            <app-default-slider class="photo-slider" :perPage="[[320, 2], [1024, 4]]">
+            <app-default-slider class="photo-slider" :perPage="[[320, 1], [570, 2], [1024, 4]]">
               <slide v-for="(item, index) in videos" :key="index">
                 <div class="photo-slider__card">
                   <img :src="item.image" alt>
@@ -467,7 +465,7 @@ export default {
 <style lang="scss">
 .single {
   position: relative;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1200px) {
     margin-top: 66px;
   }
   @media screen and (max-width: 560px) {
@@ -651,6 +649,10 @@ export default {
         display: inline-flex;
         justify-content: center;
         padding: 12px 15px;
+
+        @media screen and (max-width: 560px) {
+          padding: 12px 5px;
+        }
 
         .svg-inserted {
           display: inline-flex;

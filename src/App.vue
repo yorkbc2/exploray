@@ -303,6 +303,7 @@ section {
   &-navigation-button {
     font-size: 0px;
     outline: none !important;
+    z-index: 1000;
     &::after {
       content: "";
       display: block;

@@ -7,65 +7,45 @@
           class="full-window-slider__slide"
           style="background-image: url('/images/tour_bg.jpg');"
         >
-          <div class="full-window-slider__slide-content">
-            <div class="container">
-              <h2 class="slide__title">Камчатский хит: тур без рюкзаков</h2>
-              <div class="row">
-                <div class="col-md-4 col-sm-12 col-xs-12">
-                  <span class="slide__iconed-text">
-                    <img src="/images/vulcano.png"> 5 вулканов
-                  </span>
-                </div>
-                <div class="col-md-4 col-sm-12 col-xs-12">
-                  <span class="slide__iconed-text">
-                    <img src="/images/springs.png"> 3 гейзера
-                  </span>
-                </div>
-                <div class="col-md-4 col-sm-12 col-xs-12">
-                  <span class="slide__iconed-text">
-                    <img src="/images/bear.png"> Медведи
-                  </span>
-                </div>
-              </div>
-              <p
-                class="slide__description"
-              >Живописная природа, горные хребты и море незабываемых впечатлений.</p>
-              <a href="#" class="button button-green button--large">Заказать</a>
-            </div>
+          <div class="single__place">
+            <i class="fa fa-map-marker"/> Камчатская долина, Россия
           </div>
         </slide>
         <slide
           class="full-window-slider__slide"
           style="background-image: url('/images/tour_bg.jpg');"
         >
-          <div class="full-window-slider__slide-content">
-            <div class="container">
-              <h2 class="slide__title">Камчатский хит: тур без рюкзаков</h2>
-              <div class="row">
-                <div class="col-md-4 col-sm-12 col-xs-12">
-                  <span class="slide__iconed-text">
-                    <img src="/images/vulcano.png"> 5 вулканов
-                  </span>
-                </div>
-                <div class="col-md-4 col-sm-12 col-xs-12">
-                  <span class="slide__iconed-text">
-                    <img src="/images/springs.png"> 3 гейзера
-                  </span>
-                </div>
-                <div class="col-md-4 col-sm-12 col-xs-12">
-                  <span class="slide__iconed-text">
-                    <img src="/images/bear.png"> Медведи
-                  </span>
-                </div>
-              </div>
-              <p
-                class="slide__description"
-              >Живописная природа, горные хребты и море незабываемых впечатлений.</p>
-              <a href="#" class="button button-green button--large">Заказать</a>
-            </div>
+          <div class="single__place">
+            <i class="fa fa-map-marker"/> Камчатская долина, Россия
           </div>
         </slide>
       </carousel>
+      <div class="full-window-slider__slide-content">
+        <div class="container">
+          <h2 class="slide__title">Камчатский хит: тур без рюкзаков</h2>
+          <div class="row">
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <span class="slide__iconed-text">
+                <img src="/images/vulcano.png"> 5 вулканов
+              </span>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <span class="slide__iconed-text">
+                <img src="/images/springs.png"> 3 гейзера
+              </span>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <span class="slide__iconed-text">
+                <img src="/images/bear.png"> Медведи
+              </span>
+            </div>
+          </div>
+          <p
+            class="slide__description"
+          >Живописная природа, горные хребты и море незабываемых впечатлений.</p>
+          <a href="#" class="button button-green button--large">Заказать</a>
+        </div>
+      </div>
       <div class="full-window-slider__mobile-breads">
         <breadcrumbs
           :path="{
@@ -195,7 +175,7 @@ export default {
   }
 
   &-wrapper {
-    position: relative; 
+    position: relative;
   }
 
   &__mobile-breads {
@@ -226,8 +206,8 @@ export default {
 
       color: #fff;
 
-      @media screen and (max-width: 768px) {
-        width: 600px;
+      @media screen and (max-width: 1200px) {
+        width: 75%;
       }
       @media screen and (max-width: 600px) {
         width: 100%;
