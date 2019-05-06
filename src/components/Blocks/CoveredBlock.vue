@@ -98,7 +98,7 @@ export default {
     }
   }
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1024px) {
     margin: 0 10px;
     width: auto;
     margin-bottom: 5px;

@@ -20,7 +20,7 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  padding: 30px 25px;
+  padding: 30px 25px 60px;
   text-align: center;
   background-size: cover;
   background-position: center -200px;

@@ -48,8 +48,6 @@ export default {
     top: 50%;
     transform: translateY(-50%);
 
-    
-
     h3 {
       padding-bottom: 20px;
       margin-bottom: 20px;
@@ -58,7 +56,6 @@ export default {
       }
     }
 
-    
     .stars {
       margin: 0;
     }
@@ -96,7 +93,7 @@ export default {
       color: #efefef;
     }
   }
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1024px) {
     &__content {
       min-width: 450px;
       padding: 25px;

@@ -193,7 +193,7 @@
         <h2 class="section__title">Фото и видео</h2>
         <toggler ref="toggler" :items="['Фото', 'Видео']">
           <div class="toggler-item">
-            <app-default-slider class="photo-slider" :perPage="[[320, 1], [570, 2], [1024, 4]]">
+            <app-default-slider class="photo-slider" :perPage="[[320, 1], [560, 2], [767, 3], [1024, 4]]">
               <slide v-for="(item, index) in photos" :key="index">
                 <div class="photo-slider__card">
                   <img :src="item.image" alt>
@@ -207,7 +207,7 @@
             </app-default-slider>
           </div>
           <div class="toggler-item">
-            <app-default-slider class="photo-slider" :perPage="[[320, 1], [570, 2], [1024, 4]]">
+            <app-default-slider class="photo-slider" :perPage="[[320, 1], [560, 2], [767, 3], [1024, 4]]">
               <slide v-for="(item, index) in videos" :key="index">
                 <div class="photo-slider__card">
                   <img :src="item.image" alt>
@@ -465,7 +465,7 @@ export default {
 <style lang="scss">
 .single {
   position: relative;
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1024px) {
     margin-top: 66px;
   }
   @media screen and (max-width: 560px) {

@@ -1,7 +1,7 @@
 <template>
   <div class="inline-slider-wrapper">
     <div class="container">
-      <carousel :navigationEnabled="true" :perPage="5" :perPageCustom="[[300, 2], [768, 5]]">
+      <carousel :navigationEnabled="true" :perPage="5" :perPageCustom="[[300, 2], [768, 3], [1024, 5]]">
         <slot></slot>
       </carousel>
     </div>
@@ -24,7 +24,7 @@ export default {
       > div {
         margin-top: 0px !important;
       }
-      @media screen and (min-width: 769px) {
+      @media screen and (min-width: 1024px) {
         display: none;
       }
     }

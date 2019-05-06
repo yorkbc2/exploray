@@ -181,7 +181,7 @@ export default {
   &__mobile-breads {
     display: none;
     @media screen and (max-width: 560px) {
-      bottom: 90px;
+      bottom: 60px;
       left: 45px;
       right: 45px;
       position: absolute;
@@ -206,7 +206,7 @@ export default {
 
       color: #fff;
 
-      @media screen and (max-width: 1200px) {
+      @media screen and (max-width: 1150px) {
         width: 75%;
       }
       @media screen and (max-width: 600px) {
@@ -273,10 +273,11 @@ export default {
 
     @media screen and (max-width: 768px) {
       max-width: 50%;
-      transform: translateY(80%);
+      transform: translateY(80%) translateX(-25%);
+      min-width: 350px;
     }
 
-    @media screen and (max-width: 560px) {
+    @media screen and (max-width: 700px) {
       max-width: 100%;
       position: static;
       transform: none;
@@ -421,10 +422,10 @@ export default {
     }
     &-navigation {
       &-prev {
-        left: 12% !important;
+        left: 5% !important;
       }
       &-next {
-        right: 16% !important;
+        right: 9% !important;
       }
       @media screen and (max-width: 768px) {
         &-prev {

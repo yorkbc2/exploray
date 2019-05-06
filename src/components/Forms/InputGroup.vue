@@ -23,22 +23,22 @@ export default {
     cursor: pointer;
 
     &::after {
-        content: "";
-        position: absolute;
-        height: 36px;
-        width: 1px;
-        background-color: #b2b2b2;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 0px;
+      content: "";
+      position: absolute;
+      height: 36px;
+      width: 1px;
+      background-color: #b2b2b2;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0px;
     }
 
     .icon {
-        position: absolute;
-        left: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1;
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
     }
 
     input {
@@ -50,19 +50,19 @@ export default {
     }
 
     &:first-child {
-        border-top-left-radius: 50px;
-        border-bottom-left-radius: 50px;
+      border-top-left-radius: 50px;
+      border-bottom-left-radius: 50px;
     }
     &:last-child {
-        border-top-right-radius: 50px;
-        border-bottom-right-radius: 50px;
-        &::after {
-            display: none;
-        }
+      border-top-right-radius: 50px;
+      border-bottom-right-radius: 50px;
+      &::after {
+        display: none;
+      }
     }
   }
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1024px) {
     justify-content: space-between;
 
     &__element {

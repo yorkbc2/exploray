@@ -215,7 +215,7 @@ export default {
   .mobile-select {
     display: none;
   }
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1024px) {
     text-align: center;
     padding-top: 0px;
     .footer__copyright {

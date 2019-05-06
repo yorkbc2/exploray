@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     changeDevice(width) {
-      if (width <= 1200) {
+      if (width <= 1024) {
         this.isMobile = true;
       } else {
         this.isMobile = false;
@@ -47,7 +47,6 @@ export default {
 
       this.isHomePage =
         this.$route.name === "home" || this.$route.name === "single-tour";
-      console.log(this.isHomePage)
     };
   },
   watch: {
@@ -261,7 +260,7 @@ section {
   max-width: 200px;
   margin-right: 15px;
 
-  @media screen and (max-width: 1080px) {
+  @media screen and (max-width: 1200px) {
     max-width: 125px;
   }
 
@@ -535,5 +534,11 @@ img {
   @media screen and (max-width: 560px) {
     display: none !important;
   }
+}
+
+button,
+a,
+input {
+  outline: none!important;
 }
 </style>

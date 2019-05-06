@@ -177,7 +177,8 @@ export default {
   div[class*="col-md-"] {
     padding: 0 10px;
   }
-  @media screen and (max-width: 1200px) {
+
+  @media screen and (max-width: 1024px) {
     div[class*="col-md-"] {
       padding: 0;
     }
@@ -185,11 +186,23 @@ export default {
       margin: 0px;
     }
 
-    .row >  .col-md-6 {
+    .row > .col-md-6 {
       width: 100%;
       flex: none;
       max-width: 100%;
     }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    // .row {
+    //   flex-wrap: wrap;
+    //   div[class*="col-md-"] {
+    //     max-width: 50%;
+
+    //     .covered-block {
+    //     }
+    //   }
+    // }
   }
 }
 </style>

@@ -1,8 +1,24 @@
 <template>
   <div class="intro-wrapper">
-    <div class="intro" :style="{ backgroundImage: `url(${backgroundImages[currentIndex]})` }">
-      <div class="intro-slider-content">
-        <h1>{{ headers[currentIndex] }}</h1>
+    <div class="intro-slider">
+      <carousel
+        ref="slider"
+        :perPage="1"
+        :paginationEnabled="true"
+        :autoplay="true"
+        :autoplayTimeout="5000"
+        :loop="true"
+      >
+        <slide
+          v-for="(header, index) in headers"
+          :key="index"
+          :style="{'background-image': `url(${backgroundImages[index]})`}"
+          class="intro-slider__slide"
+        >
+          <h1>{{header}}</h1>
+        </slide>
+      </carousel>
+      <div class="intro-slider__content">
         <form action>
           <div class="input-group">
             <div class="input-with-icon">
@@ -41,14 +57,6 @@
         </form>
       </div>
     </div>
-    <ul class="intro-slider__dots">
-      <li
-        v-for="(_, index) in headers"
-        :key="index"
-        :class="{'intro-slider__dot': true, 'intro-slider__dot--active': currentIndex === index}"
-        @click="changeSlide(index)"
-      ></li>
-    </ul>
   </div>
 </template>
 
@@ -59,69 +67,147 @@ export default {
     backgroundImages: Array,
     headers: Array
   },
-  data: () => ({
-    currentIndex: 0
-  }),
-  methods: {
-    changeSlide(index) {
-      this.currentIndex = index;
-    }
-  },
   mounted() {
-    setInterval(() => {
-      let ci = this.currentIndex + 1;
-      if (ci >= this.headers.length) {
-        ci = 0;
-      }
-      this.currentIndex = ci;
-    }, 5000);
+    this.$refs.slider.goToPage(1);
   }
 };
 </script>
 
 <style lang="scss" >
-.intro {
-  position: relative;
-  min-height: 600px;
-  background-size: cover;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  transition: background-image 0.6s ease-in-out;
-  &-wrapper {
+.intro-wrapper {
+  .intro-slider {
     position: relative;
-  }
-  @media screen and (max-width: 768px) {
-    min-height: auto;
-  }
-}
+    min-height: 600px;
 
-.intro-slider {
-  &-content {
-    position: absolute;
-    top: 40%;
-    transform: translateX(-50%) translateY(-50%);
-    left: 50%;
-    z-index: 3;
-
-    max-width: 100%;
-
-    h1 {
-      text-align: center;
-      font-size: 36px;
-      font-weight: 800;
-      margin-bottom: 100px;
-      color: #fff;
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      z-index: 0;
+      top: 0px;
     }
 
-    form {
-      .input-group {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: nowrap;
-        background-color: #fff;
-        border-radius: 50px;
-        padding-right: 170px;
+    .VueCarousel {
+      &-inner {
+        transition: opacity 1s ease-in-out !important;
+      }
+      &-slide {
+        opacity: 0 !important;
+
+        &-active {
+          transition: opacity 0.8s ease-in-out !important;
+          opacity: 1 !important;
+        }
+      }
+      &-pagination {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+      }
+
+      &-dot {
+        transform: scale(1.1);
+        margin-right: 5px;
+        &--active {
+          background-color: #0dba00 !important;
+        }
+      }
+    }
+    &__slide {
+      min-height: 600px;
+
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      h1 {
+        text-align: center;
+        font-size: 36px;
+        font-weight: 800;
+        color: #fff;
+        padding-top: 150px;
+      }
+      @media screen and (max-width: 1024px) {
+        h1 {
+          font-size: 28px;
+          margin-bottom: 20px;
+        }
+      }
+    }
+    &__content {
+      position: absolute;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      left: 50%;
+      z-index: 3;
+
+      max-width: 100%;
+
+      form {
+        .input-group {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          flex-wrap: nowrap;
+          background-color: #fff;
+          border-radius: 50px;
+          padding-right: 170px;
+
+          > div {
+            &:first-child {
+              input {
+                border-radius: 50px 0 0 50px;
+              }
+            }
+
+            position: relative;
+            margin: 5px 0;
+            padding-left: 50px;
+            border-right: 1px solid #e7e7e7;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            > .icon {
+              position: absolute;
+              height: 30px;
+              width: auto;
+              left: 20px;
+              top: 50%;
+              transform: translateY(-50%);
+              z-index: 2;
+            }
+          }
+
+          input {
+            padding: 10px 35px 10px 10px;
+            background: #fff;
+            border: 1px solid transparent;
+            box-shadow: none;
+            z-index: 1;
+          }
+        }
+        button:not(.toggler) {
+          @media screen and (min-width: 1025px) {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            max-height: 100%;
+            font-size: 20px;
+            padding: 0px 30px 0 30px;
+            align-self: center;
+
+            .result-label {
+              display: inline-block;
+              margin-left: 20px;
+              font-weight: normal;
+            }
+          }
+        }
         .date-picker-wrapper {
           .mx-datepicker {
             .mx-input-wrapper {
@@ -135,179 +221,103 @@ export default {
             }
           }
         }
-        > div {
-          &:first-child {
-            input {
-              border-radius: 50px 0 0 50px;
-            }
-          }
-
-          position: relative;
-          margin: 5px 0;
-          padding-left: 50px;
-          border-right: 1px solid #e7e7e7;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          > .icon {
-            position: absolute;
-            height: 30px;
-            width: auto;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 2;
-          }
-        }
-        input {
-          padding: 10px 35px 10px 10px;
-          background: #fff;
-          border: 1px solid transparent;
-          box-shadow: none;
-          z-index: 1;
-        }
-        > button {
-          position: absolute;
-          top: 0;
-          right: 0;
-          height: 100%;
-          max-height: 100%;
-          font-size: 20px;
-          padding: 0px 30px 0 30px;
-          align-self: center;
-
-          .result-label {
-            display: inline-block;
-            margin-left: 20px;
-            font-weight: normal;
-          }
-        }
-      }
-    }
-
-    @media screen and (max-width: 1200px) and (min-width: 768px) {
-      form {
-        .input-group {
-
-          >div {
-            padding-left: 20px;
-            .icon {
-              height: 20px;
-              left: 5px;
-            }
-          }
-          input {
-            padding: 5px 10px 5px;
-          }
-        }
-      }
-    }
-
-    @media screen and (max-width: 1200px) {
-      top: auto;
-      transform: none;
-      left: auto;
-      position: static;
-      padding: 150px 20px 50px 20px;
-      min-height: auto;
-      h1 {
-        font-size: 28px;
-        margin-bottom: 20px;
       }
 
-      form {
-        .input-group {
-          flex-direction: column;
-          padding: 0px;
-          background-color: transparent;
-
-          > div {
-            padding-left: 0px;
-            background-color: #fff;
-            border-radius: 50px;
-
-            .icon {
-              height: 20px;
-              left: 20px;
-            }
-
-            input {
-              width: 100%;
-              padding-left: 50px;
-              padding-top: 14px;
-              padding-bottom: 14px;
-              &,
-              &:first-child,
-              &:last-child {
-                border-radius: 50px;
+      @media screen and (max-width: 1024px) and (min-width: 768px) {
+        form {
+          .input-group {
+            > div {
+              padding-left: 20px;
+              .icon {
+                height: 20px;
+                left: 5px;
               }
             }
-
-            .toggler {
-              font-size: 10px;
+            input {
+              padding: 5px 10px 5px;
             }
+          }
+        }
+      }
 
-            &.input-date-picker {
-              background-color: transparent;
-              img {
-                display: none;
+      @media screen and (max-width: 1024px) {
+        top: 60%;
+        width: 100%;
+        padding: 0 100px;
+        max-width: 600px;
+        form {
+          .input-group {
+            flex-direction: column;
+            padding: 0px;
+            background-color: transparent;
+            > div {
+              padding-left: 0px;
+              background-color: #fff;
+              border-radius: 50px;
+
+              .icon {
+                height: 20px;
+                left: 20px;
               }
-              .date-picker-wrapper {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                .mx-datepicker {
-                  width: 45% !important;
-                  .mx-input-wrapper {
-                    &::after {
-                      font-size: 10px;
-                      right: 8px;
-                    }
-                  }
-                }
-                .mx-input {
-                  padding: 14px 12px;
+
+              input {
+                width: 100%;
+                padding-left: 50px;
+                padding-top: 14px;
+                padding-bottom: 14px;
+                &,
+                &:first-child,
+                &:last-child {
                   border-radius: 50px;
                 }
               }
-            }
-          }
 
-          > button {
-            position: static;
-            width: 100%;
-            padding: 9px 10px;
-            margin-top: 5px;
-            max-height: 50px;
+              &.input-date-picker {
+                background-color: transparent;
+                img {
+                  display: none;
+                }
+                .date-picker-wrapper {
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: space-between;
+                  .mx-datepicker {
+                    width: 45% !important;
+                    .mx-input-wrapper {
+                      &::after {
+                        font-size: 10px;
+                        right: 8px;
+                      }
+                    }
+                  }
+                  .mx-input {
+                    padding: 14px 12px;
+                    border-radius: 50px;
+                  }
+                }
+              }
+
+              button:not(.toggler) {
+                position: static;
+                width: 100%;
+                padding: 9px 10px;
+                margin-top: 5px;
+                max-height: 50px;
+              }
+
+              .toggler {
+                font-size: 10px;
+              }
+            }
           }
         }
       }
-    }
-  }
-  &__dots {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    bottom: 40px;
-    z-index: 0;
 
-    @media screen and (max-width: 768px) {
-      display: none;
-    }
-  }
-  &__dot {
-    list-style: none;
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    background: #b2b2b2;
-    border-radius: 50%;
-    margin: 0 4px;
-    cursor: pointer;
-    &--active {
-      background-color: #0dba00;
+      @media screen and (max-width: 560px) {
+        max-width: 100%;
+        width: 100%;
+        padding: 0 30px;
+      }
     }
   }
 }
