@@ -30,7 +30,7 @@ export default {
   },
   data() {
     return {
-      defaultPerPage: [[320, 1], [769, 5]]
+      defaultPerPage: [[320, 1], [769, 2], [1200, 5]]
     }
   },
 };
@@ -82,7 +82,7 @@ export default {
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1200px) {
     width: 220px;
     height: 220px;
     margin: 0 auto;

@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     changeDevice(width) {
-      if (width <= 960) {
+      if (width <= 1200) {
         this.isMobile = true;
       } else {
         this.isMobile = false;
@@ -44,8 +44,10 @@ export default {
     };
     window.onload = () => {
       this.changeDevice(window.innerWidth);
+
       this.isHomePage =
         this.$route.name === "home" || this.$route.name === "single-tour";
+      console.log(this.isHomePage)
     };
   },
   watch: {

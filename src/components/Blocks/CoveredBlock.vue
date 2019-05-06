@@ -6,7 +6,7 @@
     <h3>{{header}}</h3>
     <p>{{content}}</p>
 
-    <router-link :to="url" class="link" v-if="isButton">Подробнее</router-link>
+    <router-link :to="url" class="link">Подробнее</router-link>
     <!-- <img v-if="showCursor" src="/images/cursor.png" width="25px" height="auto" class="cursor" /> -->
   </div>
 </template>
@@ -17,7 +17,6 @@ export default {
     header: String,
     content: String,
     fixedHeight: Number,
-    isButton: Boolean,
     url: String,
     background: String,
     showCursor: Boolean
@@ -73,6 +72,8 @@ export default {
     border-radius: 50px;
     font-weight: bolder;
     text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
   }
 
   &::before {
@@ -91,9 +92,13 @@ export default {
     &::before {
       opacity: 1;
     }
+
+    .link {
+      opacity: 1;
+    }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1200px) {
     margin: 0 10px;
     width: auto;
     margin-bottom: 5px;

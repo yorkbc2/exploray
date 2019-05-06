@@ -185,7 +185,7 @@ export default {
       }
     }
 
-    @media screen and (max-width: 1072px) and (min-width: 768px) {
+    @media screen and (max-width: 1200px) and (min-width: 768px) {
       form {
         .input-group {
 
@@ -203,12 +203,12 @@ export default {
       }
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1200px) {
       top: auto;
       transform: none;
       left: auto;
       position: static;
-      padding: 100px 20px 50px 20px;
+      padding: 150px 20px 50px 20px;
       min-height: auto;
       h1 {
         font-size: 28px;

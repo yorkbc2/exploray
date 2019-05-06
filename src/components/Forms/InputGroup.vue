@@ -62,7 +62,7 @@ export default {
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1200px) {
     justify-content: space-between;
 
     &__element {
@@ -76,7 +76,7 @@ export default {
     }
   }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 767px) {
     flex-direction: column;
 
     &__element {

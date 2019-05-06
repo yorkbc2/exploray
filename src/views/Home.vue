@@ -177,7 +177,7 @@ export default {
   div[class*="col-md-"] {
     padding: 0 10px;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1200px) {
     div[class*="col-md-"] {
       padding: 0;
     }

@@ -96,9 +96,9 @@ export default {
       color: #efefef;
     }
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1200px) {
     &__content {
-      width: 450px;
+      min-width: 450px;
       padding: 25px;
     }
   }
