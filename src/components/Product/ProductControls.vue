@@ -3,22 +3,27 @@
     <div class="product-controls d-flex justify-content-between">
       <div class="product-controls__sort d-flex">
         <strong class="d-flex flex-column justify-content-center">Сортировать по:</strong>
-        <custom-select
-          label="цене"
-          :values="[
-            'по возрастанию',
-            'по убыванию',
+        <div class="product-controls__sort-element">
+          <span>цене</span>
+          &nbsp;
+          <advanced-select
+            :options="[
+            {value: 'по возрастанию'},
+            {value: 'по убыванию'}
           ]"
-          placeholder="выбрать"
-        />
-        <custom-select
-          label="рейтинг"
-          :values="[
-            'по возрастанию',
-            'по убыванию',
+            placeholder="выбрать"
+          />
+        </div>
+        <div class="product-controls__sort-element">
+          <span>рейтингу</span>
+          <advanced-select
+            :options="[
+            {value: 'по возрастанию'},
+            {value: 'по убыванию'}
           ]"
-          placeholder="выбрать"
-        />
+            placeholder="выбрать"
+          />
+        </div>
       </div>
       <div class="product-controls__actions d-flex flex-column justify-content-center">
         <div>
@@ -58,7 +63,22 @@ export default {
 <style lang="scss">
 .product-controls__sort {
   > strong {
-    margin-right: 15px;
+  }
+  &-element {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    > span {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-right: 7px;
+      margin-left: 10px;
+    }
+
+    @media screen and (max-width: 767px) {
+      margin-bottom: 5px;
+    }
   }
   @media screen and (max-width: 767px) {
     flex-direction: column;
@@ -70,13 +90,47 @@ export default {
       display: block;
       margin-bottom: 15px;
     }
+  }
 
-    label.select-wrapper {
-      justify-content: space-between;
-      margin-bottom: 10px;
-      margin-right: 0px;
-      select {
-        min-width: 180px;
+  .advanced-select {
+    max-width: 180px;
+    border-radius: 50px;
+
+    &:hover {
+      .advanced-select__current {
+        background-color: darken(#f6f6f6, 5%);
+        color: #a3a3a3;
+
+        .svg-inserted svg {
+          fill: #a3a3a3 !important;
+        }
+      }
+    }
+    &__dropdown {
+      border: 1px solid #d5d5d5;
+      border-top: 0px;
+      li {
+        background-color: #f6f6f6;
+        text-align: left;
+        color: #a3a3a3;
+        padding: 10px 20px;
+        font-size: 14px;
+        &:hover {
+          background-color: darken(#f6f6f6, 5%);
+          color: #a3a3a3;
+        }
+      }
+    }
+    &__current {
+      background-color: #f6f6f6;
+      border-radius: 50px;
+      color: #a3a3a3;
+      padding: 9px 25px 9px 20px;
+      border: 1px solid #d5d5d5;
+      text-align: left;
+      font-size: 14px;
+      .svg-inserted svg {
+        fill: #a3a3a3 !important;
       }
     }
   }
@@ -85,7 +139,7 @@ export default {
 .product-controls {
   &__actions {
     @media screen and (max-width: 767px) {
-      display: none!important;
+      display: none !important;
     }
     > div {
       display: flex;
@@ -111,9 +165,6 @@ export default {
       transform: scale(1.1);
     }
   }
-}
-.select-wrapper {
-  margin-right: 15px;
 }
 .product-controls-active-filters {
   display: flex;
