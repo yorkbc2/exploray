@@ -82,10 +82,21 @@ export default {
     }
   }
 
-  @media screen and (max-width: 1024px) {
+
+  @media screen and (max-width: 767px) {
     width: 220px;
     height: 220px;
+  }
+  @media screen and (max-width: 1024px) {
     margin: 0 auto;
+    width: 180px;
+    height: 180px;
+
+    .default-slider-block__mask {
+      h4 {
+        font-weight: bolder;
+      }
+    }
   }
 }
 .default-slider {

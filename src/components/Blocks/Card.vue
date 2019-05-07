@@ -82,7 +82,7 @@ export default {
     padding-right: 60px;
   }
 
-  @media screen and (max-width: 560px) {
+  @media screen and (max-width: 767px) {
     padding: 0px;
     &__header {
       font-weight: normal;

@@ -33,7 +33,7 @@ export default {
 .product-list-wrapper {
   .row {
     .col-sm-6 {
-      @media screen and (min-width: 480px) and (max-width: 768px) {
+      @media screen and (min-width: 768px) and (max-width: 1024px) {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 50%;
         flex: 0 0 50%;
@@ -42,8 +42,9 @@ export default {
     }
   }
   .button.button-block {
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1024px) {
       max-width: 640px;
+      margin: 0 auto;
     }
   }
 }

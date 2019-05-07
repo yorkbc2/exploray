@@ -60,7 +60,7 @@ export default {
   > strong {
     margin-right: 15px;
   }
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 767px) {
     flex-direction: column;
     width: 100%;
     margin-bottom: 25px;
@@ -84,7 +84,7 @@ export default {
 
 .product-controls {
   &__actions {
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 767px) {
       display: none!important;
     }
     > div {
@@ -125,7 +125,7 @@ export default {
   box-shadow: 2.5px 1.33px 5px 0px rgba(0, 0, 0, 0.2);
   margin-top: 20px;
   margin-bottom: 30px;
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 767px) {
     display: none;
   }
   &__item {

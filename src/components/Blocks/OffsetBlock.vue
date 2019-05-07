@@ -99,7 +99,7 @@ export default {
       padding: 25px;
     }
   }
-  @media screen and (max-width: 560px) {
+  @media screen and (max-width: 767px) {
     flex-direction: column;
     .d-flex {
       flex-direction: column;

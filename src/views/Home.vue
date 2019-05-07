@@ -8,98 +8,16 @@
     <section class="section tour-section">
       <div class="container">
         <h2 class="section__title">Актуальные предложения</h2>
-        <div class="row">
-          <div class="col-md-6 col-sm-12 col-xs-12">
-            <covered-block
-              header="Горная владь"
-              content="от 10 00 руб."
-              :fixedHeight="400"
-              :isButton="true"
-              url="#"
-              background="images/tour_1.jpg"
-              :showCursor="true"
-            />
-          </div>
-          <div class="col-md-6 col-sm-12 col-xs-12 d-flex flex-column">
-            <div class="row flex">
-              <div class="col-md-6 d-flex flex-column">
-                <covered-block
-                  header="К звездам!"
-                  content="от 8 000 руб."
-                  url="#"
-                  background="images/tour_2.jpg"
-                />
-              </div>
-              <div class="col-md-6 d-flex flex-column">
-                <covered-block
-                  header="Восхождение"
-                  content="от 20 00 руб."
-                  url="#"
-                  background="images/tour_3.jpg"
-                />
-              </div>
-            </div>
-            <div class="row flex">
-              <div class="col-md-12 d-flex flex-column">
-                <covered-block
-                  header="Туры по фестивалямм"
-                  content="от 8 000 руб."
-                  url="#"
-                  background="images/tour_4.jpg"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 col-sm-12 col-xs-12">
-            <covered-block
-              header="Горная владь"
-              content="от 10 00 руб."
-              :fixedHeight="400"
-              :isButton="true"
-              url="#"
-              background="images/tour_1.jpg"
-              :showCursor="true"
-            />
-          </div>
-          <div class="col-md-6 col-sm-12 col-xs-12 d-flex flex-column">
-            <div class="row flex">
-              <div class="col-md-6 d-flex flex-column">
-                <covered-block
-                  header="К звездам!"
-                  content="от 8 000 руб."
-                  url="#"
-                  background="images/tour_2.jpg"
-                />
-              </div>
-              <div class="col-md-6 d-flex flex-column">
-                <covered-block
-                  header="Восхождение"
-                  content="от 20 00 руб."
-                  url="#"
-                  background="images/tour_3.jpg"
-                />
-              </div>
-            </div>
-            <div class="row flex">
-              <div class="col-md-12 d-flex flex-column">
-                <covered-block
-                  header="Туры по фестивалямм"
-                  content="от 8 000 руб."
-                  url="#"
-                  background="images/tour_4.jpg"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        <covered-blocks :items="
+          coveredBlocks
+        "/>
       </div>
     </section>
     <section class="section section--colored">
       <div class="container">
         <h2 class="section__title">Направления</h2>
         <app-default-slider
+          :perPage="[[320, 1], [768, 3], [1024, 5]]"
           :slides="[
           {
             title: 'Крым',
@@ -157,7 +75,7 @@
 
 <script>
 import Subscribe from "@/components/Subscribe/Subscribe.vue";
-import CoveredBlock from "@/components/Blocks/CoveredBlock.vue";
+import CoveredBlocks from "@/components/Blocks/CoveredBlocks.vue";
 import DefaultSlider from "@/components/Sliders/DefaultSlider.vue";
 import IntroInlineSlider from "@/components/Sliders/IntroInlineSlider.vue";
 import IntroSlider from "@/components/Sliders/IntroSlider.vue";
@@ -166,8 +84,70 @@ export default {
     "app-subscribe": Subscribe,
     "app-default-slider": DefaultSlider,
     "app-intro-inline-slider": IntroInlineSlider,
-    "covered-block": CoveredBlock,
+    "covered-blocks": CoveredBlocks,
     "app-intro": IntroSlider
+  },
+  data() {
+    return {
+      coveredBlocks: [
+        {
+          title: "Горная гладь",
+          subtitle: "от 10 00 руб.",
+          url: "#",
+          image: "/images/tour_1.jpg",
+          children: [
+            {
+              title: "Туры по фестивалям",
+              subtitle: "от 10 00 руб.",
+              url: "#",
+              image: "/images/tour_4.jpg",
+              children: [
+                {
+                  title: "К звездам",
+                  subtitle: "от 10 00 руб.",
+                  url: "#",
+                  image: "/images/tour_2.jpg"
+                },
+                {
+                  title: "Восхождение",
+                  subtitle: "от 10 00 руб.",
+                  url: "#",
+                  image: "/images/tour_3.jpg"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          title: "Горная гладь",
+          subtitle: "от 10 00 руб.",
+          url: "#",
+          image: "/images/tour_1.jpg",
+          children: [
+            {
+              title: "Туры по фестивалям",
+              subtitle: "от 10 00 руб.",
+              url: "#",
+              image: "/images/tour_4.jpg",
+              children: [
+                {
+                  title: "К звездам",
+                  subtitle: "от 10 00 руб.",
+                  url: "#",
+                  image: "/images/tour_2.jpg"
+                },
+                {
+                  title: "Восхождение",
+                  subtitle: "от 10 00 руб.",
+                  url: "#",
+                  image: "/images/tour_3.jpg"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    };
   }
 };
 </script>

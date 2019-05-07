@@ -1,6 +1,5 @@
 <template>
   <div class="single">
-    
     <full-window-slider></full-window-slider>
     <div class="block-line intro-slider-line">
       <div class="container">
@@ -38,7 +37,11 @@
               />
             </div>
             <div>
-              <a href="#" class="button button--outlined button-white button--wide button--rect" @click="slideTo('#about-section')">Вопросы</a>
+              <a
+                href="#"
+                class="button button--outlined button-white button--wide button--rect"
+                @click="slideTo('#about-section')"
+              >Вопросы</a>
             </div>
           </div>
         </div>
@@ -57,92 +60,90 @@
     </div>
     <section class="section">
       <div class="container">
-        <h2 class="section__title section__title--left section__title--lighter">Описание тура</h2>
+        <content-tab header="Описание тура">
+          <div class="row about-row splitted-bottom">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+              <ul class="check-list">
+                <li>
+                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                  которые отвлекают.
+                </li>
+                <li>
+                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                  которые отвлекают.
+                </li>
+                <li>
+                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                  которые отвлекают.
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+              <ul class="check-list">
+                <li>
+                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                  которые отвлекают.
+                </li>
+                <li>
+                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                  которые отвлекают.
+                </li>
+                <li>
+                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                  которые отвлекают.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </content-tab>
         <div class="row about-row splitted-bottom">
           <div class="col-md-6 col-sm-12 col-xs-12">
-            <ul class="check-list">
-              <li>
-                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                которые отвлекают.
-              </li>
-              <li>
-                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                которые отвлекают.
-              </li>
-              <li>
-                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                которые отвлекают.
-              </li>
-            </ul>
+            <content-tab header="Что включает тур?">
+              <ul class="check-list">
+                <li>
+                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                  которые отвлекают.
+                </li>
+                <li>
+                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                  которые отвлекают.
+                </li>
+                <li>
+                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                  которые отвлекают.
+                </li>
+              </ul>
+            </content-tab>
           </div>
           <div class="col-md-6 col-sm-12 col-xs-12">
-            <ul class="check-list">
-              <li>
-                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                которые отвлекают.
-              </li>
-              <li>
-                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                которые отвлекают.
-              </li>
-              <li>
-                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                которые отвлекают.
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="row about-row splitted-bottom">
-          <div class="col-md-6 col-sm-12 col-xs-12">
-            <h2
-              class="section__title section__title--left section__title--lighter"
-            >Что включает тур?</h2>
-            <ul class="check-list">
-              <li>
-                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                которые отвлекают.
-              </li>
-              <li>
-                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                которые отвлекают.
-              </li>
-              <li>
-                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                которые отвлекают.
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-6 col-sm-12 col-xs-12">
-            <h2 class="section__title section__title--left section__title--lighter">
-              Что
-              <span>НЕ</span> включает тур?
-            </h2>
-            <ul class="check-list check-list--red">
-              <li>
-                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                которые отвлекают.
-              </li>
-              <li>
-                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                которые отвлекают.
-              </li>
-              <li>
-                Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                которые отвлекают.
-              </li>
-            </ul>
+            <content-tab :header="'Что <span>НЕ</span> включает тур?'">
+              <ul class="check-list check-list--red">
+                <li>
+                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                  которые отвлекают.
+                </li>
+                <li>
+                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                  которые отвлекают.
+                </li>
+                <li>
+                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
+                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
+                  которые отвлекают.
+                </li>
+              </ul>
+            </content-tab>
           </div>
         </div>
       </div>
@@ -167,13 +168,13 @@
         </div>
       </div>
     </section>
-    <section class="section section--colored">
+    <section class="section section--colored author">
       <div class="container">
         <h2 class="section__title">Автор</h2>
         <offset-block :reversed="true" header="Организатор тура" image="/images/tour_org.jpg">
           <p>Официальный туроператор, работает с 2006 года. За это время мы провели тысячи сделок и подписали сотни контрактов на постоянное сотрудничество.</p>
           <div>
-            <div class="row">
+            <div class="row author__row">
               <div class="col-md-8">
                 <p>
                   <a href="#">Читать отзывы</a>
@@ -193,7 +194,10 @@
         <h2 class="section__title">Фото и видео</h2>
         <toggler ref="toggler" :items="['Фото', 'Видео']">
           <div class="toggler-item">
-            <app-default-slider class="photo-slider" :perPage="[[320, 1], [560, 2], [767, 3], [1024, 4]]">
+            <app-default-slider
+              class="photo-slider"
+              :perPage="[[320, 1], [560, 2], [767, 3], [1024, 4]]"
+            >
               <slide v-for="(item, index) in photos" :key="index">
                 <div class="photo-slider__card">
                   <img :src="item.image" alt>
@@ -207,7 +211,10 @@
             </app-default-slider>
           </div>
           <div class="toggler-item">
-            <app-default-slider class="photo-slider" :perPage="[[320, 1], [560, 2], [767, 3], [1024, 4]]">
+            <app-default-slider
+              class="photo-slider"
+              :perPage="[[320, 1], [560, 2], [767, 3], [1024, 4]]"
+            >
               <slide v-for="(item, index) in videos" :key="index">
                 <div class="photo-slider__card">
                   <img :src="item.image" alt>
@@ -325,7 +332,7 @@
     <section class="section section--colored">
       <div class="container">
         <h2 class="section__title">Интересные предложения</h2>
-        <app-default-slider :perPage="[[320, 1], [480, 2], [1024, 4]]">
+        <app-default-slider :perPage="[[320, 1], [767, 2], [1024, 4]]">
           <slide v-for="item in $store.getters.data" :key="item._id">
             <product-card :data="item" :fixedWidth="true"/>
           </slide>
@@ -341,6 +348,7 @@ import TogglerVue from "../components/Blocks/Toggler.vue";
 import FullWindowSliderVue from "../components/Sliders/FullWindowSlider.vue";
 import ReviewCardVue from "../components/Blocks/ReviewCard.vue";
 import AdvancedTabsVue from "../components/Blocks/AdvancedTabs.vue";
+import ContentTabVue from "../components/Blocks/ContentTab.vue";
 export default {
   name: "single-page",
   components: {
@@ -348,7 +356,8 @@ export default {
     toggler: TogglerVue,
     "full-window-slider": FullWindowSliderVue,
     "review-card": ReviewCardVue,
-    "advanced-tabs": AdvancedTabsVue
+    "advanced-tabs": AdvancedTabsVue,
+    "content-tab": ContentTabVue
   },
   data() {
     return {
@@ -449,10 +458,9 @@ export default {
     },
     slideToToggler(e, index = 0) {
       e.preventDefault();
-      this.slideTo('#photo-video-slider')
-        .then(() => {
-          this.$refs.toggler.toggle(index);
-        });
+      this.slideTo("#photo-video-slider").then(() => {
+        this.$refs.toggler.toggle(index);
+      });
     }
   },
   mounted() {
@@ -468,8 +476,41 @@ export default {
   @media screen and (max-width: 1024px) {
     margin-top: 66px;
   }
-  @media screen and (max-width: 560px) {
+  @media screen and (max-width: 767px) {
     margin-top: 62px;
+  }
+
+  .author {
+    &__row {
+      @media screen and (max-width: 767px) {
+        display: flex;
+        flex-direction: row;
+
+        > div {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          flex: 1;
+          strong {
+            font-size: 18px;
+          }
+          .stars {
+            justify-content: center;
+
+            li {
+              margin-right: 3px;
+              i {
+                font-size: 20px;
+
+                &.active {
+                  color: #e5ac00;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   &__place {
@@ -504,19 +545,25 @@ export default {
   }
 
   &__row {
-    @media screen and (max-width: 560px) {
+    @media screen and (max-width: 767px) {
       padding: 0 10px;
     }
   }
 
   .button,
   .advanced-select {
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1024px) {
       align-self: center;
       min-width: 200px;
     }
-    @media screen and (max-width: 560px) {
+    @media screen and (max-width: 767px) {
       min-width: 100%;
+    }
+  }
+
+  > .container {
+    @media screen and (max-width: 1200px) {
+      max-width: 1140px;
     }
   }
 }
@@ -525,11 +572,7 @@ export default {
   position: relative;
   padding: 37px 0 20px;
 
-  @media screen and (max-width: 768px) {
-    margin-bottom: 30px;
-  }
-
-  @media screen and (max-width: 560px) {
+  @media screen and (max-width: 1024px) {
     margin-bottom: 30px;
   }
 
@@ -561,7 +604,7 @@ export default {
 }
 
 .row.intro-subtext__row {
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
     .col-md-7 {
       margin-left: auto;
       max-width: 50%;
@@ -580,7 +623,7 @@ export default {
       }
     }
   }
-  @media screen and (max-width: 560px) {
+  @media screen and (max-width: 767px) {
     .col-md-7 {
       max-width: 100%;
       padding: 0 25px;
@@ -616,7 +659,7 @@ export default {
   &__card {
     width: 100%;
     position: relative;
-    @media screen and (max-width: 560px) {
+    @media screen and (max-width: 767px) {
       max-width: 250px;
       margin: 0 auto;
     }
@@ -650,7 +693,7 @@ export default {
         justify-content: center;
         padding: 12px 15px;
 
-        @media screen and (max-width: 560px) {
+        @media screen and (max-width: 767px) {
           padding: 12px 5px;
         }
 
@@ -681,7 +724,7 @@ export default {
 .qa-row,
 .program-row,
 .about-row {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     flex-direction: column;
 
     &.program-row {

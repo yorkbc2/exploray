@@ -172,7 +172,11 @@ export default {
     @media screen and (max-width: 560px) {
       padding: 0px;
     }
-  }
+    @media screen and (max-width: 767px) {
+      max-width: 100%;
+      padding: 0;
+    }
+  } 
 
   &-wrapper {
     position: relative;
@@ -207,7 +211,7 @@ export default {
       color: #fff;
 
       @media screen and (max-width: 1150px) {
-        width: 75%;
+        width: 80%;
       }
       @media screen and (max-width: 600px) {
         width: 100%;
@@ -271,13 +275,13 @@ export default {
     transform: translateY(55%);
     z-index: 113;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1024px) {
       max-width: 50%;
-      transform: translateY(80%) translateX(-25%);
+      transform: translateY(80%) ;
       min-width: 350px;
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 767px) {
       max-width: 100%;
       position: static;
       transform: none;

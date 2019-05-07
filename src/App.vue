@@ -90,7 +90,7 @@ body {
     }
 
     @media screen and (max-width: 1024px) {
-      max-width: 40%;
+      max-width: 50%;
       flex: 1;
       text-align: center;
       flex-direction: column;
@@ -101,7 +101,7 @@ body {
         margin: 0 auto 15px;
       }
     }
-    @media screen and (max-width: 560px) {
+    @media screen and (max-width: 767px) {
       max-width: 100%;
     }
   }
@@ -235,7 +235,7 @@ section {
     right: 0;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     flex-direction: column;
 
     input {

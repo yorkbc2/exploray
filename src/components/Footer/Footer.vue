@@ -126,8 +126,9 @@ export default {
   .logo-container {
     width: 200px;
     max-width: 200px;
+    margin-bottom: 30px;
     img {
-      max-width: 150px;
+      max-width: 200px;
     }
   }
 
@@ -153,6 +154,9 @@ export default {
   }
 
   .social-list {
+    @media screen and (min-width: 1025px) {
+      display: none;
+    }
     li:first-child {
       margin-left: 0px;
     }

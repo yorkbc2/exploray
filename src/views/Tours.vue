@@ -79,25 +79,26 @@ export default {
 
 <style lang="scss" scoped>
 .product-list-wrapper {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     width: 100%;
     flex: 1;
     max-width: 100%;
     float: none;
     padding: 0px;
   }
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 767px) {
     padding: 0 15px;
   }
 }
 .product-filters-wrapper {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     width: 0px;
     padding: 0px;
+    flex: 0;
   }
 }
 .offset-section { 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     margin-top: 25px;
     margin-bottom: 15px;
   }

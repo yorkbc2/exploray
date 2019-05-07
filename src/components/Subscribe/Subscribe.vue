@@ -26,8 +26,11 @@ section {
   background-position: center -200px;
   background-repeat: no-repeat;
   background-image: url("/images/subscribe.jpg");
+  h2.section__title {
+    margin-bottom: 20px;
+  }
   p {
-    margin: 0 0 50px 0;
+    margin: 0 0 40px 0;
     padding: 0;
   }
 

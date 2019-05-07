@@ -42,10 +42,7 @@
             :class="{'card__compare': true, 'added': added}"
             @click="addToCart(data)"
           >
-            <icon
-              name="libra"
-              :fill="added ? '#fff' : '#a5a5a5'"
-            /> 
+            <icon name="libra" :fill="added ? '#fff' : '#a5a5a5'"/>
           </button>
           <button
             v-else
@@ -139,11 +136,11 @@ export default {
   overflow: hidden;
   transition: box-shadow 0.4s ease-in-out;
 
-  @media screen and (max-width: 480px) {
-    &:not(.card--fixed-width) {
-      max-width: 100%;
-    }
-  }
+  // @media screen and (max-width: 767px) {
+  //   &:not(.card--fixed-width) {
+  //     max-width: 100%;
+  //   }
+  // }
 
   &:hover {
     box-shadow: 2.5px 2.33px 17px 0px rgba(0, 0, 0, 0.35);
@@ -193,7 +190,7 @@ export default {
         border-radius: 50px;
       }
     }
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 767px) {
       > .row {
         display: flex;
         flex-direction: row;
@@ -333,7 +330,7 @@ export default {
           background-color: #0dba00;
 
           svg {
-            fill: #fff!important;
+            fill: #fff !important;
           }
         }
 
@@ -349,7 +346,7 @@ export default {
   }
 
   &--stroke {
-    @media screen and (min-width: 480px) {
+    @media screen and (min-width: 768px) {
       max-width: 100%;
       display: flex;
       flex-direction: row;
@@ -414,10 +411,8 @@ export default {
         }
       }
     }
-  }
 
-  @media screen and (min-width: 480px) and (max-width: 768px) {
-    &--stroke {
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
       .card__head {
         max-width: 220px;
         width: 220px;
