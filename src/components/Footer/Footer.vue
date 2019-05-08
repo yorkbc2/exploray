@@ -20,7 +20,10 @@
             </div>
           </div>
 
-          <p v-if="isTablet" class="text-center footer-address">БЦ "Аврора" 004109, Санкт-Петербург, Россия</p>
+          <p
+            v-if="isTablet"
+            class="text-center footer-address"
+          >БЦ "Аврора" 004109, Санкт-Петербург, Россия</p>
 
           <social-list
             v-if="isMobile"
@@ -104,6 +107,7 @@
             </p>
             <div class="footer__language">
               <advanced-select
+                :reversed="isTablet"
                 :options="[
                   {
                     value: 'Русский'
@@ -244,26 +248,72 @@ export default {
     display: none;
   }
   @media screen and (max-width: 1024px) and (min-width: 767px) {
+    .advanced-select {
+      &__current {
+        text-align: left;
+        border-radius: 15px;
+      }
+    }
+    .container {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    &__language {
+      margin-top: 20px;
+    }
     .footer__contact {
       flex: none;
       width: 100%;
-      max-width: 260px;
+      max-width: 240px;
+      justify-content: flex-start;
       &-list {
         flex-direction: column;
+
+        a {
+          margin-bottom: 10px;
+          font-size: 18px;
+          font-weight: lighter;
+        }
       }
     }
     .logo-container {
       margin-bottom: 0px;
+      max-width: 140px;
+      width: 140px;
+      img {
+        width: 140px;
+      }
     }
     .footer__row {
       > div:first-child {
         flex: 1;
         max-width: 100%;
+
+        > div {
+          justify-content: flex-start!important;
+        }
       }
     }
     .footer-address {
       color: #fff;
-      font-size: 14px;
+      font-weight: lighter;
+      font-size: 16px;
+      padding-left: 140px;
+    }
+    &__menu {
+      max-width: none;
+      ul {
+        justify-content: center;
+
+        li {
+          margin-right: 10px;
+
+          a {
+            font-weight: lighter;
+            font-size: 16px;
+          }
+        }
+      }
     }
     &__links {
       display: flex;
@@ -272,6 +322,16 @@ export default {
         flex: 1;
         flex-direction: row;
         justify-content: center;
+
+        li {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          svg {
+            transform: none!important;
+          }
+        }
       }
       ul {
         flex-direction: column;
