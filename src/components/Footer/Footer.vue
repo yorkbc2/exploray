@@ -112,6 +112,10 @@ export default {
   name: "app-footer",
   components: {
     NavbarMenu
+  },
+  computed: {
+    isTablet: () => window.innerWidth <= 1024 && window.innerWidth >= 768,
+    isMobile: () => window.innerWidth <= 767,
   }
 };
 </script>

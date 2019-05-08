@@ -31,7 +31,7 @@ export default {
   display: flex;
   position: relative;
   min-height: 300px;
-  padding: 10% 0;
+  padding: 5% 0;
   justify-content: flex-end;
 
   &__img {
@@ -39,6 +39,7 @@ export default {
     top: 50%;
     transform: translateY(-50%);
     left: 0px;
+    height: 100%;
     img {
       width: 100%;
       height: 100%;

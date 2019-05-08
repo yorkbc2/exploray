@@ -99,7 +99,6 @@ export default {
   position: relative;
   width: 200px;
 
-  background-color: #fff;
   border-radius: 15px;
   transition: border-radius 0.2s ease-in-out;
   cursor: pointer;
@@ -109,6 +108,8 @@ export default {
     padding: 9px 25px 9px;
     text-align: center;
     transition: all 0.4s ease-in-out;
+    background-color: #fff;
+    border-radius: 15px;
     svg {
       position: absolute;
       right: 10px;
