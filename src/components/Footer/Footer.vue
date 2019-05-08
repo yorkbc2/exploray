@@ -20,7 +20,10 @@
             </div>
           </div>
 
+          <p v-if="isTablet" class="text-center footer-address">БЦ "Аврора" 004109, Санкт-Петербург, Россия</p>
+
           <social-list
+            v-if="isMobile"
             :items="[
               {
                   name: 'vk',
@@ -64,6 +67,23 @@
                 <a href="#">Партнерская программа</a>
               </li>
             </ul>
+            <social-list
+              v-if="isTablet"
+              :items="[
+              {
+                  name: 'vk',
+                  url: 'https://facebook.com'
+              },
+              {
+                  name: 'instagram',
+                  url: 'https://facebook.com'
+              },
+              {
+                  name: 'facebook',
+                  url: 'https://facebook.com'
+              }
+          ]"
+            />
           </div>
         </div>
         <div class="col-md-5 col-xs-12 footer__contact">
@@ -78,7 +98,7 @@
             </a>
           </div>
           <div class="footer__contact-address">
-            <p>
+            <p v-if="!isTablet">
               БЦ "Аврора" 004109,
               <br>Санкт-Петербург, Россия
             </p>
@@ -115,7 +135,7 @@ export default {
   },
   computed: {
     isTablet: () => window.innerWidth <= 1024 && window.innerWidth >= 768,
-    isMobile: () => window.innerWidth <= 767,
+    isMobile: () => window.innerWidth <= 767
   }
 };
 </script>
@@ -223,7 +243,45 @@ export default {
   .mobile-select {
     display: none;
   }
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1024px) and (min-width: 767px) {
+    .footer__contact {
+      flex: none;
+      width: 100%;
+      max-width: 260px;
+      &-list {
+        flex-direction: column;
+      }
+    }
+    .logo-container {
+      margin-bottom: 0px;
+    }
+    .footer__row {
+      > div:first-child {
+        flex: 1;
+        max-width: 100%;
+      }
+    }
+    .footer-address {
+      color: #fff;
+      font-size: 14px;
+    }
+    &__links {
+      display: flex;
+      flex-direction: row;
+      ul.social-list {
+        flex: 1;
+        flex-direction: row;
+        justify-content: center;
+      }
+      ul {
+        flex-direction: column;
+        li {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 767px) {
     text-align: center;
     padding-top: 0px;
     .footer__copyright {
