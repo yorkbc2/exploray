@@ -30,23 +30,33 @@ export default {
   margin-top: 40px;
   display: flex;
   position: relative;
+  min-height: 300px;
+  padding: 10% 0;
+  justify-content: flex-end;
+
   &__img {
-    max-width: 800px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0px;
     img {
       width: 100%;
+      height: 100%;
+      width: auto;
     }
   }
 
   &__content {
-    position: absolute;
+    position: relative;
     width: 500px;
     padding: 30px 100px 25px 25px;
     box-shadow: 2.5px 4.33px 18px 0px rgba(0, 0, 0, 0.2);
     background-color: #fff;
-    right: 0px;
     max-width: 100%;
-    top: 50%;
-    transform: translateY(-50%);
+
+    @media screen and (max-width: 1024px) {
+      padding: 15px 100px 15px 15px;
+    }
 
     h3 {
       padding-bottom: 20px;
@@ -98,6 +108,12 @@ export default {
       min-width: 450px;
       padding: 25px;
     }
+    &__img {
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
   }
   @media screen and (max-width: 767px) {
     flex-direction: column;
@@ -141,12 +157,12 @@ export default {
   }
 
   &.reversed {
+    justify-content: flex-start;
     .block-with-image__img {
-      margin-left: auto;
+      right: 0px;
+      left: auto;
     }
     .block-with-image__content {
-      right: auto;
-      left: 0px;
       padding: 30px;
 
       @media screen and (max-width: 560px) {

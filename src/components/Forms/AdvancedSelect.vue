@@ -73,10 +73,11 @@ export default {
   color: #fff;
   background-color: #0a6aa8;
   border-radius: 50px;
-  border: 1px solid #fff;
 
   .advanced-select__current {
     font-weight: lighter;
+    border: 1px solid #fff;
+    border-radius: 50px;
 
     svg {
       fill: #fff !important;
@@ -85,6 +86,12 @@ export default {
 
   .advanced-select__dropdown {
     background-color: #0a6aa8;
+
+    li {
+      &:first-child {
+        border-top: 0px;
+      }
+    }
   }
 }
 
@@ -157,6 +164,11 @@ export default {
         }
       }
     }
+    &.advanced-select--mobile-reversed:not(.toggled) {
+      .advanced-select__current {
+        border-radius: 50px;
+      }
+    }
   }
 
   &.toggled {
@@ -194,7 +206,7 @@ export default {
           border-radius: 0px;
         }
         &:first-child {
-          border-radius: 15px 15px 0 0 ;
+          border-radius: 15px 15px 0 0;
         }
       }
     }

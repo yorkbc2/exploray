@@ -49,10 +49,12 @@
                 placeholder="Выбор активности"
               />
             </div>
-            <button type="submit" class="form-button">
-              Поиск
-              <span class="result-label">120</span>
-            </button>
+            <div class="button-wrapper">
+              <button type="submit" class="form-button">
+                Поиск
+                <span class="result-label">120</span>
+              </button>
+            </div>
           </div>
         </form>
       </div>
@@ -78,6 +80,9 @@ export default {
   .intro-slider {
     position: relative;
     min-height: 600px;
+      @media screen and (max-width: 767px) {
+        min-height: 540px;
+      }
 
     &::after {
       content: "";
@@ -108,6 +113,9 @@ export default {
         left: 50%;
         transform: translateX(-50%);
         z-index: 10;
+        @media screen and (max-width: 767px) {
+          display: none!important;
+        }
       }
 
       &-dot {
@@ -133,8 +141,15 @@ export default {
       }
       @media screen and (max-width: 1024px) {
         h1 {
-          font-size: 28px;
-          margin-bottom: 20px;
+          padding-top: 180px;
+        }
+      }
+      @media screen and (max-width: 767px) {
+        min-height: 540px;
+        h1 {
+          padding-top: 100px;
+          padding-left: 20px;
+          padding-right: 20px;
         }
       }
     }
@@ -157,7 +172,7 @@ export default {
           border-radius: 50px;
           padding-right: 170px;
 
-          > div {
+          > div:not(.button-wrapper) {
             &:first-child {
               input {
                 border-radius: 50px 0 0 50px;
@@ -223,34 +238,23 @@ export default {
         }
       }
 
-      @media screen and (max-width: 1024px) and (min-width: 768px) {
-        form {
-          .input-group {
-            > div {
-              padding-left: 20px;
-              .icon {
-                height: 20px;
-                left: 5px;
-              }
-            }
-            input {
-              padding: 5px 10px 5px;
-            }
-          }
-        }
-      }
-
       @media screen and (max-width: 1024px) {
         top: 60%;
         width: 100%;
-        padding: 0 100px;
-        max-width: 600px;
+        padding: 0;
+        max-width: 625px;
         form {
           .input-group {
             flex-direction: column;
             padding: 0px;
             background-color: transparent;
-            > div {
+            > div.button-wrapper {
+              margin-top: 5px;
+              button.form-button {
+                width: 100%;
+              }
+            }
+            > div:not(.button-wrapper) {
               padding-left: 0px;
               background-color: #fff;
               border-radius: 50px;
@@ -313,10 +317,64 @@ export default {
         }
       }
 
-      @media screen and (max-width: 560px) {
+      @media screen and (max-width: 1024px) and (min-width: 768px) {
+        form {
+          .input-group {
+            flex-direction: row;
+            flex-wrap: wrap;
+            > div:not(.button-wrapper),
+            > div {
+              width: 50%;
+              margin: 10px 0;
+              padding-left: 20px;
+              .icon {
+                height: 25px;
+                left: 20px;
+              }
+              button.form-button {
+                width: 100%;
+                font-weight: bolder;
+                font-size: 20px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+              }
+
+              .date-picker-wrapper {
+                > .mx-datepicker {
+                  min-width: 48% !important;
+                  .mx-input-wrapper {
+                    &::after {
+                      right: 15px !important;
+                    }
+                  }
+                  .mx-input {
+                    font-weight: lighter;
+                    font-size: 12px;
+                    padding: 16px 12px 16px 20px;
+                  }
+                }
+              }
+            }
+            input {
+              padding: 5px 10px 5px;
+            }
+          }
+        }
+      }
+
+      @media screen and (max-width: 767px) {
         max-width: 100%;
         width: 100%;
         padding: 0 30px;
+        form {
+          .input-group {
+            > div:not(.button-wrapper),
+            > div {
+              button.form-button {
+              }
+            }
+          }
+        }
       }
     }
   }
