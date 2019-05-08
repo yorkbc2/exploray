@@ -6,7 +6,7 @@
             <i v-if="!isOpened" class="fa fa-chevron-down"></i>
             <i v-else class="fa fa-chevron-up"></i>
         </h3>
-        <div ref="content" class="tab__content" style="display: none;">
+        <div ref="content" class="tab__content" :style="{display: isTablet ? 'block' : 'none'}">
             <slot />
         </div>
     </div>
@@ -23,6 +23,9 @@ export default {
         return {
             isOpened: false
         }
+    },
+    computed: {
+        isTablet: () => window.innerWidth <= 1024 && window.innerWidth >= 768,
     },
     methods: {
         open() {

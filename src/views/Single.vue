@@ -339,6 +339,9 @@
         </app-default-slider>
       </div>
     </section>
+    <popup v-if="$store.getters.popupOpened" title="Оставьте свои контакты" subtitle="Мы свяжемся с Вами в ближайшее время">
+      <popup-form />
+    </popup>
   </div>
 </template>
 
@@ -349,6 +352,8 @@ import FullWindowSliderVue from "../components/Sliders/FullWindowSlider.vue";
 import ReviewCardVue from "../components/Blocks/ReviewCard.vue";
 import AdvancedTabsVue from "../components/Blocks/AdvancedTabs.vue";
 import ContentTabVue from "../components/Blocks/ContentTab.vue";
+import PopupVue from '../components/Popup/Popup.vue';
+import PopupFormVue from '../components/Popup/PopupForm.vue';
 export default {
   name: "single-page",
   components: {
@@ -357,7 +362,9 @@ export default {
     "full-window-slider": FullWindowSliderVue,
     "review-card": ReviewCardVue,
     "advanced-tabs": AdvancedTabsVue,
-    "content-tab": ContentTabVue
+    "content-tab": ContentTabVue,
+    "popup": PopupVue,
+    "popup-form": PopupFormVue
   },
   data() {
     return {

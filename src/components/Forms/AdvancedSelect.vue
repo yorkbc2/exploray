@@ -78,6 +78,9 @@ export default {
     font-weight: lighter;
     border: 1px solid #fff;
     border-radius: 50px;
+    color: #fff;
+    background-color: #0a6aa8;
+    border-radius: 50px;
 
     svg {
       fill: #fff !important;

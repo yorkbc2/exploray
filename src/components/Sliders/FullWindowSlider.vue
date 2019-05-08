@@ -43,7 +43,7 @@
           <p
             class="slide__description"
           >Живописная природа, горные хребты и море незабываемых впечатлений.</p>
-          <a href="#" class="button button-green button--large">Заказать</a>
+          <a href="#" class="button button-green button--large" @click="callPopup()">Заказать</a>
         </div>
       </div>
       <div class="full-window-slider__mobile-breads">
@@ -160,6 +160,11 @@ export default {
   name: "full-window-slider",
   components: {
     breadcrumbs: HeaderBreadsVue
+  },
+  methods: {
+    callPopup() {
+      this.$store.commit('TOGGLE_POPUP');
+    }
   }
 };
 </script>

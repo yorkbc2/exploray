@@ -9,7 +9,8 @@ const store = new Vuex.Store({
     strokeView: true,
     data: initialData,
     cart: [],
-    showFilters: false
+    showFilters: false,
+    popupOpened: false
   },
   getters: {
     strokeView(state) {
@@ -23,6 +24,9 @@ const store = new Vuex.Store({
     },
     showFilters(state) {
       return state.showFilters;
+    },
+    popupOpened(state) {
+      return state.popupOpened;
     }
   },
   mutations: {
@@ -46,6 +50,9 @@ const store = new Vuex.Store({
     },
     TOGGLE_FILTERS(state) {
       state.showFilters = !state.showFilters;
+    },
+    TOGGLE_POPUP(state) {
+      state.popupOpened = !state.popupOpened;
     }
   }
 });
