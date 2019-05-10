@@ -1,11 +1,14 @@
 <template>
-  <header class="header text-center" :style="{ backgroundImage: `url(${background})` }">
+  <header
+    :class="{'header text-center': true, 'header--full': full}"
+    :style="{ backgroundImage: `url(${background})` }"
+  >
     <div class="container">
       <div class="header__container">
-        <h1 class="header__title">{{title}}</h1>
+        <h1 class="header__title" v-if="title">{{title}}</h1>
         <slot/>
-        <div class="header__breads">
-          <app-header-breads v-if="!!breads" :path="breads"/>
+        <div class="header__breads" v-if="!!breads">
+          <app-header-breads :path="breads"/>
         </div>
       </div>
     </div>
@@ -19,7 +22,8 @@ export default {
   props: {
     title: String,
     breads: Object,
-    background: String
+    background: String,
+    full: Boolean
   },
   components: {
     "app-header-breads": HeaderBreads
@@ -33,6 +37,52 @@ export default {
   background-position: center;
   background-size: cover;
   margin-bottom: 30px;
+
+  &--full {
+    min-height: 768px;
+    margin-bottom: 0px;
+
+    .header__title {
+      font-size: 96px;
+      opacity: 0.5;
+      line-height: 70%;
+      font-weight: bold;
+      text-transform: uppercase;
+      max-width: 100%;
+
+      @media screen and (max-width: 1220px) {
+        font-size: 76px;
+      }
+      @media screen and (max-width: 1024px) {
+        font-size: 60px;
+      }
+      @media screen and (max-width: 767px) {
+        font-size: 26px;
+      }
+    }
+
+    .header__container {
+      padding-top: 60px;
+      
+      @media screen and (max-width: 1220px) {
+        padding-top: 75px;
+      }
+      @media screen and (max-width: 1024px) {
+        padding-top: 140px;
+      }
+      @media screen and (max-width: 767px) {
+        padding-top: 100px;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      > .container {
+        max-width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
 
   &__container {
     position: relative;
@@ -63,7 +113,7 @@ export default {
       max-width: 400px;
     }
   }
-  
+
   @media screen and (max-width: 768px) {
     &__container {
       padding: 120px 0;

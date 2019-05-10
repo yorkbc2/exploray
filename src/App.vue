@@ -45,17 +45,12 @@ export default {
     window.onload = () => {
       this.changeDevice(window.innerWidth);
 
-      this.isHomePage =
-        this.$route.name === "home" || this.$route.name === "single-tour";
+      this.isHomePage = this.$route.name !== "tours";
     };
   },
   watch: {
     $route(to) {
-      if (to.name !== "home") {
-        this.isHomePage = false;
-      } else {
-        this.isHomePage = true;
-      }
+      this.isHomePage = to.name !== "tours";
     }
   }
 };
@@ -198,6 +193,12 @@ section {
   border: 1px solid #e7e7e7;
   font-size: 16px;
   color: #9e9e9e;
+
+  &--block {
+    width: 100%;
+    flex: 1;
+    display: block;
+  }
 }
 
 .form-button {
@@ -539,6 +540,39 @@ img {
 button,
 a,
 input {
-  outline: none!important;
+  outline: none !important;
+}
+
+*.no-underline {
+  text-decoration: none;
+}
+
+*.grey {
+  color: #707070;
+}
+
+.default-form {
+  text-align: center;
+  &__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  &__checkbox {
+    margin: 10px 0 25px;
+    @media screen and (max-width: 767px) {
+      margin: 0px 0px 20px;
+    }
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    margin: 0 25px;
+
+    @media screen and (max-width: 1024px) {
+      margin: 0px;
+    }
+  }
 }
 </style>
