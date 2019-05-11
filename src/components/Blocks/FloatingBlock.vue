@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'floating-block': true, 'floating-block--wide': wide}" :style="{top: `${top}px`}">
+  <div :class="{'floating-block': true, 'floating-block--wide': wide}">
     <h3 class="floating-block__title" v-if="title">{{title}}</h3>
     <div class="floating-block__content">
       <slot name="content"/>
@@ -13,7 +13,6 @@
 <script>
 export default {
   props: {
-    top: Number,
     wide: Boolean,
     title: String
   }
@@ -22,21 +21,34 @@ export default {
 
 <style lang="scss">
 .floating-block {
-  position: absolute;
+  position: relative;
 
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 0 auto;
 
   display: flex;
+
   flex-direction: column;
-  min-width: 500px;
+  width: 100%;
+  max-width: 500px;
   background-color: rgba(255, 255, 255, 0.96);
 
   border-radius: 10px;
   padding: 35px 70px;
 
   &--wide {
-    min-width: 712px;
+    min-width: 810px;
+    padding: 35px 50px 15px;
+
+    .floating-block__content {
+      margin-bottom: 45px;
+    }
+
+    @media screen and (max-width: 1024px) {
+      max-width: 600px;
+      min-width: 1px;
+      width: 100%;
+      padding: 30px 120px 20px;
+    }
   }
 
   &__content {

@@ -8,7 +8,7 @@
       :value="value"
       @input="change($event.target.value)"
     >
-    <label v-if="invalid" class="error">{{ error }}</label>
+    <label v-if="error && invalid && !errorHidden" class="error input-warning">{{ error }}</label>
   </div>
 </template>
 
@@ -19,20 +19,25 @@ export default {
     name: String,
     type: String,
     placeholder: String,
-    defaultValue: String
+    defaultValue: String,
+    validators: Array
   },
   data() {
     return {
       invalid: false,
-      value: this.defaultValue || ""
+      value: this.defaultValue || "",
+      errorHidden: false
     };
   },
   methods: {
     touch() {
-        this.invalid = !this.value;
+      this.invalid = !this.value;
+    },
+    hideError() {
+      return (this.errorHidden = true);
     },
     change(value) {
-        this.value = value;
+      this.value = value;
     }
   }
 };
@@ -43,14 +48,8 @@ export default {
   flex: 1;
   margin-bottom: 15px;
 
-  label {
-    color: red;
-    margin-top: 5px;
-    font-size: 14px;
-  }
-
   &--error {
-    margin-bottom: 0px;
+    margin-bottom: 5px;
   }
 }
 </style>

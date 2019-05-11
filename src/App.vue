@@ -557,22 +557,73 @@ input {
     display: flex;
     flex-direction: row;
     justify-content: center;
+
+    @media screen and (max-width: 1024px) {
+      flex-direction: column;
+      align-items: center;
+      > div.input-container {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+      }
+    }
+
+    &:last-child {
+      margin-top: 30px;
+      @media screen and (max-width: 767px) {
+        margin-top: 20px;
+      }
+    }
+
+    > strong {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-right: 15px;
+      margin-bottom: 15px;
+    }
+
+    .input-container {
+      margin-right: 15px;
+
+      &:last-child {
+        margin-right: auto;
+      }
+    }
   }
 
   &__checkbox {
-    margin: 10px 0 25px;
+    margin: 10px 0 0px;
     @media screen and (max-width: 767px) {
-      margin: 0px 0px 20px;
+      margin: 0px 0px 0px;
     }
   }
 
   button[type="submit"] {
     width: 100%;
     margin: 0 25px;
+    max-width: 310px;
 
     @media screen and (max-width: 1024px) {
       margin: 0px;
     }
   }
+
+  input.input {
+    max-width: 350px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+.input-warning {
+  color: red;
+  margin-top: 5px;
+  font-size: 14px;
+  margin-bottom: 0px;
 }
 </style>

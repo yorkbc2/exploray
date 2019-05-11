@@ -39,9 +39,21 @@ export default {
   margin-bottom: 30px;
 
   &--full {
-    min-height: 768px;
     margin-bottom: 0px;
 
+    .header__container {
+      padding-top: 0px;
+      padding: 118px 0;
+      @media screen and (max-width: 1220px) {
+        padding-top: 75px;
+      }
+      @media screen and (max-width: 1024px) {
+        padding-top: 180px;
+      }
+      @media screen and (max-width: 767px) {
+        padding-top: 145px;
+      }
+    }
     .header__title {
       font-size: 96px;
       opacity: 0.5;
@@ -49,32 +61,25 @@ export default {
       font-weight: bold;
       text-transform: uppercase;
       max-width: 100%;
+      width: 100%;
+      position: absolute;
+      top: 60px;
+      text-align: center;
+      left: 0px;
+      z-index: 0;
 
       @media screen and (max-width: 1220px) {
         font-size: 76px;
       }
       @media screen and (max-width: 1024px) {
+        top: 140px;
         font-size: 60px;
       }
       @media screen and (max-width: 767px) {
-        font-size: 26px;
+        font-size: 30px;
+        top: 120px
       }
     }
-
-    .header__container {
-      padding-top: 60px;
-      
-      @media screen and (max-width: 1220px) {
-        padding-top: 75px;
-      }
-      @media screen and (max-width: 1024px) {
-        padding-top: 140px;
-      }
-      @media screen and (max-width: 767px) {
-        padding-top: 100px;
-      }
-    }
-
     @media screen and (max-width: 767px) {
       > .container {
         max-width: 100%;
