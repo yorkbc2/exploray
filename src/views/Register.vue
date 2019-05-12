@@ -42,7 +42,7 @@
             <div
               class="default-form__row input-warning"
               v-if="passwordError"
-            >Введенные пароли не совпадают</div>
+            >введенные пароли не совпадают</div>
             <div class="default-form__row">
               <button type="submit" class="button button-green button--large">Регистрация</button>
             </div>

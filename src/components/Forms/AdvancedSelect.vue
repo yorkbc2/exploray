@@ -133,6 +133,8 @@ export default {
     border-radius: 0 0 15px 15px;
     z-index: 113;
     box-shadow: 2.5px 6.23px 7px 0px rgba(0, 0, 0, 0.2);
+    max-height: 200px;
+    overflow-y: auto;
 
     width: 100%;
 

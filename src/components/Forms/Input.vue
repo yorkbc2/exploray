@@ -1,5 +1,9 @@
 <template>
-  <div :class="{'input-container': true, 'input-container--error': invalid}">
+  <div :class="{'input-container': true, 'input-container--error': invalid, 'input-container--inline': inline}">
+    <label v-if="label" class="input-label">
+      <slot name="icon" />
+      {{label}}
+    </label>
     <input
       class="input input--block text-center"
       :name="name"
@@ -20,7 +24,9 @@ export default {
     type: String,
     placeholder: String,
     defaultValue: String,
-    validators: Array
+    label: String,
+    validators: Array,
+    inline: Boolean
   },
   data() {
     return {
@@ -48,8 +54,41 @@ export default {
   flex: 1;
   margin-bottom: 15px;
 
+  > label.input-label {
+    font-size: 14px;
+    color: #757575;
+
+    display: block;
+    text-align: left;
+    padding-left: 30px;
+
+    &.input-label--between {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
   &--error {
     margin-bottom: 5px;
+  }
+
+  &--inline {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    max-width: 100%!important;
+    > input.input {
+      max-width: 250px!important;
+      margin: 0!important;
+    }
+    > label.input-label {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 0px;
+      margin-right: 20px;
+    }
   }
 }
 </style>

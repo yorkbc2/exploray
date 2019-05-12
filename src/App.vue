@@ -415,6 +415,10 @@ a.button {
     border-radius: 10px;
     font-size: 18px;
   }
+
+  &--small-paddings {
+    padding: 12px 40px;
+  }
 }
 
 svg {
@@ -553,10 +557,21 @@ input {
 
 .default-form {
   text-align: center;
+  margin: 0 20px;
   &__row {
     display: flex;
     flex-direction: row;
     justify-content: center;
+
+    &.between {
+      justify-content: space-between;
+
+      > div.input-container {
+        > input {
+          margin: 0px;
+        }
+      }
+    }
 
     @media screen and (max-width: 1024px) {
       flex-direction: column;
@@ -592,6 +607,17 @@ input {
     }
   }
 
+  &--without-last {
+    .default-form__row {
+      &:last-child {
+        margin-top: 0px;
+        @media screen and (max-width: 767px) {
+          margin-top: 0px;
+        }
+      }
+    }
+  }
+
   &__checkbox {
     margin: 10px 0 0px;
     @media screen and (max-width: 767px) {
@@ -618,6 +644,12 @@ input {
       max-width: 100%;
     }
   }
+
+  &--wide {
+    input.input {
+      max-width: 100%;
+    }
+  }
 }
 
 .input-warning {
@@ -625,5 +657,57 @@ input {
   margin-top: 5px;
   font-size: 14px;
   margin-bottom: 0px;
+}
+
+.textarea-container {
+  textarea {
+    width: 100%;
+    min-height: 200px;
+    border-radius: 30px;
+    background-color: #f6f6f6;
+    border: 1px solid #ebebeb;
+    padding: 20px 30px;
+    font-size: 14px;
+    line-height: 170%;
+    outline: none;
+  }
+}
+
+.default-advanced-select {
+  flex: 1;
+  .advanced-select {
+    width: 100%;
+    .advanced-select__current {
+      padding: 15px 30px;
+      border-radius: 50px;
+      background-color: #f6f6f6;
+      border: 1px solid #ebebeb;
+      text-align: left;
+      color: #646464;
+      svg {
+        right: 20px;
+        fill: #000 !important;
+      }
+    }
+
+    .advanced-select__dropdown {
+      border-radius: 0px 0px 30px 30px;
+
+      background-color: #f6f6f6;
+
+      li {
+        border-bottom: 0px;
+        border-top: 0px;
+        text-align: left;
+        padding: 10px 30px;
+      }
+    }
+
+    &.toggled {
+      .advanced-select__current {
+        border-radius: 30px 30px 0 0;
+      }
+    }
+  }
 }
 </style>
