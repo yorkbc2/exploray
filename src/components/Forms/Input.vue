@@ -89,6 +89,18 @@ export default {
       padding-left: 0px;
       margin-right: 20px;
     }
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+
+      > label.input-label {
+        padding-left: 30px;
+      }
+
+      > input.input {
+        max-width: 100%!important;
+
+      }
+    }
   }
 }
 </style>

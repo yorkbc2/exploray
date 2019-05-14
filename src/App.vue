@@ -14,7 +14,6 @@ import Footer from "@/components/Footer/Footer.vue";
 import ScrollToTop from "@/components/ActionButtons/ScrollToTop.vue";
 import store from "./store/index.js";
 import MobileNavbarVue from "./components/Navbar/MobileNavbar.vue";
-import { watch } from "fs";
 export default {
   store,
   components: {
@@ -557,7 +556,10 @@ input {
 
 .default-form {
   text-align: center;
-  margin: 0 20px;
+  margin: 0px 20px;
+  @media screen and (max-width: 767px) {
+    margin: 0px 0px;
+  }
   &__row {
     display: flex;
     flex-direction: row;
@@ -670,6 +672,12 @@ input {
     font-size: 14px;
     line-height: 170%;
     outline: none;
+    @media screen and (max-width: 1024px) {
+      min-height: 275px;
+    }
+    @media screen and (max-width: 767px) {
+      min-height: 175px;
+    }
   }
 }
 

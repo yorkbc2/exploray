@@ -3,8 +3,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="profile-card padding-right">
-            <div class="sm">
+          <div class="profile-card padding-right profile-about-card">
+            <div class="sm profile-avatar">
               <img :src="isAvatar ? '/images/avatar.png' : '/images/avatar_404.png'">
               <div class="profile-links">
                 <a href="#" @click="toggleAvatar()">
@@ -17,14 +17,17 @@
             </div>
             <div>
               <form class="default-form">
-                <div class="default-form__row between">
-                  <app-input name="name" type="text" label="Имя:"/>
-                  <app-input name="surname" type="text" label="Фамилия:"/>
-                  <app-input name="father_name" type="text" label="Отчество:"/>
-                </div>
-                <div class="default-form__row between">
-                  <app-input name="name" type="text" label="Город:"/>
-                  <app-input name="surname" type="text" label="Страна:"/>
+                <div class="default-form__row between profile-data">
+                  <app-input name="name" type="text" label="Имя:" placeholder="Ярослав"/>
+                  <app-input name="surname" type="text" label="Фамилия:" placeholder="Галицин"/>
+                  <app-input
+                    name="father_name"
+                    type="text"
+                    label="Отчество:"
+                    placeholder="Андреевич"
+                  />
+                  <app-input name="name" type="text" label="Город:" placeholder="Санкт-Петербург"/>
+                  <app-input name="surname" type="text" label="Страна:" placeholder="Россия"/>
                   <div class="input-container default-advanced-select">
                     <label class="input-label">Тип профиля:</label>
                     <advanced-select
@@ -34,8 +37,9 @@
                     />
                   </div>
                 </div>
+                <div class="default-form__row between"></div>
                 <div class="default-form__row">
-                  <app-multi-date label="Дата рождения:" />
+                  <app-multi-date label="Дата рождения:"/>
                 </div>
                 <div class="default-form__row">
                   <div class="input-container input-container--block textarea-container">
@@ -61,15 +65,36 @@
             <div class="default-form default-form--without-last text-left">
               <h5>Контакты</h5>
               <div class="default-form__row">
-                <app-input name="phone[]" type="tel" label="Телефон 1:"/>
-                <app-input name="phone[]" type="tel" label="Телефон 2:"/>
+                <app-input
+                  name="phone[]"
+                  type="tel"
+                  label="Телефон 1:"
+                  placeholder="+7 (999) 123-45-67"
+                />
+                <app-input
+                  name="phone[]"
+                  type="tel"
+                  label="Телефон 2:"
+                  placeholder="+7 (999) 123-45-67"
+                />
               </div>
               <div class="default-form__row">
-                <app-input name="email" type="email" label="E-mail адрес:" :inline="true"/>
+                <app-input
+                  name="email"
+                  type="email"
+                  label="E-mail адрес:"
+                  :inline="true"
+                  placeholder="example@test.com"
+                />
               </div>
               <h5>Мессенджеры</h5>
               <div class="default-form__row">
-                <app-input name="telegram" type="text" label="Telegram:">
+                <app-input
+                  name="telegram"
+                  type="text"
+                  label="Telegram:"
+                  placeholder="@gailitsinYarick"
+                >
                   <template v-slot:icon>
                     <img
                       src="/images/tg.png"
@@ -80,7 +105,12 @@
                     >
                   </template>
                 </app-input>
-                <app-input name="whatsapp" type="text" label="WhatsApp:">
+                <app-input
+                  name="whatsapp"
+                  type="text"
+                  label="WhatsApp:"
+                  placeholder="+7 (906) 123-45-67"
+                >
                   <template v-slot:icon>
                     <img
                       src="/images/wapp.png"
@@ -93,7 +123,7 @@
                 </app-input>
               </div>
               <div class="default-form__row">
-                <app-input name="skype" type="tel" label="Skype:">
+                <app-input name="skype" type="tel" label="Skype:" placeholder="galitsin_yar">
                   <template v-slot:icon>
                     <img
                       src="/images/skype.png"
@@ -104,7 +134,7 @@
                     >
                   </template>
                 </app-input>
-                <app-input name="viber" type="tel" label="Viber:">
+                <app-input name="viber" type="tel" label="Viber:" placeholder="+7 (906) 123-45-67">
                   <template v-slot:icon>
                     <img
                       src="/images/viber.png"
@@ -124,16 +154,26 @@
             <div class="default-form default-form--wide default-form--without-last text-left">
               <h5>Образование</h5>
               <div class="default-form__row">
-                <app-input name="uni" type="text" label="Название учреждения:"/>
+                <app-input
+                  name="uni"
+                  type="text"
+                  label="Название учреждения:"
+                  placeholder="Машиностроительный колледж ЗНТУ"
+                />
               </div>
               <div class="default-form__row">
-                <app-input name="speciality" type="text" label="Специальность:"/>
+                <app-input
+                  name="speciality"
+                  type="text"
+                  label="Специальность:"
+                  placeholder="Електромеханик - инженер"
+                />
               </div>
               <div class="default-form__row">
-                <app-multi-date :inline="true" label="Дата поступления:" :hideDays="true" />
+                <app-multi-date :inline="true" label="Дата поступления:" :hideDays="true"/>
               </div>
               <div class="default-form__row">
-                <app-multi-date :inline="true" label="Дата окончания:" :hideDays="true" />
+                <app-multi-date :inline="true" label="Дата окончания:" :hideDays="true"/>
               </div>
               <div class="default-form__row justify-content-center">
                 <button
@@ -150,7 +190,7 @@
           <div class="profile-card profile-card--splitted">
             <div class="profile-card-body">
               <h5>Языки</h5>
-              <div class="d-flex">
+              <div class="d-flex flex-wrap">
                 <span class="language-label-item">
                   <img
                     src="/images/eng.png"
@@ -244,7 +284,7 @@
 
 <script>
 import InputVue from "../components/Forms/Input.vue";
-import InputMultiDateVue from '../components/Forms/InputMultiDate.vue';
+import InputMultiDateVue from "../components/Forms/InputMultiDate.vue";
 export default {
   components: {
     "app-input": InputVue,
@@ -263,6 +303,7 @@ export default {
     }
   },
   mounted() {
+    this.aboutLength = this.$refs.about.value.length;
     this.$refs.about.addEventListener("input", e => {
       this.aboutLength = e.target.value.length;
     });
@@ -275,6 +316,38 @@ export default {
 .profile-wrapper {
   position: relative;
   padding: 90px 0 250px;
+
+  @media screen and (max-width: 1024px) {
+    padding-bottom: 75px;
+    padding-top: 160px;
+  }
+
+  .profile-card.profile-about-card {
+    @media screen and (max-width: 767px) {
+      padding-top: 190px;
+    }
+  }
+
+  .profile-avatar {
+    @media screen and (max-width: 767px) {
+      position: absolute;
+
+      top: 0px;
+      left: 50%;
+      transform: translateY(-40px) translateX(-50%);
+      max-width: 150px;
+      .profile-links {
+        margin-top: 10px;
+        a {
+          margin-bottom: 5px;
+        }
+      }
+      > img {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  }
 
   &::before {
     content: "";
@@ -290,10 +363,26 @@ export default {
     background-repeat: no-repeat;
 
     background-image: url("/images/profile_bg.jpg");
+
+    @media screen and (max-width: 1024px) {
+      height: 400px;
+    }
   }
 
   .profile-save-container {
     margin-top: 40px;
+  }
+
+  .container {
+    > .row {
+      > div {
+        @media screen and (max-width: 1024px) {
+          width: 100%;
+          flex: none;
+          max-width: 100%;
+        }
+      }
+    }
   }
 
   .profile-links {
@@ -301,6 +390,10 @@ export default {
     flex-direction: column;
     padding-left: 20px;
     margin-top: 15px;
+
+    @media screen and (max-width: 1024px) {
+      padding-left: 10px;
+    }
 
     > a {
       display: inline-block;
@@ -323,6 +416,9 @@ export default {
     position: relative;
     &.padding-right {
       padding-right: 90px;
+      @media screen and (max-width: 1024px) {
+        padding-right: 15px;
+      }
     }
     display: flex;
     flex-direction: row;
@@ -339,12 +435,63 @@ export default {
     .default-form {
       .default-form__row {
         justify-content: flex-start;
+        flex-wrap: wrap;
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          margin-bottom: 10px;
+        }
+
+        button.button {
+          @media screen and (max-width: 1024px) {
+            margin-top: 15px;
+          }
+        }
+
+        &.profile-data {
+          > .input-container {
+            width: 240px;
+            margin-right: 20px;
+            max-width: 240px;
+            flex: none;
+            &:nth-child(3n + 3) {
+              margin-right: 0px;
+            }
+          }
+
+          @media screen and (max-width: 1024px) {
+            > .input-container {
+              width: 220px;
+              &,
+              &:nth-child(3n + 3) {
+                margin-right: 15px;
+              }
+
+              &:nth-child(even) {
+                margin-right: 0px;
+              }
+            }
+          }
+
+          @media screen and (max-width: 767px) {
+            > .input-container {
+              width: 100%;
+              margin-right: 0px;
+              max-width: 100%;
+
+              &,
+              &:nth-child(3n + 3) {
+                margin-right: 0px;
+              }
+            }
+          }
+        }
 
         > .input-container {
-          max-width: 250px;
-          margin-right: 30px;
-
           &--block {
+            width: 100%;
             max-width: 100%;
           }
 
@@ -358,6 +505,10 @@ export default {
 
           &:last-child {
             margin-right: 0px;
+          }
+
+          @media screen and (min-width: 768px) and (max-width: 1024px) {
+            margin: 0px 30px 0px 0px;
           }
         }
       }
@@ -377,6 +528,9 @@ export default {
       &.sm {
         max-width: 200px;
         padding-right: 10px;
+        @media screen and (max-width: 1024px) {
+          max-width: 170px;
+        }
       }
     }
 
@@ -391,7 +545,18 @@ export default {
       .profile-card-footer {
         padding: 15px 35px;
         border-top: 1px solid #e7e7e7;
+        @media screen and (max-width: 1024px) {
+          padding: 15px 100px;
+        }
+        @media screen and (max-width: 767px) {
+          border-top: 0px;
+          padding: 0 15px 15px 15px;
+        }
       }
+    }
+
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
     }
   }
 }
@@ -401,6 +566,17 @@ export default {
   font-size: 14px;
   img {
     margin-right: 5px;
+  }
+  @media screen and (max-width: 767px) {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 16px;
+    img {
+      width: 25px;
+      height: auto;
+      margin-right: 7px;
+    }
   }
 }
 
@@ -420,6 +596,22 @@ export default {
       max-width: 200px;
       text-align: center;
       padding: 14px 30px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+
+    .input-container {
+      margin-right: 0px;
+      margin-bottom: 15px;
+    }
+
+    .profile-language__button-wrapper {
+      max-width: 100%;
+      >button {
+        max-width: 100%;
+      }
     }
   }
 }

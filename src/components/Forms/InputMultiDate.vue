@@ -65,26 +65,46 @@ export default {
 </script>
 
 <style lang="scss">
-    .input-multi-date {
-        max-width: 100%!important;
+.input-multi-date {
+  max-width: 100% !important;
 
-        .advanced-select {
-            max-width: 130px;
+  .advanced-select {
+    max-width: 130px;
 
-            margin-right: 10px;
-        }
-        &--inline {
-            display: flex;
-            flex-direction: row;
+    margin-right: 10px;
+  }
+  &--inline {
+    display: flex;
+    flex-direction: row;
 
-
-            > label.input-label {
-                display: inline-flex;
-                flex-direction: column;
-                justify-content: center;
-                min-width: 160px;
-                margin-right: 20px;
-            }
-        }
+    > label.input-label {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 160px;
+      margin-right: 20px;
+      @media screen and (max-width: 1024px) {
+        padding-left: 0px;
+        margin-right: 0px;
+      }
     }
+
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+
+      > label.input-label {
+        padding-left: 30px;
+      }
+
+      .default-advanced-select {
+        justify-content: center;
+      }
+    }
+  }
+
+  .default-advanced-select {
+    @media screen and (max-width: 1024px) {
+    }
+  }
+}
 </style>
