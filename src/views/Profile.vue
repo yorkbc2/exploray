@@ -271,6 +271,25 @@
         </div>
       </div>
       <div class="row">
+        <div class="col-md-6">
+          <div class="profile-card">
+            <div class="default-form text-left">
+              <h5>Подключить социальные сети</h5>
+              <div class="profile-socials">
+                <span
+                  v-for="(item, index) in socials"
+                  :key="index"
+                  :class="{ checked: item.checked  }"
+                >
+                  <img :src="item.icon">
+                  {{ item.label }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-md-12 text-center profile-save-container">
           <button
             type="submit"
@@ -294,7 +313,17 @@ export default {
     return {
       aboutMaxLength: 450,
       aboutLength: 0,
-      isAvatar: false
+      isAvatar: false,
+      socials: [
+        { label: "Instagram", icon: "/images/i_is.png", checked: true },
+        { label: "YouTube", icon: "/images/i_yt.png" },
+        { label: "Facebook", icon: "/images/i_fb.png" },
+        { label: "ВКонтакте", icon: "/images/i_vk.png" },
+        { label: "Одноклассники", icon: "/images/i_ok.png" },
+        { label: "Pinterest", icon: "/images/i_pt.png" },
+        { label: "Twitter", icon: "/images/i_tw.png" },
+        { label: "Tumblr", icon: "/images/i_tmblr.png", checked: true }
+      ]
     };
   },
   methods: {
@@ -325,6 +354,40 @@ export default {
   .profile-card.profile-about-card {
     @media screen and (max-width: 767px) {
       padding-top: 190px;
+    }
+  }
+
+  .profile-socials {
+    span {
+      display: inline-block;
+      position: relative;
+      margin-bottom: 15px;
+      margin-right: 25px;
+      img {
+        vertical-align: top;
+        width: 23px;
+        height: auto;
+        margin-right: 5px;
+      }
+
+      &.checked {
+        color: #919191;
+        padding-right: 25px;
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: 0px;
+          transform: translateY(-50%);
+          background-image: url("/icons/check.svg ");
+          width: 15px;
+          height: 15px;
+          background-size: cover;
+          background-position: center;
+          filter: invert(59%) sepia(13%) saturate(2096%) hue-rotate(73deg)
+            brightness(88%) contrast(85%);
+        }
+      }
     }
   }
 
@@ -609,7 +672,7 @@ export default {
 
     .profile-language__button-wrapper {
       max-width: 100%;
-      >button {
+      > button {
         max-width: 100%;
       }
     }
