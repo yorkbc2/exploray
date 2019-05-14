@@ -46,6 +46,15 @@
         </li>
         <li>
           <router-link to="/tours">
+            В сравнении
+            <span
+              class="cart-length"
+              v-if="!!$store.getters.cart.length"
+            >{{ $store.getters.cart.length }}</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/tours">
             Корзина
             <span
               class="cart-length"
@@ -55,6 +64,24 @@
         </li>
         <li>
           <a href="#">Личный кабинет</a>
+        </li>
+      </ul>
+      <div class="divider"></div>
+      <ul class="mobile-navbar-menu-inner">
+        <li>
+          <router-link to="/tours">Личные данные</router-link>
+        </li>
+        <li>
+          <router-link to="/tours">
+            Путешествия
+            <span class="cart-length">5</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/tours">Статистика</router-link>
+        </li>
+        <li>
+          <router-link to="/tours">Люди</router-link>
         </li>
       </ul>
       <div class="text-center social-list-wrapper">
@@ -110,7 +137,6 @@ export default {
 
 <style lang="scss" scoped>
 .mobile-navbar {
-
   z-index: 1000;
   &__search,
   &__social-list {
@@ -200,6 +226,13 @@ export default {
     z-index: 1002;
     transition: top 0.3s ease-in-out;
     text-align: center;
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background-color: #fff;
+      margin: 15px 0 20px;
+    }
 
     .nav__search {
       margin: 0 auto 15px;

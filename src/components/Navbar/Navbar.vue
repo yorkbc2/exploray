@@ -40,6 +40,9 @@
           </div>
           <div class="nav__buttons-wrapper">
             <div class="nav__buttons">
+              <a href="/cart" class="nav__compare">
+                <img src="/images/compare.png" height="20px" width="auto" />
+              </a>
               <a href="/cart" class="nav__cart">
                 <span v-if="!!$store.getters.cart.length" class="notifications">
                   {{$store.getters.cart.length}}
@@ -47,7 +50,7 @@
                 <img src="/images/cart.png" height="24px" width="auto" />
               </a>
               <a href="/cart" class="nav__user">
-                <img src="/images/customer.png" height="24px" width="auto" />
+                <img :src="isProfilePage ? '/images/customer_filled.png' : '/images/customer.png'" height="24px" width="auto" />
               </a>
             </div>
           </div>
@@ -65,6 +68,9 @@ export default {
   components: {
     NavbarMenu,
     NavbarSearch
+  },
+  props: {
+    isProfilePage: Boolean
   }
 };
 </script>
@@ -84,17 +90,34 @@ export default {
   }
 
   &__buttons {
+    display: flex;
+    flex-direction: row;
+
     > a {
-      &:first-child {
-        margin-right: 25px;
+      &:not(:last-child) {
+        margin-right: 20px;
       }
       color: #fff;
-      display: inline-block;
-      position: relative;
+      height: 25px;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      position: static;
+
+      img {
+        width: auto;
+      }
 
       i {
         font-size: 20px;
       }
+    }
+  }
+
+  &__compare {
+    margin-right: 15px;
+    img {
+      margin-top: 2px;
     }
   }
 

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <navbar v-if="!isMobile"/>
+    <navbar v-if="!isMobile" :isProfilePage="isProfilePage" />
     <mobile-navbar v-else :isHomePage="isHomePage"/>
     <router-view/>
     <scroll-to-top/>
@@ -25,7 +25,8 @@ export default {
   data() {
     return {
       isMobile: false,
-      isHomePage: false
+      isHomePage: false,
+      isProfilePage: false
     };
   },
   methods: {
@@ -45,11 +46,13 @@ export default {
       this.changeDevice(window.innerWidth);
 
       this.isHomePage = this.$route.name !== "tours";
+      this.isProfilePage = this.$route.name === "profile";
     };
   },
   watch: {
     $route(to) {
       this.isHomePage = to.name !== "tours";
+      this.isProfilePage = to.name === "profile";
     }
   }
 };
