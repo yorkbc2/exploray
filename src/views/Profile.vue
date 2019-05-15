@@ -63,88 +63,98 @@
         <div class="col-md-6">
           <div class="profile-card">
             <div class="default-form default-form--without-last text-left">
-              <h5>Контакты</h5>
-              <div class="default-form__row">
-                <app-input
-                  name="phone[]"
-                  type="tel"
-                  label="Телефон 1:"
-                  placeholder="+7 (999) 123-45-67"
-                />
-                <app-input
-                  name="phone[]"
-                  type="tel"
-                  label="Телефон 2:"
-                  placeholder="+7 (999) 123-45-67"
-                />
-              </div>
-              <div class="default-form__row">
-                <app-input
-                  name="email"
-                  type="email"
-                  label="E-mail адрес:"
-                  :inline="true"
-                  placeholder="example@test.com"
-                />
-              </div>
-              <h5>Мессенджеры</h5>
-              <div class="default-form__row">
-                <app-input
-                  name="telegram"
-                  type="text"
-                  label="Telegram:"
-                  placeholder="@gailitsinYarick"
-                >
-                  <template v-slot:icon>
-                    <img
-                      src="/images/tg.png"
-                      width="20px"
-                      height="20px"
-                      alt="Telegram"
-                      title="Telegram"
-                    >
-                  </template>
-                </app-input>
-                <app-input
-                  name="whatsapp"
-                  type="text"
-                  label="WhatsApp:"
-                  placeholder="+7 (906) 123-45-67"
-                >
-                  <template v-slot:icon>
-                    <img
-                      src="/images/wapp.png"
-                      width="20px"
-                      height="20px"
-                      alt="WhatsApp"
-                      title="WhatsApp"
-                    >
-                  </template>
-                </app-input>
-              </div>
-              <div class="default-form__row">
-                <app-input name="skype" type="tel" label="Skype:" placeholder="galitsin_yar">
-                  <template v-slot:icon>
-                    <img
-                      src="/images/skype.png"
-                      width="20px"
-                      height="20px"
-                      alt="Skype"
-                      title="Skype"
-                    >
-                  </template>
-                </app-input>
-                <app-input name="viber" type="tel" label="Viber:" placeholder="+7 (906) 123-45-67">
-                  <template v-slot:icon>
-                    <img
-                      src="/images/viber.png"
-                      width="20px"
-                      height="20px"
-                      alt="Viber"
-                      title="Viber"
-                    >
-                  </template>
-                </app-input>
+              <h5 class="profile-card-toggler">
+                Контакты
+                <icon name="arrow-down" fill="#000" :width="17" :height="17"/>
+              </h5>
+              <div class="profile-card-content">
+                <div class="default-form__row">
+                  <app-input
+                    name="phone[]"
+                    type="tel"
+                    label="Телефон 1:"
+                    placeholder="+7 (999) 123-45-67"
+                  />
+                  <app-input
+                    name="phone[]"
+                    type="tel"
+                    label="Телефон 2:"
+                    placeholder="+7 (999) 123-45-67"
+                  />
+                </div>
+                <div class="default-form__row">
+                  <app-input
+                    name="email"
+                    type="email"
+                    label="E-mail адрес:"
+                    :inline="true"
+                    placeholder="example@test.com"
+                  />
+                </div>
+                <h5>Мессенджеры</h5>
+                <div class="default-form__row">
+                  <app-input
+                    name="telegram"
+                    type="text"
+                    label="Telegram:"
+                    placeholder="@gailitsinYarick"
+                  >
+                    <template v-slot:icon>
+                      <img
+                        src="/images/tg.png"
+                        width="20px"
+                        height="20px"
+                        alt="Telegram"
+                        title="Telegram"
+                      >
+                    </template>
+                  </app-input>
+                  <app-input
+                    name="whatsapp"
+                    type="text"
+                    label="WhatsApp:"
+                    placeholder="+7 (906) 123-45-67"
+                  >
+                    <template v-slot:icon>
+                      <img
+                        src="/images/wapp.png"
+                        width="20px"
+                        height="20px"
+                        alt="WhatsApp"
+                        title="WhatsApp"
+                      >
+                    </template>
+                  </app-input>
+                </div>
+                <div class="default-form__row">
+                  <app-input name="skype" type="tel" label="Skype:" placeholder="galitsin_yar">
+                    <template v-slot:icon>
+                      <img
+                        src="/images/skype.png"
+                        width="20px"
+                        height="20px"
+                        alt="Skype"
+                        title="Skype"
+                      >
+                    </template>
+                  </app-input>
+                  <app-input
+                    name="viber"
+                    type="tel"
+                    label="Viber:"
+                    placeholder="+7 (906) 123-45-67"
+                  >
+                    <template v-slot:icon>
+                      <img
+                        src="/images/viber.png"
+                        width="20px"
+                        height="20px"
+                        alt="Viber"
+                        title="Viber"
+                      >
+                    </template>
+                  </app-input>
+                </div>
               </div>
             </div>
           </div>
@@ -152,34 +162,39 @@
         <div class="col-md-6">
           <div class="profile-card">
             <div class="default-form default-form--wide default-form--without-last text-left">
-              <h5>Образование</h5>
-              <div class="default-form__row">
-                <app-input
-                  name="uni"
-                  type="text"
-                  label="Название учреждения:"
-                  placeholder="Машиностроительный колледж ЗНТУ"
-                />
-              </div>
-              <div class="default-form__row">
-                <app-input
-                  name="speciality"
-                  type="text"
-                  label="Специальность:"
-                  placeholder="Електромеханик - инженер"
-                />
-              </div>
-              <div class="default-form__row">
-                <app-multi-date :inline="true" label="Дата поступления:" :hideDays="true"/>
-              </div>
-              <div class="default-form__row">
-                <app-multi-date :inline="true" label="Дата окончания:" :hideDays="true"/>
-              </div>
-              <div class="default-form__row justify-content-center">
-                <button
-                  type="submit"
-                  class="button button-green button--large button--small-paddings"
-                >Добавить образование</button>
+              <h5 class="profile-card-toggler">
+                Образование
+                <icon name="arrow-down" fill="#000" :width="17" :height="17"/>
+              </h5>
+              <div class="profile-card-content">
+                <div class="default-form__row">
+                  <app-input
+                    name="uni"
+                    type="text"
+                    label="Название учреждения:"
+                    placeholder="Машиностроительный колледж ЗНТУ"
+                  />
+                </div>
+                <div class="default-form__row">
+                  <app-input
+                    name="speciality"
+                    type="text"
+                    label="Специальность:"
+                    placeholder="Електромеханик - инженер"
+                  />
+                </div>
+                <div class="default-form__row">
+                  <app-multi-date :inline="true" label="Дата поступления:" :hideDays="true"/>
+                </div>
+                <div class="default-form__row">
+                  <app-multi-date :inline="true" label="Дата окончания:" :hideDays="true"/>
+                </div>
+                <div class="default-form__row justify-content-center">
+                  <button
+                    type="submit"
+                    class="button button-green button--large button--small-paddings"
+                  >Добавить образование</button>
+                </div>
               </div>
             </div>
           </div>
@@ -188,53 +203,60 @@
       <div class="row">
         <div class="col-md-6">
           <div class="profile-card profile-card--splitted">
-            <div class="profile-card-body">
-              <h5>Языки</h5>
-              <div class="d-flex flex-wrap">
-                <span class="language-label-item">
-                  <img
-                    src="/images/eng.png"
-                    alt="English"
-                    title="English"
-                    height="20px"
-                    width="auto"
-                  >
-                  English
-                </span>
-                <span class="language-label-item">
-                  <img
-                    src="/images/ru.png"
-                    alt="Русский"
-                    title="Русский"
-                    height="20px"
-                    width="auto"
-                  >
-                  Русский
-                </span>
-                <span class="language-label-item">
-                  <img
-                    src="/images/ua.png"
-                    alt="Украинский"
-                    title="Украинский"
-                    height="20px"
-                    width="auto"
-                  >
-                  Украинский
-                </span>
-              </div>
+            <div class="profile-card-head">
+              <h5 class="profile-card-toggler">
+                Языки
+                <icon name="arrow-down" fill="#000" :width="17" :height="17"/>
+              </h5>
             </div>
-            <div class="profile-card-footer profile-language">
-              <div class="default-advanced-select input-container">
-                <label class="input-label">Добавить язык:</label>
-                <advanced-select
-                  placeholder="Не выбрано"
-                  :options="[{value: 'Немецкий'}, { value: 'Польский'}]"
-                />
+            <div class="profile-card-content">
+              <div class="profile-card-body">
+                <div class="d-flex flex-wrap">
+                  <span class="language-label-item">
+                    <img
+                      src="/images/eng.png"
+                      alt="English"
+                      title="English"
+                      height="20px"
+                      width="auto"
+                    >
+                    English
+                  </span>
+                  <span class="language-label-item">
+                    <img
+                      src="/images/ru.png"
+                      alt="Русский"
+                      title="Русский"
+                      height="20px"
+                      width="auto"
+                    >
+                    Русский
+                  </span>
+                  <span class="language-label-item">
+                    <img
+                      src="/images/ua.png"
+                      alt="Украинский"
+                      title="Украинский"
+                      height="20px"
+                      width="auto"
+                    >
+                    Украинский
+                  </span>
+                </div>
               </div>
-              <div
-                class="flex d-flex flex-column justify-content-end profile-language__button-wrapper"
-              >
-                <button type="button" class="button button-green button--large">Добавить</button>
+              <div class="profile-card-footer profile-language">
+                <div class="default-advanced-select input-container">
+                  <label class="input-label">Добавить язык:</label>
+                  <advanced-select
+                    placeholder="Не выбрано"
+                    :options="[{value: 'Немецкий'}, { value: 'Польский'}]"
+                  />
+                </div>
+                <div
+                  class="flex d-flex flex-column justify-content-end profile-language__button-wrapper"
+                >
+                  <button type="button" class="button button-green button--large">Добавить</button>
+                </div>
               </div>
             </div>
           </div>
@@ -242,29 +264,34 @@
         <div class="col-md-6">
           <div class="profile-card">
             <div class="default-form default-form--wide default-form--without-last text-left">
-              <h5>Навыки</h5>
-              <div class="default-form__row">
-                <app-input
-                  type="text"
-                  name="skills[]"
-                  label="Краткое описание 1-го навыка:"
-                  placeholder="Разработка рекламных кампаний"
-                />
-              </div>
-              <div class="default-form__row">
-                <app-input
-                  type="text"
-                  name="skills[]"
-                  label="Краткое описание 2-го навыка:"
-                  placeholder="Владение Photoshop CC"
-                />
-              </div>
+              <h5 class="profile-card-toggler">
+                Навыки
+                <icon name="arrow-down" fill="#000" :width="17" :height="17"/>
+              </h5>
+              <div class="profile-card-content">
+                <div class="default-form__row">
+                  <app-input
+                    type="text"
+                    name="skills[]"
+                    label="Краткое описание 1-го навыка:"
+                    placeholder="Разработка рекламных кампаний"
+                  />
+                </div>
+                <div class="default-form__row">
+                  <app-input
+                    type="text"
+                    name="skills[]"
+                    label="Краткое описание 2-го навыка:"
+                    placeholder="Владение Photoshop CC"
+                  />
+                </div>
 
-              <div class="default-form__row justify-content-center">
-                <button
-                  type="submit"
-                  class="button button-green button--large button--small-paddings"
-                >Добавить еще навык</button>
+                <div class="default-form__row justify-content-center">
+                  <button
+                    type="submit"
+                    class="button button-green button--large button--small-paddings"
+                  >Добавить еще навык</button>
+                </div>
               </div>
             </div>
           </div>
@@ -336,6 +363,24 @@ export default {
     this.$refs.about.addEventListener("input", e => {
       this.aboutLength = e.target.value.length;
     });
+    if (window.innerWidth <= 767) {
+      const cards = document.querySelectorAll(".profile-card");
+      if (jQuery && cards.length) {
+        cards.forEach(card => {
+          card = jQuery(card);
+          const h5 = card.find("h5"),
+            content = card.find(".profile-card-content");
+
+          if (h5.length && content.length) {
+            content.slideUp(400);
+            h5.on("click", () => {
+              h5.toggleClass("toggled");
+              content.slideToggle(400);
+            });
+          }
+        });
+      }
+    }
   }
 };
 </script>
@@ -491,8 +536,29 @@ export default {
     box-shadow: 2.5px 4.33px 5px 0px rgba(0, 0, 0, 0.2);
 
     h5 {
+      position: relative;
       font-size: 16px;
       margin-bottom: 15px;
+      &.profile-card-toggler {
+        margin-bottom: 0px;
+        padding: 10px 0px;
+
+        &.toggled {
+          svg {
+            transform: translateY(-50%) scale(-1);
+          }
+        }
+        svg {
+          display: none;
+          position: absolute;
+          top: 50%;
+          right: 0px;
+          transform: translateY(-50%);
+          @media screen and (max-width: 767px) {
+            display: block;
+          }
+        }
+      }
     }
 
     .default-form {
@@ -602,7 +668,14 @@ export default {
       padding: 0px;
 
       .profile-card-body {
+        padding: 0px 35px 15px 35px;
+      }
+
+      .profile-card-head {
         padding: 15px 35px;
+        @media screen and (max-width: 767px) {
+          padding: 15px;
+        }
       }
 
       .profile-card-footer {
