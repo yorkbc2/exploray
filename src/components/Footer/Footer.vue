@@ -259,7 +259,7 @@ export default {
       padding-right: 0px;
     }
     &__language {
-      margin-top: 20px;
+      margin-top: 25px;
     }
     .footer__contact {
       flex: none;
@@ -270,7 +270,7 @@ export default {
         flex-direction: column;
 
         a {
-          margin-bottom: 10px;
+          margin-bottom: 15px;
           font-size: 18px;
           font-weight: lighter;
         }
@@ -279,9 +279,9 @@ export default {
     .logo-container {
       margin-bottom: 0px;
       max-width: 140px;
-      width: 140px;
+      width: 160px;
       img {
-        width: 140px;
+        width: 160px;
       }
     }
     .footer__row {
