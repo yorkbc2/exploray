@@ -2,9 +2,18 @@
   <div :class="{'input-multi-date input-container': true, 'input-multi-date--inline': inline}">
     <label v-if="label" class="input-label">{{label}}</label>
     <div class="default-advanced-select d-flex">
-      <advanced-select v-if="!hideDays" placeholder="День" :options="computedData(day)"/>
-      <advanced-select placeholder="Месяц" :options="months.map(m => ({value: m}))"/>
-      <advanced-select placeholder="Год" :options="computedData(year, true)"/>
+      <advanced-select
+        v-if="!hideDays"
+        placeholder="День"
+        :options="computedData(day)"
+        class="days-select"
+      />
+      <advanced-select
+        placeholder="Месяц"
+        :options="months.map(m => ({value: m}))"
+        class="months-select"
+      />
+      <advanced-select placeholder="Год" :options="computedData(year, true)" class="years-select"/>
     </div>
   </div>
 </template>
@@ -103,7 +112,22 @@ export default {
   }
 
   .default-advanced-select {
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 767px) {
+      > div.advanced-select {
+        &.days-select {
+          max-width: 90px;
+        }
+        &.months-select {
+          flex: 1;
+          max-width: 100%;
+        }
+        &.years-select {
+          max-width: 90px;
+        }
+        &:last-child {
+          margin-right: 0px;
+        }
+      }
     }
   }
 }

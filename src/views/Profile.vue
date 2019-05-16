@@ -183,11 +183,13 @@
                     placeholder="Електромеханик - инженер"
                   />
                 </div>
-                <div class="default-form__row">
-                  <app-multi-date :inline="true" label="Дата поступления:" :hideDays="true"/>
-                </div>
-                <div class="default-form__row">
-                  <app-multi-date :inline="true" label="Дата окончания:" :hideDays="true"/>
+                <div class="default-form-dates">
+                  <div class="default-form__row">
+                    <app-multi-date :inline="true" label="Дата поступления:" :hideDays="true"/>
+                  </div>
+                  <div class="default-form__row">
+                    <app-multi-date :inline="true" label="Дата окончания:" :hideDays="true"/>
+                  </div>
                 </div>
                 <div class="default-form__row justify-content-center">
                   <button
@@ -562,6 +564,46 @@ export default {
     }
 
     .default-form {
+      &-dates {
+        @media screen and (max-width: 1024px) and (min-width: 768px) {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: space-between;
+          .default-form__row {
+            flex: 1;
+            &:first-child {
+              margin-right: 10px;
+            }
+            .input-multi-date {
+              .input-label {
+                justify-content: flex-start;
+                padding-top: 15px;
+              }
+              .default-advanced-select {
+                flex-direction: column;
+
+                .advanced-select {
+                  margin-bottom: 10px;
+
+                  &.years-select {
+                    max-width: 110px;
+                    margin-left: 15px;
+                  }
+                  &.months-select {
+                    max-width: 140px;
+                  }
+                }
+              }
+            }
+          }
+        }
+        @media screen and (max-width: 767px) {
+          .default-advanced-select .months-select {
+            max-width: 120px;
+          }
+        }
+      }
       .default-form__row {
         justify-content: flex-start;
         flex-wrap: wrap;
@@ -592,7 +634,8 @@ export default {
 
           @media screen and (max-width: 1024px) {
             > .input-container {
-              width: 220px;
+              max-width: 48%;
+              width: 48%;
               &,
               &:nth-child(3n + 3) {
                 margin-right: 15px;

@@ -648,6 +648,10 @@ input {
       width: 100%;
       max-width: 100%;
     }
+
+    @media screen and (max-width: 767px) {
+      padding: 15px 20px;
+    }
   }
 
   &--wide {
@@ -698,6 +702,12 @@ input {
       svg {
         right: 20px;
         fill: #000 !important;
+      }
+      @media screen and (max-width: 767px) {
+        padding: 15px 30px 15px 15px;
+        svg {
+          right: 15px;
+        }
       }
     }
 
