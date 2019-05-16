@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     changeDevice(width) {
-      if (width <= 1024) {
+      if (width <= 1200) {
         this.isMobile = true;
       } else {
         this.isMobile = false;

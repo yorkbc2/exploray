@@ -632,7 +632,7 @@ export default {
             }
           }
 
-          @media screen and (max-width: 1024px) {
+          @media screen and (max-width: 1200px) {
             > .input-container {
               max-width: 48%;
               width: 48%;
