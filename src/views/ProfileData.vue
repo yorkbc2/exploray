@@ -42,7 +42,7 @@
               </ul>
               <h4>О себе:</h4>
               <p>Повседневная практика показывает, что рамки и место обучения кадров представляет собой интересный эксперимент проверки систем массового участия. Разнообразный и богатый опыт рамки и место обучения кадров способствует подготовки и реализации дальнейших направлений развития. Разнообразный и богатый опыт консультация с широким активом способствует подготовки и реализации соответствующий условий активизации.</p>
-              <div class="text-right">
+              <div class="profile-data-button-wrapper">
                 <router-link
                   to="/profile-edit"
                   class="button profile-edit-button profile-edit-button--mobile"
@@ -70,9 +70,12 @@
             <div class="col-md-6">
               <div class="profile-card">
                 <div class="profile-card__head">
-                  <h4>Контакты</h4>
+                  <h5 class="profile-card-toggler">
+                    Контакты
+                    <icon name="arrow-down" fill="#000" :width="17" :height="17"/>
+                  </h5>
                 </div>
-                <div class="profile-card__body">
+                <div class="profile-card__body profile-card-content">
                   <div class="d-flex justify-content-between profile-phones">
                     <a href="#">
                       <strong>
@@ -86,7 +89,7 @@
                     </a>
                   </div>
                   <div>
-                    <a href="#">
+                    <a href="#" class="profile-email">
                       <i class="fa fa-envelope"></i>&nbsp;galitsin@gmail.com
                     </a>
                   </div>
@@ -125,9 +128,12 @@
             <div class="col-md-6">
               <div class="profile-card">
                 <div class="profile-card__head">
-                  <h4>Образование</h4>
+                  <h5 class="profile-card-toggler">
+                    Образование
+                    <icon name="arrow-down" fill="#000" :width="17" :height="17"/>
+                  </h5>
                 </div>
-                <div class="profile-card__body">
+                <div class="profile-card__body profile-card-content">
                   <div class="profile-grade">
                     <h5>
                       Машиностроительный колледж ЗНТУ
@@ -156,9 +162,12 @@
             <div class="col-md-6">
               <div class="profile-card">
                 <div class="profile-card__head">
-                  <h4>Социальные сети</h4>
+                  <h5 class="profile-card-toggler">
+                    Социальные сети
+                    <icon name="arrow-down" fill="#000" :width="17" :height="17"/>
+                  </h5>
                 </div>
-                <div class="profile-card__body">
+                <div class="profile-card__body profile-card-content">
                   <div class="profile-socials">
                     <span>
                       <img src="/images/i_is.png" alt>
@@ -199,9 +208,12 @@
             <div class="col-md-6">
               <div class="profile-card">
                 <div class="profile-card__head">
-                  <h4>Навыки</h4>
+                  <h5 class="profile-card-toggler">
+                    Навыки
+                    <icon name="arrow-down" fill="#000" :width="17" :height="17"/>
+                  </h5>
                 </div>
-                <div class="profile-card__body">
+                <div class="profile-card__body profile-card-content">
                   <ul class="profile-skills">
                     <li>Создание рекламных кампаний</li>
                     <li>Разработка рекламной концепции</li>
@@ -217,9 +229,12 @@
             <div class="col-md-4">
               <div class="profile-card">
                 <div class="profile-card__head">
-                  <h4>Языки</h4>
+                  <h5 class="profile-card-toggler">
+                    Языки
+                    <icon name="arrow-down" fill="#000" :width="17" :height="17"/>
+                  </h5>
                 </div>
-                <div class="profile-card__body">
+                <div class="profile-card__body profile-card-content">
                   <div class="profile-lang">
                     <span>
                       <img src="/images/eng.png" alt>
@@ -254,9 +269,13 @@
 
 <script>
 import ProfileNavigationVue from "@/components/Lists/ProfileNavigationList.vue";
+import { mobileCardToggler } from "@/utils/card-toggler.js";
 export default {
   components: {
     "profile-navigation": ProfileNavigationVue
+  },
+  mounted() {
+    mobileCardToggler(".profile-card");
   }
 };
 </script>
@@ -281,9 +300,31 @@ export default {
     .profile-card__head {
       padding: 15px 20px 8px;
       position: relative;
-      h4 {
+      @media screen and (max-width: 767px) {
+        padding-bottom: 0px;
+      }
+      h4,
+      h5 {
         font-size: 16px;
+        color: #969696;
+        padding: 0;
         margin: 0;
+        &.profile-card-toggler {
+          @media screen and (max-width: 767px) {
+            margin-bottom: 15px;
+            &.toggled {
+              &::after {
+                content: "";
+                width: 100%;
+                height: 1px;
+                background-color: #ebebeb;
+                left: 0;
+                bottom: -15px;
+                position: absolute;
+              }
+            }
+          }
+        }
       }
       &::before {
         content: "";
@@ -317,6 +358,16 @@ export default {
           }
         }
       }
+      @media screen and (max-width: 767px) {
+        &.profile-card-content {
+          padding-top: 10px;
+        }
+
+        .profile-phones > a,
+        .profile-email {
+          font-size: 15px;
+        }
+      }
     }
   }
 
@@ -340,6 +391,17 @@ export default {
         top: 50%;
         left: 0px;
         transform: translateY(-50%);
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      li {
+        font-size: 14px;
+        padding-left: 20px;
+        &::before {
+          width: 12px;
+          height: 12px;
+        }
       }
     }
   }
@@ -368,7 +430,7 @@ export default {
   .profile-data {
     padding: 12px 15px 12px 20px;
     @media screen and (max-width: 767px) {
-      padding-top: 180px;
+      padding: 170px 0px 12px;
     }
     .profile-data-header {
       @media screen and (max-width: 1024px) {
@@ -388,11 +450,19 @@ export default {
       @media screen and (max-width: 767px) {
         flex-direction: column;
 
+        h3 {
+          text-align: center;
+          margin-bottom: 15px;
+          font-size: 17px;
+        }
+
         .profile-type {
           align-self: center;
           text-align: center;
           max-width: 130px;
-          padding: 5px 10px;
+          padding: 5px 12px;
+          margin-bottom: 5px;
+          font-size: 12px;
         }
       }
     }
@@ -473,11 +543,23 @@ export default {
       i {
         margin-right: 5px;
       }
+    }
 
-      @media screen and (min-width: 1025px) {
-        &.profile-edit-button--mobile {
-          display: none;
-        }
+    .profile-data-button-wrapper {
+      display: none;
+      @media screen and (max-width: 1024px) {
+        text-align: right;
+        display: block;
+      }
+      @media screen and (max-width: 767px) {
+        text-align: center;
+      }
+    }
+
+    > h4 {
+      @media screen and (max-width: 767px) {
+        font-size: 16px;
+        margin-bottom: 10px;
       }
     }
   }
@@ -530,6 +612,16 @@ export default {
         }
       }
     }
+
+    @media screen and (max-width: 767px) {
+      h5 {
+        font-size: 14px;
+        margin-bottom: 0px;
+        small {
+          margin-top: 4px;
+        }
+      }
+    }
   }
 
   .profile-phones {
@@ -546,12 +638,12 @@ export default {
   }
 
   .profile-socials {
-   @media screen and (max-width: 767px) {
-     span {
-       display: block;
-       margin-bottom: 10px;
-     }
-   } 
+    @media screen and (max-width: 767px) {
+      span {
+        display: block;
+        margin-bottom: 6px;
+      }
+    }
   }
 }
 

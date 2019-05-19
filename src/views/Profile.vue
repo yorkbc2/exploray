@@ -333,6 +333,7 @@
 <script>
 import InputVue from "../components/Forms/Input.vue";
 import InputMultiDateVue from "../components/Forms/InputMultiDate.vue";
+import { mobileCardToggler } from "@/utils/card-toggler.js";
 export default {
   components: {
     "app-input": InputVue,
@@ -365,24 +366,7 @@ export default {
     this.$refs.about.addEventListener("input", e => {
       this.aboutLength = e.target.value.length;
     });
-    if (window.innerWidth <= 767) {
-      const cards = document.querySelectorAll(".profile-card");
-      if (jQuery && cards.length) {
-        cards.forEach(card => {
-          card = jQuery(card);
-          const h5 = card.find("h5"),
-            content = card.find(".profile-card-content");
-
-          if (h5.length && content.length) {
-            content.slideUp(400);
-            h5.on("click", () => {
-              h5.toggleClass("toggled");
-              content.slideToggle(400);
-            });
-          }
-        });
-      }
-    }
+    mobileCardToggler('.profile-card');
   }
 };
 </script>
@@ -455,6 +439,7 @@ export default {
       > img {
         width: 150px;
         height: 150px;
+        max-width: 150px;
       }
     }
   }
