@@ -69,19 +69,26 @@
       <div class="divider"></div>
       <ul class="mobile-navbar-menu-inner">
         <li>
-          <router-link to="/tours">Личные данные</router-link>
+          <router-link to="/tours">
+            <i class="fas fa-user"></i> Личные данные
+          </router-link>
         </li>
         <li>
           <router-link to="/tours">
+            <i class="fas fa-hiking"></i>
             Путешествия
             <span class="cart-length">5</span>
           </router-link>
         </li>
         <li>
-          <router-link to="/tours">Статистика</router-link>
+          <router-link to="/tours">
+            <i class="fas fa-chart-line"></i> Статистика
+          </router-link>
         </li>
         <li>
-          <router-link to="/tours">Люди</router-link>
+          <router-link to="/tours">
+            <i class="fas fa-users"></i> Люди
+          </router-link>
         </li>
       </ul>
       <div class="text-center social-list-wrapper">
@@ -259,6 +266,11 @@ export default {
           color: #fff;
           display: inline-block;
           text-decoration: none;
+
+          i {
+            margin-right: 7px;
+            display: inline-block;
+          }
 
           .cart-length {
             position: absolute;

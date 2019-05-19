@@ -5,6 +5,7 @@ import Tours from "./views/Tours.vue";
 import Login from "./views/Login.vue";
 import Register from "./views/Register.vue";
 import Profile from "./views/Profile.vue";
+import ProfileData from "./views/ProfileData.vue";
 import Single from "./views/Single.vue";
 
 Vue.use(Router);
@@ -13,7 +14,7 @@ export default new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
-    {
+    { 
       path: "/",
       name: "home",
       component: Home
@@ -39,9 +40,14 @@ export default new Router({
       component: Register
     },
     {
+      path: "/profile-edit",
+      name: "profile-edit",
+      component: Profile
+    },
+    {
       path: "/profile",
       name: "profile",
-      component: Profile
+      component: ProfileData
     }
   ]
 });
