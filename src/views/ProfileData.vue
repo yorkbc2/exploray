@@ -367,7 +367,9 @@ export default {
 
   .profile-data {
     padding: 12px 15px 12px 20px;
-
+    @media screen and (max-width: 767px) {
+      padding-top: 180px;
+    }
     .profile-data-header {
       @media screen and (max-width: 1024px) {
         .profile-edit-button {
@@ -381,6 +383,16 @@ export default {
         .profile-type {
           max-height: 30px;
           padding: 0px 10px;
+        }
+      }
+      @media screen and (max-width: 767px) {
+        flex-direction: column;
+
+        .profile-type {
+          align-self: center;
+          text-align: center;
+          max-width: 130px;
+          padding: 5px 10px;
         }
       }
     }
@@ -522,6 +534,24 @@ export default {
 
   .profile-phones {
     margin-bottom: 5px;
+    @media screen and (max-width: 767px) {
+      flex-direction: column !important;
+
+      a {
+        &:first-child {
+          margin-bottom: 8px;
+        }
+      }
+    }
+  }
+
+  .profile-socials {
+   @media screen and (max-width: 767px) {
+     span {
+       display: block;
+       margin-bottom: 10px;
+     }
+   } 
   }
 }
 
@@ -554,6 +584,9 @@ export default {
     font-size: 12px;
     color: #858585;
   }
+  @media screen and (max-width: 767px) {
+    text-align: center;
+  }
 }
 
 .messenger-list {
@@ -564,6 +597,10 @@ export default {
     list-style: none;
 
     display: inline-block;
+    @media screen and (max-width: 767px) {
+      display: block;
+      margin-bottom: 8px;
+    }
 
     margin-right: 20px;
     margin-bottom: 10px;
