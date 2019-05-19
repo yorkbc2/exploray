@@ -15,7 +15,7 @@
               </div>
             </div>
             <div class="profile-data">
-              <div class="d-flex justify-content-between">
+              <div class="d-flex justify-content-between profile-data-header">
                 <h3>Галицин Ярослав Андреевич</h3>
                 <span class="profile-type">Частное лицо</span>
                 <router-link to="/profile-edit" class="button profile-edit-button">
@@ -42,6 +42,14 @@
               </ul>
               <h4>О себе:</h4>
               <p>Повседневная практика показывает, что рамки и место обучения кадров представляет собой интересный эксперимент проверки систем массового участия. Разнообразный и богатый опыт рамки и место обучения кадров способствует подготовки и реализации дальнейших направлений развития. Разнообразный и богатый опыт консультация с широким активом способствует подготовки и реализации соответствующий условий активизации.</p>
+              <div class="text-right">
+                <router-link
+                  to="/profile-edit"
+                  class="button profile-edit-button profile-edit-button--mobile"
+                >
+                  <i class="fas fa-pencil-alt"></i>&nbsp;Редактировать профиль
+                </router-link>
+              </div>
             </div>
           </div>
         </div>
@@ -255,6 +263,7 @@ export default {
 
 <style lang="scss">
 .profile-wrapper.profile-data-wrapper {
+  padding-bottom: 25px;
   .profile-card {
     &:not(.without-changes) {
       padding: 0px;
@@ -299,6 +308,15 @@ export default {
           margin-right: 7px;
         }
       }
+      @media screen and (max-width: 1024px) {
+        a {
+          font-size: 13px;
+          i.fa {
+            font-size: 15px;
+            margin-right: 4px;
+          }
+        }
+      }
     }
   }
 
@@ -341,10 +359,31 @@ export default {
     .profile-card__body {
       padding: 0;
     }
+
+    @media screen and (max-width: 1024px) {
+      display: none;
+    }
   }
 
   .profile-data {
     padding: 12px 15px 12px 20px;
+
+    .profile-data-header {
+      @media screen and (max-width: 1024px) {
+        .profile-edit-button {
+          &:not(.profile-edit-button--mobile) {
+            display: none;
+          }
+        }
+        h3 {
+          font-size: 20px;
+        }
+        .profile-type {
+          max-height: 30px;
+          padding: 0px 10px;
+        }
+      }
+    }
 
     h3 {
       font-size: 24px;
@@ -357,6 +396,7 @@ export default {
       padding: 0;
 
       justify-content: space-between;
+
       li {
         flex: 1;
         list-style: none;
@@ -381,6 +421,18 @@ export default {
 
         &:last-child {
           text-align: right;
+        }
+      }
+
+      @media screen and (max-width: 1024px) {
+        flex-direction: column;
+
+        > li {
+          margin-bottom: 10px;
+          &,
+          &:last-child {
+            text-align: left;
+          }
         }
       }
     }
@@ -408,6 +460,12 @@ export default {
 
       i {
         margin-right: 5px;
+      }
+
+      @media screen and (min-width: 1025px) {
+        &.profile-edit-button--mobile {
+          display: none;
+        }
       }
     }
   }
@@ -468,6 +526,13 @@ export default {
 }
 
 .profile-online-status {
+  &.active {
+    span {
+      &::before {
+        background-color: #0dba00;
+      }
+    }
+  }
   span {
     position: relative;
 
@@ -502,6 +567,10 @@ export default {
 
     margin-right: 20px;
     margin-bottom: 10px;
+
+    @media screen and (max-width: 1024px) {
+      margin-right: 15px;
+    }
 
     a {
       font-weight: 600;
