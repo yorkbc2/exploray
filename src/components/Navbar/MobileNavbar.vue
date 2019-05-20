@@ -2,7 +2,7 @@
   <div class="mobile-navbar">
     <div class="mobile-navbar-header">
       <router-link to="/">
-        <img src="/images/mobile-logo.png" alt title="Exploray" class="logo" v-if="!isOpened">
+        <img src="/images/mobile-logo.png" alt title="Exploray" class="logo">
       </router-link>
       <button class="call-filters" v-if="!isHomePage && !isOpened" @click="toggleFilters">
         <img src="/images/filters.png" alt>

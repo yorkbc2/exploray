@@ -1,6 +1,6 @@
 <template>
   <header
-    :class="{'header text-center': true, 'header--full': full}"
+    :class="{'header text-center': true, '  ': full}"
     :style="{ backgroundImage: `url(${background})` }"
   >
     <div class="container">
@@ -47,6 +47,9 @@ export default {
       @media screen and (max-width: 1220px) {
         padding-top: 75px;
       }
+      @media screen and (max-width: 1200px) {
+        padding-top: 130px;
+      }
       @media screen and (max-width: 1024px) {
         padding-top: 180px;
       }
@@ -70,6 +73,9 @@ export default {
 
       @media screen and (max-width: 1220px) {
         font-size: 76px;
+      }
+      @media screen and (max-width: 1200px) {
+        top: 85px;
       }
       @media screen and (max-width: 1024px) {
         top: 140px;

@@ -107,7 +107,14 @@ export default {
       display: inline-flex;
       flex-direction: column;
       justify-content: center;
-      position: static;
+      position: relative;
+
+      &.nav__compare {
+        margin-right: 15px;
+        img {
+          margin-top: 2px;
+        }
+      }
 
       img {
         width: auto;
@@ -116,13 +123,6 @@ export default {
       i {
         font-size: 20px;
       }
-    }
-  }
-
-  &__compare {
-    margin-right: 15px;
-    img {
-      margin-top: 2px;
     }
   }
 

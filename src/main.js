@@ -18,6 +18,7 @@ import cutFilter from "@/filters/cut.js";
 import formattedNumberFilter from "@/filters/formattedNumber.js";
 import App from "./App.vue";
 import DefaultSlider from "@/components/Sliders/DefaultSlider.vue";
+import VueLazyload from "vue-lazyload";
 Vue.config.productionTip = false;
 
 Vue.component("input-check-picker", InputCheckPicker);
@@ -37,6 +38,7 @@ Vue.filter("cut", cutFilter);
 Vue.filter("formattedNumber", formattedNumberFilter);
 Vue.component("app-stars", InputStars);
 Vue.component("card", Card);
+Vue.use(VueLazyload);
 
 new Vue({
   router,

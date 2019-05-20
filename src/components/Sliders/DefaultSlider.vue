@@ -1,7 +1,7 @@
 <template>
   <div class="default-slider">
-    <carousel :navigationEnabled="true" :perPageCustom="perPage || defaultPerPage">
-      <slot v-if="!slides" />
+    <carousel :navigationEnabled="true" :perPageCustom="perPage || defaultPerPage" ref="slider">
+      <slot v-if="!slides"/>
       <slide v-else v-for="(slide, index) in slides" :key="index">
         <router-link
           :to="slide.url"
@@ -18,21 +18,68 @@
         </router-link>
       </slide>
     </carousel>
+    <app-lightbox v-if="lightBoxOpened" @onOpened="toggleLightBox($event)" :startAt="lightBoxStartsAt" :images="getLightBoxImages"/>
   </div>
 </template>
 
 <script>
+import ImageLightBox from "vue-image-lightbox";
+import "vue-image-lightbox/dist/vue-image-lightbox.min.css";
 export default {
   name: "app-default-slider",
   props: {
     slides: Array,
-    perPage: Array
+    perPage: Array,
+    lightBoxImages: Array
+  },
+  components: {
+    "app-lightbox": ImageLightBox
+  },
+  computed: {
+    getLightBoxImages() {
+      return !this.lightBoxImages
+        ? []
+        : this.lightBoxImages.map(x => ({
+            thumb: x.image,
+            src: x.image,
+            caption: ""
+          }));
+    }
+  },
+  methods: {
+    openLightBox(id) {
+      this.lightBoxStartsAt = id;
+      this.lightBoxOpened = true;
+    },
+    toggleLightBox(v) {
+      this.lightBoxOpened = v;
+    }
   },
   data() {
     return {
-      defaultPerPage: [[320, 1], [769, 3], [1024, 5]]
-    }
+      defaultPerPage: [[320, 1], [769, 3], [1024, 5]],
+      lightBoxOpened: false,
+      lightBoxStartsAt: 0
+    };
   },
+  mounted() {
+    const { slider } = this.$refs;
+    if (this.lightBoxImages) {
+      let slideTriggers = this.$refs.slider.$el.querySelectorAll(
+        ".VueCarousel-slide .lightbox-trigger"
+      );
+      slideTriggers.forEach((trigger, index) => {
+        trigger.addEventListener(
+          "click",
+          e => {
+            e.preventDefault();
+            this.openLightBox(index);
+          },
+          false
+        );
+      });
+    }
+  }
 };
 </script>
 
@@ -81,7 +128,6 @@ export default {
       font-size: 16px;
     }
   }
-
 
   @media screen and (max-width: 767px) {
     width: 220px;
@@ -144,8 +190,8 @@ export default {
       @media screen and (max-width: 768px) {
         margin-top: 0px;
         &-button {
-          border: 0!important;
-          position: absolute!important;
+          border: 0 !important;
+          position: absolute !important;
           top: 35%;
           &::after {
             filter: none;

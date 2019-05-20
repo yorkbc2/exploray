@@ -168,24 +168,37 @@
               </div>
             </div>
             <div>
-              <advanced-select
-                :mobileReversed="true"
-                :options="[
-                {
-                  value: '23.04.19 - 30.04.19',
-                  description: '(Осталось 5 мест)'
-                },
-                {
-                  value: '23.04.19 - 30.04.19',
-                  description: '(Осталось 5 мест)'
-                },
-                {
-                  value: '23.04.19 - 30.04.19',
-                  description: '(Осталось 5 мест)'
-                }
-              ]"
-                placeholder="Даты и цены"
-              />
+              <div
+                :class="{'advanced-select advanced-select--reversed advanced-select--mobile-reversed': true, toggled}"
+              >
+                <span class="advanced-select__current" @click="toggle()">
+                  Даты и цены
+                  <icon name="arrow-down" fill="#000" hoverFill="#000" :width="13" :height="13"/>
+                </span>
+                <ul class="advanced-select__dropdown" ref="dropdown" :style="{ display: 'none' }">
+                  <li
+                    v-for="(option, index) in [
+                    {
+                      value: '23.04.19 - 30.04.19',
+                      description: '(Осталось 5 мест)'
+                      },
+                      {
+                      value: '23.04.19 - 30.04.19',
+                      description: '(Осталось 5 мест)'
+                      },
+                      {
+                      value: '23.04.19 - 30.04.19',
+                      description: '(Осталось 5 мест)'
+                      }
+                    ]"
+                    :key="index"
+                    @click="dropdownSelect(option)"
+                  >
+                    <span>{{ option.value }}</span>
+                    <small v-if="option.description">{{option.description}}</small>
+                  </li>
+                </ul>
+              </div>
             </div>
             <div>
               <a
@@ -348,14 +361,15 @@
             <app-default-slider
               class="photo-slider"
               :perPage="[[320, 1], [560, 2], [767, 3], [1024, 4]]"
+              :lightBoxImages="photos"
             >
               <slide v-for="(item, index) in photos" :key="index">
                 <div class="photo-slider__card">
                   <img :src="item.image" alt>
                   <div class="photo-slider__card-mask">
-                    <a :href="item.url" class="button button-white button--outlined">
+                    <span class="button button-white button--outlined lightbox-trigger">
                       <icon name="zoom-out" hoverFill="#000"/>Просмотреть фото
-                    </a>
+                    </span>
                   </div>
                 </div>
               </slide>
@@ -597,7 +611,8 @@ export default {
             "Провел отличный отпуск на Камчатке. Гид оказался квалифицированным специалистом. Всё очень достойно и интересно. Рекомендую!",
           tourName: "Тур по Камчатке"
         }
-      ]
+      ],
+      toggled: false
     };
   },
   methods: {
@@ -626,6 +641,10 @@ export default {
       this.slideTo("#photo-video-slider").then(() => {
         this.$refs.toggler.toggle(index);
       });
+    },
+    toggle() {
+      jQuery(this.$refs.dropdown).slideToggle(300);
+      this.toggled = !this.toggled;
     }
   },
   mounted() {
@@ -853,7 +872,7 @@ export default {
       opacity: 0;
       transition: opacity 0.3s ease-in-out;
 
-      a.button {
+      .button {
         display: inline-flex;
         justify-content: center;
         padding: 12px 15px;

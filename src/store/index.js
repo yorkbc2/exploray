@@ -44,9 +44,15 @@ const store = new Vuex.Store({
             return true;
           }
           return false;
-        })[0];
-      state.data[index].added = true;
-      state.cart.push(currentItem);
+        })[0],
+        itemInCart = state.cart.filter(i => i._id === id)[0];
+      if (itemInCart) {
+        state.data[index].added = false;
+        state.cart = state.cart.filter(x => x._id !== id);
+      } else {
+        state.data[index].added = true;
+        state.cart.push(currentItem);
+      }
     },
     TOGGLE_FILTERS(state) {
       state.showFilters = !state.showFilters;
