@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <navbar v-if="!isMobile" :isProfilePage="isProfilePage" />
+    <navbar v-if="!isMobile" :isProfilePage="isProfilePage"/>
     <mobile-navbar v-else :isHomePage="isHomePage"/>
-    <router-view/>
+    <transition :name="isAnimated ? 'fade': ''" mode="out-in">
+      <router-view/>
+    </transition>
     <scroll-to-top/>
     <app-footer/>
   </div>
@@ -26,7 +28,8 @@ export default {
     return {
       isMobile: false,
       isHomePage: false,
-      isProfilePage: false
+      isProfilePage: false,
+      isAnimated: false
     };
   },
   methods: {
@@ -53,6 +56,7 @@ export default {
     $route(to) {
       this.isHomePage = to.name !== "tours";
       this.isProfilePage = to.name === "profile";
+      this.isAnimated = to.name === 'login' || to.name === 'register';
     }
   }
 };
@@ -69,6 +73,26 @@ body {
     &:hover {
       color: lighten(#0dba0d, 5%);
     }
+  }
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.2s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
+}
+
+@keyframes customFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 

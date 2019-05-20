@@ -16,8 +16,8 @@
 </template>
 
 <script>
-export default {
-  props: {
+  export default {
+    props: {
     placeholder: String,
     reversed: Boolean,
     mobileReversed: Boolean,

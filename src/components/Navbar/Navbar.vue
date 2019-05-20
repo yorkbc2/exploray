@@ -36,22 +36,27 @@
             ></social-list>
           </div>
           <div class="nav__search-wrapper">
-            <navbar-search />
+            <navbar-search/>
           </div>
           <div class="nav__buttons-wrapper">
             <div class="nav__buttons">
               <a href="/cart" class="nav__compare">
-                <img src="/images/compare.png" height="20px" width="auto" />
+                <img src="/images/compare.png" height="20px" width="auto">
               </a>
               <a href="/cart" class="nav__cart">
-                <span v-if="!!$store.getters.cart.length" class="notifications">
-                  {{$store.getters.cart.length}}
-                </span>
-                <img src="/images/cart.png" height="24px" width="auto" />
+                <span
+                  v-if="!!$store.getters.cart.length"
+                  class="notifications"
+                >{{$store.getters.cart.length}}</span>
+                <img src="/images/cart.png" height="24px" width="auto">
               </a>
-              <a href="/cart" class="nav__user">
-                <img :src="isProfilePage ? '/images/customer_filled.png' : '/images/customer.png'" height="24px" width="auto" />
-              </a>
+              <router-link to="/login" class="nav__user">
+                <img
+                  :src="isProfilePage ? '/images/customer_filled.png' : '/images/customer.png'"
+                  height="24px"
+                  width="auto"
+                >
+              </router-link>
             </div>
           </div>
         </div>
@@ -136,6 +141,5 @@ export default {
     display: flex;
     flex-direction: row;
   }
-
 }
 </style>
