@@ -172,7 +172,7 @@
                 :class="{'advanced-select advanced-select--reversed advanced-select--mobile-reversed': true, toggled}"
               >
                 <span class="advanced-select__current" @click="toggle()">
-                  Даты и цены
+                  {{ currentSelectValue || 'Даты и цены' }}
                   <icon name="arrow-down" fill="#000" hoverFill="#000" :width="13" :height="13"/>
                 </span>
                 <ul class="advanced-select__dropdown" ref="dropdown" :style="{ display: 'none' }">
@@ -612,7 +612,8 @@ export default {
           tourName: "Тур по Камчатке"
         }
       ],
-      toggled: false
+      toggled: false,
+      currentSelectValue: null
     };
   },
   methods: {
@@ -645,6 +646,10 @@ export default {
     toggle() {
       jQuery(this.$refs.dropdown).slideToggle(300);
       this.toggled = !this.toggled;
+    },
+    dropdownSelect(option) {
+      this.currentSelectValue = option.value;
+      this.toggle();
     }
   },
   mounted() {

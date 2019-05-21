@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="auth-wrapper">
     <app-header :full="true" background="/images/login_bg.jpg" :title="'Добро пожаловать'">
       <floating-block title="Регистрация" :top="115" :wide="true">
         <template v-slot:content>
@@ -108,4 +108,9 @@ export default {
 </script> 
 
 <style lang="scss">
+.auth-wrapper {
+  header.header {
+    margin-bottom: 0px;
+  }
+}
 </style>

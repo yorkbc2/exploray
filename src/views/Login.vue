@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="auth-wrapper">
     <app-header :full="true" background="/images/login_bg.jpg" :title="'Добро пожаловать'">
       <floating-block title="Вход в личный кабинет" :top="isTablet ? 180 : (isMobile ? 125 : 120)">
         <template v-slot:content>
