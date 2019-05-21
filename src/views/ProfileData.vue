@@ -65,7 +65,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 profile-info-column">
           <div class="row">
             <div class="col-md-6">
               <div class="profile-card">
@@ -226,7 +226,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6 col-sm-12 col-xs-12">
               <div class="profile-card">
                 <div class="profile-card__head">
                   <h5 class="profile-card-toggler">
@@ -283,6 +283,17 @@ export default {
 <style lang="scss">
 .profile-wrapper.profile-data-wrapper {
   padding-bottom: 25px;
+
+  .profile-info-column {
+    .col-md-6 {
+      margin-bottom: 20px;
+    }
+    .profile-card {
+      min-height: 100%;
+      margin-bottom: 0px;
+    }
+  }
+
   .profile-card {
     &:not(.without-changes) {
       padding: 0px;
