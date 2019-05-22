@@ -94,15 +94,9 @@ export default {
     }
   },
   created() {
-    window.onresize = () => {
-      this.changeDevice(window.innerWidth);
-    };
-    window.onload = () => {
-      this.changeDevice(window.innerWidth);
-
-      this.isHomePage = this.$route.name !== "tours";
-      this.isProfilePage = this.$route.name === "profile";
-    };
+    this.changeDevice(window.innerWidth);
+    this.isHomePage = this.$route.name !== "tours";
+    this.isProfilePage = this.$route.name === "profile";
   },
   watch: {
     $route(to) {
