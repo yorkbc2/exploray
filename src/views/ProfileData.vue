@@ -311,6 +311,9 @@ export default {
     .profile-card__head {
       padding: 15px 20px 8px;
       position: relative;
+      @media screen and (min-width: 768px) {
+        max-height: 45px;
+      }
       @media screen and (max-width: 767px) {
         padding-bottom: 0px;
       }
