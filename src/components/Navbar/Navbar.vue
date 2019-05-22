@@ -93,7 +93,7 @@ export default {
       }
     }
   },
-  mounted() {
+  created() {
     window.onresize = () => {
       this.changeDevice(window.innerWidth);
     };
