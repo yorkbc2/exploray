@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav">
+  <nav class="nav" v-if="!isMobile">
     <div class="container">
       <div class="nav__container">
         <div class="logo-container">
@@ -63,19 +63,52 @@
       </div>
     </div>
   </nav>
+  <mobile-navbar v-else :isHomePage="isHomePage" />
 </template>
 
 <script>
 import NavbarMenu from "./NavbarMenu.vue";
 import NavbarSearch from "./NavbarSearch.vue";
+import MobileNavbarVue from "./MobileNavbar.vue";
 export default {
   name: "navbar",
   components: {
     NavbarMenu,
-    NavbarSearch
+    NavbarSearch,
+    "mobile-navbar": MobileNavbarVue,
   },
-  props: {
-    isProfilePage: Boolean
+  data() {
+    return {
+      isMobile: false,
+      isHomePage: false,
+      isProfilePage: false
+    };
+  },
+  methods: {
+    changeDevice(width) {
+      if (width <= 1200) {
+        this.isMobile = true;
+      } else {
+        this.isMobile = false;
+      }
+    }
+  },
+  mounted() {
+    window.onresize = () => {
+      this.changeDevice(window.innerWidth);
+    };
+    window.onload = () => {
+      this.changeDevice(window.innerWidth);
+
+      this.isHomePage = this.$route.name !== "tours";
+      this.isProfilePage = this.$route.name === "profile";
+    };
+  },
+  watch: {
+    $route(to) {
+      this.isHomePage = to.name !== "tours";
+      this.isProfilePage = to.name === "profile";
+    }
   }
 };
 </script>
@@ -129,6 +162,9 @@ export default {
   &__menu {
     flex: 1;
     max-width: 340px;
+    @media screen and (max-width: 1024px) {
+      display: none;
+    }
   }
 
   &__container {
@@ -140,6 +176,9 @@ export default {
   &__info {
     display: flex;
     flex-direction: row;
+    @media screen and (max-width: 1024px) {
+      display: none;
+    }
   }
 }
 </style>

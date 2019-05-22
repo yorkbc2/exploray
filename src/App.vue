@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <navbar v-if="!isMobile" :isProfilePage="isProfilePage"/>
-    <mobile-navbar v-else :isHomePage="isHomePage"/>
+    <navbar />
     <transition :name="isAnimated ? 'fade': ''" mode="out-in">
       <router-view/>
     </transition>
@@ -15,47 +14,20 @@ import Navbar from "@/components/Navbar/Navbar.vue";
 import Footer from "@/components/Footer/Footer.vue";
 import ScrollToTop from "@/components/ActionButtons/ScrollToTop.vue";
 import store from "./store/index.js";
-import MobileNavbarVue from "./components/Navbar/MobileNavbar.vue";
 export default {
   store,
   components: {
     Navbar,
-    "mobile-navbar": MobileNavbarVue,
     "app-footer": Footer,
     ScrollToTop
   },
   data() {
     return {
-      isMobile: false,
-      isHomePage: false,
-      isProfilePage: false,
       isAnimated: false
-    };
-  },
-  methods: {
-    changeDevice(width) {
-      if (width <= 1200) {
-        this.isMobile = true;
-      } else {
-        this.isMobile = false;
-      }
-    }
-  },
-  mounted() {
-    window.onresize = () => {
-      this.changeDevice(window.innerWidth);
-    };
-    window.onload = () => {
-      this.changeDevice(window.innerWidth);
-
-      this.isHomePage = this.$route.name !== "tours";
-      this.isProfilePage = this.$route.name === "profile";
     };
   },
   watch: {
     $route(to) {
-      this.isHomePage = to.name !== "tours";
-      this.isProfilePage = to.name === "profile";
       this.isAnimated = to.name === 'login' || to.name === 'register';
     }
   }
