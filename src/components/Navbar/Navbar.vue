@@ -63,7 +63,7 @@
       </div>
     </div>
   </nav>
-  <mobile-navbar v-else :isHomePage="isHomePage" />
+  <mobile-navbar v-else :isHomePage="isHomePage"/>
 </template>
 
 <script>
@@ -75,7 +75,7 @@ export default {
   components: {
     NavbarMenu,
     NavbarSearch,
-    "mobile-navbar": MobileNavbarVue,
+    "mobile-navbar": MobileNavbarVue
   },
   data() {
     return {
@@ -171,6 +171,18 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    .logo-container {
+      @media screen and (max-width: 1024px) {
+        max-width: 130px;
+        padding: 10px 0;
+        a {
+          img {
+            max-width: 130px;
+          }
+        }
+      }
+    }
   }
 
   &__info {
