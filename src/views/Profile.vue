@@ -158,52 +158,6 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-6">
-          <div class="profile-card">
-            <div class="default-form default-form--wide default-form--without-last text-left">
-              <h5 class="profile-card-toggler">
-                Образование
-                <icon name="arrow-down" fill="#000" :width="17" :height="17"/>
-              </h5>
-              <div class="profile-card-content">
-                <div class="default-form__row">
-                  <app-input
-                    name="uni"
-                    type="text"
-                    label="Название учреждения:"
-                    placeholder="Машиностроительный колледж ЗНТУ"
-                  />
-                </div>
-                <div class="default-form__row">
-                  <app-input
-                    name="speciality"
-                    type="text"
-                    label="Специальность:"
-                    placeholder="Електромеханик - инженер"
-                  />
-                </div>
-                <div class="default-form-dates">
-                  <div class="default-form__row">
-                    <app-multi-date :inline="true" label="Дата поступления:" :hideDays="true"/>
-                  </div>
-                  <div class="default-form__row">
-                    <app-multi-date :inline="true" label="Дата окончания:" :hideDays="true"/>
-                  </div>
-                </div>
-                <div class="default-form__row justify-content-center">
-                  <button
-                    type="submit"
-                    class="button button-green button--large button--small-paddings"
-                  >Добавить образование</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
           <div class="profile-card profile-card--splitted">
             <div class="profile-card-head">
               <h5 class="profile-card-toggler">
@@ -262,8 +216,63 @@
               </div>
             </div>
           </div>
+          <div class="profile-card">
+            <div class="default-form text-left">
+              <h5>Подключить социальные сети</h5>
+              <div class="profile-socials">
+                <span
+                  v-for="(item, index) in socials"
+                  :key="index"
+                  :class="{ checked: item.checked  }"
+                >
+                  <img :src="item.icon">
+                  {{ item.label }}
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="col-md-6">
+          <div class="profile-card">
+            <div class="default-form default-form--wide default-form--without-last text-left">
+              <h5 class="profile-card-toggler">
+                Образование
+                <icon name="arrow-down" fill="#000" :width="17" :height="17"/>
+              </h5>
+              <div class="profile-card-content">
+                <div class="default-form__row">
+                  <app-input
+                    name="uni"
+                    type="text"
+                    label="Название учреждения:"
+                    placeholder="Машиностроительный колледж ЗНТУ"
+                  />
+                </div>
+                <div class="default-form__row">
+                  <app-input
+                    name="speciality"
+                    type="text"
+                    label="Специальность:"
+                    placeholder="Електромеханик - инженер"
+                  />
+                </div>
+                <div class="default-form-dates">
+                  <div class="default-form__row">
+                    <app-multi-date :inline="true" label="Дата поступления:" :hideDays="true"/>
+                  </div>
+                  <div class="default-form__row">
+                    <app-multi-date :inline="true" label="Дата окончания:" :hideDays="true"/>
+                  </div>
+                </div>
+                <div class="default-form__row justify-content-center">
+                  <button
+                    type="submit"
+                    class="button button-green button--large button--small-paddings"
+                  >Добавить образование</button>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="profile-card">
             <div class="default-form default-form--wide default-form--without-last text-left">
               <h5 class="profile-card-toggler">
@@ -294,25 +303,6 @@
                     class="button button-green button--large button--small-paddings"
                   >Добавить еще навык</button>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="profile-card">
-            <div class="default-form text-left">
-              <h5>Подключить социальные сети</h5>
-              <div class="profile-socials">
-                <span
-                  v-for="(item, index) in socials"
-                  :key="index"
-                  :class="{ checked: item.checked  }"
-                >
-                  <img :src="item.icon">
-                  {{ item.label }}
-                </span>
               </div>
             </div>
           </div>
@@ -366,7 +356,7 @@ export default {
     this.$refs.about.addEventListener("input", e => {
       this.aboutLength = e.target.value.length;
     });
-    mobileCardToggler('.profile-card');
+    mobileCardToggler(".profile-card");
   }
 };
 </script>
