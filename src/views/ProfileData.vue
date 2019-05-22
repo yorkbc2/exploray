@@ -67,7 +67,7 @@
         </div>
         <div class="col-md-9 profile-info-column">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-12 col-xs-12">
               <div class="profile-card">
                 <div class="profile-card__head">
                   <h5 class="profile-card-toggler">
@@ -124,42 +124,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-md-6">
-              <div class="profile-card">
-                <div class="profile-card__head">
-                  <h5 class="profile-card-toggler">
-                    Образование
-                    <icon name="arrow-down" fill="#000" :width="17" :height="17"/>
-                  </h5>
-                </div>
-                <div class="profile-card__body profile-card-content">
-                  <div class="profile-grade">
-                    <h5>
-                      Машиностроительный колледж ЗНТУ
-                      <small>Електромеханик</small>
-                    </h5>
-                    <div class="profile-grade__dates">
-                      <span>с сен. 2011г.</span>
-                      <span>по июн. 2015г.</span>
-                    </div>
-                  </div>
-                  <div class="profile-grade">
-                    <h5>
-                      Машиностроительный колледж ЗНТУ
-                      <small>Електромеханик</small>
-                    </h5>
-                    <div class="profile-grade__dates">
-                      <span>с сен. 2011г.</span>
-                      <span>по июн. 2015г.</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
               <div class="profile-card">
                 <div class="profile-card__head">
                   <h5 class="profile-card-toggler">
@@ -204,29 +168,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-md-6">
-              <div class="profile-card">
-                <div class="profile-card__head">
-                  <h5 class="profile-card-toggler">
-                    Навыки
-                    <icon name="arrow-down" fill="#000" :width="17" :height="17"/>
-                  </h5>
-                </div>
-                <div class="profile-card__body profile-card-content">
-                  <ul class="profile-skills">
-                    <li>Создание рекламных кампаний</li>
-                    <li>Разработка рекламной концепции</li>
-                    <li>Microsoft Excel 2019</li>
-                    <li>Microsoft Power Point 2019</li>
-                    <li>Adobe Photoshop CC 2019</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 col-sm-12 col-xs-12">
               <div class="profile-card">
                 <div class="profile-card__head">
                   <h5 class="profile-card-toggler">
@@ -260,6 +201,55 @@
                 </div>
               </div>
             </div>
+            <div class="col-md-6 col-sm-12 col-xs-12">
+              <div class="profile-card">
+                <div class="profile-card__head">
+                  <h5 class="profile-card-toggler">
+                    Образование
+                    <icon name="arrow-down" fill="#000" :width="17" :height="17"/>
+                  </h5>
+                </div>
+                <div class="profile-card__body profile-card-content">
+                  <div class="profile-grade">
+                    <h5>
+                      Машиностроительный колледж ЗНТУ
+                      <small>Електромеханик</small>
+                    </h5>
+                    <div class="profile-grade__dates">
+                      <span>с сен. 2011г.</span>
+                      <span>по июн. 2015г.</span>
+                    </div>
+                  </div>
+                  <div class="profile-grade">
+                    <h5>
+                      Машиностроительный колледж ЗНТУ
+                      <small>Електромеханик</small>
+                    </h5>
+                    <div class="profile-grade__dates">
+                      <span>с сен. 2011г.</span>
+                      <span>по июн. 2015г.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="profile-card">
+                <div class="profile-card__head">
+                  <h5 class="profile-card-toggler">
+                    Навыки
+                    <icon name="arrow-down" fill="#000" :width="17" :height="17"/>
+                  </h5>
+                </div>
+                <div class="profile-card__body profile-card-content">
+                  <ul class="profile-skills">
+                    <li>Создание рекламных кампаний</li>
+                    <li>Разработка рекламной концепции</li>
+                    <li>Microsoft Excel 2019</li>
+                    <li>Microsoft Power Point 2019</li>
+                    <li>Adobe Photoshop CC 2019</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -285,12 +275,8 @@ export default {
   padding-bottom: 25px;
 
   .profile-info-column {
-    .col-md-6 {
-      margin-bottom: 20px;
-    }
     .profile-card {
-      min-height: 100%;
-      margin-bottom: 0px;
+      margin-bottom: 20px;
     }
   }
 
@@ -311,9 +297,6 @@ export default {
     .profile-card__head {
       padding: 15px 20px 8px;
       position: relative;
-      @media screen and (min-width: 768px) {
-        max-height: 45px;
-      }
       @media screen and (max-width: 767px) {
         padding-bottom: 0px;
       }
