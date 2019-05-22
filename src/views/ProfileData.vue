@@ -274,6 +274,12 @@ export default {
 .profile-wrapper.profile-data-wrapper {
   padding-bottom: 25px;
 
+  .container {
+    @media screen and (max-width: 1200px) {
+      max-width: 95%;
+    }
+  }
+
   .profile-info-column {
     .profile-card {
       margin-bottom: 20px;
@@ -344,6 +350,15 @@ export default {
           font-size: 18px;
           vertical-align: middle;
           margin-right: 7px;
+        }
+
+        @media screen and (max-width: 1170px) {
+          font-size: 14px;
+
+          i.fa {
+            font-size: 16px;
+            margin-right: 4px;
+          }
         }
       }
       @media screen and (max-width: 1024px) {
@@ -430,6 +445,11 @@ export default {
       padding: 170px 0px 12px;
     }
     .profile-data-header {
+      @media screen and (max-width: 1070px) {
+        h3 {
+          font-size: 18px;
+        }
+      }
       @media screen and (max-width: 1024px) {
         .profile-edit-button {
           &:not(.profile-edit-button--mobile) {

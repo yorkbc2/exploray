@@ -218,8 +218,11 @@
           </div>
           <div class="profile-card">
             <div class="default-form text-left">
-              <h5>Подключить социальные сети</h5>
-              <div class="profile-socials">
+              <h5 class="profile-card-toggler">
+                Подключить социальные сети
+                <icon name="arrow-down" fill="#000" :width="17" :height="17"/>
+              </h5>
+              <div class="profile-socials profile-card-content">
                 <span
                   v-for="(item, index) in socials"
                   :key="index"
