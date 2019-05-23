@@ -436,6 +436,7 @@
     <section class="section section--colored" id="about-section">
       <div class="container">
         <h2 class="section__title">Вопросы и ответы</h2>
+
         <div class="row qa-row">
           <div class="col-md-6 col-sm-12 col-xs-12">
             <card
@@ -924,6 +925,16 @@ export default {
     }
   }
 }
+
+.qa-row {
+  &:last-child {
+    > div:nth-child(odd):last-child {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
 .mobile-hide {
   @media screen and (max-width: 768px) {
     display: none;

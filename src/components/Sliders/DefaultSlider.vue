@@ -148,8 +148,8 @@ export default {
 .default-slider {
   margin: 0 auto;
   .VueCarousel {
-    &-inner {
-      justify-content: center!important;
+    &-slide {
+      margin: 0 auto!important;
     }
     &-navigation {
       text-align: center;

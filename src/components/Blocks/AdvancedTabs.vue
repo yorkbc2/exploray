@@ -189,10 +189,12 @@ export default {
       font-weight: 600;
       padding-left: 80px;
 
+      margin-bottom: 1rem;
+
       small {
         display: block;
         font-size: 14px;
-        margin-top: 5px;
+        margin-top: 10px;
         color: #838383;
       }
 
@@ -212,6 +214,10 @@ export default {
 
       img {
         margin-bottom: 15px;
+      }
+
+      .inline-list {
+        margin-top: 10px;
       }
     }
     .tab__panel {
