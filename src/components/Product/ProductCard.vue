@@ -155,6 +155,7 @@ export default {
   &__description {
     color: #727272;
     font-size: 14px;
+    margin-bottom: 1rem;
   }
 
   &__body {

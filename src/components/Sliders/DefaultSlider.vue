@@ -64,7 +64,7 @@ export default {
   },
   mounted() {
     const { slider } = this.$refs;
-    if (this.lightBoxImages) {
+    if (this.lightBoxImages && this.$refs.slider) {
       let slideTriggers = this.$refs.slider.$el.querySelectorAll(
         ".VueCarousel-slide .lightbox-trigger"
       );
@@ -148,6 +148,9 @@ export default {
 .default-slider {
   margin: 0 auto;
   .VueCarousel {
+    &-inner {
+      justify-content: center!important;
+    }
     &-navigation {
       text-align: center;
       margin-top: 30px;

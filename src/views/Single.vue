@@ -550,14 +550,6 @@ export default {
         {
           image: "/images/tour_photo.jpg",
           url: "#"
-        },
-        {
-          image: "/images/tour_photo.jpg",
-          url: "#"
-        },
-        {
-          image: "/images/tour_photo.jpg",
-          url: "#"
         }
       ],
       videos: [
