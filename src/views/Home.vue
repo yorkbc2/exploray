@@ -5,6 +5,30 @@
       :headers="['Мир интереснее , чем кажется!', 'Ещё один слайд для показа']"
     />
     <app-intro-inline-slider/>
+    <section class="section" v-if="$store.getters.searchResults.length">
+      <div class="container">
+        <h3 class="section__subtitle">Результаты поиска:</h3>
+        <div v-if="isAdaptiveProducts" class="home-results-slider">
+          <app-default-slider :perPage="[[320, 1], [768, 2], [1024, 3]]">
+            <slide v-for="(item, index) in $store.getters.searchResults" :key="index">
+              <product-card :data="item" />
+            </slide>
+          </app-default-slider>
+        </div>
+        <div v-else class="home-results-grid">
+          <product-card
+            v-for="(item, index) in $store.getters.searchResults"
+            :key="index"
+            :data="item"
+          />
+        </div>
+        <div class="text-center">
+          <button type="button" class="button button-green button--large">
+            Расширенный поиск
+          </button>
+        </div>
+      </div>
+    </section>
     <section class="section tour-section">
       <div class="container">
         <h2 class="section__title">Актуальные предложения</h2>
@@ -79,13 +103,15 @@ import CoveredBlocks from "@/components/Blocks/CoveredBlocks.vue";
 import DefaultSlider from "@/components/Sliders/DefaultSlider.vue";
 import IntroInlineSlider from "@/components/Sliders/IntroInlineSlider.vue";
 import IntroSlider from "@/components/Sliders/IntroSlider.vue";
+import ProductCardVue from "../components/Product/ProductCard.vue";
 export default {
   components: {
     "app-subscribe": Subscribe,
     "app-default-slider": DefaultSlider,
     "app-intro-inline-slider": IntroInlineSlider,
     "covered-blocks": CoveredBlocks,
-    "app-intro": IntroSlider
+    "app-intro": IntroSlider,
+    "product-card": ProductCardVue
   },
   data() {
     return {
@@ -148,6 +174,11 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    isAdaptiveProducts() {
+      return window.innerWidth <= 1200;
+    }
   }
 };
 </script>
@@ -172,17 +203,38 @@ export default {
       max-width: 100%;
     }
   }
+}
 
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
-    // .row {
-    //   flex-wrap: wrap;
-    //   div[class*="col-md-"] {
-    //     max-width: 50%;
+.home-results-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
 
-    //     .covered-block {
-    //     }
-    //   }
-    // }
+  justify-content: flex-start;
+
+  article.card {
+    max-width: 255px;
+
+    &:first-child,
+    &:nth-child(5n) {
+      margin-left: 0px;
+    }
+
+    &:nth-child(4n) {
+      margin-right: 0px;
+    }
+  }
+}
+
+.home-results-slider {
+  margin-bottom: 30px;
+
+
+  article.card {
+    @media screen and (max-width: 767px) {
+      max-width: 240px;
+    }
   }
 }
 </style>

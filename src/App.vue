@@ -163,6 +163,12 @@ section {
     }
   }
 
+  .section__subtitle {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+
   &.section {
     &--colored {
       background: #f6f6f6;

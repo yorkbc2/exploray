@@ -9,6 +9,7 @@ const store = new Vuex.Store({
     strokeView: true,
     data: initialData,
     cart: [],
+    searchResults: initialData.slice(0, 8),
     showFilters: false,
     popupOpened: false
   },
@@ -27,6 +28,9 @@ const store = new Vuex.Store({
     },
     popupOpened(state) {
       return state.popupOpened;
+    },
+    searchResults(state) {
+      return state.searchResults;
     }
   },
   mutations: {

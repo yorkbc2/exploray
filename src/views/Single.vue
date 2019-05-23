@@ -509,8 +509,21 @@
       v-if="$store.getters.popupOpened"
       title="Оставьте свои контакты"
       subtitle="Мы свяжемся с Вами в ближайшее время"
+      @close="callPopup()"
     >
-      <popup-form/>
+      <popup-form @submit="formSubmit()"/>
+    </popup>
+    <popup v-if="successPopup" @close="closeSuccessPopup()" title="Заказ принят">
+      <div class="text-center popup-success">
+        <img src="/images/popup-success.png" alt width="50px" height="50px">
+        <p>
+          В ближайшее время
+          оператор с Вами свяжется.
+        </p>
+        <p>
+          <a @click="closeAllPopups()">Вернуться на страницу тура</a>
+        </p>
+      </div>
     </popup>
   </div>
 </template>
@@ -539,6 +552,7 @@ export default {
   data() {
     return {
       data: null,
+      successPopup: false,
       photos: [
         {
           image: "/images/tour_photo.jpg",
@@ -610,6 +624,16 @@ export default {
     };
   },
   methods: {
+    formSubmit() {
+      this.successPopup = true;
+    },
+    closeSuccessPopup() {
+      this.successPopup = false;
+    },
+    closeAllPopups() {
+      this.successPopup = false;
+      this.$store.commit("TOGGLE_POPUP");
+    },
     getData(_id) {
       this.data = this.$store.getters.data.filter(i => i._id === _id)[0];
     },
@@ -660,6 +684,28 @@ export default {
   }
   @media screen and (max-width: 767px) {
     margin-top: 62px;
+  }
+
+  .popup-success {
+    img {
+      margin: 5px auto;
+    }
+    p {
+      max-width: 230px;
+      margin: 10px auto 15px;
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+    a {
+      color: #0dba00;
+      font-weight: 400;
+      text-decoration: underline;
+      cursor: pointer;
+      &:hover {
+        color: lighten(#0dba00, 5%);
+      }
+    }
   }
 
   .author {

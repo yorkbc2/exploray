@@ -1,25 +1,30 @@
 <template>
-  <form class="popup-form">
+  <form class="popup-form" @submit="onSubmit($event)">
     <div class="popup-form__row">
       <div class="popup-form__icon">
         <i class="fa fa-phone"></i>
       </div>
-      <input type="tel" name="phone" class="input" placeholder="Телефон">
-    </div>
-    <div class="popup-form__row">
-      <strong>или</strong>
+      <input type="tel" name="phone" class="input" placeholder="Ваш телефон">
     </div>
     <div class="popup-form__row">
       <div class="popup-form__icon">
         <i class="fa fa-envelope"></i>
       </div>
-      <input type="tel" name="phone" class="input" placeholder="E-mail">
+      <input type="email" name="email" class="input" placeholder="Ваш e-mail адрес">
     </div>
     <div class="popup-form__row">
       <div class="popup-form__icon">
         <i class="fa fa-user"></i>
       </div>
-      <input type="tel" name="phone" class="input" placeholder="Имя">
+      <input type="text" name="name" class="input" placeholder="Ваше имя">
+    </div>
+    <div class="popup-form__agreement">
+      <checkbox :reversed="true" :value="true">
+        <span>
+          Даю согласие на обработку
+          <a href="#">персональных данных</a>
+        </span>
+      </checkbox>
     </div>
     <div class="text-center">
       <button class="button button-green button--large popup-form__button" type="submit">Отправить</button>
@@ -28,7 +33,15 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    onSubmit(event) {
+      event.preventDefault();
+
+      this.$emit('submit');
+    }
+  }
+};
 </script>
 
 <style lang="scss">
@@ -38,8 +51,8 @@ export default {};
     padding: 18px 70px;
 
     @media screen and (max-width: 767px) {
-        width: 100%;
-        padding: 17px 50px;
+      width: 100%;
+      padding: 17px 50px;
     }
   }
 
@@ -52,9 +65,22 @@ export default {};
     @media screen and (max-width: 767px) {
       justify-content: center;
     }
+  }
 
-    strong {
-      font-size: 18px;
+  &__agreement {
+    padding-left: 50px;
+
+    .checkbox {
+      span {
+        font-size: 12px;
+        font-weight: lighter;
+        a {
+          text-decoration: none;
+        }
+        &.square {
+          transform: translateY(10%);
+        }
+      }
     }
   }
 

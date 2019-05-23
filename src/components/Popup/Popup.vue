@@ -17,7 +17,7 @@ export default {
     },
     methods: {
         close() {
-            this.$store.commit("TOGGLE_POPUP")
+          this.$emit('close');
         }
     }
 };
@@ -57,10 +57,11 @@ export default {
 
   &-block {
       position: absolute;
-      min-width: 500px;
       padding: 30px 40px;
       background-color: #fff;
       border-radius: 5px;
+      max-width: 500px;
+      width: 100%;
 
       top: 50%;
       left: 50%;
