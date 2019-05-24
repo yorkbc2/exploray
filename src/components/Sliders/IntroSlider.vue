@@ -50,7 +50,7 @@
               />
             </div>
             <div class="button-wrapper">
-              <button type="submit" class="form-button">
+              <button type="submit" class="form-button" @click="scrollToResults($event)">
                 Поиск
                 <span class="result-label">120</span>
               </button>
@@ -68,6 +68,18 @@ export default {
   props: {
     backgroundImages: Array,
     headers: Array
+  },
+  methods: {
+    scrollToResults(e) {
+      e.preventDefault();
+      
+      if (jQuery) {
+        jQuery('html, body')
+          .animate({
+            scrollTop: jQuery('#home-search-results').offset().top + 'px'
+          }, 400);
+      }
+    }
   },
   mounted() {
     this.$refs.slider.goToPage(1);

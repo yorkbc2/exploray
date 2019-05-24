@@ -13,8 +13,8 @@
               <navbar-menu
                 :items="{
                         '/adventures': 'Путешествия',
-                        '/about': 'О компании',
-                        '/contact': 'Контакты',    
+                          '/about': 'Маркетплэйс',
+                        '/contact': 'Присоединиться',      
                     }"
               />
             </div>

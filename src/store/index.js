@@ -9,6 +9,7 @@ const store = new Vuex.Store({
     strokeView: true,
     data: initialData,
     cart: [],
+    filters: [],
     searchResults: initialData.slice(0, 8),
     showFilters: false,
     popupOpened: false
@@ -31,6 +32,9 @@ const store = new Vuex.Store({
     },
     searchResults(state) {
       return state.searchResults;
+    },
+    filters(state) {
+      return state.filters;
     }
   },
   mutations: {
@@ -63,6 +67,20 @@ const store = new Vuex.Store({
     },
     TOGGLE_POPUP(state) {
       state.popupOpened = !state.popupOpened;
+    },
+    /**
+     * @param {Object} state
+     * @param {Object} filter
+     */
+    CHANGE_FILTERS(state, filter) {
+      const currentFilter = state.filters.filter(
+        f => f.name === filter.name
+      )[0];
+      if (currentFilter || filter.delete) {
+        state.filters = state.filters.filter(f => f.name !== filter.name);
+      } else {
+        state.filters.push(filter);
+      }
     }
   }
 });

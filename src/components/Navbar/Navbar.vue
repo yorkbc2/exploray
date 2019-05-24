@@ -11,8 +11,8 @@
           <navbar-menu
             :items="{
                         '/tours': 'Путешествия',
-                        '/about': 'О компании',
-                        '/contact': 'Контакты',    
+                        '/about': 'Маркетплэйс',
+                        '/contact': 'Присоединиться',    
                     }"
           ></navbar-menu>
         </div>
@@ -124,17 +124,36 @@ export default {
   &__buttons {
     display: flex;
     flex-direction: row;
+    min-height: 100%;
 
     > a {
       &:not(:last-child) {
         margin-right: 20px;
       }
-      color: #fff;
-      height: 25px;
+      color: #fff;  
       display: inline-flex;
       flex-direction: column;
       justify-content: center;
       position: relative;
+      min-height: 100%;
+
+      &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 2px;
+          width: 105%;
+          background-color: #fff;
+          opacity: 0;
+          transition: opacity 0.2s ease-in-out;
+        }
+
+      &:hover {
+        &::after {
+          opacity: 1;
+        }
+      }
 
       &.nav__compare {
         margin-right: 15px;
@@ -155,7 +174,7 @@ export default {
 
   &__menu {
     flex: 1;
-    max-width: 340px;
+    max-width: 440px;
     @media screen and (max-width: 1024px) {
       display: none;
     }

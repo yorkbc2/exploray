@@ -39,10 +39,10 @@
           <router-link to="/tours">Путешествия</router-link>
         </li>
         <li>
-          <router-link to="/tours">О проекте</router-link>
+          <router-link to="/tours">Маркетплэйс</router-link>
         </li>
         <li>
-          <router-link to="/tours">Контакты</router-link>
+          <router-link to="/tours">Присоединиться</router-link>
         </li>
         <li>
           <router-link to="/tours">

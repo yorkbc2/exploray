@@ -5,7 +5,7 @@
       :headers="['Мир интереснее , чем кажется!', 'Ещё один слайд для показа']"
     />
     <app-intro-inline-slider/>
-    <section class="section" v-if="$store.getters.searchResults.length">
+    <section class="section" v-if="$store.getters.searchResults.length" id="home-search-results">
       <div class="container">
         <h3 class="section__subtitle">Результаты поиска:</h3>
         <div v-if="isAdaptiveProducts" class="home-results-slider">

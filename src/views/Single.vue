@@ -2,23 +2,18 @@
   <div class="single">
     <div class="full-window-slider">
       <div class="full-window-slider-wrapper">
+        <div class="single__place">
+          <i class="fa fa-map-marker"/> Камчатская долина, Россия
+        </div>
         <carousel :perPage="1" :navigationEnabled="true">
           <slide
             class="full-window-slider__slide"
             style="background-image: url('/images/tour_bg.jpg');"
-          >
-            <div class="single__place">
-              <i class="fa fa-map-marker"/> Камчатская долина, Россия
-            </div>
-          </slide>
+          ></slide>
           <slide
             class="full-window-slider__slide"
             style="background-image: url('/images/tour_bg.jpg');"
-          >
-            <div class="single__place">
-              <i class="fa fa-map-marker"/> Камчатская долина, Россия
-            </div>
-          </slide>
+          ></slide>
         </carousel>
         <div class="full-window-slider__slide-content">
           <div class="container">
