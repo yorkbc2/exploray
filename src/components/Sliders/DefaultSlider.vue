@@ -18,7 +18,12 @@
         </router-link>
       </slide>
     </carousel>
-    <app-lightbox v-if="lightBoxOpened" @onOpened="toggleLightBox($event)" :startAt="lightBoxStartsAt" :images="getLightBoxImages"/>
+    <app-lightbox
+      v-if="lightBoxOpened"
+      @onOpened="toggleLightBox($event)"
+      :startAt="lightBoxStartsAt"
+      :images="getLightBoxImages"
+    />
   </div>
 </template>
 
@@ -84,6 +89,31 @@ export default {
 </script>
 
 <style lang="scss">
+@mixin mobile-arrows() {
+  margin-top: 0px;
+  &-button {
+    border: 0 !important;
+    position: absolute !important;
+    top: 35%;
+    &::after {
+      filter: none;
+      width: 30px;
+      height: 30px;
+    }
+  }
+  &-prev {
+    &::after {
+      left: -10px;
+      background-image: url("/icons/arrow-outline-left.svg");
+    }
+  }
+  &-next {
+    &::after {
+      right: -10px;
+      background-image: url("/icons/arrow-outline-right.svg");
+    }
+  }
+}
 .default-slider-block {
   display: block;
   position: relative;
@@ -149,7 +179,7 @@ export default {
   margin: 0 auto;
   .VueCarousel {
     &-slide {
-      margin: 0 auto!important;
+      margin: 0 auto !important;
     }
     &-navigation {
       text-align: center;
@@ -191,28 +221,17 @@ export default {
         }
       }
       @media screen and (max-width: 768px) {
-        margin-top: 0px;
-        &-button {
-          border: 0 !important;
-          position: absolute !important;
-          top: 35%;
-          &::after {
-            filter: none;
-            width: 30px;
-            height: 30px;
-          }
-        }
-        &-prev {
-          &::after {
-            left: -10px;
-            background-image: url("/icons/arrow-outline-left.svg");
-          }
-        }
-        &-next {
-          &::after {
-            right: -10px;
-            background-image: url("/icons/arrow-outline-right.svg");
-          }
+        @include mobile-arrows();
+      }
+    }
+  }
+}
+.home-results-slider {
+  .default-slider {
+    .VueCarousel {
+      &-navigation {
+        @media screen and (max-width: 1200px) {
+          @include mobile-arrows();
         }
       }
     }

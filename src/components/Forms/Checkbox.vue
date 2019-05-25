@@ -17,7 +17,7 @@ export default {
     checked: Boolean,
     label: String,
     reversed: Boolean,
-    value: String
+    value: [String, Boolean]
   },
   data: () => ({
     active: false

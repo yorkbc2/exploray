@@ -39,25 +39,31 @@
             <navbar-search/>
           </div>
           <div class="nav__buttons-wrapper">
-            <div class="nav__buttons">
-              <a href="/cart" class="nav__compare">
-                <img src="/images/compare.png" height="20px" width="auto">
-              </a>
-              <a href="/cart" class="nav__cart">
-                <span
-                  v-if="!!$store.getters.cart.length"
-                  class="notifications"
-                >{{$store.getters.cart.length}}</span>
-                <img src="/images/cart.png" height="24px" width="auto">
-              </a>
-              <router-link to="/login" class="nav__user">
-                <img
-                  :src="isProfilePage ? '/images/customer_filled.png' : '/images/customer.png'"
-                  height="24px"
-                  width="auto"
-                >
-              </router-link>
-            </div>
+            <ul class="nav__buttons">
+              <li class="nav__compare">
+                <a href="/cart">
+                  <img src="/images/compare.png" height="20px" width="auto">
+                </a>
+              </li>
+              <li class="nav__cart">
+                <a href="/cart">
+                  <span
+                    v-if="!!$store.getters.cart.length"
+                    class="notifications"
+                  >{{$store.getters.cart.length}}</span>
+                  <img src="/images/cart.png" height="24px" width="auto">
+                </a>
+              </li>
+              <li class="nav__user">
+                <router-link to="/login">
+                  <img
+                    :src="isProfilePage ? '/images/customer_filled.png' : '/images/customer.png'"
+                    height="24px"
+                    width="auto"
+                  >
+                </router-link>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -126,28 +132,31 @@ export default {
     flex-direction: row;
     min-height: 100%;
 
-    > a {
-      &:not(:last-child) {
-        margin-right: 20px;
-      }
-      color: #fff;  
+    margin: 0;
+    padding: 0;
+
+    > li {
+      position: relative;
+      list-style: none;
       display: inline-flex;
       flex-direction: column;
       justify-content: center;
-      position: relative;
       min-height: 100%;
 
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
       &::after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          height: 2px;
-          width: 105%;
-          background-color: #fff;
-          opacity: 0;
-          transition: opacity 0.2s ease-in-out;
-        }
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 105%;
+        background-color: #fff;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+      }
 
       &:hover {
         &::after {
@@ -161,6 +170,11 @@ export default {
           margin-top: 2px;
         }
       }
+    }
+
+    a {
+      color: #fff;
+      position: relative;
 
       img {
         width: auto;

@@ -32,9 +32,9 @@ select {
 .select-wrapper {
   position: relative;
   &::after {
-    content: "\f078";
+    content: "\F078";
     position: absolute;
-    font-family: "FontAwesome";
+    font-family: "Font Awesome 5 Free";
     font-size: 14px;
     color: #8e8e8e;
     top: 50%;

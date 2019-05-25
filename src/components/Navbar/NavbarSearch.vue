@@ -79,8 +79,8 @@ export default {
     transition: right 0.4s ease-in-out;
   }
 
-  @media screen and (max-width: 767px) {
-    max-width: 170px;
+  @media screen and (max-width: 1024px) {
+    max-width: 200px;
     input {
       border-color: #fff;
     }

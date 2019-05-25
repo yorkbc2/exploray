@@ -11,7 +11,7 @@
         <div v-if="isAdaptiveProducts" class="home-results-slider">
           <app-default-slider :perPage="[[320, 1], [768, 2], [1024, 3]]">
             <slide v-for="(item, index) in $store.getters.searchResults" :key="index">
-              <product-card :data="item" />
+              <product-card :data="item"/>
             </slide>
           </app-default-slider>
         </div>
@@ -23,9 +23,7 @@
           />
         </div>
         <div class="text-center">
-          <button type="button" class="button button-green button--large">
-            Расширенный поиск
-          </button>
+          <button type="button" class="button button-green button--large">Расширенный поиск</button>
         </div>
       </div>
     </section>
@@ -208,21 +206,25 @@ export default {
 .home-results-grid {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
-
   justify-content: flex-start;
 
-  article.card {
-    max-width: 255px;
+  flex-wrap: wrap;
 
-    &:first-child,
-    &:nth-child(5n) {
-      margin-left: 0px;
-    }
+  > article.card {
+    margin: 0px 20px 20px 0px;
+    flex: 1;
 
+    position: relative;
+    max-width: 260px;
+    min-width: 260px;
     &:nth-child(4n) {
       margin-right: 0px;
+    }
+
+    @media screen and (max-width: 1200px) {
+      max-width: 255px;
+      min-width: 230px;
+      width: 100%;
     }
   }
 }
@@ -230,10 +232,34 @@ export default {
 .home-results-slider {
   margin-bottom: 30px;
 
+  .VueCarousel {
+    &-slide {
+      @media screen and (min-width: 768px) and (max-width: 1024px) {
+        &:nth-child(even) {
+          article.card {
+            margin: 0px auto 10px 15px;
+          }
+        }
+        &:nth-child(odd) {
+          article.card {
+            margin: 0px 15px 10px auto;
+          }
+        }
+      }
+    }
+  }
 
   article.card {
     @media screen and (max-width: 767px) {
       max-width: 240px;
+    }
+  }
+}
+
+#home-search-results {
+  @media screen and (max-width: 1200px) {
+    > .container {
+      max-width: 95%;
     }
   }
 }

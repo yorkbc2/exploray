@@ -501,7 +501,7 @@
       </div>
     </section>
     <popup
-      v-if="$store.getters.popupOpened"
+      v-if="formPopup"
       title="Оставьте свои контакты"
       subtitle="Мы свяжемся с Вами в ближайшее время"
       @close="callPopup()"
@@ -548,6 +548,7 @@ export default {
     return {
       data: null,
       successPopup: false,
+      formPopup: false,
       photos: [
         {
           image: "/images/tour_photo.jpg",
@@ -627,13 +628,13 @@ export default {
     },
     closeAllPopups() {
       this.successPopup = false;
-      this.$store.commit("TOGGLE_POPUP");
+      this.formPopup = false;
     },
     getData(_id) {
       this.data = this.$store.getters.data.filter(i => i._id === _id)[0];
     },
     callPopup() {
-      this.$store.commit("TOGGLE_POPUP");
+      this.formPopup = !this.formPopup;
     },
     slideTo(selector) {
       if (jQuery) {
@@ -964,6 +965,12 @@ export default {
       max-width: 100%;
       flex: none;
     }
+  }
+}
+
+.about-row {
+  ul {
+    padding-left: 0px;
   }
 }
 

@@ -12,7 +12,6 @@ const store = new Vuex.Store({
     filters: [],
     searchResults: initialData.slice(0, 8),
     showFilters: false,
-    popupOpened: false
   },
   getters: {
     strokeView(state) {
@@ -26,9 +25,6 @@ const store = new Vuex.Store({
     },
     showFilters(state) {
       return state.showFilters;
-    },
-    popupOpened(state) {
-      return state.popupOpened;
     },
     searchResults(state) {
       return state.searchResults;
@@ -64,9 +60,6 @@ const store = new Vuex.Store({
     },
     TOGGLE_FILTERS(state) {
       state.showFilters = !state.showFilters;
-    },
-    TOGGLE_POPUP(state) {
-      state.popupOpened = !state.popupOpened;
     },
     /**
      * @param {Object} state
