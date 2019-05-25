@@ -60,13 +60,11 @@ import Header from "@/components/Header/Header.vue";
 import ProductList from "@/components/Product/ProductList.vue";
 import InputGroup from "@/components/Forms/InputGroup.vue";
 import ProductFilters from "@/components/Product/ProductFilters.vue";
-import ProductControls from "@/components/Product/ProductControls.vue";
 export default {
   components: {
     "app-header": Header,
     "product-list": ProductList,
     "product-filters": ProductFilters,
-    "product-controls": ProductControls,
     "input-group": InputGroup
   },
   computed: {

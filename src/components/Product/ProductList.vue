@@ -31,6 +31,7 @@ export default {
 
 <style lang="scss" scoped>
 .product-list-wrapper {
+  margin-top: 30px;
   .row {
     .col-sm-6 {
       @media screen and (min-width: 768px) and (max-width: 1024px) {

@@ -1,53 +1,82 @@
 <template>
   <div :class="{'product-filters': true, 'active': $store.getters.showFilters}">
     <h3>Фильтр</h3>
+    <product-controls class="product-filters__controls" :hideSort="true" v-if="isTablet" />
     <div class="tabs">
       <tab header="Цена, руб.">
-        <input-price-range :range="20000" :postfix="['руб.', 'руб.']" :interval="1"/>
+        <input-price-range
+          @change="onFiltersChanged(filters.PRICE, $event)"
+          :range="priceRange[1]"
+          :postfix="['руб.', 'руб.']"
+          :interval="1"
+        />
       </tab>
 
       <tab header="Даты">
         <div class="default-date-pick">
-          <input-date-picker/>
+          <input-date-picker @change="onFiltersChanged(filters.DATE, $event)" ref="datePicker"/>
         </div>
       </tab>
 
       <tab header="Длительность, дней">
-        <input-price-range :range="10" :postfix="['дней', 'дней']"/>
+        <input-price-range
+          @change="onFiltersChanged(filters.DURATION, $event)"
+          :range="durationRange[1]"
+          :postfix="['дней', 'дней']"
+        />
       </tab>
 
       <tab header="Число путешественников">
-        <input-price-range :range="10"/>
+        <input-price-range
+          @change="onFiltersChanged(filters.TRAVELERS, $event)"
+          :range="travelersRange[1]"
+        />
       </tab>
 
       <tab header="Сложность">
-        <checkbox v-for="(item, index) in difficulty" :key="index" :label="item" :reversed="true"/>
+        <checkbox
+          v-for="(item, index) in difficulty"
+          @change="onFiltersChanged(filters.DIFFICULTY, $event)"
+          :key="index"
+          :label="item"
+          :reversed="true"
+        />
       </tab>
 
       <tab header="Рейтинг">
-        <checkbox :reversed="true" value="1">
+        <checkbox :reversed="true" value="1" @change="onFiltersChanged(filters.STARS, 1)">
           <app-stars :stars="1"/>
         </checkbox>
-        <checkbox :reversed="true" value="2">
+        <checkbox :reversed="true" value="2" @change="onFiltersChanged(filters.STARS, 2)">
           <app-stars :stars="2"/>
         </checkbox>
-        <checkbox :reversed="true" value="3">
+        <checkbox :reversed="true" value="3" @change="onFiltersChanged(filters.STARS, 3)">
           <app-stars :stars="3"/>
         </checkbox>
-        <checkbox :reversed="true" value="4">
+        <checkbox :reversed="true" value="4" @change="onFiltersChanged(filters.STARS, 4)">
           <app-stars :stars="4"/>
         </checkbox>
-        <checkbox :reversed="true" value="5">
+        <checkbox :reversed="true" value="5" @change="onFiltersChanged(filters.STARS, 5)">
           <app-stars :stars="5"/>
         </checkbox>
       </tab>
 
       <tab header="Размер группы, чел">
-        <input-price-range :range="10" :postfix="['чел.','чел.']" />
+        <input-price-range
+          :range="travelersRange[1]"
+          :postfix="['чел.','чел.']"
+          @change="onFiltersChanged(filters.TRAVELERS, $event)"
+        />
       </tab>
 
       <tab header="Дополнительно">
-        <checkbox v-for="(item, index) in additional" :key="index" :label="item" :reversed="true"/>
+        <checkbox
+          v-for="(item, index) in additional"
+          :key="index"
+          :label="item"
+          :reversed="true"
+          @change="onFiltersChanged(filters.ADDITIONALS, item)"
+        />
       </tab>
     </div>
     <button class="button button-green button-block">Применить фильтр</button>
@@ -61,7 +90,7 @@ import InputStarsVue from "../Forms/InputStars.vue";
 export default {
   components: {
     checkbox: Checkbox,
-    "app-stars": InputStarsVue
+    "app-stars": InputStarsVue,
   },
   data() {
     return {
@@ -72,8 +101,97 @@ export default {
         "Проезд/перелет включен",
         "Питание включено",
         "Проживание в одном месте"
-      ]
+      ],
+      priceRange: [0, 20000],
+      travelersRange: [0, 10],
+      durationRange: [0, 10],
+      filters: {
+        PRICE: "price",
+        STARS: "stars",
+        DURATION: "duration",
+        TRAVELERS: "travelers",
+        ADDITIONALS: "additionals",
+        DIFFICULTY: "difficulty",
+        DATE: "date",
+        SIZE_OF_GROUP: "size_of_group"
+      }
     };
+  },
+  computed: {
+    isTablet() {
+      return window.innerWidth <= 1024;
+    }
+  },
+  methods: {
+    percentToValue(percent, maxValue) {
+      return (maxValue / 100) * percent;
+    },
+    onFiltersChanged(filterType, value) {
+      const request = {
+        id: filterType,
+        delete: true,
+        value
+      };
+
+      switch (filterType) {
+        case this.filters.SIZE_OF_GROUP:
+          request.value = [
+            this.percentToValue(value[0], this.travelersRange[1]),
+            this.percentToValue(value[1], this.travelersRange[1])
+          ];
+          request.delete =
+            request.value[0] === this.travelersRange[0] &&
+            request.value[1] === this.travelersRange[1];
+          request.prefix = "Размер группы: ";
+          request.postfix = " чел.";
+        case this.filters.PRICE:
+          request.value = [
+            this.percentToValue(value[0], this.priceRange[1]),
+            this.percentToValue(value[1], this.priceRange[1])
+          ];
+          request.postfix = " руб.";
+          request.prefix = "Цена: ";
+          request.delete =
+            request.value[0] === this.priceRange[0] &&
+            request.value[1] === this.priceRange[1];
+          break;
+        case this.filters.STARS:
+        case this.filters.ADDITIONALS:
+        case this.filters.DIFFICULTY:
+          request.multiple = true;
+          break;
+        case this.filters.TRAVELERS:
+          request.value = [
+            this.percentToValue(value[0], this.travelersRange[1]),
+            this.percentToValue(value[1], this.travelersRange[1])
+          ];
+          request.delete =
+            request.value[0] === this.travelersRange[0] &&
+            request.value[1] === this.travelersRange[1];
+          request.prefix = "Путешественников: ";
+          request.postfix = " чел.";
+        case this.filters.DURATION:
+          request.value = [
+            this.percentToValue(value[0], this.durationRange[1]),
+            this.percentToValue(value[1], this.durationRange[1])
+          ];
+          request.delete =
+            request.value[0] === this.durationRange[0] &&
+            request.value[1] === this.durationRange[1];
+          request.prefix = "Длительность: ";
+          request.postfix = " дней.";
+          break;
+        case this.filters.DATE:
+          request.delete = false;
+          request.value = [
+            this.$refs.datePicker.formatDate(new Date(value.from), ""),
+            this.$refs.datePicker.formatDate(new Date(value.to), "")
+          ];
+          break;
+      }
+
+      this.$store.commit("CHANGE_FILTERS", request);
+    }
   },
   components: {
     Tab
@@ -91,6 +209,10 @@ export default {
   }
 
   .button.button-block {
+    display: none;
+  }
+
+  &__controls {
     display: none;
   }
 
@@ -113,6 +235,9 @@ export default {
     &.active {
       top: 66px;
       opacity: 1;
+    }
+    &__controls {
+      display: block;
     }
     h3 {
       margin-bottom: 25px;
@@ -140,7 +265,6 @@ export default {
   }
 
   @media screen and (max-width: 480px) {
-    
     padding: 40px 25px;
     height: calc(100% - 62px);
 
@@ -152,7 +276,6 @@ export default {
         > h3 {
           text-align: left;
         }
-        
       }
     }
 

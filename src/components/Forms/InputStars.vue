@@ -1,6 +1,6 @@
 <template>
   <ul :class="{stars: true, 'stars--big': big}">
-    <li v-for="index in 5" :key="index">
+    <li v-for="index in 5" :key="index" v-if="(hideEmpty && index <= stars) || !hideEmpty">
       <i :class="{'fa fa-star': true, 'active': index <= stars}"></i>
     </li>
   </ul>
@@ -11,7 +11,8 @@ export default {
   name: "app-stars",
   props: {
     stars: Number,
-    big: Boolean
+    big: Boolean,
+    hideEmpty: Boolean
   }
 };
 </script>

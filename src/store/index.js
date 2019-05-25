@@ -11,7 +11,7 @@ const store = new Vuex.Store({
     cart: [],
     filters: [],
     searchResults: initialData.slice(0, 8),
-    showFilters: false,
+    showFilters: false
   },
   getters: {
     strokeView(state) {
@@ -66,13 +66,21 @@ const store = new Vuex.Store({
      * @param {Object} filter
      */
     CHANGE_FILTERS(state, filter) {
-      const currentFilter = state.filters.filter(
-        f => f.name === filter.name
-      )[0];
-      if (currentFilter || filter.delete) {
-        state.filters = state.filters.filter(f => f.name !== filter.name);
-      } else {
+      if (filter.multiple) {
+        filter.id = `${filter.id}_${filter.value}`;
+      }
+      const currentFilter = state.filters.filter(f => f.id === filter.id)[0];
+      if (currentFilter && filter.delete) {
+        state.filters = state.filters.filter(f => f.id !== filter.id);
+      } else if (!currentFilter) {
         state.filters.push(filter);
+      } else if (currentFilter && !filter.delete) {
+        state.filters = state.filters.map(f => {
+          if (f.id === filter.id) {
+            return filter;
+          }
+          return f;
+        });
       }
     }
   }

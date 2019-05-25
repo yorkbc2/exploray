@@ -1,6 +1,6 @@
 <template>
   <div class="product-controls-wrapper">
-    <div class="product-controls d-flex justify-content-between">
+    <div class="product-controls d-flex justify-content-between" v-if="!hideSort">
       <div class="product-controls__sort d-flex">
         <strong class="d-flex flex-column justify-content-center">Сортировать по:</strong>
         <div class="product-controls__sort-element">
@@ -36,15 +36,22 @@
         </div>
       </div>
     </div>
-    <div class="product-controls-active-filters">
-      <span class="product-controls-active-filters__item">
-        Проживание группой
-        <i>&times;</i>
-      </span>
-
-      <span class="product-controls-active-filters__item">
-        5000 - 18 000 руб.
-        <i>&times;</i>
+    <div class="product-controls-active-filters" v-if="$store.getters.filters.length">
+      <span
+        class="product-controls-active-filters__item"
+        v-for="(filter, index) in $store.getters.filters"
+        :key="index"
+      >
+        <app-stars
+          v-if="filter.id.indexOf('stars') !== -1"
+          :stars="filter.value"
+          :hideEmpty="true"
+        />
+        <template v-else>{{ filter | filterLabel }}</template>
+        <i
+          class="product-controls-active-filters__item-closer"
+          @click="removeFilter(filter)"
+        >&times;</i>
       </span>
     </div>
   </div>
@@ -52,9 +59,17 @@
 
 <script>
 export default {
+  name: "product-controls",
+  props: {
+    hideSort: Boolean
+  },
   methods: {
     toggle(enable) {
       this.$store.commit(enable ? "ENABLE_STROKE_VIEW" : "DISABLE_STROKE_VIEW");
+    },
+    removeFilter(filter) {
+      filter.delete = true;
+      this.$store.commit("CHANGE_FILTERS", filter);
     }
   }
 };
@@ -62,8 +77,6 @@ export default {
 
 <style lang="scss">
 .product-controls__sort {
-  > strong {
-  }
   &-element {
     display: flex;
     flex-direction: row;
@@ -169,13 +182,13 @@ export default {
 .product-controls-active-filters {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: flex-start;
-  padding: 15px 20px;
+  padding: 15px 20px 5px;
   border: 1px solid #ebebeb;
   border-radius: 10px;
   box-shadow: 2.5px 1.33px 5px 0px rgba(0, 0, 0, 0.2);
   margin-top: 20px;
-  margin-bottom: 30px;
   @media screen and (max-width: 767px) {
     display: none;
   }
@@ -187,7 +200,15 @@ export default {
     border: 1px solid #0dba00;
     border-radius: 50px;
     font-size: 12px;
-    i {
+    margin-bottom: 10px;
+    .stars {
+      li {
+        i {
+          font-size: 14px;
+        }
+      }
+    }
+    i.product-controls-active-filters__item-closer {
       position: absolute;
       top: 50%;
       right: 10px;

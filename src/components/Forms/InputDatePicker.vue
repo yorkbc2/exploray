@@ -25,13 +25,18 @@ export default {
     DatePicker
   },
   data: () => ({
-    from: null,
-    to: null
+    from: new Date(),
+    to: new Date()
   }),
   methods: {
     onChange(type, data) {
       if (type === "from") this.from = data;
       else this.to = data;
+
+      this.$emit("change", {
+        from: this.from,
+        to: this.to
+      });
     },
     formatDate(date, prefix = "") {
       if (!date) return this.formatDate(new Date(), prefix);

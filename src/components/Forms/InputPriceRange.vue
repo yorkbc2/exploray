@@ -13,6 +13,7 @@
       :max="getMax"
       :tooltip="'none'"
       @change="onChange"
+      @drag-end="onDragEnd"
     />
   </div>
 </template>
@@ -40,6 +41,9 @@ export default {
   methods: {
     onChange(value) {
       this.value = value;
+    },
+    onDragEnd() {
+      this.$emit('change', this.value);
     },
     getValue(percent) {
       return parseInt((this.range / 100) * percent);
