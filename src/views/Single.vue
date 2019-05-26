@@ -1064,8 +1064,10 @@ export default {
           }
         }
 
-        @media screen and (max-width: 560px) {
+        @media screen and (max-width: 767px) {
           margin-bottom: 10px;
+          min-width: 190px;
+          text-align: left;
         }
       }
 
