@@ -43,10 +43,13 @@ export default {
       this.value = value;
     },
     onDragEnd() {
-      this.$emit('change', this.value);
+      this.$emit("change", this.value);
     },
     getValue(percent) {
       return parseInt((this.range / 100) * percent);
+    },
+    reset() {
+      this.value = [this.min || 0, this.max || 100];
     }
   },
   computed: {

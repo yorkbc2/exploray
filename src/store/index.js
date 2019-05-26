@@ -66,18 +66,20 @@ const store = new Vuex.Store({
      * @param {Object} filter
      */
     CHANGE_FILTERS(state, filter) {
-      if (filter.multiple) {
-        filter.id = `${filter.id}_${filter.value}`;
+      const processFilter = { ...filter };
+      let filterId = processFilter.id;
+      if (processFilter.multiple && !processFilter.force) {
+        filterId = `${processFilter.id}_${processFilter.value}`;
       }
-      const currentFilter = state.filters.filter(f => f.id === filter.id)[0];
-      if (currentFilter && filter.delete) {
-        state.filters = state.filters.filter(f => f.id !== filter.id);
+      const currentFilter = state.filters.filter(f => f.id === filterId)[0];
+      if (currentFilter && processFilter.delete) {
+        state.filters = state.filters.filter(f => f.id !== filterId);
       } else if (!currentFilter) {
-        state.filters.push(filter);
-      } else if (currentFilter && !filter.delete) {
+        state.filters.push({ ...processFilter, id: filterId });
+      } else if (currentFilter && !processFilter.delete) {
         state.filters = state.filters.map(f => {
-          if (f.id === filter.id) {
-            return filter;
+          if (f.id === filterId) {
+            return processFilter;
           }
           return f;
         });

@@ -35,10 +35,10 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3 product-filters-wrapper">
-          <product-filters/>
+          <product-filters ref="productFilters" />
         </div>
         <div class="col-md-9 col-sm-12 col-xs-12 product-list-wrapper">
-          <product-controls/>
+          <product-controls @remove="emitRemoveFilter($event)" />
           <product-list :data="data" :strokeView="$store.getters.strokeView"/>
         </div>
       </div>
@@ -70,6 +70,11 @@ export default {
   computed: {
     data() {
       return this.$store.state.data;
+    }
+  },
+  methods: {
+    emitRemoveFilter($event) {
+      this.$refs.productFilters.resetFilter($event);
     }
   }
 };

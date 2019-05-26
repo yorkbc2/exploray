@@ -68,8 +68,14 @@ export default {
       this.$store.commit(enable ? "ENABLE_STROKE_VIEW" : "DISABLE_STROKE_VIEW");
     },
     removeFilter(filter) {
-      filter.delete = true;
-      this.$store.commit("CHANGE_FILTERS", filter);
+      const currentFilter = {
+        ...filter,
+        delete: true,
+        force: true,
+        id: filter.id
+      };
+      this.$store.commit("CHANGE_FILTERS", currentFilter);
+      this.$emit("remove", filter);
     }
   }
 };

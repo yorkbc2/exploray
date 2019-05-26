@@ -11,7 +11,7 @@
 import Stars from "./InputStars.vue";
 export default {
   name: "checkbox",
-  components: { 'app-stars': Stars },
+  components: { "app-stars": Stars },
   props: {
     change: Function,
     checked: Boolean,
@@ -20,12 +20,18 @@ export default {
     value: [String, Boolean]
   },
   data: () => ({
-    active: false
+    active: false,
+    _checked: false
   }),
   methods: {
     onCheck(e) {
       this.active = !this.active;
       this.$emit("change", e.target.value);
+    },
+    reset() {
+      this.active = false;
+      this._checked = false;
+      console.log(this);
     }
   },
   mounted() {

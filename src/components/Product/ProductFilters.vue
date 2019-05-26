@@ -1,7 +1,12 @@
 <template>
   <div :class="{'product-filters': true, 'active': $store.getters.showFilters}">
     <h3>Фильтр</h3>
-    <product-controls class="product-filters__controls" :hideSort="true" v-if="isTablet" />
+    <product-controls
+      class="product-filters__controls"
+      :hideSort="true"
+      v-if="isTablet"
+      @remove="resetFilter($event)"
+    />
     <div class="tabs">
       <tab header="Цена, руб.">
         <input-price-range
@@ -9,12 +14,13 @@
           :range="priceRange[1]"
           :postfix="['руб.', 'руб.']"
           :interval="1"
+          :ref="filters.PRICE"
         />
       </tab>
 
       <tab header="Даты">
         <div class="default-date-pick">
-          <input-date-picker @change="onFiltersChanged(filters.DATE, $event)" ref="datePicker"/>
+          <input-date-picker @change="onFiltersChanged(filters.DATE, $event)" :ref="filters.DATE"/>
         </div>
       </tab>
 
@@ -23,6 +29,7 @@
           @change="onFiltersChanged(filters.DURATION, $event)"
           :range="durationRange[1]"
           :postfix="['дней', 'дней']"
+          :ref="filters.DURATION"
         />
       </tab>
 
@@ -30,6 +37,7 @@
         <input-price-range
           @change="onFiltersChanged(filters.TRAVELERS, $event)"
           :range="travelersRange[1]"
+          :ref="filters.TRAVELERS"
         />
       </tab>
 
@@ -40,23 +48,49 @@
           :key="index"
           :label="item"
           :reversed="true"
+          :ref="filters.DIFFICULTY + '_' + item"
         />
       </tab>
 
       <tab header="Рейтинг">
-        <checkbox :reversed="true" value="1" @change="onFiltersChanged(filters.STARS, 1)">
+        <checkbox
+          :reversed="true"
+          value="1"
+          @change="onFiltersChanged(filters.STARS, 1)"
+          ref="stars_1"
+        >
           <app-stars :stars="1"/>
         </checkbox>
-        <checkbox :reversed="true" value="2" @change="onFiltersChanged(filters.STARS, 2)">
+        <checkbox
+          :reversed="true"
+          value="2"
+          @change="onFiltersChanged(filters.STARS, 2)"
+          ref="stars_2"
+        >
           <app-stars :stars="2"/>
         </checkbox>
-        <checkbox :reversed="true" value="3" @change="onFiltersChanged(filters.STARS, 3)">
+        <checkbox
+          :reversed="true"
+          value="3"
+          @change="onFiltersChanged(filters.STARS, 3)"
+          ref="stars_3"
+        >
           <app-stars :stars="3"/>
         </checkbox>
-        <checkbox :reversed="true" value="4" @change="onFiltersChanged(filters.STARS, 4)">
+        <checkbox
+          :reversed="true"
+          value="4"
+          @change="onFiltersChanged(filters.STARS, 4)"
+          ref="stars_4"
+        >
           <app-stars :stars="4"/>
         </checkbox>
-        <checkbox :reversed="true" value="5" @change="onFiltersChanged(filters.STARS, 5)">
+        <checkbox
+          :reversed="true"
+          value="5"
+          @change="onFiltersChanged(filters.STARS, 5)"
+          ref="stars_5"
+        >
           <app-stars :stars="5"/>
         </checkbox>
       </tab>
@@ -65,7 +99,8 @@
         <input-price-range
           :range="travelersRange[1]"
           :postfix="['чел.','чел.']"
-          @change="onFiltersChanged(filters.TRAVELERS, $event)"
+          @change="onFiltersChanged(filters.TRAVELERS_GROUP, $event)"
+          :ref="filters.TRAVELERS_GROUP"
         />
       </tab>
 
@@ -76,6 +111,7 @@
           :label="item"
           :reversed="true"
           @change="onFiltersChanged(filters.ADDITIONALS, item)"
+          :ref="filters.ADDITIONALS + '_' + item"
         />
       </tab>
     </div>
@@ -90,7 +126,7 @@ import InputStarsVue from "../Forms/InputStars.vue";
 export default {
   components: {
     checkbox: Checkbox,
-    "app-stars": InputStarsVue,
+    "app-stars": InputStarsVue
   },
   data() {
     return {
@@ -110,6 +146,7 @@ export default {
         STARS: "stars",
         DURATION: "duration",
         TRAVELERS: "travelers",
+        TRAVELERS_GROUP: "travelers_group",
         ADDITIONALS: "additionals",
         DIFFICULTY: "difficulty",
         DATE: "date",
@@ -126,13 +163,18 @@ export default {
     percentToValue(percent, maxValue) {
       return (maxValue / 100) * percent;
     },
+    resetFilter(filter) {
+      let ref = this.$refs[filter.id];
+      if (!ref) return;
+      if (Array.isArray(ref)) ref = ref[0];
+      if (typeof ref.reset === "function") ref.reset();
+    },
     onFiltersChanged(filterType, value) {
       const request = {
         id: filterType,
         delete: true,
         value
       };
-
       switch (filterType) {
         case this.filters.SIZE_OF_GROUP:
           request.value = [
@@ -170,6 +212,8 @@ export default {
             request.value[1] === this.travelersRange[1];
           request.prefix = "Путешественников: ";
           request.postfix = " чел.";
+          break;
+          F;
         case this.filters.DURATION:
           request.value = [
             this.percentToValue(value[0], this.durationRange[1]),
@@ -184,12 +228,11 @@ export default {
         case this.filters.DATE:
           request.delete = false;
           request.value = [
-            this.$refs.datePicker.formatDate(new Date(value.from), ""),
-            this.$refs.datePicker.formatDate(new Date(value.to), "")
+            this.$refs[this.filters.DATE].formatDate(new Date(value.from), ""),
+            this.$refs[this.filters.DATE].formatDate(new Date(value.to), "")
           ];
           break;
       }
-
       this.$store.commit("CHANGE_FILTERS", request);
     }
   },
@@ -236,8 +279,14 @@ export default {
       top: 66px;
       opacity: 1;
     }
-    &__controls {
-      display: block;
+    & /deep/ .product-controls-wrapper.product-filters__controls {
+      display: flex;
+      .product-controls-active-filters {
+        display: flex;
+        box-shadow: none;
+        padding: 0px 0px 15px;
+        border: 0px;
+      }
     }
     h3 {
       margin-bottom: 25px;
