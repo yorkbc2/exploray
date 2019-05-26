@@ -1057,6 +1057,13 @@ export default {
           margin-right: 10px;
         }
 
+        @media screen and (max-width: 1024px) and (min-width: 768px) {
+          img {
+            display: block;
+            margin: 0 auto 5px;
+          }
+        }
+
         @media screen and (max-width: 560px) {
           margin-bottom: 10px;
         }

@@ -161,6 +161,7 @@ export default {
   &__body {
     padding: 15px;
     position: relative;
+    flex: 1;
     &::before {
       content: "";
       position: absolute;
