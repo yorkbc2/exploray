@@ -1067,7 +1067,7 @@ export default {
         @media screen and (max-width: 767px) {
           margin-bottom: 10px;
           min-width: 190px;
-          text-align: left;
+          text-align: left; 
         }
       }
 

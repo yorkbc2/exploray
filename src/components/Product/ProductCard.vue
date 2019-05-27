@@ -1,7 +1,6 @@
 <template>
   <article :class="{'card': true, 'card--stroke': strokeView, 'card--fixed-width': fixedWidth}">
-    <div class="card__head">
-      <img class="card__image" :src="data.image" alt :title="data.title">
+    <div class="card__head" :style="{backgroundImage: `url(${data.image})`}">
       <span class="card__rating">
         <i class="fa fa-star"></i>
         <strong>4/5</strong>
@@ -228,6 +227,11 @@ export default {
     position: relative;
     border-radius: 10px 10px 0 0;
 
+    min-height: 170px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     &-overlay {
       position: absolute;
       width: 100%;
@@ -269,11 +273,6 @@ export default {
     }
   }
 
-  &__image {
-    width: 100%;
-    height: auto;
-  }
-
   &__rating {
     position: absolute;
     padding: 2px 4px;
@@ -291,13 +290,16 @@ export default {
 
   &__place {
     position: absolute;
-    bottom: 7px;
-    left: 15px;
+    bottom: 0;
+    left: 0;
+
     text-decoration: none;
     color: #fff;
     z-index: 2;
     font-weight: lighter;
-
+    width: 100%;
+    padding: 7px 15px;
+    background-color: rgba(0, 0, 0, 0.5);
     i {
       margin-right: 7px;
       font-size: 18px;
@@ -401,6 +403,7 @@ export default {
         width: 310px;
         flex: none;
         position: relative;
+        border-radius: 10px 0px 0px 10px;
         > img.card__image {
           height: 100%;
           border-radius: 10px 0 0 10px;
@@ -409,15 +412,15 @@ export default {
           border-radius: 10px 0 0 10px;
         }
         .card__place {
-          bottom: 10px;
+          padding: 10px 15px;
         }
       }
     }
 
     @media screen and (min-width: 768px) and (max-width: 1024px) {
       .card__head {
-        max-width: 220px;
-        width: 220px;
+        max-width: 250px;
+        width: 250px;
       }
     }
   }
