@@ -85,7 +85,7 @@
                 <small>Новичкам, тур без рюкзаков</small>
               </div>
               <div class="right">
-                <app-stars :stars="3" :big="true"/>
+                <difficulty-list :value="4" />
               </div>
             </div>
 
@@ -523,6 +523,7 @@ import ContentTabVue from "../components/Blocks/ContentTab.vue";
 import PopupVue from "../components/Popup/Popup.vue";
 import PopupFormVue from "../components/Popup/PopupForm.vue";
 import HeaderBreadsVue from "../components/Header/HeaderBreads.vue";
+import DifficultyListVue from '../components/Lists/DifficultyList.vue';
 export default {
   name: "single-page",
   components: {
@@ -533,7 +534,8 @@ export default {
     "content-tab": ContentTabVue,
     popup: PopupVue,
     "popup-form": PopupFormVue,
-    breadcrumbs: HeaderBreadsVue
+    breadcrumbs: HeaderBreadsVue,
+    "difficulty-list": DifficultyListVue
   },
   data() {
     return {
