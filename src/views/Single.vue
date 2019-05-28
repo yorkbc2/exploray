@@ -41,15 +41,6 @@
             <a href="#" class="button button-green button--large" @click="callPopup()">Заказать</a>
           </div>
         </div>
-        <div class="full-window-slider__mobile-breads">
-          <breadcrumbs
-            :path="{
-                '/': 'Главная',
-                '/tours': 'Путешествия',
-                '/tour/1': 'Камчатка'
-            }"
-          />
-        </div>
       </div>
       <div class="container full-window-slider__card-wrapper">
         <div class="full-window-slider__card">
@@ -1005,16 +996,6 @@ export default {
     position: relative;
   }
 
-  &__mobile-breads {
-    display: none;
-    @media screen and (max-width: 560px) {
-      bottom: 60px;
-      left: 45px;
-      right: 45px;
-      position: absolute;
-      display: block;
-    }
-  }
 
   &__slide {
     position: relative;
