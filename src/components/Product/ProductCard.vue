@@ -135,6 +135,8 @@ export default {
   overflow: hidden;
   transition: box-shadow 0.4s ease-in-out;
 
+  min-height: 380px;
+
   // @media screen and (max-width: 767px) {
   //   &:not(.card--fixed-width) {
   //     max-width: 100%;
@@ -226,8 +228,8 @@ export default {
   &__head {
     position: relative;
     border-radius: 10px 10px 0 0;
-
-    min-height: 170px;
+    // @changed height
+    height: 170px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -352,6 +354,7 @@ export default {
   &--stroke {
     @media screen and (min-width: 768px) {
       max-width: 100%;
+      min-height: 0px;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -400,6 +403,9 @@ export default {
 
       .card__head {
         max-width: 310px;
+        // @changed height
+        min-height: 170px;
+        height: auto;
         width: 310px;
         flex: none;
         position: relative;
