@@ -1,5 +1,10 @@
 <template>
   <article :class="{'card': true, 'card--stroke': strokeView, 'card--fixed-width': fixedWidth}">
+    <!-- 
+      @changed
+      Удалил картинку как элемент <img /> и добавил её как background-image: url(); 
+      
+     -->
     <div class="card__head" :style="{backgroundImage: `url(${data.image})`}">
       <span class="card__rating">
         <i class="fa fa-star"></i>
