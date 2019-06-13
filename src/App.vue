@@ -173,6 +173,27 @@ section {
     &--colored {
       background: #f6f6f6;
     }
+
+    &--with-header {
+      .section__header {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        padding: 50px 0 120px;
+
+        .section__title {
+          color: #fff;
+          &::after {
+            background-color: #fff;
+          }
+        }
+      }
+
+      .section__content {
+        transform: translateY(-100px);
+      }
+    }
   }
 
   @media screen and (max-width: 768px) {
@@ -422,6 +443,17 @@ a.button {
 
   &--small-paddings {
     padding: 12px 40px;
+  }
+
+  &-download {
+    font-weight: normal;
+    padding: 12px 40px;
+
+    img {
+      vertical-align: middle;
+      height: 22px;
+      margin-left: 7px;
+    }
   }
 }
 

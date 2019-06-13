@@ -85,7 +85,7 @@
                 <small>Новичкам, тур без рюкзаков</small>
               </div>
               <div class="right">
-                <difficulty-list :value="4" />
+                <difficulty-list :value="4"/>
               </div>
             </div>
 
@@ -252,7 +252,7 @@
             </div>
           </div>
         </content-tab>
-        <div class="row about-row splitted-bottom">
+        <div class="row about-row">
           <div class="col-md-6 col-sm-12 col-xs-12">
             <content-tab header="Что включает тур?">
               <ul class="check-list">
@@ -294,6 +294,51 @@
                 </li>
               </ul>
             </content-tab>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section--colored">
+      <div class="container">
+        <h2 class="section__title">О путешествии</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="about-item">
+              <h4>14 дней</h4>
+              <p>Мы предлагаем именно столько времени насладиться путешествием.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="about-item">
+              <h4>14 дней</h4>
+              <p>Мы предлагаем именно столько времени насладиться путешествием.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="about-item">
+              <h4>14 дней</h4>
+              <p>Мы предлагаем именно столько времени насладиться путешествием.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="about-item">
+              <h4>14 дней</h4>
+              <p>Мы предлагаем именно столько времени насладиться путешествием.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="about-item">
+              <h4>14 дней</h4>
+              <p>Мы предлагаем именно столько времени насладиться путешествием.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="about-item">
+              <h4>14 дней</h4>
+              <p>Мы предлагаем именно столько времени насладиться путешествием.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -381,6 +426,82 @@
         </toggler>
       </div>
     </section>
+    <section class="section section--with-header">
+      <div class="section__header" :style="{ backgroundImage: `url(/images/about-header.jpg)` }">
+        <h2 class="section__title">Автор</h2>
+      </div>
+      <div class="section__content">
+        <div class="container">
+          <div class="author-content">
+            <div
+              class="author-content__image"
+              :style="{ backgroundImage: `url(/images/about-avatar.png)` }"
+            ></div>
+            <h4>Андрей Токарев</h4>
+            <p class="small">Автор тура в Альпы</p>
+            <p>Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции требуют от нас анализа существенных финансовых и административных условий. Таким образом рамки и место обучения кадров представляет собой интересный эксперимент проверки системы обучения кадров, соответствует насущным потребностям. Равным образом постоянное информационно-пропагандистское обеспечение нашей деятельности требуют от нас анализа соответствующий условий активизации.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section--colored">
+      <div class="container">
+        <h2 class="section__title">Наша команда</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="team-item">
+              <div
+                class="team-item__image"
+                :style="{ backgroundImage: `url(/images/team-avatar.png)` }"
+              ></div>
+              <h4>
+                Кирилл Самойлов
+              </h4>
+              <p class="small">
+                Основатель тура
+              </p>
+              <p>
+                Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции требуют от нас анализа существенных финансовых и условий. 
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="team-item">
+              <div
+                class="team-item__image"
+                :style="{ backgroundImage: `url(/images/team-avatar.png)` }"
+              ></div>
+              <h4>
+                Кирилл Самойлов
+              </h4>
+              <p class="small">
+                Основатель тура
+              </p>
+              <p>
+                Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции требуют от нас анализа существенных финансовых и условий. 
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="team-item">
+              <div
+                class="team-item__image"
+                :style="{ backgroundImage: `url(/images/team-avatar.png)` }"
+              ></div>
+              <h4>
+                Кирилл Самойлов
+              </h4>
+              <p class="small">
+                Основатель тура
+              </p>
+              <p>
+                Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции требуют от нас анализа существенных финансовых и условий. 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="section">
       <div class="container">
         <h2 class="section__title">Как добраться</h2>
@@ -406,6 +527,59 @@
             </div>
           </div>
         </offset-block>
+      </div>
+    </section>
+    <section class="section section--colored equip">
+      <div class="container">
+        <h2 class="section__title">
+          Что взять с собой
+        </h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="about-item">
+              <h4>Одежда</h4>
+              <p>Таким образом рамки и место обучения кадров представляет собой интересный эксперимент проверки систем.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="about-item">
+              <h4>Одежда</h4>
+              <p>Таким образом рамки и место обучения кадров представляет собой интересный эксперимент проверки систем.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="about-item">
+              <h4>Одежда</h4>
+              <p>Таким образом рамки и место обучения кадров представляет собой интересный эксперимент проверки систем.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="about-item">
+              <h4>Одежда</h4>
+              <p>Таким образом рамки и место обучения кадров представляет собой интересный эксперимент проверки систем.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="about-item">
+              <h4>Одежда</h4>
+              <p>Таким образом рамки и место обучения кадров представляет собой интересный эксперимент проверки систем.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="about-item">
+              <h4>Одежда</h4>
+              <p>Таким образом рамки и место обучения кадров представляет собой интересный эксперимент проверки систем.</p>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="button" class="button button-green button-download">
+            Скачать рекомендации
+            <img src="/images/download-pdf.png" />
+          </button>
+        </div>
       </div>
     </section>
     <section class="section">
@@ -523,7 +697,7 @@ import ContentTabVue from "../components/Blocks/ContentTab.vue";
 import PopupVue from "../components/Popup/Popup.vue";
 import PopupFormVue from "../components/Popup/PopupForm.vue";
 import HeaderBreadsVue from "../components/Header/HeaderBreads.vue";
-import DifficultyListVue from '../components/Lists/DifficultyList.vue';
+import DifficultyListVue from "../components/Lists/DifficultyList.vue";
 export default {
   name: "single-page",
   components: {
@@ -967,6 +1141,36 @@ export default {
   }
 }
 
+.about-item {
+  text-align: center;
+  margin-bottom: 30px;
+
+  h4 {
+    font-size: 20px;
+    color: #0a6aa8;
+    font-weight: 600;
+
+    position: relative;
+    padding: 0 0 15px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 2px;
+      background-color: #0a6aa8;
+    }
+  }
+
+  p {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
 .qa-row {
   &:last-child {
     > div:nth-child(odd):last-child {
@@ -997,7 +1201,6 @@ export default {
   &-wrapper {
     position: relative;
   }
-
 
   &__slide {
     position: relative;
@@ -1050,7 +1253,7 @@ export default {
         @media screen and (max-width: 767px) {
           margin-bottom: 10px;
           min-width: 190px;
-          text-align: left; 
+          text-align: left;
         }
       }
 
@@ -1265,6 +1468,56 @@ export default {
       @media screen and (max-width: 560px) {
         right: 50% !important;
         transform: translateX(50%);
+      }
+    }
+  }
+}
+
+.author-content__image,
+.team-item__image {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 auto 20px;
+}
+
+.author-content,
+.team-item {
+  text-align: center;
+  h4 {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+    max-width: 800px;
+    margin: 10px auto 0px;
+    &.small {
+      color: #858585;
+    }
+  }
+}
+
+.team-item {
+  &__image {
+    width: 170px;
+    height: 170px;
+  }
+}
+
+.section.equip {
+  .about-item {
+    margin-bottom: 30px;
+    h4 {
+      color: #000;
+      padding-bottom: 10px;
+
+      &::after {
+        width: 50px;
+        background-color: #0dba00;
       }
     }
   }

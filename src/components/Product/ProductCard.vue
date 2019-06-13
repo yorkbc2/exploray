@@ -3,7 +3,6 @@
     <!-- 
       @changed
       Удалил картинку как элемент <img /> и добавил её как background-image: url(); 
-      
      -->
     <div class="card__head" :style="{backgroundImage: `url(${data.image})`}">
       <span class="card__rating">
