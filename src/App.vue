@@ -175,6 +175,7 @@ section {
     }
 
     &--with-header {
+      padding: 50px 0 0;
       .section__header {
         background-size: cover;
         background-position: center;

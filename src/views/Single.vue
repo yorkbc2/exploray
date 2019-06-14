@@ -384,6 +384,31 @@
         </offset-block>
       </div>
     </section>
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">Прогрaмма тура</h2>
+      </div>
+      <carousel :perPage="1" class="program-slider" :navigationEnabled="true">
+        <slide :style="{backgroundImage: `url('/images/program_bg.jpg')`}">
+          <div class="content">
+            <h4>Горный массив в Альпах</h4>
+            <p>
+              Захватывающие пейзажи горных массивов, которые вы никогда не забудете,
+              а наоборот, появится желание чаще бывать в горах.
+            </p>
+          </div>
+        </slide>
+        <slide :style="{backgroundImage: `url('/images/program_bg.jpg')`}">
+          <div class="content">
+            <h4>Горный массив в Альпах</h4>
+            <p>
+              Захватывающие пейзажи горных массивов, которые вы никогда не забудете,
+              а наоборот, появится желание чаще бывать в горах.
+            </p>
+          </div>
+        </slide>
+      </carousel>
+    </section>
     <section class="section" id="photo-video-slider">
       <div class="container">
         <h2 class="section__title">Фото и видео</h2>
@@ -454,15 +479,9 @@
                 class="team-item__image"
                 :style="{ backgroundImage: `url(/images/team-avatar.png)` }"
               ></div>
-              <h4>
-                Кирилл Самойлов
-              </h4>
-              <p class="small">
-                Основатель тура
-              </p>
-              <p>
-                Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции требуют от нас анализа существенных финансовых и условий. 
-              </p>
+              <h4>Кирилл Самойлов</h4>
+              <p class="small">Основатель тура</p>
+              <p>Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции требуют от нас анализа существенных финансовых и условий.</p>
             </div>
           </div>
           <div class="col-md-4">
@@ -471,15 +490,9 @@
                 class="team-item__image"
                 :style="{ backgroundImage: `url(/images/team-avatar.png)` }"
               ></div>
-              <h4>
-                Кирилл Самойлов
-              </h4>
-              <p class="small">
-                Основатель тура
-              </p>
-              <p>
-                Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции требуют от нас анализа существенных финансовых и условий. 
-              </p>
+              <h4>Кирилл Самойлов</h4>
+              <p class="small">Основатель тура</p>
+              <p>Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции требуют от нас анализа существенных финансовых и условий.</p>
             </div>
           </div>
           <div class="col-md-4">
@@ -488,15 +501,9 @@
                 class="team-item__image"
                 :style="{ backgroundImage: `url(/images/team-avatar.png)` }"
               ></div>
-              <h4>
-                Кирилл Самойлов
-              </h4>
-              <p class="small">
-                Основатель тура
-              </p>
-              <p>
-                Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции требуют от нас анализа существенных финансовых и условий. 
-              </p>
+              <h4>Кирилл Самойлов</h4>
+              <p class="small">Основатель тура</p>
+              <p>Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции требуют от нас анализа существенных финансовых и условий.</p>
             </div>
           </div>
         </div>
@@ -531,9 +538,7 @@
     </section>
     <section class="section section--colored equip">
       <div class="container">
-        <h2 class="section__title">
-          Что взять с собой
-        </h2>
+        <h2 class="section__title">Что взять с собой</h2>
         <div class="row">
           <div class="col-md-4">
             <div class="about-item">
@@ -577,7 +582,7 @@
         <div class="text-center">
           <button type="button" class="button button-green button-download">
             Скачать рекомендации
-            <img src="/images/download-pdf.png" />
+            <img src="/images/download-pdf.png">
           </button>
         </div>
       </div>
@@ -1036,6 +1041,103 @@ export default {
   }
 }
 
+.program-slider {
+  &.VueCarousel {
+    position: relative;
+    .VueCarousel-slide {
+      min-height: 600px;
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      padding-bottom: 50px;
+
+      align-items: center;
+      text-align: center;
+      color: #ffffff;
+
+      .content {
+        max-width: 600px;
+        h4 {
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+        p {
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 24px;
+        }
+      }
+    }
+
+    .VueCarousel-pagination {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      .VueCarousel-dot {
+        width: 14px!important;
+        height: 14px!important;
+        padding: 0 6px!important;
+        background-color: #fff!important;
+        &--active {
+          background-color: #0dba00!important;
+        }
+      }
+    }
+
+    .VueCarousel-navigation {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      padding: 0 2px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      max-width: 1140px;
+      @media screen and (max-width: 1200px) {
+        max-width: 960px;
+      }
+      @media screen and (max-width: 992px) {
+        max-width: 720px;
+      }
+      @media screen and (max-width: 567px) {
+        max-width: 540px;
+      }
+      &-button {
+        position: static!important;
+
+        width: 35px;
+        height: 35px;
+        border-radius: 50px;
+        background-color: rgba(255,255,255,0.7);
+        cursor: pointer;
+        opacity: 1;
+
+        &::after {
+          width: 18px;
+          height: 18px;
+          left: 50%;
+          filter: invert(13%) sepia(94%) saturate(0%) hue-rotate(232deg) brightness(101%) contrast(101%);
+          transform: translateX(-50%) translateY(-50%);
+        }
+      }
+      &-next {
+        &::after {
+          background-position: 1px center;
+        }
+      }
+    }
+  }
+}
+
 .photo-slider {
   margin-top: 50px;
 
@@ -1166,6 +1268,7 @@ export default {
   }
 
   p {
+    font-size: 14px;
     max-width: 300px;
     margin: 0 auto;
   }
@@ -1496,6 +1599,7 @@ export default {
     max-width: 800px;
     margin: 10px auto 0px;
     &.small {
+      margin-top: 0px;
       color: #858585;
     }
   }
