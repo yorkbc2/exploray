@@ -174,6 +174,14 @@ section {
       background: #f6f6f6;
     }
 
+    &-map {
+      padding-bottom: 0px;
+
+      iframe {
+        display: block;
+      }
+    }
+
     &--with-header {
       padding: 50px 0 0;
       .section__header {

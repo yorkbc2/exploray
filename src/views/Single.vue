@@ -670,6 +670,21 @@
         </app-default-slider>
       </div>
     </section>
+    <section class="section section-map"> 
+      <div class="container">
+        <h2 class="section__title">
+          Карта
+        </h2>
+      </div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000.8288519876903!2d30.350945916095462!3d59.90179058186283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696303831e879ff%3A0x9a64aeab036ef0f2!2sKamchatskaya+Ulitsa%2C+Sankt-Peterburg%2C+Russia%2C+192007!5e0!3m2!1sen!2sua!4v1560589337727!5m2!1sen!2sua"
+        width="100%"
+        height="500px"
+        frameborder="0"
+        style="border:0"
+        allowfullscreen
+      ></iframe>
+    </section>
     <popup
       v-if="formPopup"
       title="Оставьте свои контакты"
@@ -1061,6 +1076,11 @@ export default {
       text-align: center;
       color: #ffffff;
 
+      
+      @media screen and (max-width: 768px) {
+        max-height: 470px;
+      }
+
       .content {
         max-width: 600px;
         h4 {
@@ -1073,6 +1093,7 @@ export default {
           line-height: 24px;
         }
       }
+    
     }
 
     .VueCarousel-pagination {
@@ -1081,12 +1102,12 @@ export default {
       left: 50%;
       transform: translateX(-50%);
       .VueCarousel-dot {
-        width: 14px!important;
-        height: 14px!important;
-        padding: 0 6px!important;
-        background-color: #fff!important;
+        width: 14px !important;
+        height: 14px !important;
+        padding: 0 6px !important;
+        background-color: #fff !important;
         &--active {
-          background-color: #0dba00!important;
+          background-color: #0dba00 !important;
         }
       }
     }
@@ -1095,7 +1116,7 @@ export default {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-
+      width: 100%;
       padding: 0 2px;
       position: absolute;
       top: 50%;
@@ -1112,20 +1133,21 @@ export default {
         max-width: 540px;
       }
       &-button {
-        position: static!important;
+        position: relative!important;
 
         width: 35px;
         height: 35px;
         border-radius: 50px;
-        background-color: rgba(255,255,255,0.7);
+        background-color: rgba(255, 255, 255, 0.7);
         cursor: pointer;
         opacity: 1;
-
+        transform: none!important;
         &::after {
           width: 18px;
           height: 18px;
           left: 50%;
-          filter: invert(13%) sepia(94%) saturate(0%) hue-rotate(232deg) brightness(101%) contrast(101%);
+          filter: invert(13%) sepia(94%) saturate(0%) hue-rotate(232deg)
+            brightness(101%) contrast(101%);
           transform: translateX(-50%) translateY(-50%);
         }
       }
