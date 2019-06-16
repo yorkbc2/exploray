@@ -472,6 +472,41 @@
     <section class="section section--colored">
       <div class="container">
         <h2 class="section__title">Наша команда</h2>
+        <app-default-slider class="team-slider" :perPage="[[320, 1], [1024, 4]]">
+          <slide>
+            <div class="team-item">
+              <div
+                class="team-item__image"
+                :style="{ backgroundImage: `url(/images/team-avatar.png)` }"
+              ></div>
+              <h4>Кирилл Самойлов</h4>
+              <p class="small">Основатель тура</p>
+              <p>Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции требуют от нас анализа существенных финансовых и условий.</p>
+            </div>
+          </slide>
+          <slide>
+            <div class="team-item">
+              <div
+                class="team-item__image"
+                :style="{ backgroundImage: `url(/images/team-avatar.png)` }"
+              ></div>
+              <h4>Кирилл Самойлов</h4>
+              <p class="small">Основатель тура</p>
+              <p>Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции требуют от нас анализа существенных финансовых и условий.</p>
+            </div>
+          </slide>
+          <slide>
+            <div class="team-item">
+              <div
+                class="team-item__image"
+                :style="{ backgroundImage: `url(/images/team-avatar.png)` }"
+              ></div>
+              <h4>Кирилл Самойлов</h4>
+              <p class="small">Основатель тура</p>
+              <p>Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции требуют от нас анализа существенных финансовых и условий.</p>
+            </div>
+          </slide>
+        </app-default-slider>
         <div class="row">
           <div class="col-md-4">
             <div class="team-item">
@@ -670,11 +705,9 @@
         </app-default-slider>
       </div>
     </section>
-    <section class="section section-map"> 
+    <section class="section section-map">
       <div class="container">
-        <h2 class="section__title">
-          Карта
-        </h2>
+        <h2 class="section__title">Карта</h2>
       </div>
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000.8288519876903!2d30.350945916095462!3d59.90179058186283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696303831e879ff%3A0x9a64aeab036ef0f2!2sKamchatskaya+Ulitsa%2C+Sankt-Peterburg%2C+Russia%2C+192007!5e0!3m2!1sen!2sua!4v1560589337727!5m2!1sen!2sua"
@@ -1076,7 +1109,6 @@ export default {
       text-align: center;
       color: #ffffff;
 
-      
       @media screen and (max-width: 768px) {
         max-height: 470px;
       }
@@ -1093,7 +1125,6 @@ export default {
           line-height: 24px;
         }
       }
-    
     }
 
     .VueCarousel-pagination {
@@ -1133,7 +1164,7 @@ export default {
         max-width: 540px;
       }
       &-button {
-        position: relative!important;
+        position: relative !important;
 
         width: 35px;
         height: 35px;
@@ -1141,7 +1172,7 @@ export default {
         background-color: rgba(255, 255, 255, 0.7);
         cursor: pointer;
         opacity: 1;
-        transform: none!important;
+        transform: none !important;
         &::after {
           width: 18px;
           height: 18px;

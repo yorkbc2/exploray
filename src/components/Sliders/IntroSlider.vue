@@ -212,7 +212,8 @@ export default {
           input {
             padding: 10px 35px 10px 10px;
             background: #fff;
-            border: 1px solid transparent;
+            border: 1px solid transparent!important;
+            margin: 0!important;
             box-shadow: none;
             z-index: 1;
           }
