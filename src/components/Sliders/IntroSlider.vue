@@ -299,18 +299,9 @@ export default {
                   display: flex;
                   flex-direction: row;
                   justify-content: space-between;
-                  .mx-datepicker {
-                    width: 45% !important;
-                    .mx-input-wrapper {
-                      &::after {
-                        font-size: 10px;
-                        right: 8px;
-                      }
-                    }
-                  }
-                  .mx-input {
-                    padding: 14px 12px;
-                    border-radius: 50px;
+                  /* @changed */
+                  input {
+                    padding: 14px 12px!important;
                   }
                 }
               }
