@@ -18,22 +18,17 @@
         <div class="full-window-slider__slide-content">
           <div class="container">
             <h2 class="slide__title">Камчатский хит: тур без рюкзаков</h2>
-            <div class="row">
-              <div class="col-md-4 col-sm-12 col-xs-12">
-                <span class="slide__iconed-text">
-                  <img src="/images/vulcano.png"> 5 вулканов
-                </span>
-              </div>
-              <div class="col-md-4 col-sm-12 col-xs-12">
-                <span class="slide__iconed-text">
-                  <img src="/images/springs.png"> 3 гейзера
-                </span>
-              </div>
-              <div class="col-md-4 col-sm-12 col-xs-12">
-                <span class="slide__iconed-text">
-                  <img src="/images/bear.png"> Медведи
-                </span>
-              </div>
+            <!-- @changed -->
+            <div class="full-window-slider__slide-content-adv">
+              <span class="slide__iconed-text">
+                <img src="/images/vulcano.png"> 5 вулканов
+              </span>
+              <span class="slide__iconed-text">
+                <img src="/images/springs.png"> 3 гейзера
+              </span>
+              <span class="slide__iconed-text">
+                <img src="/images/bear.png"> Медведи
+              </span>
             </div>
             <p
               class="slide__description"
@@ -469,6 +464,8 @@
         </div>
       </div>
     </section>
+    <!-- @changed
+    New block!-->
     <section class="section section--colored">
       <div class="container">
         <h2 class="section__title">Наша команда</h2>
@@ -718,26 +715,7 @@
         allowfullscreen
       ></iframe>
     </section>
-    <popup
-      v-if="formPopup"
-      title="Оставьте свои контакты"
-      subtitle="Мы свяжемся с Вами в ближайшее время"
-      @close="callPopup()"
-    >
-      <popup-form @submit="formSubmit()"/>
-    </popup>
-    <popup v-if="successPopup" @close="closeSuccessPopup()" title="Заказ принят">
-      <div class="text-center popup-success">
-        <img src="/images/popup-success.png" alt width="50px" height="50px">
-        <p>
-          В ближайшее время
-          оператор с Вами свяжется.
-        </p>
-        <p>
-          <a @click="closeAllPopups()">Вернуться на страницу тура</a>
-        </p>
-      </div>
-    </popup>
+    <!-- @changed -->
   </div>
 </template>
 
@@ -747,8 +725,6 @@ import TogglerVue from "../components/Blocks/Toggler.vue";
 import ReviewCardVue from "../components/Blocks/ReviewCard.vue";
 import AdvancedTabsVue from "../components/Blocks/AdvancedTabs.vue";
 import ContentTabVue from "../components/Blocks/ContentTab.vue";
-import PopupVue from "../components/Popup/Popup.vue";
-import PopupFormVue from "../components/Popup/PopupForm.vue";
 import HeaderBreadsVue from "../components/Header/HeaderBreads.vue";
 import DifficultyListVue from "../components/Lists/DifficultyList.vue";
 export default {
@@ -759,8 +735,6 @@ export default {
     "review-card": ReviewCardVue,
     "advanced-tabs": AdvancedTabsVue,
     "content-tab": ContentTabVue,
-    popup: PopupVue,
-    "popup-form": PopupFormVue,
     breadcrumbs: HeaderBreadsVue,
     "difficulty-list": DifficultyListVue
   },
@@ -840,21 +814,9 @@ export default {
     };
   },
   methods: {
-    formSubmit() {
-      this.successPopup = true;
-    },
-    closeSuccessPopup() {
-      this.successPopup = false;
-    },
-    closeAllPopups() {
-      this.successPopup = false;
-      this.formPopup = false;
-    },
+    // @changed
     getData(_id) {
       this.data = this.$store.getters.data.filter(i => i._id === _id)[0];
-    },
-    callPopup() {
-      this.formPopup = !this.formPopup;
     },
     slideTo(selector) {
       if (jQuery) {
@@ -883,6 +845,9 @@ export default {
     dropdownSelect(option) {
       this.currentSelectValue = option.value;
       this.toggle();
+    },
+    callPopup() {
+      this.$store.commit("OPEN_POPUP", this.data);
     }
   },
   mounted() {
@@ -901,29 +866,7 @@ export default {
   @media screen and (max-width: 767px) {
     margin-top: 62px;
   }
-
-  .popup-success {
-    img {
-      margin: 5px auto;
-    }
-    p {
-      max-width: 230px;
-      margin: 10px auto 15px;
-      &:last-child {
-        margin-bottom: 0px;
-      }
-    }
-    a {
-      color: #0dba00;
-      font-weight: 400;
-      text-decoration: underline;
-      cursor: pointer;
-      &:hover {
-        color: lighten(#0dba00, 5%);
-      }
-    }
-  }
-
+  /* @changed */
   .author {
     &__row {
       @media screen and (max-width: 767px) {
@@ -1387,6 +1330,19 @@ export default {
         }
       }
 
+      /* @changed */
+      &-adv {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        span {
+          display: block;
+          padding: 0 10px;
+          flex: 1;
+        }
+      }
+
       .slide__iconed-text {
         display: inline-block;
         font-size: 20px;
@@ -1469,7 +1425,8 @@ export default {
     }
 
     &-breads {
-      padding: 4px 0;
+      /* @changed */
+      padding: 4px 0 8px;
       a {
         font-weight: lighter;
         font-size: 14px;

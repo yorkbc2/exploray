@@ -54,7 +54,8 @@
           >
             <i class="fa fa-check" v-if="added"></i> В сравнение
           </button>
-          <button class="card__order button buton--green">Заказать</button>
+          <!-- @changed -->
+          <button class="card__order button buton--green" @click="callPopup()">Заказать</button>
         </div>
       </div>
     </div>
@@ -98,6 +99,10 @@ export default {
     }
   },
   methods: {
+    // @changed
+    callPopup() {
+      this.$store.commit('OPEN_POPUP', this.data);
+    },
     getDifferenceBetween(dateA, dateB) {
       return (
         Math.abs(dateB.getTime() - dateA.getTime()) / (1000 * 60 * 60 * 24)

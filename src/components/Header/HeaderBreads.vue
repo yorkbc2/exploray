@@ -24,7 +24,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/* @changed */
 .header-breads {
+  color: #fff;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 26px;
+  width: 100%;
+  white-space: nowrap;
   a {
     color: #fff;
     text-decoration: none;

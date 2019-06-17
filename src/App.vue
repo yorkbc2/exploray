@@ -1,11 +1,32 @@
 <template>
   <div id="app">
-    <navbar />
+    <navbar/>
     <transition :name="isAnimated ? 'fade': ''" mode="out-in">
       <router-view/>
     </transition>
     <scroll-to-top/>
     <app-footer/>
+    <!-- @changed -->
+    <popup
+      v-if="$store.getters.popup.opened"
+      title="Оставьте свои контакты"
+      subtitle="Мы свяжемся с Вами в ближайшее время"
+      @close="closePopup()"
+    >
+      <popup-form @submit="formSubmit()"/>
+    </popup>
+    <popup v-if="$store.getters.popup.success" @close="closePopup()" title="Заказ принят">
+      <div class="text-center popup-success">
+        <img src="/images/popup-success.png" alt width="50px" height="50px">
+        <p>
+          В ближайшее время
+          оператор с Вами свяжется.
+        </p>
+        <p>
+          <a @click="closePopup()">Вернуться на страницу тура</a>
+        </p>
+      </div>
+    </popup>
   </div>
 </template>
 
@@ -13,22 +34,37 @@
 import Navbar from "@/components/Navbar/Navbar.vue";
 import Footer from "@/components/Footer/Footer.vue";
 import ScrollToTop from "@/components/ActionButtons/ScrollToTop.vue";
+// @changed
+import PopupVue from '@/components/Popup/Popup.vue';
+import PopupFormVue from '@/components/Popup/PopupForm.vue';
 import store from "./store/index.js";
 export default {
   store,
   components: {
     Navbar,
     "app-footer": Footer,
-    ScrollToTop
+    ScrollToTop,
+    // @changed
+    'popup': PopupVue,
+    'popup-form': PopupFormVue
   },
   data() {
     return {
       isAnimated: false
     };
   },
+  // @changed
+  methods: {
+    closePopup() {
+      this.$store.commit('CLOSE_POPUP');
+    },
+    formSubmit() {
+      this.$store.commit('SUCCESS_POPUP');
+    }
+  },
   watch: {
     $route(to) {
-      this.isAnimated = to.name === 'login' || to.name === 'register';
+      this.isAnimated = to.name === "login" || to.name === "register";
     }
   }
 };
@@ -56,7 +92,7 @@ body {
 
 .fade-enter,
 .fade-leave-active {
-  opacity: 0
+  opacity: 0;
 }
 
 @keyframes customFade {
@@ -771,6 +807,28 @@ input {
       .advanced-select__current {
         border-radius: 30px 30px 0 0;
       }
+    }
+  }
+}
+/* @changed */
+.popup-success {
+  img {
+    margin: 5px auto;
+  }
+  p {
+    max-width: 230px;
+    margin: 10px auto 15px;
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+  a {
+    color: #0dba00;
+    font-weight: 400;
+    text-decoration: underline;
+    cursor: pointer;
+    &:hover {
+      color: lighten(#0dba00, 5%);
     }
   }
 }

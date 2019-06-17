@@ -11,7 +11,13 @@ const store = new Vuex.Store({
     cart: [],
     filters: [],
     searchResults: initialData.slice(0, 8),
-    showFilters: false
+    // @changed
+    showFilters: false,
+    popup: {
+      opened: false,
+      success: false,
+      data: {}
+    }
   },
   getters: {
     strokeView(state) {
@@ -31,6 +37,10 @@ const store = new Vuex.Store({
     },
     filters(state) {
       return state.filters;
+      // @changed
+    },
+    popup(state) {
+      return state.popup;
     }
   },
   mutations: {
@@ -84,6 +94,17 @@ const store = new Vuex.Store({
           return f;
         });
       }
+    },
+    OPEN_POPUP(state, data) {
+      state.popup.opened = true;
+      state.popup.data = data;
+    },
+    SUCCESS_POPUP(state) {
+      state.popup.success = true;
+      state.popup.opened = false;
+    },
+    CLOSE_POPUP(state) {
+      state.popup = { opened: false, success: false, data: {} };
     }
   }
 });

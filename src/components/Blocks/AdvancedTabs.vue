@@ -1,125 +1,251 @@
 <template>
-  <div class="advanced-tabs" ref="container">
-    <div class="advanced-tabs__tab">
-      <h3 class="tab__subtitle">
-        Свободное время, Трансфер
-        <small>Первая прогулка по городу</small>
-      </h3>
-      <div class="tab__panel">
-        <div>1 день</div>
-        <div class="mobile-hide">
-          <img src="/images/map.png" alt class="tab__panel-icon">
-          <span>10 часов,</span>
-          <span>24 км пути</span>
+  <!-- @changed -->
+  <div class="advanced-tabs" ref="container" :style="{height: height + 'px' || 'auto'}">
+    <div class="advanced-tabs__list">
+      <div class="advanced-tabs__tab">
+        <h3 class="tab__subtitle">
+          Свободное время, Трансфер
+          <small>Первая прогулка по городу</small>
+        </h3>
+        <div class="tab__panel">
+          <div>1 день</div>
+          <div class="mobile-hide">
+            <img src="/images/map.png" alt class="tab__panel-icon">
+            <span>10 часов,</span>
+            <span>24 км пути</span>
+          </div>
+          <div class="mobile-hide">
+            <img src="/images/bed.png" alt class="tab__panel-icon">
+            Гостиница
+          </div>
+          <div class="mobile-hide">
+            <img src="/images/eating.png" alt class="tab__panel-icon">
+            Не включено
+          </div>
         </div>
-        <div class="mobile-hide">
-          <img src="/images/bed.png" alt class="tab__panel-icon">
-          Гостиница
-        </div>
-        <div class="mobile-hide">
-          <img src="/images/eating.png" alt class="tab__panel-icon">
-          Не включено
+        <div class="tab__content">
+          <p>Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание позиций, занимаемых участниками в отношении поставленных задач. Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание систем массового участия.</p>
+          <ul class="inline-list">
+            <li>2 человека в палатке</li>
+            <li>Туалет отсутствует</li>
+            <li>Дикая природа</li>
+          </ul>
+          <div class="row">
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <img src="/images/tour_video.jpg">
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <img src="/images/tour_video.jpg">
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <img src="/images/tour_video.jpg">
+            </div>
+          </div>
         </div>
       </div>
-      <div class="tab__content">
-        <p>Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание позиций, занимаемых участниками в отношении поставленных задач. Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание систем массового участия.</p>
-        <ul class="inline-list">
-          <li>2 человека в палатке</li>
-          <li>Туалет отсутствует</li>
-          <li>Дикая природа</li>
-        </ul>
-        <div class="row">
-          <div class="col-md-4 col-sm-12 col-xs-12">
-            <img src="/images/tour_video.jpg">
+      <div class="advanced-tabs__tab">
+        <h3 class="tab__subtitle">
+          Свободное время, Трансфер
+          <small>Первая прогулка по городу</small>
+        </h3>
+        <div class="tab__panel">
+          <div>1 день</div>
+          <div class="mobile-hide">
+            <img src="/images/map.png" alt class="tab__panel-icon">
+            <span>10 часов,</span>
+            <span>24 км пути</span>
           </div>
-          <div class="col-md-4 col-sm-12 col-xs-12">
-            <img src="/images/tour_video.jpg">
+          <div class="mobile-hide">
+            <img src="/images/bed.png" alt class="tab__panel-icon">
+            Гостиница
           </div>
-          <div class="col-md-4 col-sm-12 col-xs-12">
-            <img src="/images/tour_video.jpg">
+          <div class="mobile-hide">
+            <img src="/images/eating.png" alt class="tab__panel-icon">
+            Не включено
+          </div>
+        </div>
+        <div class="tab__content">
+          <p>Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание позиций, занимаемых участниками в отношении поставленных задач. Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание систем массового участия.</p>
+          <ul class="inline-list">
+            <li>2 человека в палатке</li>
+            <li>Туалет отсутствует</li>
+            <li>Дикая природа</li>
+          </ul>
+          <div class="row">
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <img src="/images/tour_video.jpg">
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <img src="/images/tour_video.jpg">
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <img src="/images/tour_video.jpg">
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <div class="advanced-tabs__tab">
+        <h3 class="tab__subtitle">
+          Свободное время, Трансфер
+          <small>Первая прогулка по городу</small>
+        </h3>
+        <div class="tab__panel">
+          <div>1 день</div>
+          <div class="mobile-hide">
+            <img src="/images/map.png" alt class="tab__panel-icon">
+            <span>10 часов,</span>
+            <span>24 км пути</span>
+          </div>
+          <div class="mobile-hide">
+            <img src="/images/bed.png" alt class="tab__panel-icon">
+            Гостиница
+          </div>
+          <div class="mobile-hide">
+            <img src="/images/eating.png" alt class="tab__panel-icon">
+            Не включено
+          </div>
+        </div>
+        <div class="tab__content">
+          <p>Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание позиций, занимаемых участниками в отношении поставленных задач. Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание систем массового участия.</p>
+          <ul class="inline-list">
+            <li>2 человека в палатке</li>
+            <li>Туалет отсутствует</li>
+            <li>Дикая природа</li>
+          </ul>
+          <div class="row">
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <img src="/images/tour_video.jpg">
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <img src="/images/tour_video.jpg">
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <img src="/images/tour_video.jpg">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="advanced-tabs__tab">
+        <h3 class="tab__subtitle">
+          Свободное время, Трансфер
+          <small>Первая прогулка по городу</small>
+        </h3>
+        <div class="tab__panel">
+          <div>1 день</div>
+          <div class="mobile-hide">
+            <img src="/images/map.png" alt class="tab__panel-icon">
+            <span>10 часов,</span>
+            <span>24 км пути</span>
+          </div>
+          <div class="mobile-hide">
+            <img src="/images/bed.png" alt class="tab__panel-icon">
+            Гостиница
+          </div>
+          <div class="mobile-hide">
+            <img src="/images/eating.png" alt class="tab__panel-icon">
+            Не включено
+          </div>
+        </div>
+        <div class="tab__content">
+          <p>Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание позиций, занимаемых участниками в отношении поставленных задач. Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание систем массового участия.</p>
+          <ul class="inline-list">
+            <li>2 человека в палатке</li>
+            <li>Туалет отсутствует</li>
+            <li>Дикая природа</li>
+          </ul>
+          <div class="row">
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <img src="/images/tour_video.jpg">
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <img src="/images/tour_video.jpg">
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <img src="/images/tour_video.jpg">
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <div class="advanced-tabs__tab">
-      <h3 class="tab__subtitle">
-        Свободное время, Трансфер
-        <small>Первая прогулка по городу</small>
-      </h3>
-      <div class="tab__panel">
-        <div>1 день</div>
-        <div class="mobile-hide">
-          <img src="/images/map.png" alt class="tab__panel-icon">
-          <span>10 часов,</span>
-          <span>24 км пути</span>
+      <div class="advanced-tabs__tab">
+        <h3 class="tab__subtitle">
+          Свободное время, Трансфер
+          <small>Первая прогулка по городу</small>
+        </h3>
+        <div class="tab__panel">
+          <div>1 день</div>
+          <div class="mobile-hide">
+            <img src="/images/map.png" alt class="tab__panel-icon">
+            <span>10 часов,</span>
+            <span>24 км пути</span>
+          </div>
+          <div class="mobile-hide">
+            <img src="/images/bed.png" alt class="tab__panel-icon">
+            Гостиница
+          </div>
+          <div class="mobile-hide">
+            <img src="/images/eating.png" alt class="tab__panel-icon">
+            Не включено
+          </div>
         </div>
-        <div class="mobile-hide">
-          <img src="/images/bed.png" alt class="tab__panel-icon">
-          Гостиница
-        </div>
-        <div class="mobile-hide">
-          <img src="/images/eating.png" alt class="tab__panel-icon">
-          Не включено
+        <div class="tab__content">
+          <p>Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание позиций, занимаемых участниками в отношении поставленных задач. Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание систем массового участия.</p>
+          <ul class="inline-list">
+            <li>2 человека в палатке</li>
+            <li>Туалет отсутствует</li>
+            <li>Дикая природа</li>
+          </ul>
+          <div class="row">
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <img src="/images/tour_video.jpg">
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <img src="/images/tour_video.jpg">
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <img src="/images/tour_video.jpg">
+            </div>
+          </div>
         </div>
       </div>
-      <div class="tab__content">
-        <p>Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание позиций, занимаемых участниками в отношении поставленных задач. Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание систем массового участия.</p>
-        <ul class="inline-list">
-          <li>2 человека в палатке</li>
-          <li>Туалет отсутствует</li>
-          <li>Дикая природа</li>
-        </ul>
-        <div class="row">
-          <div class="col-md-4 col-sm-12 col-xs-12">
-            <img src="/images/tour_video.jpg">
+      <div class="advanced-tabs__tab">
+        <h3 class="tab__subtitle">
+          Свободное время, Трансфер
+          <small>Первая прогулка по городу</small>
+        </h3>
+        <div class="tab__panel">
+          <div>1 день</div>
+          <div class="mobile-hide">
+            <img src="/images/map.png" alt class="tab__panel-icon">
+            <span>10 часов,</span>
+            <span>24 км пути</span>
           </div>
-          <div class="col-md-4 col-sm-12 col-xs-12">
-            <img src="/images/tour_video.jpg">
+          <div class="mobile-hide">
+            <img src="/images/bed.png" alt class="tab__panel-icon">
+            Гостиница
           </div>
-          <div class="col-md-4 col-sm-12 col-xs-12">
-            <img src="/images/tour_video.jpg">
+          <div class="mobile-hide">
+            <img src="/images/eating.png" alt class="tab__panel-icon">
+            Не включено
           </div>
         </div>
-      </div>
-    </div>
-    <div class="advanced-tabs__tab">
-      <h3 class="tab__subtitle">
-        Свободное время, Трансфер
-        <small>Первая прогулка по городу</small>
-      </h3>
-      <div class="tab__panel">
-        <div>1 день</div>
-        <div class="mobile-hide">
-          <img src="/images/map.png" alt class="tab__panel-icon">
-          <span>10 часов,</span>
-          <span>24 км пути</span>
-        </div>
-        <div class="mobile-hide">
-          <img src="/images/bed.png" alt class="tab__panel-icon">
-          Гостиница
-        </div>
-        <div class="mobile-hide">
-          <img src="/images/eating.png" alt class="tab__panel-icon">
-          Не включено
-        </div>
-      </div>
-      <div class="tab__content">
-        <p>Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание позиций, занимаемых участниками в отношении поставленных задач. Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание систем массового участия.</p>
-        <ul class="inline-list">
-          <li>2 человека в палатке</li>
-          <li>Туалет отсутствует</li>
-          <li>Дикая природа</li>
-        </ul>
-        <div class="row">
-          <div class="col-md-4 col-sm-12 col-xs-12">
-            <img src="/images/tour_video.jpg">
-          </div>
-          <div class="col-md-4 col-sm-12 col-xs-12">
-            <img src="/images/tour_video.jpg">
-          </div>
-          <div class="col-md-4 col-sm-12 col-xs-12">
-            <img src="/images/tour_video.jpg">
+        <div class="tab__content">
+          <p>Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание позиций, занимаемых участниками в отношении поставленных задач. Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание систем массового участия.</p>
+          <ul class="inline-list">
+            <li>2 человека в палатке</li>
+            <li>Туалет отсутствует</li>
+            <li>Дикая природа</li>
+          </ul>
+          <div class="row">
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <img src="/images/tour_video.jpg">
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <img src="/images/tour_video.jpg">
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+              <img src="/images/tour_video.jpg">
+            </div>
           </div>
         </div>
       </div>
@@ -131,17 +257,25 @@
 export default {
   data() {
     return {
-      activeTab: null
+      activeTab: null,
+      height: 0
     };
   },
   mounted() {
     const el = jQuery(this.$refs.container);
     const tabs = el.find(".advanced-tabs__tab");
+
+    let heightOfTabs = 0;
+
     tabs.each((index, el) => {
-      jQuery(el)
-        .find(".tab__content")
-        .hide();
+      const el$ = jQuery(el);
+      el$.find(".tab__content").hide();
+
+      if (index <= 4) {
+        heightOfTabs += el$.height() + 20;
+      }
     });
+    this.height = heightOfTabs;
     tabs.find(".tab__panel").each((i, e) => {
       jQuery(e).on("click", event => {
         const el = jQuery(event.target),
@@ -170,16 +304,22 @@ export default {
 <style lang="scss" scoped>
 .advanced-tabs {
   position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
 
-  &::after {
-    content: "";
-    position: absolute;
-    left: 35px;
-    width: 5px;
-    background-color: #d7d7d7;
-    height: 103%;
-    top: 0px;
-    z-index: -1;
+  &__list {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 35px;
+      width: 5px;
+      background-color: #d7d7d7;
+      min-height: 103%;
+      height: 100%;
+      top: 0px;
+      z-index: -1;
+    }
   }
 
   &__tab {
@@ -198,7 +338,6 @@ export default {
         color: #838383;
       }
 
-      
       @media screen and (max-width: 560px) {
         font-size: 20px;
         font-weight: 400;
