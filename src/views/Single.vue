@@ -469,7 +469,7 @@
     <section class="section section--colored">
       <div class="container">
         <h2 class="section__title">Наша команда</h2>
-        <app-default-slider class="team-slider" :perPage="[[320, 1], [1024, 4]]">
+        <app-default-slider class="team-slider" :perPage="[[320, 1], [768, 3]]">
           <slide>
             <div class="team-item">
               <div
@@ -504,41 +504,6 @@
             </div>
           </slide>
         </app-default-slider>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="team-item">
-              <div
-                class="team-item__image"
-                :style="{ backgroundImage: `url(/images/team-avatar.png)` }"
-              ></div>
-              <h4>Кирилл Самойлов</h4>
-              <p class="small">Основатель тура</p>
-              <p>Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции требуют от нас анализа существенных финансовых и условий.</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="team-item">
-              <div
-                class="team-item__image"
-                :style="{ backgroundImage: `url(/images/team-avatar.png)` }"
-              ></div>
-              <h4>Кирилл Самойлов</h4>
-              <p class="small">Основатель тура</p>
-              <p>Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции требуют от нас анализа существенных финансовых и условий.</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="team-item">
-              <div
-                class="team-item__image"
-                :style="{ backgroundImage: `url(/images/team-avatar.png)` }"
-              ></div>
-              <h4>Кирилл Самойлов</h4>
-              <p class="small">Основатель тура</p>
-              <p>Значимость этих проблем настолько очевидна, что начало повседневной работы по формированию позиции требуют от нас анализа существенных финансовых и условий.</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
     <section class="section">
@@ -1619,6 +1584,19 @@ export default {
   &__image {
     width: 170px;
     height: 170px;
+  }
+  p {
+    @media screen and (max-width: 768px) {
+      max-width: 400px;
+    }
+  }
+}
+
+.team-slider {
+  pointer-events: none;
+
+  @media screen and (max-width: 768px) {
+    pointer-events: all;
   }
 }
 
