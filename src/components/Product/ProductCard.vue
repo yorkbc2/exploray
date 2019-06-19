@@ -171,6 +171,10 @@ export default {
   &__body {
     padding: 15px;
     position: relative;
+  /* @changed */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     flex: 1;
     &::before {
       content: "";
@@ -184,8 +188,10 @@ export default {
   }
 
   &__date {
+    /* @changed */
     color: #999999;
     margin-bottom: 10px;
+    font-size: 14px;
     &-days {
       position: relative;
       padding-right: 0px;
