@@ -538,51 +538,32 @@
     <section class="section section--colored equip">
       <div class="container">
         <h2 class="section__title">Что взять с собой</h2>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="about-item">
-              <h4>Одежда</h4>
-              <p>Таким образом рамки и место обучения кадров представляет собой интересный эксперимент проверки систем.</p>
-            </div>
+        <div class="about-item-list">
+          <!-- @changed -->
+          <div class="about-item">
+            <h4>Одежда</h4>
+            <p>Таким образом рамки и место обучения кадров представляет собой интересный эксперимент проверки систем.</p>
           </div>
-          <div class="col-md-4">
-            <div class="about-item">
-              <h4>Одежда</h4>
-              <p>Таким образом рамки и место обучения кадров представляет собой интересный эксперимент проверки систем.</p>
-            </div>
+          <div class="about-item">
+            <h4>Одежда</h4>
+            <p>Таким образом рамки и место обучения кадров представляет собой интересный эксперимент проверки систем.</p>
           </div>
-          <div class="col-md-4">
-            <div class="about-item">
-              <h4>Одежда</h4>
-              <p>Таким образом рамки и место обучения кадров представляет собой интересный эксперимент проверки систем.</p>
-            </div>
+          <div class="about-item">
+            <h4>Одежда</h4>
+            <p>Таким образом рамки и место обучения кадров представляет собой интересный эксперимент проверки систем.</p>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="about-item">
-              <h4>Одежда</h4>
-              <p>Таким образом рамки и место обучения кадров представляет собой интересный эксперимент проверки систем.</p>
-            </div>
+          <div class="about-item">
+            <h4>Одежда</h4>
+            <p>Таким образом рамки и место обучения кадров представляет собой интересный эксперимент проверки систем.</p>
           </div>
-          <div class="col-md-4">
-            <div class="about-item">
-              <h4>Одежда</h4>
-              <p>Таким образом рамки и место обучения кадров представляет собой интересный эксперимент проверки систем.</p>
-            </div>
+          <div class="about-item">
+            <h4>Одежда</h4>
+            <p>Таким образом рамки и место обучения кадров представляет собой интересный эксперимент проверки систем.</p>
           </div>
-          <div class="col-md-4">
-            <div class="about-item">
-              <h4>Одежда</h4>
-              <p>Таким образом рамки и место обучения кадров представляет собой интересный эксперимент проверки систем.</p>
-            </div>
+          <div class="about-item">
+            <h4>Одежда</h4>
+            <p>Таким образом рамки и место обучения кадров представляет собой интересный эксперимент проверки систем.</p>
           </div>
-        </div>
-        <div class="text-center">
-          <button type="button" class="button button-green button-download">
-            Скачать рекомендации
-            <img src="/images/download-pdf.png">
-          </button>
         </div>
       </div>
     </section>
@@ -1229,6 +1210,13 @@ export default {
     max-width: 300px;
     margin: 0 auto;
   }
+  /* @changed */
+  &-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
 }
 
 .qa-row {
@@ -1609,8 +1597,17 @@ export default {
 }
 
 .section.equip {
+  /* @changed */
   .about-item {
+    flex: 1;
     margin-bottom: 30px;
+    min-width: 33%;
+    @media screen and (max-width: 768px) {
+      min-width: 50%;
+    }
+    @media screen and (max-width: 576px) {
+      min-width: 100%;
+    }
     h4 {
       color: #000;
       padding-bottom: 10px;
