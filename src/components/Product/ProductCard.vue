@@ -1,9 +1,5 @@
 <template>
   <article :class="{'card': true, 'card--stroke': strokeView, 'card--fixed-width': fixedWidth}">
-    <!-- 
-      @changed
-      Удалил картинку как элемент <img /> и добавил её как background-image: url(); 
-     -->
     <div class="card__head" :style="{backgroundImage: `url(${data.image})`}">
       <span class="card__rating">
         <i class="fa fa-star"></i>
@@ -54,7 +50,6 @@
           >
             <i class="fa fa-check" v-if="added"></i> В сравнение
           </button>
-          <!-- @changed -->
           <button class="card__order button buton--green" @click="callPopup()">Заказать</button>
         </div>
       </div>
@@ -99,7 +94,6 @@ export default {
     }
   },
   methods: {
-    // @changed
     callPopup() {
       this.$store.commit('OPEN_POPUP', this.data);
     },
@@ -171,7 +165,6 @@ export default {
   &__body {
     padding: 15px;
     position: relative;
-  /* @changed */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -188,7 +181,6 @@ export default {
   }
 
   &__date {
-    /* @changed */
     color: #999999;
     margin-bottom: 10px;
     font-size: 14px;
@@ -243,7 +235,6 @@ export default {
   &__head {
     position: relative;
     border-radius: 10px 10px 0 0;
-    // @changed height
     height: 170px;
     background-size: cover;
     background-position: center;
@@ -418,7 +409,6 @@ export default {
 
       .card__head {
         max-width: 310px;
-        // @changed height
         min-height: 170px;
         height: auto;
         width: 310px;

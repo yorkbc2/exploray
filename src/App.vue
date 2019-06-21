@@ -6,7 +6,6 @@
     </transition>
     <scroll-to-top/>
     <app-footer/>
-    <!-- @changed -->
     <popup
       v-if="$store.getters.popup.opened"
       title="Оставьте свои контакты"
@@ -34,7 +33,6 @@
 import Navbar from "@/components/Navbar/Navbar.vue";
 import Footer from "@/components/Footer/Footer.vue";
 import ScrollToTop from "@/components/ActionButtons/ScrollToTop.vue";
-// @changed
 import PopupVue from '@/components/Popup/Popup.vue';
 import PopupFormVue from '@/components/Popup/PopupForm.vue';
 import store from "./store/index.js";
@@ -44,7 +42,6 @@ export default {
     Navbar,
     "app-footer": Footer,
     ScrollToTop,
-    // @changed
     'popup': PopupVue,
     'popup-form': PopupFormVue
   },
@@ -53,7 +50,7 @@ export default {
       isAnimated: false
     };
   },
-  // @changed
+  // @
   methods: {
     closePopup() {
       this.$store.commit('CLOSE_POPUP');
@@ -810,7 +807,6 @@ input {
     }
   }
 }
-/* @changed */
 .popup-success {
   img {
     margin: 5px auto;

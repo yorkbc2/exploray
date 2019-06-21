@@ -1,5 +1,4 @@
 <template>
-  <!-- @changed -->
   <div class="advanced-tabs" ref="container" :style="{height: height + 'px' || 'auto'}">
     <div class="advanced-tabs__list">
       <div class="advanced-tabs__tab">

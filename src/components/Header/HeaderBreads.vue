@@ -24,7 +24,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/* @changed */
 .header-breads {
   color: #fff;
   text-overflow: ellipsis;

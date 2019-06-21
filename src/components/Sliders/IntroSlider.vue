@@ -212,7 +212,6 @@ export default {
           input {
             padding: 10px 35px 10px 10px;
             background: #fff;
-            /* @changed */
             border: 1px solid transparent!important;
             margin: 0!important;
             box-shadow: none;
@@ -299,7 +298,6 @@ export default {
                   display: flex;
                   flex-direction: row;
                   justify-content: space-between;
-                  /* @changed */
                   input {
                     padding: 14px 12px!important;
                   }
