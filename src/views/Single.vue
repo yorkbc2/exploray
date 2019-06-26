@@ -205,6 +205,15 @@
     </div>
     <section class="section">
       <div class="container">
+        <h2 class="section__title">О путешествии</h2>
+        <div class="about-tour">
+          <p>Камчатка - это незабываемые ландшафты, первозданная дикость, красочные и необычные сны (многие туристы обращают на это внимание).</p>
+          <p>Камчатка - это возможность увидеть, как нестабилен и переменчив наш мир, который все еще формируется.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
         <content-tab header="Описание тура">
           <div class="row about-row splitted-bottom">
             <div class="col-md-6 col-sm-12 col-xs-12">
@@ -295,7 +304,6 @@
     </section>
     <section class="section section--colored">
       <div class="container">
-        <h2 class="section__title">О путешествии</h2>
         <div class="row">
           <div class="col-md-4">
             <div class="about-item">
@@ -340,6 +348,34 @@
     </section>
     <section class="section">
       <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-12 col-xs-12 includes-col">
+            <img src="/images/exploray-green-down.png">
+            <h4>Включено</h4>
+            <ul>
+              <li>Работа гида</li>
+              <li>Питание в походе и на турбазах</li>
+              <li>Переезды в рамках программы</li>
+              <li>Проживание на турбазе, в бунгало и палатках</li>
+              <li>Бивачное оборудование</li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-sm-12 col-xs-12 includes-col">
+            <img src="/images/exploray-red-down.png">
+            <h4>Включено</h4>
+            <ul>
+              <li>Работа гида</li>
+              <li>Питание в походе и на турбазах</li>
+              <li>Переезды в рамках программы</li>
+              <li>Проживание на турбазе, в бунгало и палатках</li>
+              <li>Бивачное оборудование</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
         <h2 class="section__title">Программа</h2>
         <div class="row program-row">
           <div class="col-md-5 col-sm-12 col-xs-12">
@@ -354,6 +390,85 @@
           </div>
           <div class="col-md-7 col-sm-12 col-xs-12">
             <advanced-tabs/>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">Программа</h2>
+        <div class="program-item-list">
+          <div class="program-item">
+            <div class="program-item__day">
+              <h4>День 1</h4>
+            </div>
+            <div class="program-item__content">
+              <div class="program-item__image">
+                <div
+                  class="program-item__image-inner"
+                  :style="{backgroundImage: `url('https://static.tildacdn.com/tild3834-3036-4735-b437-623162383962/3.jpg')`}"
+                ></div>
+              </div>
+              <div class="program-item__info">
+                <h3>Прилет</h3>
+                <h5>Петропавловск-Камчатский, Халактырский пляж</h5>
+                <p>Встреча в аэропорту. Заселение в бунгало. Далее экскурсия по историческим местам Петропавловска-Камчатского. После обеда - поездка на берег Тихого океана, где мы увидим Халактырский пляж, покрытый магнитным вулканическим песком черного цвета. Завершить день можно посещением серо-водородных термальных источников (оплачивается самостоятельно).</p>
+              </div>
+            </div>
+          </div>
+          <div class="program-item">
+            <div class="program-item__day">
+              <h4>День 1</h4>
+            </div>
+            <div class="program-item__content">
+              <div class="program-item__image">
+                <div
+                  class="program-item__image-inner"
+                  :style="{backgroundImage: `url('https://static.tildacdn.com/tild3834-3036-4735-b437-623162383962/3.jpg')`}"
+                ></div>
+              </div>
+              <div class="program-item__info">
+                <h3>Прилет</h3>
+                <h5>Петропавловск-Камчатский, Халактырский пляж</h5>
+                <p>Встреча в аэропорту. Заселение в бунгало. Далее экскурсия по историческим местам Петропавловска-Камчатского. После обеда - поездка на берег Тихого океана, где мы увидим Халактырский пляж, покрытый магнитным вулканическим песком черного цвета. Завершить день можно посещением серо-водородных термальных источников (оплачивается самостоятельно).</p>
+              </div>
+            </div>
+          </div>
+          <div class="program-item">
+            <div class="program-item__day">
+              <h4>День 1</h4>
+            </div>
+            <div class="program-item__content">
+              <div class="program-item__image">
+                <div
+                  class="program-item__image-inner"
+                  :style="{backgroundImage: `url('https://static.tildacdn.com/tild3834-3036-4735-b437-623162383962/3.jpg')`}"
+                ></div>
+              </div>
+              <div class="program-item__info">
+                <h3>Прилет</h3>
+                <h5>Петропавловск-Камчатский, Халактырский пляж</h5>
+                <p>Встреча в аэропорту. Заселение в бунгало. Далее экскурсия по историческим местам Петропавловска-Камчатского. После обеда - поездка на берег Тихого океана, где мы увидим Халактырский пляж, покрытый магнитным вулканическим песком черного цвета. Завершить день можно посещением серо-водородных термальных источников (оплачивается самостоятельно).</p>
+              </div>
+            </div>
+          </div>
+          <div class="program-item">
+            <div class="program-item__day">
+              <h4>День 1</h4>
+            </div>
+            <div class="program-item__content">
+              <div class="program-item__image">
+                <div
+                  class="program-item__image-inner"
+                  :style="{backgroundImage: `url('https://static.tildacdn.com/tild3834-3036-4735-b437-623162383962/3.jpg')`}"
+                ></div>
+              </div>
+              <div class="program-item__info">
+                <h3>Прилет</h3>
+                <h5>Петропавловск-Камчатский, Халактырский пляж</h5>
+                <p>Встреча в аэропорту. Заселение в бунгало. Далее экскурсия по историческим местам Петропавловска-Камчатского. После обеда - поездка на берег Тихого океана, где мы увидим Халактырский пляж, покрытый магнитным вулканическим песком черного цвета. Завершить день можно посещением серо-водородных термальных источников (оплачивается самостоятельно).</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -576,7 +691,6 @@
     <section class="section section--colored" id="about-section">
       <div class="container">
         <h2 class="section__title">Вопросы и ответы</h2>
-        <!-- @changed -->
         <div class="row qa-row">
           <card
             :title="'Есть ли у гида ружье или как решается вопрос с безопасностью, касаемо медведей?'"
@@ -594,6 +708,37 @@
             :title="'Есть ли у гида ружье или как решается вопрос с безопасностью, касаемо медведей?'"
             :number="4"
           >Товарищи! постоянный количественный рост и сфера нашей активности в значительной степени обуславливает создание позиций, занимаемых участниками в отношении поставленных задач. Не следует, однако забывать, что постоянный количественный рост и сфера нашей.</card>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">Что взять с собой?</h2>
+        <div class="equip-item-list">
+          <div class="equip-item">
+            <h4>Одежда</h4>
+            <p>Термобелье, нижнее белье, синтетическиее носки, купальник/плавки, треккинговые ботинки, сменная обувь (желательно легкие босоножки), дождевик, накомарник!</p>
+          </div>
+          <div class="equip-item">
+            <h4>Одежда</h4>
+            <p>Термобелье, нижнее белье, синтетические футболки, флисовая кофта, мембранная куртка, шапка, перчатки, треккинговые штаны, носки для треккинга, шерстяные носки, купальник/плавки, треккинговые ботинки, сменная обувь (желательно легкие босоножки), дождевик, накомарник!</p>
+          </div>
+          <div class="equip-item">
+            <h4>Одежда</h4>
+            <p>Термобелье, нижнее белье, синтетические футболки, флисовая кофта, мембранная куртка, шапка, перчатки, треккинговые штаны, носки для треккинга, шерстяные носки, купальник/плавки, треккинговые ботинки, сменная обувь (желательно легкие босоножки), дождевик, накомарник!</p>
+          </div>
+          <div class="equip-item">
+            <h4>Одежда</h4>
+            <p>Термобелье, нижнее белье, синтетические футболки, флисовая кофта, мембранная куртка, шапка, перчатки, треккинговые штаны, носки для треккинга, шерстяные носки, купальник/плавки, треккинговые ботинки, сменная обувь (желательно легкие босоножки), дождевик, накомарник!</p>
+          </div>
+          <div class="equip-item">
+            <h4>Одежда</h4>
+            <p>Термобелье, нижнее белье, синтетические футболки, флисовая кофта, мембранная куртка, шапка, перчатки, треккинговые штаны, носки для треккинга, шерстяные носки, купальник/плавки, треккинговые ботинки, сменная обувь (желательно легкие босоножки), дождевик, накомарник!</p>
+          </div>
+          <div class="equip-item">
+            <h4>Одежда</h4>
+            <p>Термобелье, нижнее белье, синтетические футболки, флисовая кофта, мембранная куртка, шапка, перчатки, треккинговые штаны, носки для треккинга, шерстяные носки, купальник/плавки, треккинговые ботинки, сменная обувь (желательно легкие босоножки), дождевик, накомарник!</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1213,7 +1358,6 @@ export default {
       margin-right: auto;
     }
   }
-  /* @changed */
   > div.card {
     margin: 0 15px 30px;
     width: 100%;
@@ -1576,6 +1720,52 @@ export default {
   }
 }
 
+.about-tour {
+  position: relative;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  font-weight: lighter;
+  font-style: italic;
+
+  font-size: 26px;
+
+  padding: 100px 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+
+    background-image: url("/images/exploray-grey-up.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: -1;
+    opacity: 0.2;
+  }
+
+  p {
+    margin-bottom: 40px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    font-size: 24px;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+  }
+}
+
 .team-item {
   &__image {
     width: 170px;
@@ -1615,6 +1805,135 @@ export default {
         width: 50px;
         background-color: #0dba00;
       }
+    }
+  }
+}
+
+.includes-col {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+
+  h4 {
+    margin: 25px 0;
+    font-weight: bolder;
+    font-size: 22px;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      font-size: 16px;
+      font-weight: lighter;
+      display: block;
+      text-align: center;
+      list-style: none;
+      margin-bottom: 10px;
+    }
+  }
+}
+.equip-item {
+  &-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  max-width: 33%;
+  padding: 0 15px;
+  margin-bottom: 50px;
+
+  h4 {
+    font-size: 28px;
+    color: #0dba00;
+    font-weight: bolder;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: lighter;
+    @media screen and (max-width: 1024px) {
+      font-size: 14px;
+    }
+  }
+}
+
+.program-item {
+  &-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+
+  > div {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    flex: 1;
+    padding-top: 25px;
+  }
+
+  &__day {
+    margin-right: 25px;
+
+    max-width: 140px;
+
+    h4 {
+      font-size: 18px;
+      font-weight: bolder;
+    }
+  }
+
+  &__image {
+    margin-right: 60px;
+    &-inner {
+      box-sizing: border-box;
+      width: 200px;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+  }
+
+  &__info {
+    max-width: 500px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    h3 {
+      font-size: 24px;
+      font-weight: bolder;
+    }
+
+    h5 {
+      font-weight: bolder;
+      font-size: 14px;
+      margin-bottom: 35px;
+    }
+
+    p {
+      line-height: 1.55;
+      font-size: 15px;
+      font-weight: lighter;
     }
   }
 }
