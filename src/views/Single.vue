@@ -19,17 +19,6 @@
         <div class="full-window-slider__slide-content">
           <div class="container">
             <h2 class="slide__title">Камчатский хит: тур без рюкзаков</h2>
-            <div class="full-window-slider__slide-content-adv">
-              <span class="slide__iconed-text">
-                <img src="/images/vulcano.png"> 5 вулканов
-              </span>
-              <span class="slide__iconed-text">
-                <img src="/images/springs.png"> 3 гейзера
-              </span>
-              <span class="slide__iconed-text">
-                <img src="/images/bear.png"> Медведи
-              </span>
-            </div>
             <p
               class="slide__description"
             >Живописная природа, горные хребты и море незабываемых впечатлений.</p>
@@ -44,7 +33,7 @@
               :path="{
                 '/': 'Главная',
                 '/tours': 'Путешествия',
-                '/tour/1': 'Камчатка'
+                '/tour/1': data ? data.title : ''
             }"
             />
           </div>
@@ -57,13 +46,6 @@
               </div>
               <div class="right">
                 <strong>4 - 20 человек</strong>
-              </div>
-            </div>
-
-            <div class="full-window-slider-card__row">
-              <div class="left">Расстояние</div>
-              <div class="right">
-                <strong>50 километров</strong>
               </div>
             </div>
 
@@ -81,36 +63,6 @@
               </div>
               <div class="right">
                 <difficulty-list :value="4"/>
-              </div>
-            </div>
-
-            <div class="full-window-slider-card__row">
-              <div class="left">Проживание</div>
-              <div class="right">
-                <div class="image-list">
-                  <span>
-                    <img src="/images/bed.png" height="20px">
-                  </span>
-                  <span>
-                    <img src="/images/tent.png" height="21px">
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div class="full-window-slider-card__row">
-              <div class="left">
-                Рейтинг
-                <small>
-                  На основании
-                  <a href="#">отзывов</a>
-                </small>
-              </div>
-              <div class="right">
-                <app-stars :stars="3" :big="true"/>
-                <div class="text-center">
-                  <strong>3/5</strong>
-                </div>
               </div>
             </div>
           </div>
@@ -212,96 +164,6 @@
         </div>
       </div>
     </section>
-    <section class="section">
-      <div class="container">
-        <content-tab header="Описание тура">
-          <div class="row about-row splitted-bottom">
-            <div class="col-md-6 col-sm-12 col-xs-12">
-              <ul class="check-list">
-                <li>
-                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                  которые отвлекают.
-                </li>
-                <li>
-                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                  которые отвлекают.
-                </li>
-                <li>
-                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                  которые отвлекают.
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-6 col-sm-12 col-xs-12">
-              <ul class="check-list">
-                <li>
-                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                  которые отвлекают.
-                </li>
-                <li>
-                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                  которые отвлекают.
-                </li>
-                <li>
-                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                  которые отвлекают.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </content-tab>
-        <div class="row about-row">
-          <div class="col-md-6 col-sm-12 col-xs-12">
-            <content-tab header="Что включает тур?">
-              <ul class="check-list">
-                <li>
-                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                  которые отвлекают.
-                </li>
-                <li>
-                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                  которые отвлекают.
-                </li>
-                <li>
-                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                  которые отвлекают.
-                </li>
-              </ul>
-            </content-tab>
-          </div>
-          <div class="col-md-6 col-sm-12 col-xs-12">
-            <content-tab :header="'Что <span>НЕ</span> включает тур?'">
-              <ul class="check-list check-list--red">
-                <li>
-                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                  которые отвлекают.
-                </li>
-                <li>
-                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                  которые отвлекают.
-                </li>
-                <li>
-                  Ежедневный пешие выходы налегке, проживание 3 ночи из 11
-                  в палатках. Обещанный тур без рюкзаков и прочих вещей,
-                  которые отвлекают.
-                </li>
-              </ul>
-            </content-tab>
-          </div>
-        </div>
-      </div>
-    </section>
     <section class="section section--colored">
       <div class="container">
         <div class="row">
@@ -370,26 +232,6 @@
               <li>Проживание на турбазе, в бунгало и палатках</li>
               <li>Бивачное оборудование</li>
             </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container">
-        <h2 class="section__title">Программа</h2>
-        <div class="row program-row">
-          <div class="col-md-5 col-sm-12 col-xs-12">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d90362.91521378355!2d34.03917345542132!3d44.94689809437293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40eadddedf991cc5%3A0x9c29422fbc780b40!2sSimferopol!5e0!3m2!1sen!2sua!4v1556966565652!5m2!1sen!2sua"
-              width="100%"
-              height="100%"
-              frameborder="0"
-              style="border:0"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div class="col-md-7 col-sm-12 col-xs-12">
-            <advanced-tabs/>
           </div>
         </div>
       </div>
@@ -473,27 +315,6 @@
         </div>
       </div>
     </section>
-    <section class="section section--colored author">
-      <div class="container">
-        <h2 class="section__title">Автор</h2>
-        <offset-block :reversed="true" header="Организатор тура" image="/images/tour_org.jpg">
-          <p>Официальный туроператор, работает с 2006 года. За это время мы провели тысячи сделок и подписали сотни контрактов на постоянное сотрудничество.</p>
-          <div>
-            <div class="row author__row">
-              <div class="col-md-8">
-                <p>
-                  <a href="#">Читать отзывы</a>
-                </p>
-              </div>
-              <div class="col-md-4 text-center">
-                <app-stars :stars="4"/>
-                <strong class="big-text">4/5</strong>
-              </div>
-            </div>
-          </div>
-        </offset-block>
-      </div>
-    </section>
     <section class="section">
       <div class="container">
         <h2 class="section__title">Прогрaмма тура</h2>
@@ -563,7 +384,7 @@
     </section>
     <section class="section section--with-header">
       <div class="section__header" :style="{ backgroundImage: `url(/images/about-header.jpg)` }">
-        <h2 class="section__title">Автор</h2>
+        <h2 class="section__title">Организаторы</h2>
       </div>
       <div class="section__content">
         <div class="container">
@@ -619,36 +440,9 @@
         </app-default-slider>
       </div>
     </section>
-    <section class="section">
-      <div class="container">
-        <h2 class="section__title">Как добраться</h2>
-        <offset-block header="Туда - обратно" image="/images/tour_way.jpg">
-          <p>Разнообразный и богатый опыт укрепление и развитие структуры влечет за собой процесс внедрения и модернизации существенных финансовых.</p>
-          <p>Разнообразный и богатый опыт укрепление и развитие структуры влечет за собой процесс внедрения и модернизации существенных финансовых.</p>
-        </offset-block>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container">
-        <h2 class="section__title">Снаряжение</h2>
-        <offset-block
-          header="Предоставляется снаряжение"
-          image="/images/tour_payment.jpg"
-          :reversed="true"
-        >
-          <p>Разнообразный и богатый опыт укрепление и развитие структуры влечет за собой процесс внедрения и модернизации существенных финансовых Разнообразный и богатый опыт укрепление и развитие структуры влечет за собой процесс внедрения и модернизации существенных финансовых.</p>
-          <div class="d-flex">
-            <strong class="flex justify-content-center d-flex flex-column">Что взять с собой:</strong>
-            <div>
-              <a href="#" class="button button-green">Личное снаряжение</a>
-            </div>
-          </div>
-        </offset-block>
-      </div>
-    </section>
     <section class="section section--colored equip">
       <div class="container">
-        <h2 class="section__title">Что взять с собой</h2>
+        <h2 class="section__title">Что взять с собой?</h2>
         <div class="about-item-list">
           <div class="about-item">
             <h4>Одежда</h4>
@@ -677,17 +471,6 @@
         </div>
       </div>
     </section>
-    <section class="section">
-      <div class="container">
-        <h2 class="section__title">Безопасность</h2>
-        <offset-block header="Следим за безопасностью" image="/images/tour_safety.jpg">
-          <p>
-            Разнообразный и богатый опыт укрепление и развитие структуры влечет за собой процесс внедрения и модернизации существенных финансовых. Разнообразный и богатый опыт укрепление и развитие структуры влечет за собой процесс внедрения и модернизации существенных финансовых.
-            <br>Разнообразный и богатый опыт укрепление и развитие структуры влечет за собой процесс.
-          </p>
-        </offset-block>
-      </div>
-    </section>
     <section class="section section--colored" id="about-section">
       <div class="container">
         <h2 class="section__title">Вопросы и ответы</h2>
@@ -713,37 +496,6 @@
     </section>
     <section class="section">
       <div class="container">
-        <h2 class="section__title">Что взять с собой?</h2>
-        <div class="equip-item-list">
-          <div class="equip-item">
-            <h4>Одежда</h4>
-            <p>Термобелье, нижнее белье, синтетическиее носки, купальник/плавки, треккинговые ботинки, сменная обувь (желательно легкие босоножки), дождевик, накомарник!</p>
-          </div>
-          <div class="equip-item">
-            <h4>Одежда</h4>
-            <p>Термобелье, нижнее белье, синтетические футболки, флисовая кофта, мембранная куртка, шапка, перчатки, треккинговые штаны, носки для треккинга, шерстяные носки, купальник/плавки, треккинговые ботинки, сменная обувь (желательно легкие босоножки), дождевик, накомарник!</p>
-          </div>
-          <div class="equip-item">
-            <h4>Одежда</h4>
-            <p>Термобелье, нижнее белье, синтетические футболки, флисовая кофта, мембранная куртка, шапка, перчатки, треккинговые штаны, носки для треккинга, шерстяные носки, купальник/плавки, треккинговые ботинки, сменная обувь (желательно легкие босоножки), дождевик, накомарник!</p>
-          </div>
-          <div class="equip-item">
-            <h4>Одежда</h4>
-            <p>Термобелье, нижнее белье, синтетические футболки, флисовая кофта, мембранная куртка, шапка, перчатки, треккинговые штаны, носки для треккинга, шерстяные носки, купальник/плавки, треккинговые ботинки, сменная обувь (желательно легкие босоножки), дождевик, накомарник!</p>
-          </div>
-          <div class="equip-item">
-            <h4>Одежда</h4>
-            <p>Термобелье, нижнее белье, синтетические футболки, флисовая кофта, мембранная куртка, шапка, перчатки, треккинговые штаны, носки для треккинга, шерстяные носки, купальник/плавки, треккинговые ботинки, сменная обувь (желательно легкие босоножки), дождевик, накомарник!</p>
-          </div>
-          <div class="equip-item">
-            <h4>Одежда</h4>
-            <p>Термобелье, нижнее белье, синтетические футболки, флисовая кофта, мембранная куртка, шапка, перчатки, треккинговые штаны, носки для треккинга, шерстяные носки, купальник/плавки, треккинговые ботинки, сменная обувь (желательно легкие босоножки), дождевик, накомарник!</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container">
         <h2 class="section__title">Отзывы</h2>
         <app-default-slider :perPage="[[320, 1], [1024, 3]]">
           <slide v-for="(item, index) in reviews" :key="index">
@@ -755,19 +507,6 @@
             />
           </slide>
         </app-default-slider>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container">
-        <h2 class="section__title">Условия оплаты</h2>
-        <offset-block
-          header="Условия оплаты тура"
-          image="/images/tour_payment.jpg"
-          :reversed="true"
-        >
-          <p>Разнообразный и богатый опыт укрепление и развитие структуры влечет за собой процесс внедрения и модернизации существенных финансовых. Разнообразный и богатый опыт укрепление и развитие структуры влечет за собой процесс внедрения и модернизации существенных финансовых.</p>
-          <p>Мы предлагаем выгодные условия оплаты услуг.</p>
-        </offset-block>
       </div>
     </section>
     <section class="section section--colored">
@@ -800,7 +539,6 @@
 import ProductCard from "@/components/Product/ProductCard.vue";
 import TogglerVue from "../components/Blocks/Toggler.vue";
 import ReviewCardVue from "../components/Blocks/ReviewCard.vue";
-import AdvancedTabsVue from "../components/Blocks/AdvancedTabs.vue";
 import ContentTabVue from "../components/Blocks/ContentTab.vue";
 import HeaderBreadsVue from "../components/Header/HeaderBreads.vue";
 import DifficultyListVue from "../components/Lists/DifficultyList.vue";
@@ -810,7 +548,6 @@ export default {
     "product-card": ProductCard,
     toggler: TogglerVue,
     "review-card": ReviewCardVue,
-    "advanced-tabs": AdvancedTabsVue,
     "content-tab": ContentTabVue,
     breadcrumbs: HeaderBreadsVue,
     "difficulty-list": DifficultyListVue
@@ -892,7 +629,7 @@ export default {
   },
   methods: {
     getData(_id) {
-      this.data = this.$store.getters.data.filter(i => i._id === _id)[0];
+      this.data = this.$store.getters.data.filter(i => +i._id === +_id)[0];
     },
     slideTo(selector) {
       if (jQuery) {
@@ -1286,8 +1023,7 @@ export default {
 }
 
 .qa-row,
-.program-row,
-.about-row {
+.program-row {
   @media screen and (max-width: 1024px) {
     flex-direction: column;
 
@@ -1308,11 +1044,6 @@ export default {
   }
 }
 
-.about-row {
-  ul {
-    padding-left: 0px;
-  }
-}
 
 .about-item {
   text-align: center;
@@ -1486,7 +1217,7 @@ export default {
       }
 
       .slide__description {
-        font-size: 16px;
+        font-size: 18px;
         max-width: 400px;
         margin: 20px auto 50px;
 
@@ -1510,11 +1241,12 @@ export default {
     max-width: 450px;
     transform: translateY(55%);
     z-index: 113;
+    border-radius: 10px;
 
     @media screen and (max-width: 1024px) {
       max-width: 50%;
       transform: translateY(80%);
-      min-width: 350px;
+      min-width: 350px; 
     }
 
     @media screen and (max-width: 767px) {
@@ -1531,7 +1263,7 @@ export default {
     }
 
     &-breads {
-      padding: 4px 0 8px;
+      padding: 4px 0 8px 25px;
       a {
         font-weight: lighter;
         font-size: 14px;
@@ -1547,6 +1279,7 @@ export default {
       background: #fff;
       padding: 20px 25px 15px;
       box-shadow: 2.5px -10px 7px 0px rgba(0, 0, 0, 0.2);
+      border-radius: 10px 10px 0 0;
 
       position: relative;
       &::after {
@@ -1567,6 +1300,7 @@ export default {
       background: #fff;
       padding: 0px 25px;
       box-shadow: 2.5px 6.23px 7px 0px rgba(0, 0, 0, 0.2);
+      border-radius: 0 0 10px 10px;
       &__content {
         padding: 15px 0 20px;
         border-top: 1px solid #e7e7e7;
@@ -1706,16 +1440,39 @@ export default {
   text-align: center;
   h4 {
     font-weight: bold;
-    font-size: 18px;
   }
-
   p {
-    font-size: 14px;
     max-width: 800px;
     margin: 10px auto 0px;
     &.small {
       margin-top: 0px;
       color: #858585;
+    }
+  }
+}
+
+.team-item {
+
+  h4 {
+    font-size: 18px;
+  }
+  
+  p {
+    font-size: 14px;
+  }
+}
+
+.author-content {
+  h4 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 16px;
+    &.small {
+      font-size: 14px;
+      margin-bottom: 20px;
+      margin-top: 15px;
     }
   }
 }
@@ -1767,6 +1524,7 @@ export default {
 }
 
 .team-item {
+  padding: 0 25px;
   &__image {
     width: 170px;
     height: 170px;
@@ -1838,32 +1596,6 @@ export default {
       text-align: center;
       list-style: none;
       margin-bottom: 10px;
-    }
-  }
-}
-.equip-item {
-  &-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  max-width: 33%;
-  padding: 0 15px;
-  margin-bottom: 50px;
-
-  h4 {
-    font-size: 28px;
-    color: #0dba00;
-    font-weight: bolder;
-    margin-bottom: 12px;
-  }
-
-  p {
-    font-size: 16px;
-    font-weight: lighter;
-    @media screen and (max-width: 1024px) {
-      font-size: 14px;
     }
   }
 }
