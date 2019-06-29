@@ -146,19 +146,19 @@ section {
   padding: 50px 0;
 
   .section__title {
-    font-size: 28px;
+    font-size: 36px;
     font-weight: bolder;
     position: relative;
     display: block;
     text-align: center;
-    padding-bottom: 15px;
-    margin-bottom: 45px;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
     &::after {
       content: "";
       position: absolute;
-      width: 64px;
+      width: 168px;
       height: 2px;
-      background: #000;
+      background: #e7e7e7;
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);

@@ -4,7 +4,7 @@
       <div class="full-window-slider-wrapper">
         <div class="full-window-slider__overlay"></div>
         <div class="single__place">
-          <i class="fa fa-map-marker"/> Камчатская долина, Россия
+          <i class="fa fa-map-marker" /> Камчатская долина, Россия
         </div>
         <carousel :perPage="1" :navigationEnabled="true">
           <slide
@@ -38,7 +38,7 @@
             />
           </div>
           <div class="full-window-slider__card-body">
-            <slot name="card"/>
+            <slot name="card" />
             <div class="full-window-slider-card__row">
               <div class="left">
                 Размер группы
@@ -62,13 +62,13 @@
                 <small>Новичкам, тур без рюкзаков</small>
               </div>
               <div class="right">
-                <difficulty-list :value="4"/>
+                <difficulty-list :value="4" />
               </div>
             </div>
           </div>
           <div class="full-window-slider__card-footer">
             <div class="full-window-slider__card-footer__content">
-              <slot name="card-footer"/>
+              <slot name="card-footer" />
               <div class="full-window-slider-card__row">
                 <div class="left">
                   <h5>50 000 руб.</h5>
@@ -84,7 +84,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>    
     <div class="block-line intro-slider-line">
       <div class="container">
         <div class="row intro-slider-line__row">
@@ -92,11 +92,11 @@
           <div class="col-md-7 block-line__row">
             <div class="intro-slider-line__links">
               <div>
-                <img src="/images/video.png" height="18px">&nbsp;&nbsp;
+                <img src="/images/video.png" height="18px" />&nbsp;&nbsp;
                 <a href="#" @click="slideToToggler($event, 1)">Посмотреть видео</a>
               </div>
               <div>
-                <img src="/images/pictures.png" height="18px">&nbsp;&nbsp;
+                <img src="/images/pictures.png" height="18px" />&nbsp;&nbsp;
                 <a href="#" @click="slideToToggler($event, 0)">Посмотреть фото</a>
               </div>
             </div>
@@ -106,7 +106,7 @@
               >
                 <span class="advanced-select__current" @click="toggle()">
                   {{ currentSelectValue || 'Даты и цены' }}
-                  <icon name="arrow-down" fill="#000" hoverFill="#000" :width="13" :height="13"/>
+                  <icon name="arrow-down" fill="#000" hoverFill="#000" :width="13" :height="13" />
                 </span>
                 <ul class="advanced-select__dropdown" ref="dropdown" :style="{ display: 'none' }">
                   <li
@@ -140,17 +140,6 @@
                 @click="slideTo('#about-section')"
               >Вопросы</a>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row intro-subtext__row">
-        <div class="col-md-5"></div>
-        <div class="col-md-7">
-          <div class="single-subtitle">
-            <h3>Exploray</h3>
-            <p>Узнайте больше подробнoстей о туре на Камчатку без рюкзаков</p>
           </div>
         </div>
       </div>
@@ -212,7 +201,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-sm-12 col-xs-12 includes-col">
-            <img src="/images/exploray-green-down.png">
+            <img src="/images/exploray-green-down.png" />
             <h4>Включено</h4>
             <ul>
               <li>Работа гида</li>
@@ -223,7 +212,7 @@
             </ul>
           </div>
           <div class="col-md-6 col-sm-12 col-xs-12 includes-col">
-            <img src="/images/exploray-red-down.png">
+            <img src="/images/exploray-red-down.png" />
             <h4>Включено</h4>
             <ul>
               <li>Работа гида</li>
@@ -235,6 +224,41 @@
           </div>
         </div>
       </div>
+    </section>
+    <section class="section">
+      <carousel :perPage="1" class="program-slider" :navigationEnabled="true">
+        <slide :style="{backgroundImage: `url('/images/program_bg.jpg')`}">
+          <div class="content">
+            <h4>Горный массив в Альпах</h4>
+            <p>
+              Захватывающие пейзажи горных массивов, которые вы никогда не забудете,
+              а наоборот, появится желание чаще бывать в горах.
+            </p>
+          </div>
+        </slide>
+        <slide :style="{backgroundImage: `url('/images/program_bg.jpg')`}">
+          <div class="content">
+            <h4>Горный массив в Альпах</h4>
+            <p>
+              Захватывающие пейзажи горных массивов, которые вы никогда не забудете,
+              а наоборот, появится желание чаще бывать в горах.
+            </p>
+          </div>
+        </slide>
+      </carousel>
+    </section>
+    <section class="section section-map">
+      <div class="container">
+        <h2 class="section__title">Карта</h2>
+      </div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000.8288519876903!2d30.350945916095462!3d59.90179058186283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696303831e879ff%3A0x9a64aeab036ef0f2!2sKamchatskaya+Ulitsa%2C+Sankt-Peterburg%2C+Russia%2C+192007!5e0!3m2!1sen!2sua!4v1560589337727!5m2!1sen!2sua"
+        width="100%"
+        height="500px"
+        frameborder="0"
+        style="border:0"
+        allowfullscreen
+      ></iframe>
     </section>
     <section class="section">
       <div class="container">
@@ -315,73 +339,6 @@
         </div>
       </div>
     </section>
-    <section class="section">
-      <div class="container">
-        <h2 class="section__title">Прогрaмма тура</h2>
-      </div>
-      <carousel :perPage="1" class="program-slider" :navigationEnabled="true">
-        <slide :style="{backgroundImage: `url('/images/program_bg.jpg')`}">
-          <div class="content">
-            <h4>Горный массив в Альпах</h4>
-            <p>
-              Захватывающие пейзажи горных массивов, которые вы никогда не забудете,
-              а наоборот, появится желание чаще бывать в горах.
-            </p>
-          </div>
-        </slide>
-        <slide :style="{backgroundImage: `url('/images/program_bg.jpg')`}">
-          <div class="content">
-            <h4>Горный массив в Альпах</h4>
-            <p>
-              Захватывающие пейзажи горных массивов, которые вы никогда не забудете,
-              а наоборот, появится желание чаще бывать в горах.
-            </p>
-          </div>
-        </slide>
-      </carousel>
-    </section>
-    <section class="section" id="photo-video-slider">
-      <div class="container">
-        <h2 class="section__title">Фото и видео</h2>
-        <toggler ref="toggler" :items="['Фото', 'Видео']">
-          <div class="toggler-item">
-            <app-default-slider
-              class="photo-slider"
-              :perPage="[[320, 1], [560, 2], [767, 3], [1024, 4]]"
-              :lightBoxImages="photos"
-            >
-              <slide v-for="(item, index) in photos" :key="index">
-                <div class="photo-slider__card">
-                  <img :src="item.image" alt>
-                  <div class="photo-slider__card-mask">
-                    <span class="button button-white button--outlined lightbox-trigger">
-                      <icon name="zoom-out" hoverFill="#000"/>Просмотреть фото
-                    </span>
-                  </div>
-                </div>
-              </slide>
-            </app-default-slider>
-          </div>
-          <div class="toggler-item">
-            <app-default-slider
-              class="photo-slider"
-              :perPage="[[320, 1], [560, 2], [767, 3], [1024, 4]]"
-            >
-              <slide v-for="(item, index) in videos" :key="index">
-                <div class="photo-slider__card">
-                  <img :src="item.image" alt>
-                  <div class="photo-slider__card-mask">
-                    <a :href="item.url" class="button button-white button--outlined">
-                      <icon name="zoom-out" hoverFill="#000"/>Просмотреть видео
-                    </a>
-                  </div>
-                </div>
-              </slide>
-            </app-default-slider>
-          </div>
-        </toggler>
-      </div>
-    </section>
     <section class="section section--with-header">
       <div class="section__header" :style="{ backgroundImage: `url(/images/about-header.jpg)` }">
         <h2 class="section__title">Организаторы</h2>
@@ -400,6 +357,7 @@
         </div>
       </div>
     </section>
+
     <section class="section section--colored">
       <div class="container">
         <h2 class="section__title">Наша команда</h2>
@@ -440,6 +398,43 @@
         </app-default-slider>
       </div>
     </section>
+    <section class="section" id="photo-video-slider">
+      <div class="container">
+        <h2 class="section__title">Фото</h2>
+        <toggler ref="toggler" :items="['Фото']">
+          <div class="toggler-item">
+            <app-default-slider
+              class="photo-slider"
+              :perPage="[[320, 1], [560, 2], [767, 3], [1024, 4]]"
+              :lightBoxImages="photos"
+            >
+              <slide v-for="(item, index) in photos" :key="index">
+                <div class="photo-slider__card">
+                  <img :src="item.image" alt />
+                  <div class="photo-slider__card-mask">
+                    <span class="button button-white button--outlined lightbox-trigger">
+                      <icon name="zoom-out" hoverFill="#000" />Просмотреть фото
+                    </span>
+                  </div>
+                </div>
+              </slide>
+            </app-default-slider>
+          </div>
+        </toggler>
+      </div>
+    </section>
+    <section class="section" id="video">
+      <div class="container">
+        <h2 class="section__title">Видео</h2>
+        <iframe
+          class="video-frame"
+          src="https://www.youtube.com/embed/RK1K2bCg4J8"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
     <section class="section section--colored equip">
       <div class="container">
         <h2 class="section__title">Что взять с собой?</h2>
@@ -471,6 +466,21 @@
         </div>
       </div>
     </section>
+    <section class="section">
+      <div class="container">
+        <h2 class="section__title">Отзывы</h2>
+        <app-default-slider :perPage="[[320, 1], [1024, 3]]">
+          <slide v-for="(item, index) in reviews" :key="index">
+            <review-card
+              :image="item.image"
+              :name="item.name"
+              :content="item.content"
+              :tourName="item.tourName"
+            />
+          </slide>
+        </app-default-slider>
+      </div>
+    </section>
     <section class="section section--colored" id="about-section">
       <div class="container">
         <h2 class="section__title">Вопросы и ответы</h2>
@@ -495,42 +505,16 @@
       </div>
     </section>
     <section class="section">
-      <div class="container">
-        <h2 class="section__title">Отзывы</h2>
-        <app-default-slider :perPage="[[320, 1], [1024, 3]]">
-          <slide v-for="(item, index) in reviews" :key="index">
-            <review-card
-              :image="item.image"
-              :name="item.name"
-              :content="item.content"
-              :tourName="item.tourName"
-            />
-          </slide>
-        </app-default-slider>
-      </div>
     </section>
     <section class="section section--colored">
       <div class="container">
         <h2 class="section__title">Интересные предложения</h2>
         <app-default-slider :perPage="[[320, 1], [767, 2], [1024, 4]]">
           <slide v-for="item in $store.getters.data" :key="item._id">
-            <product-card :data="item" :fixedWidth="true"/>
+            <product-card :data="item" :fixedWidth="true" />
           </slide>
         </app-default-slider>
       </div>
-    </section>
-    <section class="section section-map">
-      <div class="container">
-        <h2 class="section__title">Карта</h2>
-      </div>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000.8288519876903!2d30.350945916095462!3d59.90179058186283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696303831e879ff%3A0x9a64aeab036ef0f2!2sKamchatskaya+Ulitsa%2C+Sankt-Peterburg%2C+Russia%2C+192007!5e0!3m2!1sen!2sua!4v1560589337727!5m2!1sen!2sua"
-        width="100%"
-        height="500px"
-        frameborder="0"
-        style="border:0"
-        allowfullscreen
-      ></iframe>
     </section>
   </div>
 </template>
@@ -732,6 +716,7 @@ export default {
 }
 
 .intro-slider-line {
+  margin-bottom: 70px;
   &__links {
     a {
       display: inline-block;
@@ -799,48 +784,6 @@ export default {
     background-color: #000;
     left: 0;
     bottom: 0;
-  }
-}
-
-.row.intro-subtext__row {
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
-    .col-md-7 {
-      margin-left: auto;
-      max-width: 50%;
-
-      .single-subtitle {
-        h3 {
-          font-size: 24px;
-        }
-        p {
-          font-weight: lighter;
-        }
-
-        &::after {
-          display: none;
-        }
-      }
-    }
-  }
-  @media screen and (max-width: 767px) {
-    .col-md-7 {
-      max-width: 100%;
-      padding: 0 25px;
-
-      .single-subtitle {
-        h3 {
-          font-size: 48px;
-        }
-        p {
-          font-size: 18px;
-          font-weight: lighter;
-        }
-
-        &::after {
-          display: none;
-        }
-      }
-    }
   }
 }
 
@@ -950,6 +893,9 @@ export default {
   margin-top: 50px;
 
   .VueCarousel {
+    &-slide {
+      flex: 1 !important;
+    }
     &-navigation {
       &-button {
         top: 30% !important;
@@ -1044,18 +990,17 @@ export default {
   }
 }
 
-
 .about-item {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 
   h4 {
-    font-size: 20px;
+    font-size: 22px;
     color: #0a6aa8;
     font-weight: 600;
 
     position: relative;
-    padding: 0 0 15px;
+    padding: 0 0 20px;
 
     &::after {
       content: "";
@@ -1070,9 +1015,9 @@ export default {
   }
 
   p {
-    font-size: 14px;
+    font-size: 16px;
     max-width: 300px;
-    margin: 0 auto;
+    margin: 10px auto 0;
   }
   &-list {
     display: flex;
@@ -1246,7 +1191,7 @@ export default {
     @media screen and (max-width: 1024px) {
       max-width: 50%;
       transform: translateY(80%);
-      min-width: 350px; 
+      min-width: 350px;
     }
 
     @media screen and (max-width: 767px) {
@@ -1452,11 +1397,10 @@ export default {
 }
 
 .team-item {
-
   h4 {
     font-size: 18px;
   }
-  
+
   p {
     font-size: 14px;
   }
@@ -1604,6 +1548,10 @@ export default {
   &-list {
     display: flex;
     flex-direction: column;
+    padding: 0 100px;
+    @media screen and (max-width: 768px) {
+      padding: 0;
+    }
   }
 
   width: 100%;
@@ -1612,16 +1560,25 @@ export default {
   justify-content: flex-start;
   margin-bottom: 20px;
 
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+
   > div {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
     flex: 1;
     padding-top: 25px;
   }
 
   &__day {
-    margin-right: 25px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-right: 50px;
 
     max-width: 140px;
+    @media screen and (max-width: 768px) {
+      max-width: 100%;
+      margin-right: 0px;
+      text-align: center;
+    }
 
     h4 {
       font-size: 18px;
@@ -1631,6 +1588,10 @@ export default {
 
   &__image {
     margin-right: 60px;
+
+    @media screen and (max-width: 768px) {
+      margin-right: 0px;
+    }
     &-inner {
       box-sizing: border-box;
       width: 200px;
@@ -1640,17 +1601,35 @@ export default {
       background-repeat: no-repeat;
       border-radius: 50%;
       overflow: hidden;
+
+      @media screen and (max-width: 768px) {
+        width: 150px;
+        height: 150px;
+        margin: 10px auto 30px;
+      }
     }
   }
 
   &__info {
     max-width: 500px;
+
+    @media screen and (max-width: 768px) {
+      max-width: 100%;
+    }
   }
 
   &__content {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+
+    @media screen and (max-width: 768px) {
+      border-top: 0px;
+      flex-direction: column;
+      text-align: center;
+    }
+
     h3 {
       font-size: 24px;
       font-weight: bolder;
@@ -1667,6 +1646,23 @@ export default {
       font-size: 15px;
       font-weight: lighter;
     }
+  }
+}
+.video-frame {
+  display: block;
+  box-sizing: border-box;
+  width: 960px;
+  height: 540px;
+  margin: 0 auto;
+
+  @media screen and (max-width: 1024px) {
+    width: 600px;
+    height: 338px;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    height: 274px;
   }
 }
 </style>

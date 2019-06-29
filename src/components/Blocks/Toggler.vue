@@ -1,6 +1,6 @@
 <template>
   <div class="toggler-wrapper">
-    <div class="toggler-group">
+    <div class="toggler-group" v-if="items.length > 1">
       <button v-for="(item, index) in items" :key="index" @click="toggle(index)" :class="{'active': index === currentIndex}">{{item}}</button>
     </div>
     <div class="toggler-content" ref="content">

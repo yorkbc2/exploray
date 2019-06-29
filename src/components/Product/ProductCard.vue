@@ -1,60 +1,61 @@
 <template>
-  <article :class="{'card': true, 'card--stroke': strokeView, 'card--fixed-width': fixedWidth}">
-    <div class="card__head" :style="{backgroundImage: `url(${data.image})`}">
-      <span class="card__rating">
-        <i class="fa fa-star"></i>
-        <strong>4/5</strong>
-      </span>
-      <a :href="data.place.url" target="_blank" class="card__place">
-        <i class="fa fa-map-marker"></i>
-        <span>{{ data.place.label }}</span>
-      </a>
-      <div class="card__head-overlay">
-        <a href="#" class="card__head-link">Смотреть больше</a>
+  <a href="#">
+    <article :class="{'card': true, 'card--stroke': strokeView, 'card--fixed-width': fixedWidth}">
+      <div class="card__head" :style="{backgroundImage: `url(${data.image})`}">
+        <a :href="data.place.url" target="_blank" class="card__place">
+          <i class="fa fa-map-marker"></i>
+          <span>{{ data.place.label }}</span>
+        </a>
+        <div class="card__head-overlay">
+          <a href="#" class="card__head-link">Смотреть больше</a>
+        </div>
       </div>
-    </div>
-    <div class="card__body">
-      <h2 class="card__title">{{ data.title | cut(36) }}</h2>
-      <p class="card__description" v-if="strokeView && !isMobile">{{ data.description | cut(124) }}</p>
-      <div class="card__info">
-        <div class="card__date-wrapper">
-          <div class="card__date">
-            <div class="row">
-              <div class="col-md-5 col-sm-5 col-xs-5 card__date-days">
-                <i class="fa fa-calendar"></i>
-                &nbsp; {{getDays}} {{getDaysLable}}
+      <div class="card__body">
+        <h2 class="card__title">{{ data.title | cut(36) }}</h2>
+        <p
+          class="card__description"
+          v-if="strokeView && !isMobile"
+        >{{ data.description | cut(124) }}</p>
+        <div class="card__info">
+          <div class="card__date-wrapper">
+            <div class="card__date">
+              <div class="row">
+                <div class="col-md-5 col-sm-5 col-xs-5 card__date-days">
+                  <i class="fa fa-calendar"></i>
+                  &nbsp; {{getDays}} {{getDaysLable}}
+                </div>
+                <div class="col-md-7 col-sm-7 col-xs-7 text-right">{{dateRange}}</div>
               </div>
-              <div class="col-md-7 col-sm-7 col-xs-7 text-right">{{dateRange}}</div>
+            </div>
+            <div class="card__price">
+              <div
+                class="card__price-sale"
+                v-if="data.price.sale"
+              >{{ formattedPrice(data.price.sale) }} руб.</div>
+              <div class="card__price-regular">{{ formattedPrice(40000) }} руб.</div>
             </div>
           </div>
-          <div class="card__price">
-            <div
-              class="card__price-sale"
-              v-if="data.price.sale"
-            >{{ formattedPrice(data.price.sale) }} руб.</div>
-            <div class="card__price-regular">{{ formattedPrice(40000) }} руб.</div>
+          <div class="card__actions">
+            <button
+              v-if="!strokeView || isMobile"
+              :class="{'card__compare': true, 'added': added}"
+              @click="addToCart(data)"
+            >
+              <icon name="libra" :fill="added ? '#fff' : '#a5a5a5'"/>
+            </button>
+            <button
+              v-else
+              class="card__compare-stroke button button--green button--outlined"
+              @click="addToCart(data)"
+            >
+              <i class="fa fa-check" v-if="added"></i> В сравнение
+            </button>
+            <button class="card__order button buton--green" @click="callPopup()">Заказать</button>
           </div>
         </div>
-        <div class="card__actions">
-          <button
-            v-if="!strokeView || isMobile"
-            :class="{'card__compare': true, 'added': added}"
-            @click="addToCart(data)"
-          >
-            <icon name="libra" :fill="added ? '#fff' : '#a5a5a5'"/>
-          </button>
-          <button
-            v-else
-            class="card__compare-stroke button button--green button--outlined"
-            @click="addToCart(data)"
-          >
-            <i class="fa fa-check" v-if="added"></i> В сравнение
-          </button>
-          <button class="card__order button buton--green" @click="callPopup()">Заказать</button>
-        </div>
       </div>
-    </div>
-  </article>
+    </article>
+  </a>
 </template>
 
 <script>
@@ -95,7 +96,7 @@ export default {
   },
   methods: {
     callPopup() {
-      this.$store.commit('OPEN_POPUP', this.data);
+      this.$store.commit("OPEN_POPUP", this.data);
     },
     getDifferenceBetween(dateA, dateB) {
       return (
@@ -128,6 +129,14 @@ export default {
   flex-direction: $dir;
   justify-content: $jc;
 }
+a {
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+  &:hover {
+    color: #000;
+  }
+}
 .card {
   max-width: 270px;
   margin: 0 auto;
@@ -139,12 +148,6 @@ export default {
   transition: box-shadow 0.4s ease-in-out;
 
   min-height: 380px;
-
-  // @media screen and (max-width: 767px) {
-  //   &:not(.card--fixed-width) {
-  //     max-width: 100%;
-  //   }
-  // }
 
   &:hover {
     box-shadow: 2.5px 2.33px 17px 0px rgba(0, 0, 0, 0.35);
@@ -311,6 +314,9 @@ export default {
     i {
       margin-right: 7px;
       font-size: 18px;
+    }
+    &:hover {
+      color: #fff;
     }
   }
 
