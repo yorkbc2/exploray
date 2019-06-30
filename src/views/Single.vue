@@ -1,7 +1,7 @@
 <template>
   <div class="single">
     <!-- @changed -->
-    <scrolling-navbar></scrolling-navbar>
+    <scrolling-navbar @click="callPopup()"></scrolling-navbar>
     <div class="full-window-slider">
       <div class="full-window-slider-wrapper">
         <div class="full-window-slider__overlay"></div>

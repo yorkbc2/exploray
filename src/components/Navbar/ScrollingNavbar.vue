@@ -30,7 +30,7 @@
         <a href="#questions">Вопросы</a>
       </li>
     </ul>
-    <button type="button" class="button button-green">Заказать</button>
+    <button type="button" class="button button-green" @click="onClick()">Заказать</button>
   </div>
 </template>
 
@@ -49,6 +49,9 @@ export default {
       if ($) {
         $("html, body").animate({ scrollTop: 0 }, 500);
       }
+    },
+    onClick() {
+      this.$emit("click");
     }
   },
   mounted() {
@@ -88,10 +91,11 @@ export default {
       links.forEach(l => l.classList.remove("active"));
       for (let i = 0; i < sectionsOffsets.length; i++) {
         if (scroll >= sectionsOffsets[i][0]) {
-          if (sectionsOffsets[1] && scroll <= sectionsOffsets[i][1]) {
+          if (
+            (sectionsOffsets[i][1] && scroll <= sectionsOffsets[i][1]) ||
+            (!sectionsOffsets[i][1] && i === links.length - 1)
+          ) {
             links[i].classList.add("active");
-          } else {
-            links[links.length - 1].classList.add("active");
           }
         }
       }
