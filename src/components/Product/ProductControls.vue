@@ -28,10 +28,10 @@
       <div class="product-controls__actions d-flex flex-column justify-content-center">
         <div>
           <button @click="toggle(false)" :class="{ active: !$store.getters.strokeView }">
-            <icon name="squares"/>
+            <icon name="squares" />
           </button>
           <button @click="toggle(true)" :class="{ active: $store.getters.strokeView }">
-            <icon name="bars"/>
+            <icon name="bars" />
           </button>
         </div>
       </div>
@@ -111,6 +111,23 @@ export default {
     }
   }
 
+  /* @changed */
+
+  .advanced-select--reversed {
+    .advanced-select__current {
+      background-color: #f6f6f6;
+      border-radius: 50px;
+      color: #a3a3a3;
+      padding: 9px 25px 9px 20px;
+      border: 1px solid #d5d5d5;
+      text-align: left;
+      font-size: 14px;
+      .svg-inserted svg {
+        fill: #a3a3a3 !important;
+      }
+    }
+  }
+
   .advanced-select {
     max-width: 180px;
     border-radius: 50px;
@@ -140,18 +157,7 @@ export default {
         }
       }
     }
-    &__current {
-      background-color: #f6f6f6;
-      border-radius: 50px;
-      color: #a3a3a3;
-      padding: 9px 25px 9px 20px;
-      border: 1px solid #d5d5d5;
-      text-align: left;
-      font-size: 14px;
-      .svg-inserted svg {
-        fill: #a3a3a3 !important;
-      }
-    }
+    /* @changed (removed) */
   }
 }
 

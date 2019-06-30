@@ -1,5 +1,7 @@
 <template>
   <div class="single">
+    <!-- @changed -->
+    <scrolling-navbar></scrolling-navbar>
     <div class="full-window-slider">
       <div class="full-window-slider-wrapper">
         <div class="full-window-slider__overlay"></div>
@@ -33,10 +35,12 @@
               :path="{
                 '/': 'Главная',
                 '/tours': 'Путешествия',
+                //@changed
                 '/tour/1': data ? data.title : ''
             }"
             />
           </div>
+          <!-- @changed -->
           <div class="full-window-slider__card-body">
             <slot name="card" />
             <div class="full-window-slider-card__row">
@@ -71,7 +75,11 @@
               <slot name="card-footer" />
               <div class="full-window-slider-card__row">
                 <div class="left">
-                  <h5>50 000 руб.</h5>
+                  <!-- @changed -->
+                  <h5>$50 000</h5>
+                </div>
+                <div class="left">
+                  <h5 class="old-price">60 000</h5>
                 </div>
                 <div class="right">
                   <div class="default-badge">7 дней</div>
@@ -84,7 +92,7 @@
           </div>
         </div>
       </div>
-    </div>    
+    </div>
     <div class="block-line intro-slider-line">
       <div class="container">
         <div class="row intro-slider-line__row">
@@ -92,12 +100,13 @@
           <div class="col-md-7 block-line__row">
             <div class="intro-slider-line__links">
               <div>
+                <!-- @changed -->
                 <img src="/images/video.png" height="18px" />&nbsp;&nbsp;
-                <a href="#" @click="slideToToggler($event, 1)">Посмотреть видео</a>
+                <a href="#" @click="slideToToggler($event, 1)">Видео</a>
               </div>
               <div>
                 <img src="/images/pictures.png" height="18px" />&nbsp;&nbsp;
-                <a href="#" @click="slideToToggler($event, 0)">Посмотреть фото</a>
+                <a href="#" @click="slideToToggler($event, 0)">Фото</a>
               </div>
             </div>
             <div>
@@ -144,6 +153,7 @@
         </div>
       </div>
     </div>
+    <!-- @changed -->
     <section class="section">
       <div class="container">
         <h2 class="section__title">О путешествии</h2>
@@ -197,6 +207,7 @@
         </div>
       </div>
     </section>
+    <!-- @changed -->
     <section class="section">
       <div class="container">
         <div class="row">
@@ -225,6 +236,7 @@
         </div>
       </div>
     </section>
+    <!-- @changed -->
     <section class="section">
       <carousel :perPage="1" class="program-slider" :navigationEnabled="true">
         <slide :style="{backgroundImage: `url('/images/program_bg.jpg')`}">
@@ -260,6 +272,7 @@
         allowfullscreen
       ></iframe>
     </section>
+    <!-- @changed -->
     <section class="section">
       <div class="container">
         <h2 class="section__title">Программа</h2>
@@ -357,7 +370,6 @@
         </div>
       </div>
     </section>
-
     <section class="section section--colored">
       <div class="container">
         <h2 class="section__title">Наша команда</h2>
@@ -423,6 +435,7 @@
         </toggler>
       </div>
     </section>
+    <!-- @changed -->
     <section class="section" id="video">
       <div class="container">
         <h2 class="section__title">Видео</h2>
@@ -435,6 +448,7 @@
         ></iframe>
       </div>
     </section>
+    <!-- @changed -->
     <section class="section section--colored equip">
       <div class="container">
         <h2 class="section__title">Что взять с собой?</h2>
@@ -504,8 +518,15 @@
         </div>
       </div>
     </section>
-    <section class="section">
-    </section>
+    <div
+      class="full-height-block"
+      :style="{ backgroundImage: `url(${'https://static.tildacdn.com/tild6665-6139-4163-b562-663365636135/america2271828_1920.jpg'})` }"
+    >
+      <div class="full-height-block__content">
+        <h3>СТРАНСТВУЙ С НАМИ!</h3>
+        <button class="button button-green" @click="callPopup()">Заказать тур</button>
+      </div>
+    </div>
     <section class="section section--colored">
       <div class="container">
         <h2 class="section__title">Интересные предложения</h2>
@@ -526,6 +547,7 @@ import ReviewCardVue from "../components/Blocks/ReviewCard.vue";
 import ContentTabVue from "../components/Blocks/ContentTab.vue";
 import HeaderBreadsVue from "../components/Header/HeaderBreads.vue";
 import DifficultyListVue from "../components/Lists/DifficultyList.vue";
+import ScrollingNavbarVue from "../components/Navbar/ScrollingNavbar.vue";
 export default {
   name: "single-page",
   components: {
@@ -534,6 +556,8 @@ export default {
     "review-card": ReviewCardVue,
     "content-tab": ContentTabVue,
     breadcrumbs: HeaderBreadsVue,
+    // @changed
+    "scrolling-navbar": ScrollingNavbarVue,
     "difficulty-list": DifficultyListVue
   },
   data() {
@@ -717,6 +741,23 @@ export default {
 
 .intro-slider-line {
   margin-bottom: 70px;
+  /* @changed */
+  .advanced-select {
+    &.advanced-select--reversed {
+      border-radius: 15px;
+
+      .advanced-select__current {
+        border-radius: 15px;
+      }
+      @media screen and (max-width: 768px) {
+        border-radius: 50px;
+
+        .advanced-select__current {
+          border-radius: 50px;
+        }
+      }
+    }
+  }
   &__links {
     a {
       display: inline-block;
@@ -994,6 +1035,10 @@ export default {
   text-align: center;
   margin-bottom: 50px;
 
+  @media screen and (max-width: 1024px) {
+    padding: 0 20px;
+  }
+
   h4 {
     font-size: 22px;
     color: #0a6aa8;
@@ -1024,10 +1069,17 @@ export default {
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: wrap;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 }
 
 .qa-row {
+  @media screen and (max-width: 768px) {
+    padding: 0 15px;
+  }
   &:last-child {
     > div:nth-child(odd):last-child {
       margin-left: auto;
@@ -1035,12 +1087,13 @@ export default {
     }
   }
   > div.card {
-    margin: 0 15px 30px;
     width: 100%;
+    margin: 0px 0px 30px;
 
     @media screen and (min-width: 1025px) {
       min-width: calc(50% - 30px);
       max-width: calc(50% - 30px);
+      margin: 0 15px 30px;
     }
 
     @media screen and (max-width: 1024px) and (min-width: 769px) {
@@ -1188,25 +1241,6 @@ export default {
     z-index: 113;
     border-radius: 10px;
 
-    @media screen and (max-width: 1024px) {
-      max-width: 50%;
-      transform: translateY(80%);
-      min-width: 350px;
-    }
-
-    @media screen and (max-width: 767px) {
-      max-width: 100%;
-      position: static;
-      transform: none;
-      &-body {
-        box-shadow: none;
-      }
-
-      &-footer {
-        box-shadow: none;
-      }
-    }
-
     &-breads {
       padding: 4px 0 8px 25px;
       a {
@@ -1258,6 +1292,28 @@ export default {
         }
       }
     }
+
+    @media screen and (max-width: 1024px) {
+      max-width: 50%;
+      transform: translateY(80%);
+      min-width: 350px;
+    }
+
+    @media screen and (max-width: 767px) {
+      max-width: 100%;
+      position: static;
+      transform: none;
+      border-radius: 0px;
+      &-body {
+        border-radius: 0px;
+        box-shadow: none;
+      }
+
+      &-footer {
+        border-radius: 0px;
+        box-shadow: none;
+      }
+    }
   }
   small {
     display: block;
@@ -1270,11 +1326,19 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 10px;
+    /* @changed */
+    align-items: center;
 
     h5 {
       font-weight: 600;
-      font-size: 27px;
+      font-size: 24px;
       margin-bottom: 0px;
+      line-height: 29px;
+      color: #0dba00;
+      &.old-price {
+        color: #ff3333;
+        text-decoration: line-through;
+      }
     }
 
     .left,
@@ -1421,6 +1485,7 @@ export default {
   }
 }
 
+/* @changed */
 .about-tour {
   position: relative;
   text-align: center;
@@ -1511,6 +1576,7 @@ export default {
   }
 }
 
+/* @changed */
 .includes-col {
   display: flex;
   flex-direction: column;
@@ -1648,6 +1714,7 @@ export default {
     }
   }
 }
+/* @changed */
 .video-frame {
   display: block;
   box-sizing: border-box;
@@ -1663,6 +1730,47 @@ export default {
   @media screen and (max-width: 768px) {
     width: 100%;
     height: 274px;
+  }
+}
+/* @changed */
+
+.full-height-block {
+  min-height: 80vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 1200px;
+    width: 100%;
+    transform: translateX(-50%) translateY(-50%);
+
+    text-align: center;
+    padding: 0 15px;
+
+    button {
+      padding: 15px 60px;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      color: #fff;
+      font-size: 72px;
+      font-weight: bold;
+      margin-bottom: 80px;
+      @media screen and (max-width: 1024px) {
+        font-size: 64px;
+      }
+
+      @media screen and (max-width: 768px) {
+        font-size: 48px;
+      }
+    }
   }
 }
 </style>

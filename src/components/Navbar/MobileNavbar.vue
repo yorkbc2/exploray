@@ -225,7 +225,8 @@ export default {
 
   &-menu {
     position: fixed;
-    top: -100%;
+    /* @changed */
+    top: -999px;
     left: 0px;
     width: 100%;
     padding: 15px 15px 30px;
