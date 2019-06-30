@@ -76,10 +76,10 @@
               <div class="full-window-slider-card__row">
                 <div class="left">
                   <!-- @changed -->
-                  <h5>$50 000</h5>
+                  <h5>$ 50 000</h5>
                 </div>
                 <div class="left">
-                  <h5 class="old-price">60 000</h5>
+                  <h5 class="old-price">$ 60 000</h5>
                 </div>
                 <div class="right">
                   <div class="default-badge">7 дней</div>
@@ -146,7 +146,7 @@
               <a
                 href="#"
                 class="button button--outlined button-white button--wide button--rect"
-                @click="slideTo('#about-section')"
+                @click="slideTo('#questions')"
               >Вопросы</a>
             </div>
           </div>
@@ -154,7 +154,7 @@
       </div>
     </div>
     <!-- @changed -->
-    <section class="section">
+    <section class="section" id="description">
       <div class="container">
         <h2 class="section__title">О путешествии</h2>
         <div class="about-tour">
@@ -163,46 +163,32 @@
         </div>
       </div>
     </section>
-    <section class="section section--colored">
+    <section class="section section--colored proposal-wrapper">
       <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="about-item">
-              <h4>14 дней</h4>
-              <p>Мы предлагаем именно столько времени насладиться путешествием.</p>
-            </div>
+        <div class="about-item-list">
+          <div class="about-item">
+            <h4>14 дней</h4>
+            <p>Мы предлагаем именно столько времени насладиться путешествием.</p>
           </div>
-          <div class="col-md-4">
-            <div class="about-item">
-              <h4>14 дней</h4>
-              <p>Мы предлагаем именно столько времени насладиться путешествием.</p>
-            </div>
+          <div class="about-item">
+            <h4>14 дней</h4>
+            <p>Мы предлагаем именно столько времени насладиться путешествием.</p>
           </div>
-          <div class="col-md-4">
-            <div class="about-item">
-              <h4>14 дней</h4>
-              <p>Мы предлагаем именно столько времени насладиться путешествием.</p>
-            </div>
+          <div class="about-item">
+            <h4>14 дней</h4>
+            <p>Мы предлагаем именно столько времени насладиться путешествием.</p>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="about-item">
-              <h4>14 дней</h4>
-              <p>Мы предлагаем именно столько времени насладиться путешествием.</p>
-            </div>
+          <div class="about-item">
+            <h4>14 дней</h4>
+            <p>Мы предлагаем именно столько времени насладиться путешествием.</p>
           </div>
-          <div class="col-md-4">
-            <div class="about-item">
-              <h4>14 дней</h4>
-              <p>Мы предлагаем именно столько времени насладиться путешествием.</p>
-            </div>
+          <div class="about-item">
+            <h4>14 дней</h4>
+            <p>Мы предлагаем именно столько времени насладиться путешествием.</p>
           </div>
-          <div class="col-md-4">
-            <div class="about-item">
-              <h4>14 дней</h4>
-              <p>Мы предлагаем именно столько времени насладиться путешествием.</p>
-            </div>
+          <div class="about-item">
+            <h4>14 дней</h4>
+            <p>Мы предлагаем именно столько времени насладиться путешествием.</p>
           </div>
         </div>
       </div>
@@ -259,7 +245,7 @@
         </slide>
       </carousel>
     </section>
-    <section class="section section-map">
+    <section class="section section-map" id="map">
       <div class="container">
         <h2 class="section__title">Карта</h2>
       </div>
@@ -273,7 +259,7 @@
       ></iframe>
     </section>
     <!-- @changed -->
-    <section class="section">
+    <section class="section" id="program">
       <div class="container">
         <h2 class="section__title">Программа</h2>
         <div class="program-item-list">
@@ -352,7 +338,7 @@
         </div>
       </div>
     </section>
-    <section class="section section--with-header">
+    <section class="section section--with-header" id="authors">
       <div class="section__header" :style="{ backgroundImage: `url(/images/about-header.jpg)` }">
         <h2 class="section__title">Организаторы</h2>
       </div>
@@ -370,10 +356,10 @@
         </div>
       </div>
     </section>
-    <section class="section section--colored">
+    <section class="section section--colored" id="team">
       <div class="container">
         <h2 class="section__title">Наша команда</h2>
-        <app-default-slider class="team-slider" :perPage="[[320, 1], [768, 3]]">
+        <app-default-slider class="team-slider" :perPage="[[320, 1], [768, 2], [1025, 3]]">
           <slide>
             <div class="team-item">
               <div
@@ -449,7 +435,7 @@
       </div>
     </section>
     <!-- @changed -->
-    <section class="section section--colored equip">
+    <section class="section section--colored equip" id="equip">
       <div class="container">
         <h2 class="section__title">Что взять с собой?</h2>
         <div class="about-item-list">
@@ -480,7 +466,7 @@
         </div>
       </div>
     </section>
-    <section class="section">
+    <section class="section" id="testimonials">
       <div class="container">
         <h2 class="section__title">Отзывы</h2>
         <app-default-slider :perPage="[[320, 1], [1024, 3]]">
@@ -495,7 +481,7 @@
         </app-default-slider>
       </div>
     </section>
-    <section class="section section--colored" id="about-section">
+    <section class="section section--colored" id="questions">
       <div class="container">
         <h2 class="section__title">Вопросы и ответы</h2>
         <div class="row qa-row">
@@ -744,11 +730,17 @@ export default {
   /* @changed */
   .advanced-select {
     &.advanced-select--reversed {
-      border-radius: 15px;
-
-      .advanced-select__current {
-        border-radius: 15px;
+      &:not(.toggled),
+      &:not(.toggled):hover {
+        border-radius: 15px !important;
+        .advanced-select__current {
+          &,
+          &:hover {
+            border-radius: 15px !important;
+          }
+        }
       }
+
       @media screen and (max-width: 768px) {
         border-radius: 50px;
 
@@ -1553,17 +1545,24 @@ export default {
   }
 }
 
-.section.equip {
+.section.equip,
+.section.proposal-wrapper {
   .about-item {
-    flex: 1;
-    margin-bottom: 30px;
     min-width: 33%;
-    @media screen and (max-width: 768px) {
+    flex: 1;
+    @media screen and (max-width: 1024px) {
       min-width: 50%;
     }
     @media screen and (max-width: 576px) {
       min-width: 100%;
     }
+  }
+}
+
+.section.equip {
+  .about-item {
+    margin-bottom: 30px;
+
     h4 {
       color: #000;
       padding-bottom: 10px;
@@ -1615,7 +1614,7 @@ export default {
     display: flex;
     flex-direction: column;
     padding: 0 100px;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1024px) {
       padding: 0;
     }
   }
@@ -1626,7 +1625,7 @@ export default {
   justify-content: flex-start;
   margin-bottom: 20px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     flex-direction: column;
   }
 
@@ -1640,7 +1639,7 @@ export default {
     margin-right: 50px;
 
     max-width: 140px;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1024px) {
       max-width: 100%;
       margin-right: 0px;
       text-align: center;
@@ -1655,7 +1654,7 @@ export default {
   &__image {
     margin-right: 60px;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1024px) {
       margin-right: 0px;
     }
     &-inner {
@@ -1668,7 +1667,7 @@ export default {
       border-radius: 50%;
       overflow: hidden;
 
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 1024px) {
         width: 150px;
         height: 150px;
         margin: 10px auto 30px;
@@ -1679,7 +1678,7 @@ export default {
   &__info {
     max-width: 500px;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1024px) {
       max-width: 100%;
     }
   }
@@ -1690,7 +1689,7 @@ export default {
     flex-direction: row;
     justify-content: flex-start;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1024px) {
       border-top: 0px;
       flex-direction: column;
       text-align: center;

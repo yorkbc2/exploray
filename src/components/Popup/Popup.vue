@@ -63,6 +63,10 @@ export default {
       max-width: 500px;
       width: 100%;
 
+      /* @changed */
+      max-height: 100vh;
+      overflow-y: auto;
+
       top: 50%;
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
