@@ -40,14 +40,14 @@
             <button
               v-if="!strokeView || isMobile"
               :class="{'card__compare': true, 'added': added}"
-              @click="addToCart(data)"
+              @click="addToCart($event, data)"
             >
               <icon name="libra" :fill="added ? '#fff' : '#a5a5a5'"/>
             </button>
             <button
               v-else
               class="card__compare-stroke button button--green button--outlined"
-              @click="addToCart(data)"
+              @click="addToCart($event, data)"
             >
               <i class="fa fa-check" v-if="added"></i> В сравнение
             </button>
@@ -116,7 +116,11 @@ export default {
     formatMonth(month) {
       return month < 10 ? `0${month}` : month;
     },
-    addToCart(item) {
+    addToCart(e, item) {
+      // @changed
+      e.stopPropagation();
+      e.preventDefault();
+      
       this.$store.commit("ADD_TO_CART", item._id);
       this.added = !this.added;
     }
