@@ -74,14 +74,10 @@
             <div class="full-window-slider__card-footer__content">
               <slot name="card-footer" />
               <div class="full-window-slider-card__row">
-                <div class="left">
-                  <!-- @changed -->
+                <!-- @changed -->
+                <div class="price-wrapper">
                   <h5>$ 50 000</h5>
-                </div>
-                <div class="left">
                   <h5 class="old-price">$ 60 000</h5>
-                </div>
-                <div class="right">
                   <div class="default-badge">7 дней</div>
                 </div>
               </div>
@@ -202,9 +198,6 @@
             <h4>Включено</h4>
             <ul>
               <li>Работа гида</li>
-              <li>Питание в походе и на турбазах</li>
-              <li>Переезды в рамках программы</li>
-              <li>Проживание на турбазе, в бунгало и палатках</li>
               <li>Бивачное оборудование</li>
             </ul>
           </div>
@@ -1333,12 +1326,20 @@ export default {
       }
     }
 
+    // @changed
+    .price-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1;
+    }
+
     .left,
     .right {
       display: flex;
       flex-direction: column;
       justify-content: center;
-
       .image-list {
         display: flex;
         justify-content: space-between;
@@ -1579,8 +1580,8 @@ export default {
 .includes-col {
   display: flex;
   flex-direction: column;
-
-  justify-content: center;
+// @changed
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
 
