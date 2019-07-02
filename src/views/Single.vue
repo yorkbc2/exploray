@@ -1721,7 +1721,8 @@ export default {
   width: 960px;
   height: 540px;
   margin: 0 auto;
-
+  // @changed (radius)
+  border-radius: 10px;
   @media screen and (max-width: 1024px) {
     width: 600px;
     height: 338px;
