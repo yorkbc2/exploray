@@ -400,10 +400,10 @@
               :lightBoxImages="photos"
             >
               <slide v-for="(item, index) in photos" :key="index">
-                <div class="photo-slider__card">
+                <div class="photo-slider__card lightbox-trigger">
                   <img :src="item.image" alt />
                   <div class="photo-slider__card-mask">
-                    <span class="button button-white button--outlined lightbox-trigger">
+                    <span class="button button-white button--outlined">
                       <icon name="zoom-out" hoverFill="#000" />Просмотреть фото
                     </span>
                   </div>
@@ -920,7 +920,6 @@ export default {
 
   .VueCarousel {
     &-slide {
-      flex: 1 !important;
     }
     &-navigation {
       &-button {
