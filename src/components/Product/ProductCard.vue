@@ -1,5 +1,5 @@
 <template>
-<!-- @changed -->
+<!--  -->
   <a href="#">
     <article :class="{'card': true, 'card--stroke': strokeView, 'card--fixed-width': fixedWidth}">
       <div class="card__head" :style="{backgroundImage: `url(${data.image})`}">
@@ -117,7 +117,7 @@ export default {
       return month < 10 ? `0${month}` : month;
     },
     addToCart(e, item) {
-      // @changed
+      // 
       e.stopPropagation();
       e.preventDefault();
       

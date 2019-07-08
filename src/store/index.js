@@ -11,7 +11,7 @@ const store = new Vuex.Store({
     cart: [],
     filters: [],
     searchResults: initialData.slice(0, 8),
-    // @changed
+    // 
     showFilters: false,
     popup: {
       opened: false,
@@ -37,7 +37,7 @@ const store = new Vuex.Store({
     },
     filters(state) {
       return state.filters;
-      // @changed
+      // 
     },
     popup(state) {
       return state.popup;

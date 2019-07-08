@@ -111,7 +111,7 @@ export default {
     }
   }
 
-  /* @changed */
+  /*  */
 
   .advanced-select--reversed {
     .advanced-select__current {
@@ -157,7 +157,7 @@ export default {
         }
       }
     }
-    /* @changed (removed) */
+    /*  (removed) */
   }
 }
 

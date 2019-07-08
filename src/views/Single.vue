@@ -1,6 +1,6 @@
 <template>
   <div class="single">
-    <!-- @changed -->
+    <!--  -->
     <scrolling-navbar @click="callPopup()"></scrolling-navbar>
     <div class="full-window-slider">
       <div class="full-window-slider-wrapper">
@@ -35,12 +35,12 @@
               :path="{
                 '/': 'Главная',
                 '/tours': 'Путешествия',
-                //@changed
+                //
                 '/tour/1': data ? data.title : ''
             }"
             />
           </div>
-          <!-- @changed -->
+          <!--  -->
           <div class="full-window-slider__card-body">
             <slot name="card" />
             <div class="full-window-slider-card__row">
@@ -74,7 +74,7 @@
             <div class="full-window-slider__card-footer__content">
               <slot name="card-footer" />
               <div class="full-window-slider-card__row">
-                <!-- @changed -->
+                <!--  -->
                 <div class="price-wrapper">
                   <h5>$ 50 000</h5>
                   <h5 class="old-price">$ 60 000</h5>
@@ -96,7 +96,7 @@
           <div class="col-md-7 block-line__row">
             <div class="intro-slider-line__links">
               <div>
-                <!-- @changed -->
+                <!--  -->
                 <img src="/images/video.png" height="18px" />&nbsp;&nbsp;
                 <a href="#" @click="slideToToggler($event, 1)">Видео</a>
               </div>
@@ -149,13 +149,13 @@
         </div>
       </div>
     </div>
-    <!-- @changed -->
+    <!--  -->
     <section class="section" id="description">
       <div class="container">
         <h2 class="section__title">О путешествии</h2>
         <div class="about-tour">
           <p>Камчатка - это незабываемые ландшафты, первозданная дикость, красочные и необычные сны (многие туристы обращают на это внимание).</p>
-          <p>Камчатка - это возможность увидеть, как нестабилен и переменчив наш мир, который все еще формируется.</p>
+          <p>Камчатка - это возможность увидеть, как нестабилен и переменчив наш мир, <a href="#">который</a> все еще формируется.</p>
         </div>
       </div>
     </section>
@@ -189,7 +189,7 @@
         </div>
       </div>
     </section>
-    <!-- @changed -->
+    <!--  -->
     <section class="section">
       <div class="container">
         <div class="row">
@@ -197,25 +197,28 @@
             <img src="/images/exploray-green-down.png" />
             <h4>Включено</h4>
             <ul>
-              <li>Работа гида</li>
+              <li></li>
               <li>Бивачное оборудование</li>
             </ul>
           </div>
           <div class="col-md-6 col-sm-12 col-xs-12 includes-col">
             <img src="/images/exploray-red-down.png" />
-            <h4>Включено</h4>
-            <ul>
-              <li>Работа гида</li>
-              <li>Питание в походе и на турбазах</li>
-              <li>Переезды в рамках программы</li>
-              <li>Проживание на турбазе, в бунгало и палатках</li>
-              <li>Бивачное оборудование</li>
-            </ul>
+            <!-- @changed -->
+            <h4>Не включено</h4>
+            <p>
+              <span>Работа гида</span>
+            </p>
+            <p>
+              <span>Работа гида</span>
+            </p>
+            <p>
+              <span>Работа гида</span>
+            </p>
           </div>
         </div>
       </div>
     </section>
-    <!-- @changed -->
+    <!--  -->
     <section class="section">
       <carousel :perPage="1" class="program-slider" :navigationEnabled="true">
         <slide :style="{backgroundImage: `url('/images/program_bg.jpg')`}">
@@ -242,16 +245,17 @@
       <div class="container">
         <h2 class="section__title">Карта</h2>
       </div>
+      <!-- @changed -->
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000.8288519876903!2d30.350945916095462!3d59.90179058186283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696303831e879ff%3A0x9a64aeab036ef0f2!2sKamchatskaya+Ulitsa%2C+Sankt-Peterburg%2C+Russia%2C+192007!5e0!3m2!1sen!2sua!4v1560589337727!5m2!1sen!2sua"
         width="100%"
-        height="500px"
+        height="600px"
         frameborder="0"
         style="border:0"
         allowfullscreen
       ></iframe>
     </section>
-    <!-- @changed -->
+    <!--  -->
     <section class="section" id="program">
       <div class="container">
         <h2 class="section__title">Программа</h2>
@@ -414,7 +418,7 @@
         </toggler>
       </div>
     </section>
-    <!-- @changed -->
+    <!--  -->
     <section class="section" id="video">
       <div class="container">
         <h2 class="section__title">Видео</h2>
@@ -427,7 +431,7 @@
         ></iframe>
       </div>
     </section>
-    <!-- @changed -->
+    <!--  -->
     <section class="section section--colored equip" id="equip">
       <div class="container">
         <h2 class="section__title">Что взять с собой?</h2>
@@ -535,7 +539,7 @@ export default {
     "review-card": ReviewCardVue,
     "content-tab": ContentTabVue,
     breadcrumbs: HeaderBreadsVue,
-    // @changed
+    // 
     "scrolling-navbar": ScrollingNavbarVue,
     "difficulty-list": DifficultyListVue
   },
@@ -720,7 +724,7 @@ export default {
 
 .intro-slider-line {
   margin-bottom: 70px;
-  /* @changed */
+  /*  */
   .advanced-select {
     &.advanced-select--reversed {
       &:not(.toggled),
@@ -1310,7 +1314,7 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 10px;
-    /* @changed */
+    /*  */
     align-items: center;
 
     h5 {
@@ -1325,7 +1329,7 @@ export default {
       }
     }
 
-    // @changed
+    // 
     .price-wrapper {
       display: flex;
       flex-direction: row;
@@ -1477,7 +1481,7 @@ export default {
   }
 }
 
-/* @changed */
+/*  */
 .about-tour {
   position: relative;
   text-align: center;
@@ -1512,6 +1516,11 @@ export default {
 
     &:last-child {
       margin-bottom: 0px;
+    }
+
+    a {
+      color: #0dba00;
+      text-decoration: none;
     }
   }
 
@@ -1575,11 +1584,11 @@ export default {
   }
 }
 
-/* @changed */
+/*  */
 .includes-col {
   display: flex;
   flex-direction: column;
-// @changed
+// 
   justify-content: flex-start;
   align-items: center;
   text-align: center;
@@ -1594,17 +1603,15 @@ export default {
     font-weight: bolder;
     font-size: 22px;
   }
-
-  ul {
-    margin: 0;
-    padding: 0;
-    li {
+  // @changed
+  p {
+    margin-bottom: 10px;
+    span {
       font-size: 16px;
       font-weight: lighter;
       display: block;
       text-align: center;
       list-style: none;
-      margin-bottom: 10px;
     }
   }
 }
@@ -1713,14 +1720,14 @@ export default {
     }
   }
 }
-/* @changed */
+/*  */
 .video-frame {
   display: block;
   box-sizing: border-box;
   width: 960px;
   height: 540px;
   margin: 0 auto;
-  // @changed (radius)
+  //  (radius)
   border-radius: 10px;
   @media screen and (max-width: 1024px) {
     width: 600px;
@@ -1732,7 +1739,7 @@ export default {
     height: 274px;
   }
 }
-/* @changed */
+/*  */
 
 .full-height-block {
   min-height: 80vh;

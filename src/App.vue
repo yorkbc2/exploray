@@ -144,7 +144,7 @@ body {
 
 section {
   padding: 50px 0;
-/* @changed */
+/*  */
   .section__title {
     font-size: 36px;
     font-weight: bolder;
