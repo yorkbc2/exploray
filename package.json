@@ -10,7 +10,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "core-js": "^2.6.5",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "vue": "^2.6.10",
     "vue-carousel": "^0.18.0",
     "vue-image-lightbox": "^6.2.0",
